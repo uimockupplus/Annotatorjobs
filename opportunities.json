@@ -11,7 +11,7 @@
     "whatsapp": "",
     "link": ""
   },
-   {
+  {
    "company": "Amazon Web Services (AWS)",
     "title": "Digital Associate I (MLDops)",
     "description": "Execute AI/ML evaluation workflows, perform quality checks and audits, identify edge cases and process gaps, track evaluation metrics, and coordinate with data, analytics, ML, and operations teams.",
@@ -33,6 +33,18 @@
     "highlight": "WALK-IN · CTC: ₹2.70 LPA",
     "email": "",
     "whatsapp": "",
+    "link": ""
+  },
+   {
+   "company": "Inaiyon Technologies",
+    "title": "Data Annotation Executive",
+    "description": "Work on real-world data annotation projects that support AI development. Training is provided before starting work.",
+    "tags": ["Data Annotation", "AI Projects", "Freshers Welcome", "Training Provided"],
+    "location": "Tirupattur · Work From Office",
+    "duration": "Full-time · 5 days/week · 24/7 rotational shifts",
+    "highlight": "Comprehensive training provided before starting work",
+    "email": "info@inaiyon.com",
+    "whatsapp": "9952593434",
     "link": ""
   },
   {
