@@ -35,7 +35,7 @@
     "whatsapp": "",
     "link": ""
   },
-   {
+  {
    "company": "Inaiyon Technologies",
     "title": "Data Annotation Executive",
     "description": "Work on real-world data annotation projects that support AI development. Training is provided before starting work.",
@@ -46,6 +46,18 @@
     "email": "info@inaiyon.com",
     "whatsapp": "9952593434",
     "link": ""
+  },
+  {
+   "company": "CitrUX Technologies",
+    "title": "Data Annotation Associate",
+    "description": "Join CitrUX Technologies on real-world AI and data projects involving image annotation, video annotation, data labelling, data validation, and quality checking.",
+    "tags": ["Data Annotation", "Quality Checking", "Data Validation", "Image & video Annotation"],
+    "location": "India · Remote / Project-specific",
+    "duration": "Project-based",
+    "highlight": "Freshers and experienced candidates",
+    "email": "career@citrux.in",
+    "whatsapp": "",
+    "link": "https://www.citrux.in"
   },
   {
    "company": "Highspring India",
@@ -107,7 +119,7 @@
     "whatsapp": "917748805664",
     "link": ""
   },
-   {
+  {
     "company": "Leading MNC",
     "title": "Data Annotation – International Non-Voice Process",
     "description": "International non-voice data annotation process involving data annotation work for an MNC. Immediate joiners are required.",
