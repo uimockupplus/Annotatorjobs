@@ -1,5 +1,17 @@
 [
   {
+   "company": "vHive.ai",
+    "title": "Data Annotator",
+    "description": "Data annotation opportunity focused on 3D data annotation. Any graduate can apply, with engineering graduates preferred.",
+    "tags": ["3D Data Annotation", "Data Annotation", "Engineering Graduates"],
+    "location": "Pune · Work from Office",
+    "experience": "6 months – 3 years experience",
+    "highlight": "posted at 2026-09-24",
+    "email": "dnyaneshwari.b@vhive.ai",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
     "company": "LAT Aerospace",
     "title": "Data Annotation Intern",
     "description": "Work with perception ML models and real aerospace data across annotation, testing, fine-tuning, and field deployment.",
