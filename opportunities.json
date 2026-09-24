@@ -1,0 +1,26 @@
+[
+  {
+    "company": "LAT Aerospace",
+    "title": "Data Annotation Intern",
+    "description": "Work with perception ML models and real aerospace data across annotation, testing, fine-tuning, and field deployment.",
+    "tags": ["Computer vision", "Aerospace data", "Immediate joining"],
+    "location": "Gurugram · On-site",
+    "duration": "3-month internship",
+    "highlight": "Internship",
+    "email": "hiring@lat.com",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "AnnotiqX AI Private Ltd",
+    "title": "2D & 3D Data Annotation",
+    "description": "Entry-level annotation work across image, video, LiDAR, and point-cloud datasets with training and guidelines provided.",
+    "tags": ["Freshers welcome", "LiDAR", "Point clouds"],
+    "location": "India · Full-time",
+    "duration": "100 positions available",
+    "highlight": "₹9,000 / month",
+    "email": "arpana@annotiqx.co.in",
+    "whatsapp": "917748805664",
+    "link": ""
+  }
+]
