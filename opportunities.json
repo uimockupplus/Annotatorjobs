@@ -1,5 +1,17 @@
 [
   {
+   "company": "Turing",
+    "title": "AI Quality Analyst – English",
+    "description": "Evaluate a personalization feature for Gemini by designing multi-turn prompts and assessing how effectively AI responses use information from past conversations and connected personal data sources. Evaluate grounding, integration, helpfulness, personalization quality, and side-by-side model responses.",
+    "tags": ["AI Quality Evaluation", "Data Annotation", "LLM Evaluation", "English", "Agentic Ai"],
+    "location": "Remote · Global",
+    "duration": "3 months",
+    "highlight": "$15 per hour",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://work.turing.com/r/Geor_hkhJ8"
+  },
+  {
    "company": "BlueRose Technologies",
     "title": "AI Engineer – Agentic AI Evaluation",
     "description": "Work on testing, evaluating, and improving Agentic AI systems and LLM-powered applications for an Operator Assist product.",
