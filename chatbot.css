@@ -1,0 +1,196 @@
+/* EvalLoop Jobs Chatbot */
+
+#evalbot-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: #111827;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+
+#evalbot {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;
+  width: 370px;
+  max-width: calc(100vw - 32px);
+  height: 560px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+  font-family: Arial, sans-serif;
+}
+
+#evalbot.open {
+  display: flex;
+}
+
+.evalbot-header {
+  padding: 16px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evalbot-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.evalbot-icon {
+  width: 36px;
+  height: 36px;
+  background: white;
+  color: #111827;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evalbot-title strong {
+  display: block;
+  font-size: 15px;
+}
+
+.evalbot-title small {
+  opacity: .7;
+  font-size: 11px;
+}
+
+#evalbot-close {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#evalbot-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.evalbot-message {
+  max-width: 85%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.evalbot-bot {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+.evalbot-user {
+  margin-left: auto;
+  background: #111827;
+  color: white;
+}
+
+.evalbot-job {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.evalbot-job strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.evalbot-job small {
+  display: block;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.evalbot-job a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 7px;
+  background: #111827;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.evalbot-input-area {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  background: white;
+  display: flex;
+  gap: 8px;
+}
+
+#evalbot-input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+#evalbot-send {
+  width: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+}
+
+.evalbot-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.evalbot-suggestion {
+  border: 1px solid #d1d5db;
+  background: white;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  #evalbot {
+    right: 12px;
+    bottom: 84px;
+    width: calc(100vw - 24px);
+    height: 70vh;
+  }
+
+  #evalbot-toggle {
+    right: 16px;
+    bottom: 16px;
+  }
+}
