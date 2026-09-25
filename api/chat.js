@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed"
@@ -23,23 +22,34 @@ export default async function handler(req, res) {
       });
     }
 
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": apiKey
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: `You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
+    const models = [
+      "gemini-3.8-flash",
+      "gemini-3.5-flash",
+      "gemini-3.5-flash-lite"
+    ];
 
-Your job is to help users understand:
+    let lastError = null;
+
+    for (const model of models) {
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-goog-api-key": apiKey
+            },
+            body: JSON.stringify({
+              contents: [
+                {
+                  parts: [
+                    {
+                      text: `You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
+
+Help users with:
 - AI and LLM evaluation
+- RAG and generative AI
 - Data annotation
 - AI training
 - Prompt engineering
@@ -53,32 +63,56 @@ Give clear, simple and practical answers.
 
 User question:
 ${message}`
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        })
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          const answer =
+            data?.candidates?.[0]?.content?.parts
+              ?.map(part => part.text || "")
+              .join("") ||
+            "I couldn't generate a response.";
+
+          return res.status(200).json({
+            answer,
+            model
+          });
+        }
+
+        console.error(`Gemini ${model} error:`, data);
+
+        lastError = data;
+
+        // Try the next model for temporary/unavailable errors
+        if (
+          response.status === 503 ||
+          response.status === 429 ||
+          response.status === 500
+        ) {
+          continue;
+        }
+
+        return res.status(response.status).json({
+          error: "Gemini API request failed",
+          details: data
+        });
+
+      } catch (error) {
+        console.error(`Error with ${model}:`, error);
+        lastError = error;
       }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error("Gemini API error:", data);
-
-      return res.status(response.status).json({
-        error: "Gemini API request failed",
-        details: data
-      });
     }
 
-    const answer =
-      data?.candidates?.[0]?.content?.parts
-        ?.map(part => part.text || "")
-        .join("") || "I couldn't generate a response.";
-
-    return res.status(200).json({
-      answer
+    return res.status(503).json({
+      error: "All Gemini models are temporarily unavailable",
+      details: lastError
     });
 
   } catch (error) {
