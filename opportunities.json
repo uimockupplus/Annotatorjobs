@@ -1,5 +1,17 @@
 [
   {
+   "company": "2une (A PhysicsWallah Company)",
+    "title": "Radiology Annotation – MD/DNB",
+    "description": "Annotate clinical findings from radiology reports to their corresponding regions in CT, MRI, or X-ray imaging studies. Each report statement describing a specific finding must be mapped one-to-one to the corresponding visual evidence using a bounding box or supported segmentation.",
+    "tags": ["Radiology Annotation", "Clinical Data Annotation", "Medical AI", "Medical Imaging"],
+    "location": "Remote · Global",
+    "duration": "Project-based",
+    "highlight": "₹40–₹2,100 per task",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://experts.2une.ai/login?ref=VIVEKKANET044G&opportunity=e01cf347-591b-49ef-9c79-d408e0ea8304"
+  },
+  {
    "company": "Turing",
     "title": "AI Quality Analyst – English",
     "description": "Evaluate a personalization feature for Gemini by designing multi-turn prompts and assessing how effectively AI responses use information from past conversations and connected personal data sources. Evaluate grounding, integration, helpfulness, personalization quality, and side-by-side model responses.",
