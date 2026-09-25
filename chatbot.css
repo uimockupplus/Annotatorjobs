@@ -310,6 +310,60 @@
   transform: translateY(-1px);
 }
 
+.evalbot-quick-actions {
+  padding: 0 12px 10px;
+  background: var(--ev-paper);
+  border-top: 1px solid var(--ev-border);
+  flex-shrink: 0;
+}
+
+.evalbot-resume-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--ev-lime);
+  border-radius: 8px;
+  background: rgba(37,136,255,.12);
+  color: var(--ev-ink);
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-align: center;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.evalbot-resume-pin:hover {
+  background: var(--ev-lime);
+  transform: translateY(-1px);
+}
+
+.evalbot-resume-cta {
+  margin-top: 10px;
+}
+
+.evalbot-resume-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--ev-lime);
+  border-radius: 8px;
+  background: rgba(37,136,255,.14);
+  color: var(--ev-ink);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.evalbot-resume-cta a:hover {
+  background: var(--ev-lime);
+  transform: translateY(-1px);
+}
+
 .evalbot-input-area {
   padding: 12px;
   border-top: 1px solid var(--ev-border);
