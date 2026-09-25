@@ -4,6 +4,29 @@
    this widget follows automatically. Fallback values are included in case this file
    loads on a page without them. */
 
+/* The site hides the native cursor everywhere (body{cursor:none}) and draws
+   its own dot/ring instead, but that custom cursor is only wired up to
+   elements present at page load and sits at a lower z-index than this
+   widget — so inside the chatbot no cursor shows at all. Restore the
+   normal cursor within the widget's own boundary. */
+#evalbot-toggle,
+#evalbot,
+#evalbot * {
+  cursor: auto;
+}
+
+#evalbot-toggle,
+#evalbot-close,
+#evalbot-send,
+.evalbot-suggestion,
+.evalbot-job-actions a {
+  cursor: pointer;
+}
+
+#evalbot-input {
+  cursor: text;
+}
+
 #evalbot-toggle,
 #evalbot {
   --ev-bg: var(--bg, #0b1224);
