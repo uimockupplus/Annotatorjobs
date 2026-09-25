@@ -13,6 +13,18 @@
   },
   {
    "company": "Turing",
+    "title": "Video Annotator – Shot Boundary Detection",
+    "description": "Review video clips frame-by-frame to identify shot boundaries, create Shot Cards with start and end frames, classify transition types such as cuts, fades, dissolves, and wipes, group shots into scene buckets based on narrative continuity, and classify video and scene content by category. The role requires strong attention to detail, familiarity with video editing techniques and annotation workflows, and the ability to maintain consistent, high-quality annotations.",
+    "tags": ["Video Annotation", "Shot Boundary Detection", "Video Data Annotation", "AI Training"],
+    "location": "Remote · Global",
+    "duration": "Project-based",
+    "highlight": "Competitive compensation",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://work.turing.com/r/6pMSHf1svP"
+  },
+  {
+   "company": "Turing",
     "title": "AI Quality Analyst – English",
     "description": "Evaluate a personalization feature for Gemini by designing multi-turn prompts and assessing how effectively AI responses use information from past conversations and connected personal data sources. Evaluate grounding, integration, helpfulness, personalization quality, and side-by-side model responses.",
     "tags": ["AI Quality Evaluation", "Data Annotation", "LLM Evaluation", "English", "Agentic Ai"],
