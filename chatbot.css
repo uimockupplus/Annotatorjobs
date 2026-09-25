@@ -1,196 +1,382 @@
-/* EvalLoop Jobs Chatbot */
+/* EvalLoopjobs Chatbot
+   Uses the same tokens as index.html (--bg, --ink, --muted, --lime, --paper, --border, --cyan)
+   so it doesn't need its own palette. If those variables ever change on the page,
+   this widget follows automatically. Fallback values are included in case this file
+   loads on a page without them. */
+
+#evalbot-toggle,
+#evalbot {
+  --ev-bg: var(--bg, #0b1224);
+  --ev-ink: var(--ink, #f5f8ff);
+  --ev-muted: var(--muted, #8fa0bb);
+  --ev-lime: var(--lime, #2588ff);
+  --ev-paper: var(--paper, #111d36);
+  --ev-border: var(--border, #233555);
+  --ev-cyan: var(--cyan, #4db3ff);
+  font-family: "DM Sans", Arial, sans-serif;
+}
 
 #evalbot-toggle {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   border: none;
   border-radius: 50%;
-  background: #111827;
-  color: white;
-  font-size: 24px;
+  background: var(--ev-lime);
+  color: var(--ev-ink);
   cursor: pointer;
   z-index: 9999;
-  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(37, 136, 255, .35);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#evalbot-toggle:hover {
+  background: var(--ev-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(37, 136, 255, .42);
+}
+
+#evalbot-toggle .evalbot-toggle-icon,
+#evalbot-toggle .evalbot-toggle-close {
+  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+#evalbot-toggle .evalbot-toggle-close {
+  font-size: 28px;
+  font-weight: 300;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+#evalbot-toggle.open .evalbot-toggle-icon {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+#evalbot-toggle.open .evalbot-toggle-close {
+  opacity: 1;
+  transform: rotate(0);
 }
 
 #evalbot {
   position: fixed;
   right: 24px;
-  bottom: 94px;
-  width: 370px;
+  bottom: 92px;
+  width: 372px;
   max-width: calc(100vw - 32px);
-  height: 560px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  height: 540px;
+  max-height: calc(100vh - 130px);
+  background: linear-gradient(145deg, rgba(21,35,63,.98), rgba(15,25,48,.98));
+  border: 1px solid var(--ev-border);
+  border-radius: 14px;
+  box-shadow: 0 28px 70px rgba(0,0,0,.42), 0 0 38px rgba(37,136,255,.14);
   display: none;
   flex-direction: column;
   overflow: hidden;
   z-index: 9998;
-  font-family: Arial, sans-serif;
+  color: var(--ev-ink);
 }
 
 #evalbot.open {
   display: flex;
+  animation: evalbotIn .22s ease;
+}
+
+@keyframes evalbotIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .evalbot-header {
-  padding: 16px;
-  background: #111827;
-  color: white;
+  padding: 16px 18px;
+  background: var(--ev-paper);
+  border-bottom: 1px solid var(--ev-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .evalbot-title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
 }
 
 .evalbot-icon {
-  width: 36px;
-  height: 36px;
-  background: white;
-  color: #111827;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: var(--ev-lime);
+  color: var(--ev-ink);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 15px;
+  box-shadow: 0 0 16px rgba(37,136,255,.35);
 }
 
 .evalbot-title strong {
   display: block;
-  font-size: 15px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -.01em;
 }
 
 .evalbot-title small {
-  opacity: .7;
+  display: block;
+  color: var(--ev-muted);
   font-size: 11px;
+  margin-top: 1px;
 }
 
 #evalbot-close {
   border: none;
   background: transparent;
-  color: white;
-  font-size: 22px;
+  color: var(--ev-muted);
+  font-size: 20px;
+  line-height: 1;
   cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color .15s ease, background .15s ease;
+}
+
+#evalbot-close:hover {
+  color: var(--ev-ink);
+  background: rgba(255,255,255,.06);
 }
 
 #evalbot-messages {
   flex: 1;
   padding: 16px;
   overflow-y: auto;
-  background: #f8fafc;
+  background: var(--ev-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+#evalbot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#evalbot-messages::-webkit-scrollbar-thumb {
+  background: var(--ev-border);
+  border-radius: 6px;
 }
 
 .evalbot-message {
-  max-width: 85%;
-  padding: 10px 12px;
+  max-width: 88%;
+  padding: 11px 13px;
   margin-bottom: 10px;
   border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .evalbot-bot {
-  background: white;
-  border: 1px solid #e5e7eb;
-  color: #1f2937;
+  background: var(--ev-paper);
+  border: 1px solid var(--ev-border);
+  color: var(--ev-ink);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
 }
 
 .evalbot-user {
-  margin-left: auto;
-  background: #111827;
-  color: white;
+  align-self: flex-end;
+  background: var(--ev-lime);
+  color: var(--ev-ink);
+  border-bottom-right-radius: 4px;
+}
+
+.evalbot-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 13px 15px;
+}
+
+.evalbot-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ev-muted);
+  animation: evalbotTyping 1.1s ease-in-out infinite;
+}
+
+.evalbot-typing span:nth-child(2) { animation-delay: .15s; }
+.evalbot-typing span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes evalbotTyping {
+  0%, 60%, 100% { opacity: .3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
 }
 
 .evalbot-job {
   margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fff;
+  padding: 12px;
+  border: 1px solid var(--ev-border);
+  border-radius: 8px;
+  background: rgba(21,35,63,.5);
 }
 
 .evalbot-job strong {
   display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13.5px;
   margin-bottom: 4px;
+  color: var(--ev-ink);
 }
 
 .evalbot-job small {
   display: block;
-  color: #6b7280;
-  margin-bottom: 8px;
+  color: var(--ev-muted);
+  font-size: 11.5px;
+  margin-bottom: 4px;
 }
 
-.evalbot-job a {
-  display: inline-block;
+.evalbot-job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.evalbot-job-tags span {
+  padding: 4px 8px;
+  border: 1px solid var(--ev-border);
+  border-radius: 999px;
+  color: var(--ev-muted);
+  font-size: 9.5px;
+}
+
+.evalbot-job-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.evalbot-job-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding: 6px 10px;
+  border: 1px solid var(--ev-lime);
   border-radius: 7px;
-  background: #111827;
-  color: white;
+  background: rgba(37,136,255,.14);
+  color: var(--ev-ink);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.evalbot-job-actions a:hover {
+  background: var(--ev-lime);
+  transform: translateY(-1px);
 }
 
 .evalbot-input-area {
   padding: 12px;
-  border-top: 1px solid #e5e7eb;
-  background: white;
+  border-top: 1px solid var(--ev-border);
+  background: var(--ev-paper);
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 #evalbot-input {
   flex: 1;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  padding: 10px;
+  min-width: 0;
+  border: 1px solid var(--ev-border);
+  border-radius: 9px;
+  padding: 10px 12px;
   outline: none;
-  font-size: 14px;
+  background: var(--ev-bg);
+  color: var(--ev-ink);
+  font-size: 13px;
+  font-family: inherit;
+}
+
+#evalbot-input::placeholder {
+  color: var(--ev-muted);
+}
+
+#evalbot-input:focus {
+  border-color: var(--ev-lime);
 }
 
 #evalbot-send {
-  width: 42px;
+  width: 40px;
+  flex-shrink: 0;
   border: none;
-  border-radius: 10px;
-  background: #111827;
-  color: white;
+  border-radius: 9px;
+  background: var(--ev-lime);
+  color: var(--ev-ink);
   cursor: pointer;
+  font-size: 15px;
+  transition: background .15s ease;
+}
+
+#evalbot-send:hover {
+  background: var(--ev-cyan);
 }
 
 .evalbot-suggestions {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .evalbot-suggestion {
-  border: 1px solid #d1d5db;
-  background: white;
-  padding: 6px 9px;
-  border-radius: 20px;
-  font-size: 11px;
+  border: 1px solid var(--ev-border);
+  background: transparent;
+  color: var(--ev-muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
   cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.evalbot-suggestion:hover {
+  background: var(--ev-lime);
+  border-color: var(--ev-lime);
+  color: var(--ev-ink);
 }
 
 @media (max-width: 500px) {
   #evalbot {
     right: 12px;
-    bottom: 84px;
+    bottom: 82px;
     width: calc(100vw - 24px);
-    height: 70vh;
+    height: 68vh;
+    max-height: none;
   }
 
   #evalbot-toggle {
     right: 16px;
     bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #evalbot.open,
+  .evalbot-typing span,
+  #evalbot-toggle {
+    animation: none;
+    transition: none;
   }
 }
