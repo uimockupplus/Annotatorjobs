@@ -3,6 +3,41 @@
 
 let evalLoopJobs = [];
 
+// Same inbox the site's own resume-intake section sends to.
+const EVALLOOP_RESUME_EMAIL = 'uimockup.plus@gmail.com';
+
+// Opens Gmail's own compose screen in a new tab (not the OS mail app).
+function buildGmailComposeUrl({ to, subject, body }) {
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to,
+    su: subject,
+    body
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
+
+function buildResumeGmailUrl() {
+  return buildGmailComposeUrl({
+    to: EVALLOOP_RESUME_EMAIL,
+    subject: 'Resume for personalized AI opportunities',
+    body:
+      'Hello,\n\nPlease find my resume attached.\n\n' +
+      'Target role:\nPreferred location:\nWork type:\n\nThank you.'
+  });
+}
+
+function resumeButtonHTML() {
+  return `
+    <div class="evalbot-resume-cta">
+      <a href="${buildResumeGmailUrl()}" target="_blank" rel="noopener noreferrer">
+        📎 Send resume via Gmail ↗
+      </a>
+    </div>
+  `;
+}
+
 async function loadEvalLoopJobs() {
   try {
     const response = await fetch('./opportunities.json', { cache: 'no-store' });
@@ -54,8 +89,15 @@ function createEvalLoopChatbot() {
             <button class="evalbot-suggestion" data-question="Show LLM evaluation jobs">LLM jobs</button>
             <button class="evalbot-suggestion" data-question="Show jobs for freshers">Fresher jobs</button>
             <button class="evalbot-suggestion" data-question="Show data annotation jobs">Annotation jobs</button>
+            <button class="evalbot-suggestion" data-question="Send my resume">Send my resume</button>
           </div>
         </div>
+      </div>
+
+      <div class="evalbot-quick-actions">
+        <a href="${buildResumeGmailUrl()}" target="_blank" rel="noopener noreferrer" class="evalbot-resume-pin">
+          📎 Send resume for personalized recommendations
+        </a>
       </div>
 
       <div class="evalbot-input-area">
@@ -262,6 +304,21 @@ function generateEvalLoopAnswer(question) {
       • Show fresher jobs<br>
       • Find annotation jobs<br>
       • Show Hyderabad jobs
+    `;
+  }
+
+  // Resume / personalized recommendations
+  if (
+    q.includes('resume') ||
+    q.includes('cv') ||
+    q.includes('personalized') ||
+    q.includes('personal recommendation') ||
+    q.includes('recommend jobs for me') ||
+    q.includes('recommend me')
+  ) {
+    return `
+      Send your resume and I'll pass along your preferred role, location, and work type — we'll use that to curate more relevant opportunities for you.
+      ${resumeButtonHTML()}
     `;
   }
 
