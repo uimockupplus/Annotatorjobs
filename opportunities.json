@@ -1,5 +1,17 @@
 [
   {
+  "company": "",
+  "title": "Gen AI Specialist – Freshers",
+  "description": "Hiring freshers for a Gen AI Specialist role in Hyderabad. The position involves working with data annotation, content evaluation, technical writing, large language models, prompt response evaluation, and response quality assessment. Immediate joiners are preferred.",
+  "tags": ["Generative AI", "Data Annotation", "Content Evaluation", "LLM", "Prompt Evaluation", "Technical Writing"],
+  "location": "Hyderabad, Telangana, India",
+  "duration": "Full-Time",
+  "highlight": "₹3.5–₹4.5 LPA",
+  "email": "",
+  "whatsapp": "+91 8305657686",
+  "link": ""
+  },
+  {
     "company": "2une (A PhysicsWallah Company)",
     "title": "Radiology Annotation – MD/DNB",
     "description": "Annotate clinical findings from radiology reports to their corresponding regions in CT, MRI, or X-ray imaging studies. Each report statement describing a specific finding must be mapped one-to-one to the corresponding visual evidence using a bounding box or supported segmentation.",
