@@ -1,1 +1,318 @@
+[
+  {
+    "company": "2une (A PhysicsWallah Company)",
+    "title": "Radiology Annotation – MD/DNB",
+    "description": "Annotate clinical findings from radiology reports to their corresponding regions in CT, MRI, or X-ray imaging studies. Each report statement describing a specific finding must be mapped one-to-one to the corresponding visual evidence using a bounding box or supported segmentation.",
+    "tags": [
+      "Radiology Annotation",
+      "Clinical Data Annotation",
+      "Medical AI",
+      "Medical Imaging"
+    ],
+    "location": "Remote · Global",
+    "duration": "Project-based",
+    "highlight": "₹40–₹2,100 per task",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://experts.2une.ai/login?ref=VIVEKKANET044G&opportunity=e01cf347-591b-49ef-9c79-d408e0ea8304"
+  },
+  {
+    "company": "Turing",
+    "title": "Video Annotator – Shot Boundary Detection",
+    "description": "Review video clips frame-by-frame to identify shot boundaries, create Shot Cards with start and end frames, classify transition types such as cuts, fades, dissolves, and wipes, group shots into scene buckets based on narrative continuity, and classify video and scene content by category. The role requires strong attention to detail, familiarity with video editing techniques and annotation workflows, and the ability to maintain consistent, high-quality annotations.",
+    "tags": [
+      "Video Annotation",
+      "Shot Boundary Detection",
+      "Video Data Annotation",
+      "AI Training"
+    ],
+    "location": "Remote · Global",
+    "duration": "Project-based",
+    "highlight": "Competitive compensation",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://work.turing.com/r/6pMSHf1svP"
+  },
+  {
+    "company": "Turing",
+    "title": "AI Quality Analyst – English",
+    "description": "Evaluate a personalization feature for Gemini by designing multi-turn prompts and assessing how effectively AI responses use information from past conversations and connected personal data sources. Evaluate grounding, integration, helpfulness, personalization quality, and side-by-side model responses.",
+    "tags": [
+      "AI Quality Evaluation",
+      "Data Annotation",
+      "LLM Evaluation",
+      "English",
+      "Agentic Ai"
+    ],
+    "location": "Remote · Global",
+    "duration": "3 months",
+    "highlight": "$15 per hour",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://work.turing.com/r/Geor_hkhJ8"
+  },
+  {
+    "company": "Turing",
+    "title": "LLM Annotator – Master's Degree",
+    "description": "Evaluate and improve Large Language Models by creating challenging prompts, analyzing structured data, assessing AI-generated responses for factual accuracy and reasoning quality, identifying model failures and hallucinations, and providing evidence-backed feedback.",
+    "tags": [
+      "Prompt Engineering",
+      "LLM Annotation",
+      "LLM Evaluation",
+      "AI Training",
+      "Generative AI"
+    ],
+    "location": "Remote · Global",
+    "duration": "4 weeks contract",
+    "highlight": "Master's degree or higher",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://work.turing.com/r/4JbaptQavv"
+  },
+  {
+    "company": "BlueRose Technologies",
+    "title": "AI Engineer – Agentic AI Evaluation",
+    "description": "Work on testing, evaluating, and improving Agentic AI systems and LLM-powered applications for an Operator Assist product.",
+    "tags": [
+      "AI Engineering",
+      "AI Engineering",
+      "LLM Evaluation",
+      "Python",
+      "Agentic Ai"
+    ],
+    "location": "India · 100% Remote",
+    "duration": "Contract",
+    "highlight": "OPEN LEAD",
+    "email": "eshwar_p@bluerose-tech.com",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "eTeam Inc.",
+    "title": "Operations Specialist – AI/ML Evaluation",
+    "description": "Execute AI/ML evaluation workflows, perform quality checks and audits, identify edge cases and process gaps, track evaluation metrics, and coordinate with data, analytics, ML, and operations teams.",
+    "tags": [
+      "AI/ML Evaluation",
+      "Quality Assurance",
+      "LLM Evaluation"
+    ],
+    "location": "Remote initially · Hyderabad when required",
+    "duration": "Full-time",
+    "highlight": "OPEN LEAD",
+    "email": "mbhattacharya@eteaminc.com",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "Amazon Web Services (AWS)",
+    "title": "Digital Associate I (MLDops)",
+    "description": "Execute AI/ML evaluation workflows, perform quality checks and audits, identify edge cases and process gaps, track evaluation metrics, and coordinate with data, analytics, ML, and operations teams.",
+    "tags": [
+      "Data Annotation",
+      "Quality Assurance",
+      "MLDops"
+    ],
+    "location": "Chennai · On-site",
+    "duration": "12-month contract",
+    "highlight": "Apply fast!",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://amazon.jobs/en/jobs/10538423/digital-associate-i-mldops"
+  },
+  {
+    "company": "Cognizant",
+    "title": "Content Moderation",
+    "description": "Permanent work-from-home content moderation opportunity for graduates. Candidates will require strong communication skills and must be available for a face-to-face interview.",
+    "tags": [
+      "Content Moderation",
+      "Freshers Welcome",
+      "Permanent WFH"
+    ],
+    "location": "Hyderabad · Permanent Work From Home",
+    "duration": "Full-time · 5 days/week · 24/7 rotational shifts",
+    "highlight": "WALK-IN · CTC: ₹2.70 LPA",
+    "email": "",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "Workhive Technologies",
+    "title": "PDF Bounding Box Annotation – Freelancer / Vendor",
+    "description": "Freelance and vendor opportunity for PDF document annotation using bounding boxes to identify and label relevant text and content areas.",
+    "tags": [
+      "PDF Annotation",
+      "Bounding Box Annotation",
+      "Freelance",
+      "Document Annotation"
+    ],
+    "location": "Remote / Project-based",
+    "duration": "Project-based",
+    "highlight": "Languages: Gujarati,  Odia,  Telugu",
+    "email": "",
+    "whatsapp": "9634513348",
+    "link": ""
+  },
+  {
+    "company": "Inaiyon Technologies",
+    "title": "Data Annotation Executive",
+    "description": "Work on real-world data annotation projects that support AI development. Training is provided before starting work.",
+    "tags": [
+      "Data Annotation",
+      "AI Projects",
+      "Freshers Welcome",
+      "Training Provided"
+    ],
+    "location": "Tirupattur · Work From Office",
+    "duration": "Full-time · 5 days/week · 24/7 rotational shifts",
+    "highlight": "age limit: 20–35 years",
+    "email": "info@inaiyon.com",
+    "whatsapp": "9952593434",
+    "link": ""
+  },
+  {
+    "company": "CitrUX Technologies",
+    "title": "Data Annotation Associate",
+    "description": "Join CitrUX Technologies on real-world AI and data projects involving image annotation, video annotation, data labelling, data validation, and quality checking.",
+    "tags": [
+      "Data Annotation",
+      "Quality Checking",
+      "Data Validation",
+      "Image & video Annotation"
+    ],
+    "location": "India · Remote / Project-specific",
+    "duration": "Project-based",
+    "highlight": "Freshers and experienced candidates",
+    "email": "career@citrux.in",
+    "whatsapp": "",
+    "link": "https://www.citrux.in"
+  },
+  {
+    "company": "Highspring India",
+    "title": "Associate Analyst – Content Moderation",
+    "description": "Review image, text, and video ads on e-commerce platforms, apply policy guidelines, identify inappropriate content, rate user experience, and check age appropriateness.",
+    "tags": [
+      "Content Moderation",
+      "Freshers Welcome",
+      "Permanent WFH"
+    ],
+    "location": "Gurugram · Permanent Work From Home",
+    "duration": "Full-time · 5 days/week · 24/7 rotational shifts",
+    "highlight": "WALK-IN",
+    "email": "ankit@highspring.in",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "Avyaan Management Pvt. Ltd.",
+    "title": "LiDAR Project Associate",
+    "description": "Work on LiDAR and GIS/mapping projects with responsibility for workflows, coordination, productivity, and quality targets.",
+    "tags": [
+      "LiDAR",
+      "GIS",
+      "Mapping"
+    ],
+    "location": "Remote / WFH",
+    "duration": "Full-time",
+    "highlight": "WALK-IN",
+    "email": "prachi.yadav@avyaanmgmt.com",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "vHive.ai",
+    "title": "Data Annotator",
+    "description": "Data annotation opportunity focused on 3D data annotation. Any graduate can apply, with engineering graduates preferred.",
+    "tags": [
+      "3D Data Annotation",
+      "Data Annotation",
+      "Engineering Graduates"
+    ],
+    "location": "Pune · Work from Office",
+    "duration": "posted at 2026-09-24",
+    "highlight": "6 months – 3 years experience",
+    "email": "dnyaneshwari.b@vhive.ai",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "LAT Aerospace",
+    "title": "Data Annotation Intern",
+    "description": "Work with perception ML models and real aerospace data across annotation, testing, fine-tuning, and field deployment.",
+    "tags": [
+      "Computer vision",
+      "Aerospace data",
+      "Immediate joining"
+    ],
+    "location": "Gurugram · On-site",
+    "duration": "3-month internship",
+    "highlight": "Internship",
+    "email": "hiring@lat.com",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "AnnotiqX AI Private Ltd",
+    "title": "2D & 3D Data Annotation",
+    "description": "Entry-level annotation work across image, video, LiDAR, and point-cloud datasets with training and guidelines provided.",
+    "tags": [
+      "Freshers welcome",
+      "LiDAR",
+      "Point clouds"
+    ],
+    "location": "India · Full-time",
+    "duration": "100 positions available",
+    "highlight": "₹9,000 / month",
+    "email": "arpana@annotiqx.co.in",
+    "whatsapp": "917748805664",
+    "link": ""
+  },
+  {
+    "company": "Leading MNC",
+    "title": "Data Annotation – International Non-Voice Process",
+    "description": "International non-voice data annotation process involving data annotation work for an MNC. Immediate joiners are required.",
+    "tags": [
+      "Data Annotation",
+      "Immediate Joining",
+      "Freshers Not Eligible"
+    ],
+    "location": "Hyderabad · Work From Office",
+    "duration": "Full-time",
+    "highlight": "₹Up to ₹3.6 LPA, Minimum 1 year experience needed",
+    "email": "",
+    "whatsapp": "7816095911",
+    "link": ""
+  },
+  {
+    "company": "ZIGRAM",
+    "title": "Assistant Manager – Operations",
+    "description": "Support Data Asset projects and solutions through operations, secondary research, and AML activities. The role requires team handling experience, strong research and analytical skills, and high attention to detail.",
+    "tags": [
+      "Operations",
+      "Secondary Research",
+      "AML",
+      "Team Handling"
+    ],
+    "location": "Gurugram · On-site",
+    "duration": "Full-time",
+    "highlight": "6–8 years experience needed",
+    "email": "applications@zigram.tech",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "Softechub",
+    "title": "Project Manager Intern",
+    "description": "Support live client projects by coordinating deliverables, tracking timelines, and working with a distributed talent network on global AI projects.",
+    "tags": [
+      "Project Management",
+      "AI Projects",
+      "Data Operations"
+    ],
+    "location": "Nigeria · Remote",
+    "duration": "Recent graduate or NYSC member",
+    "highlight": "Internship",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://lnkd.in/eNqTQmQP"
+  }
 ]
