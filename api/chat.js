@@ -14,38 +14,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
-
-    if (!apiKey) {
-      return res.status(500).json({
-        error: "Gemini API key is not configured"
-      });
-    }
-
-    const models = [
-      "gemini-3.8-flash",
-      "gemini-3.5-flash",
-      "gemini-3.5-flash-lite"
-    ];
-
-    let lastError = null;
-
-    for (const model of models) {
-      try {
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-goog-api-key": apiKey
-            },
-            body: JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text: `You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
+    const systemPrompt = `You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
 
 Help users with:
 - AI and LLM evaluation
@@ -69,10 +38,115 @@ Rules:
 - Avoid long bullet lists.
 - Give only the information needed to answer the question.
 - If the user asks for more detail, then explain further.
-- For simple "What is..." questions, give a short definition and one simple example.
+- For simple "What is..." questions, give a short definition and one simple example.`;
 
-User question:
-${message}
+    /*
+     * =========================================================
+     * 1. GROQ — PRIMARY
+     * =========================================================
+     */
+
+    const groqApiKey = process.env.GROQ_API_KEY;
+
+    if (groqApiKey) {
+      try {
+        const controller = new AbortController();
+
+        const timeout = setTimeout(() => {
+          controller.abort();
+        }, 8000);
+
+        const response = await fetch(
+          "https://api.groq.com/openai/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${groqApiKey}`
+            },
+            signal: controller.signal,
+            body: JSON.stringify({
+              model: "openai/gpt-oss-20b",
+              messages: [
+                {
+                  role: "system",
+                  content: systemPrompt
+                },
+                {
+                  role: "user",
+                  content: message
+                }
+              ],
+              max_completion_tokens: 500,
+              temperature: 0.2,
+              include_reasoning: false
+            })
+          }
+        );
+
+        clearTimeout(timeout);
+
+        const data = await response.json();
+
+        if (response.ok) {
+          const answer =
+            data?.choices?.[0]?.message?.content ||
+            "I couldn't generate a response.";
+
+          return res.status(200).json({
+            answer,
+            model: "Groq"
+          });
+        }
+
+        console.error("Groq error:", response.status, data);
+
+      } catch (error) {
+        console.error("Groq request failed:", error);
+      }
+    } else {
+      console.error("GROQ_API_KEY is not configured.");
+    }
+
+    /*
+     * =========================================================
+     * 2. GEMINI — SECONDARY FALLBACK
+     * =========================================================
+     */
+
+    const geminiApiKey = process.env.GEMINI_API_KEY;
+
+    if (!geminiApiKey) {
+      return res.status(503).json({
+        error: "Both Groq and Gemini are unavailable."
+      });
+    }
+
+    const models = [
+      "gemini-3.8-flash",
+      "gemini-3.5-flash",
+      "gemini-3.5-flash-lite"
+    ];
+
+    let lastError = null;
+
+    for (const model of models) {
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-goog-api-key": geminiApiKey
+            },
+            body: JSON.stringify({
+              contents: [
+                {
+                  parts: [
+                    {
+                      text: `${systemPrompt}
+
 User question:
 ${message}`
                     }
@@ -94,36 +168,42 @@ ${message}`
 
           return res.status(200).json({
             answer,
-            model
+            model: `Gemini (${model})`
           });
         }
 
-        console.error(`Gemini ${model} error:`, data);
+        console.error(
+          `Gemini ${model} error:`,
+          response.status,
+          data
+        );
 
         lastError = data;
 
-        // Try the next model for temporary/unavailable errors
         if (
-          response.status === 503 ||
           response.status === 429 ||
-          response.status === 500
+          response.status === 500 ||
+          response.status === 503
         ) {
           continue;
         }
 
         return res.status(response.status).json({
-          error: "Gemini API request failed",
-          details: data
+          error: "Gemini API request failed"
         });
 
       } catch (error) {
-        console.error(`Error with ${model}:`, error);
+        console.error(
+          `Error with Gemini ${model}:`,
+          error
+        );
+
         lastError = error;
       }
     }
 
     return res.status(503).json({
-      error: "All Gemini models are temporarily unavailable",
+      error: "Both Groq and Gemini are temporarily unavailable.",
       details: lastError
     });
 
