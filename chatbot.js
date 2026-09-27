@@ -777,27 +777,58 @@ async function askEvalLoopAI(question) {
 
 function formatAIResponse(text) {
 
-  let safeText =
-    escapeEvalLoopHTML(text);
+  const escaped = escapeEvalLoopHTML(text);
+  const lines = escaped.split(/\r?\n/);
 
+  let html = '';
+  let listBuffer = [];
+  let listType = null; // 'ul' | 'ol'
 
-  // Basic Markdown conversion
+  function flushList() {
+    if (!listBuffer.length) return;
+    const tag = listType === 'ol' ? 'ol' : 'ul';
+    html += `<${tag}>${listBuffer.map(item => `<li>${item}</li>`).join('')}</${tag}>`;
+    listBuffer = [];
+    listType = null;
+  }
 
-  safeText =
-    safeText.replace(
-      /\*\*(.*?)\*\*/g,
-      '<strong>$1</strong>'
-    );
+  lines.forEach(rawLine => {
 
+    const line = rawLine.trim();
+    const bulletMatch = line.match(/^[-*•]\s+(.*)/);
+    const numberedMatch = line.match(/^\d+[.)]\s+(.*)/);
 
-  safeText =
-    safeText.replace(
-      /\n/g,
-      '<br>'
-    );
+    if (bulletMatch) {
+      if (listType && listType !== 'ul') flushList();
+      listType = 'ul';
+      listBuffer.push(bulletMatch[1]);
+      return;
+    }
 
+    if (numberedMatch) {
+      if (listType && listType !== 'ol') flushList();
+      listType = 'ol';
+      listBuffer.push(numberedMatch[1]);
+      return;
+    }
 
-  return safeText;
+    flushList();
+
+    if (line) {
+      html += `<p>${line}</p>`;
+    }
+
+  });
+
+  flushList();
+
+  // Basic Markdown conversion (applied after structure, so it works
+  // inside list items and paragraphs alike)
+  html = html
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+
+  return html;
 
 }
 
@@ -825,17 +856,15 @@ async function generateEvalLoopAnswer(
 
     return `
       Hello! 👋
-      <br><br>
-      I'm <strong>EvalLoop AI</strong>.
-      I can answer AI/LLM questions and help you find opportunities.
-      <br><br>
-      Try asking:
-      <br><br>
-      • What is LLM evaluation?<br>
-      • What is RLHF?<br>
-      • What is SFT?<br>
-      • Show remote AI jobs<br>
-      • Find LLM evaluation jobs
+      <p>I'm <strong>EvalLoop AI</strong>. I can answer AI/LLM questions and help you find opportunities.</p>
+      <p>Try asking:</p>
+      <ul>
+        <li>What is LLM evaluation?</li>
+        <li>What is RLHF?</li>
+        <li>What is SFT?</li>
+        <li>Show remote AI jobs</li>
+        <li>Find LLM evaluation jobs</li>
+      </ul>
     `;
 
   }
@@ -936,15 +965,15 @@ async function generateEvalLoopAnswer(
     // local match was found.
 
     return `
-      I couldn't find an exact match in the current EvalLoop Jobs directory.
-      <br><br>
-      Try:
-      <br><br>
-      • Show remote jobs<br>
-      • Find LLM evaluation jobs<br>
-      • Show annotation jobs<br>
-      • Show fresher jobs<br>
-      • Show latest jobs
+      <p>I couldn't find an exact match in the current EvalLoop Jobs directory.</p>
+      <p>Try:</p>
+      <ul>
+        <li>Show remote jobs</li>
+        <li>Find LLM evaluation jobs</li>
+        <li>Show annotation jobs</li>
+        <li>Show fresher jobs</li>
+        <li>Show latest jobs</li>
+      </ul>
     `;
 
   }
