@@ -14,20 +14,11 @@ export default async function handler(req, res) {
       });
     }
 
-    const cleanMessage = message.trim();
-
-    if (!cleanMessage) {
-      return res.status(400).json({
-        error: "Message is required"
-      });
-    }
-
-    const systemPrompt = `
-You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
+    const systemPrompt = `You are EvalLoop AI, the helpful assistant for EvalLoop Jobs.
 
 Help users with:
 - AI and LLM evaluation
-- RAG and Generative AI
+- RAG and generative AI
 - Data annotation
 - AI training
 - Prompt engineering
@@ -37,21 +28,23 @@ Help users with:
 - AI evaluator careers
 - Jobs and opportunities listed on EvalLoop Jobs
 
-Response rules:
-- Give short, simple, direct answers.
-- Use simple English.
-- Usually answer in 2-5 sentences.
-- Avoid unnecessary headings.
-- Avoid long explanations unless the user asks for more detail.
-- Do not repeat the user's question.
-- For "What is..." questions, give a short definition and one simple example.
-- If the user asks about jobs, careers, AI evaluation, annotation, or related topics, give practical information.
-- Never claim that a job exists unless the user provides the job information or the application system provides it.
-`;
+Give short, simple, direct answers.
 
-    // --------------------------------------------------
-    // 1. Try Groq first
-    // --------------------------------------------------
+Rules:
+- Answer in 2-5 sentences by default.
+- Use simple English.
+- Avoid long explanations.
+- Avoid unnecessary headings.
+- Avoid long bullet lists.
+- Give only the information needed to answer the question.
+- If the user asks for more detail, then explain further.
+- For simple "What is..." questions, give a short definition and one simple example.`;
+
+    /*
+     * =========================================================
+     * 1. GROQ — PRIMARY
+     * =========================================================
+     */
 
     const groqApiKey = process.env.GROQ_API_KEY;
 
@@ -67,17 +60,13 @@ Response rules:
           "https://api.groq.com/openai/v1/chat/completions",
           {
             method: "POST",
-
             headers: {
               "Content-Type": "application/json",
               "Authorization": `Bearer ${groqApiKey}`
             },
-
             signal: controller.signal,
-
             body: JSON.stringify({
               model: "openai/gpt-oss-20b",
-
               messages: [
                 {
                   role: "system",
@@ -85,14 +74,11 @@ Response rules:
                 },
                 {
                   role: "user",
-                  content: cleanMessage
+                  content: message
                 }
               ],
-
               max_completion_tokens: 500,
-
               temperature: 0.2,
-
               include_reasoning: false
             })
           }
@@ -104,7 +90,7 @@ Response rules:
 
         if (response.ok) {
           const answer =
-            data?.choices?.[0]?.message?.content?.trim() ||
+            data?.choices?.[0]?.message?.content ||
             "I couldn't generate a response.";
 
           return res.status(200).json({
@@ -113,33 +99,26 @@ Response rules:
           });
         }
 
-        console.error(
-          "Groq API error:",
-          response.status,
-          data
-        );
+        console.error("Groq error:", response.status, data);
 
       } catch (error) {
-        console.error(
-          "Groq request failed:",
-          error
-        );
+        console.error("Groq request failed:", error);
       }
     } else {
-      console.error(
-        "GROQ_API_KEY is not configured."
-      );
+      console.error("GROQ_API_KEY is not configured.");
     }
 
-    // --------------------------------------------------
-    // 2. Gemini fallback
-    // --------------------------------------------------
+    /*
+     * =========================================================
+     * 2. GEMINI — SECONDARY FALLBACK
+     * =========================================================
+     */
 
     const geminiApiKey = process.env.GEMINI_API_KEY;
 
     if (!geminiApiKey) {
       return res.status(503).json({
-        error: "AI services are temporarily unavailable."
+        error: "Both Groq and Gemini are unavailable."
       });
     }
 
@@ -157,12 +136,10 @@ Response rules:
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
           {
             method: "POST",
-
             headers: {
               "Content-Type": "application/json",
               "x-goog-api-key": geminiApiKey
             },
-
             body: JSON.stringify({
               contents: [
                 {
@@ -171,7 +148,7 @@ Response rules:
                       text: `${systemPrompt}
 
 User question:
-${cleanMessage}`
+${message}`
                     }
                   ]
                 }
@@ -186,8 +163,7 @@ ${cleanMessage}`
           const answer =
             data?.candidates?.[0]?.content?.parts
               ?.map(part => part.text || "")
-              .join("")
-              .trim() ||
+              .join("") ||
             "I couldn't generate a response.";
 
           return res.status(200).json({
@@ -218,7 +194,7 @@ ${cleanMessage}`
 
       } catch (error) {
         console.error(
-          `Gemini ${model} request failed:`,
+          `Error with Gemini ${model}:`,
           error
         );
 
@@ -226,24 +202,13 @@ ${cleanMessage}`
       }
     }
 
-    // --------------------------------------------------
-    // 3. Both AI providers failed
-    // --------------------------------------------------
-
-    console.error(
-      "All AI providers failed:",
-      lastError
-    );
-
     return res.status(503).json({
-      error: "AI services are temporarily unavailable."
+      error: "Both Groq and Gemini are temporarily unavailable.",
+      details: lastError
     });
 
   } catch (error) {
-    console.error(
-      "Server error:",
-      error
-    );
+    console.error("Server error:", error);
 
     return res.status(500).json({
       error: "Internal server error"
