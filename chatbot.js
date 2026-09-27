@@ -345,8 +345,8 @@ function startEvalLoopLabelLoop(label) {
   if (!label) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const SHOW_MS = 25000;   // how long the label stays visible each time
-  const HIDE_MS = 2000;  // how long it stays hidden before showing again
+  const SHOW_MS = 35000;   // how long the label stays visible each time
+  const HIDE_MS = 1000;  // how long it stays hidden before showing again
 
   if (reducedMotion) {
     // Respect the OS-level preference: show it once, statically, no looping.
