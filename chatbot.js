@@ -84,12 +84,16 @@ async function loadEvalLoopJobs() {
 function createEvalLoopChatbot() {
 
   const chatbotHTML = `
-    <button id="evalbot-toggle" aria-label="Open EvalLoopjobs assistant">
+    <button id="evalbot-toggle" aria-label="Open EvalLoop AI">
       <span class="evalbot-toggle-icon">◉</span>
       <span class="evalbot-toggle-close">×</span>
     </button>
 
-    <div id="evalbot" role="dialog" aria-label="EvalLoopjobs assistant">
+    <div id="evalbot-label" aria-hidden="true">
+      EvalLoop AI <span class="evalbot-ai-dot"></span>
+    </div>
+
+    <div id="evalbot" role="dialog" aria-label="EvalLoop AI">
 
       <div class="evalbot-header">
 
@@ -223,6 +227,9 @@ function createEvalLoopChatbot() {
   const chatbot =
     document.getElementById('evalbot');
 
+  const label =
+    document.getElementById('evalbot-label');
+
   const input =
     document.getElementById('evalbot-input');
 
@@ -247,6 +254,8 @@ function createEvalLoopChatbot() {
         : 'Open EvalLoop AI'
     );
 
+    setEvalLoopChatOpen(isOpen);
+
     if (isOpen) {
       input.focus();
     }
@@ -264,6 +273,8 @@ function createEvalLoopChatbot() {
       'aria-label',
       'Open EvalLoop AI'
     );
+
+    setEvalLoopChatOpen(false);
 
   });
 
@@ -308,6 +319,53 @@ function createEvalLoopChatbot() {
     }
   );
 
+
+  startEvalLoopLabelLoop(label);
+
+}
+
+
+// -----------------------------
+// "EvalLoop AI" peekaboo label
+// -----------------------------
+// The toggle button itself never disappears — only this little label
+// bubble beside it fades in and out on a loop, so the AI branding gets
+// noticed without turning into a permanent, ignorable fixture. It pauses
+// automatically once the chat is open and resumes once it's closed again.
+
+let evalLoopChatIsOpen = false;
+
+function setEvalLoopChatOpen(isOpen) {
+  evalLoopChatIsOpen = isOpen;
+  const label = document.getElementById('evalbot-label');
+  if (isOpen && label) label.classList.remove('show');
+}
+
+function startEvalLoopLabelLoop(label) {
+  if (!label) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SHOW_MS = 5000;   // how long the label stays visible each time
+  const HIDE_MS = 22000;  // how long it stays hidden before showing again
+
+  if (reducedMotion) {
+    // Respect the OS-level preference: show it once, statically, no looping.
+    label.classList.add('show');
+    return;
+  }
+
+  function cycle() {
+    if (!evalLoopChatIsOpen) label.classList.add('show');
+
+    setTimeout(() => {
+      label.classList.remove('show');
+      setTimeout(cycle, HIDE_MS);
+    }, SHOW_MS);
+  }
+
+  // First appearance shortly after load, so it isn't the very first thing
+  // a visitor sees before the page has settled.
+  setTimeout(cycle, 1500);
 }
 
 
