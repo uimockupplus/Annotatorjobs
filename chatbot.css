@@ -28,6 +28,7 @@
 }
 
 #evalbot-toggle,
+#evalbot-label,
 #evalbot {
   --ev-bg: var(--bg, #0b1224);
   --ev-ink: var(--ink, #f5f8ff);
@@ -37,6 +38,53 @@
   --ev-border: var(--border, #233555);
   --ev-cyan: var(--cyan, #4db3ff);
   font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* "EvalLoop AI" peekaboo label — the toggle button itself is always
+   visible and clickable; only this little bubble beside it fades in
+   and out on a loop (driven by chatbot.js), so the AI branding gets
+   noticed without becoming a permanent, ignorable fixture. */
+#evalbot-label {
+  position: fixed;
+  right: 90px;
+  bottom: 40px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 1px solid var(--ev-border);
+  border-radius: 999px;
+  background: var(--ev-paper);
+  color: var(--ev-ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  opacity: 0;
+  transform: translateY(6px) scale(.94);
+  pointer-events: none;
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+#evalbot-label.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+#evalbot-label .evalbot-ai-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ev-lime);
+  box-shadow: 0 0 10px var(--ev-lime);
+  animation: evalbotDotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes evalbotDotPulse {
+  0%, 100% { opacity: .5; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.15); }
 }
 
 #evalbot-toggle {
@@ -447,6 +495,13 @@
     right: 16px;
     bottom: 16px;
   }
+
+  #evalbot-label {
+    right: 78px;
+    bottom: 30px;
+    font-size: 11px;
+    padding: 8px 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -455,5 +510,13 @@
   #evalbot-toggle {
     animation: none;
     transition: none;
+  }
+
+  #evalbot-label {
+    transition: none;
+  }
+
+  #evalbot-label .evalbot-ai-dot {
+    animation: none;
   }
 }
