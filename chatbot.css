@@ -1,8 +1,8 @@
-/* EvalLoopjobs Chatbot
-   Uses the same tokens as index.html (--bg, --ink, --muted, --lime, --paper, --border, --cyan)
-   so it doesn't need its own palette. If those variables ever change on the page,
-   this widget follows automatically. Fallback values are included in case this file
-   loads on a page without them. */
+/* EvalLoop AI Chatbot — light theme
+   White panel + light surfaces, with the accent color (blue) pulled from
+   the site's own tokens (--lime, --cyan) so the widget still reads as
+   "this site's chatbot" rather than a generic bolt-on. Falls back to
+   fixed values if those variables aren't present on the page. */
 
 /* The site hides the native cursor everywhere (body{cursor:none}) and draws
    its own dot/ring instead, but that custom cursor is only wired up to
@@ -30,13 +30,20 @@
 #evalbot-toggle,
 #evalbot-label,
 #evalbot {
-  --ev-bg: var(--bg, #0b1224);
-  --ev-ink: var(--ink, #f5f8ff);
-  --ev-muted: var(--muted, #8fa0bb);
-  --ev-lime: var(--lime, #2588ff);
-  --ev-paper: var(--paper, #111d36);
-  --ev-border: var(--border, #233555);
-  --ev-cyan: var(--cyan, #4db3ff);
+  /* Accent pulled from the site */
+  --ev-accent: var(--lime, #2588ff);
+  --ev-accent-hover: var(--cyan, #4db3ff);
+
+  /* Light theme surfaces — independent of the site's own dark tokens */
+  --ev-panel: #ffffff;
+  --ev-surface: #f6f8fb;
+  --ev-header: #ffffff;
+  --ev-ink: #101828;
+  --ev-muted: #667085;
+  --ev-border: #e4e8f0;
+  --ev-accent-tint: rgba(37, 136, 255, .08);
+  --ev-accent-tint-strong: rgba(37, 136, 255, .14);
+
   font-family: "DM Sans", Arial, sans-serif;
 }
 
@@ -55,13 +62,13 @@
   padding: 9px 14px;
   border: 1px solid var(--ev-border);
   border-radius: 999px;
-  background: var(--ev-paper);
+  background: var(--ev-panel);
   color: var(--ev-ink);
   font-family: "Space Grotesk", sans-serif;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, .14);
   opacity: 0;
   transform: translateY(6px) scale(.94);
   pointer-events: none;
@@ -77,8 +84,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--ev-lime);
-  box-shadow: 0 0 10px var(--ev-lime);
+  background: var(--ev-accent);
+  box-shadow: 0 0 8px rgba(37, 136, 255, .5);
   animation: evalbotDotPulse 1.6s ease-in-out infinite;
 }
 
@@ -87,29 +94,31 @@
   50% { opacity: 1; transform: scale(1.15); }
 }
 
+/* Toggle button — white, brand-blue icon, soft shadow so it still
+   reads clearly against the site's own dark background. */
 #evalbot-toggle {
   position: fixed;
   right: 24px;
   bottom: 24px;
   width: 56px;
   height: 56px;
-  border: none;
+  border: 1px solid var(--ev-border);
   border-radius: 50%;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-panel);
+  color: var(--ev-accent);
   cursor: pointer;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(37, 136, 255, .35);
+  box-shadow: 0 10px 30px rgba(16, 24, 40, .22);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 #evalbot-toggle:hover {
-  background: var(--ev-cyan);
+  background: var(--ev-accent-tint);
   transform: translateY(-3px);
-  box-shadow: 0 16px 38px rgba(37, 136, 255, .42);
+  box-shadow: 0 16px 36px rgba(16, 24, 40, .28);
 }
 
 #evalbot-toggle .evalbot-toggle-icon,
@@ -145,10 +154,10 @@
   max-width: calc(100vw - 32px);
   height: 540px;
   max-height: calc(100vh - 130px);
-  background: linear-gradient(145deg, rgba(21,35,63,.98), rgba(15,25,48,.98));
+  background: var(--ev-panel);
   border: 1px solid var(--ev-border);
-  border-radius: 14px;
-  box-shadow: 0 28px 70px rgba(0,0,0,.42), 0 0 38px rgba(37,136,255,.14);
+  border-radius: 16px;
+  box-shadow: 0 28px 60px rgba(16, 24, 40, .18), 0 4px 14px rgba(16, 24, 40, .08);
   display: none;
   flex-direction: column;
   overflow: hidden;
@@ -168,7 +177,7 @@
 
 .evalbot-header {
   padding: 16px 18px;
-  background: var(--ev-paper);
+  background: var(--ev-header);
   border-bottom: 1px solid var(--ev-border);
   display: flex;
   align-items: center;
@@ -186,14 +195,14 @@
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-accent);
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  box-shadow: 0 0 16px rgba(37,136,255,.35);
+  box-shadow: 0 4px 12px rgba(37, 136, 255, .3);
 }
 
 .evalbot-title strong {
@@ -202,6 +211,7 @@
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -.01em;
+  color: var(--ev-ink);
 }
 
 .evalbot-title small {
@@ -225,14 +235,14 @@
 
 #evalbot-close:hover {
   color: var(--ev-ink);
-  background: rgba(255,255,255,.06);
+  background: var(--ev-surface);
 }
 
 #evalbot-messages {
   flex: 1;
   padding: 16px;
   overflow-y: auto;
-  background: var(--ev-bg);
+  background: var(--ev-surface);
   display: flex;
   flex-direction: column;
 }
@@ -242,7 +252,7 @@
 }
 
 #evalbot-messages::-webkit-scrollbar-thumb {
-  background: var(--ev-border);
+  background: #d0d5dd;
   border-radius: 6px;
 }
 
@@ -256,17 +266,18 @@
 }
 
 .evalbot-bot {
-  background: var(--ev-paper);
+  background: var(--ev-panel);
   border: 1px solid var(--ev-border);
   color: var(--ev-ink);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
 }
 
 .evalbot-user {
   align-self: flex-end;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-accent);
+  color: #ffffff;
   border-bottom-right-radius: 4px;
 }
 
@@ -281,7 +292,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--ev-muted);
+  background: #98a2b3;
   animation: evalbotTyping 1.1s ease-in-out infinite;
 }
 
@@ -297,8 +308,9 @@
   margin-top: 10px;
   padding: 12px;
   border: 1px solid var(--ev-border);
-  border-radius: 8px;
-  background: rgba(21,35,63,.5);
+  border-radius: 10px;
+  background: var(--ev-panel);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
 }
 
 .evalbot-job strong {
@@ -327,6 +339,7 @@
   padding: 4px 8px;
   border: 1px solid var(--ev-border);
   border-radius: 999px;
+  background: var(--ev-surface);
   color: var(--ev-muted);
   font-size: 9.5px;
 }
@@ -343,24 +356,25 @@
   align-items: center;
   gap: 5px;
   padding: 6px 10px;
-  border: 1px solid var(--ev-lime);
+  border: 1px solid var(--ev-accent);
   border-radius: 7px;
-  background: rgba(37,136,255,.14);
-  color: var(--ev-ink);
+  background: var(--ev-accent-tint);
+  color: var(--ev-accent);
   text-decoration: none;
   font-size: 11px;
   font-weight: 600;
-  transition: background .15s ease, transform .15s ease;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
 
 .evalbot-job-actions a:hover {
-  background: var(--ev-lime);
+  background: var(--ev-accent);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
 .evalbot-quick-actions {
   padding: 0 12px 10px;
-  background: var(--ev-paper);
+  background: var(--ev-panel);
   border-top: 1px solid var(--ev-border);
   flex-shrink: 0;
 }
@@ -372,19 +386,20 @@
   gap: 6px;
   margin-top: 10px;
   padding: 9px 12px;
-  border: 1px solid var(--ev-lime);
+  border: 1px solid var(--ev-accent);
   border-radius: 8px;
-  background: rgba(37,136,255,.12);
-  color: var(--ev-ink);
+  background: var(--ev-accent-tint);
+  color: var(--ev-accent);
   text-decoration: none;
   font-size: 11.5px;
   font-weight: 600;
   text-align: center;
-  transition: background .15s ease, transform .15s ease;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
 
 .evalbot-resume-pin:hover {
-  background: var(--ev-lime);
+  background: var(--ev-accent);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -397,25 +412,26 @@
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  border: 1px solid var(--ev-lime);
+  border: 1px solid var(--ev-accent);
   border-radius: 8px;
-  background: rgba(37,136,255,.14);
-  color: var(--ev-ink);
+  background: var(--ev-accent-tint);
+  color: var(--ev-accent);
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  transition: background .15s ease, transform .15s ease;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
 }
 
 .evalbot-resume-cta a:hover {
-  background: var(--ev-lime);
+  background: var(--ev-accent);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
 .evalbot-input-area {
   padding: 12px;
   border-top: 1px solid var(--ev-border);
-  background: var(--ev-paper);
+  background: var(--ev-panel);
   display: flex;
   gap: 8px;
   flex-shrink: 0;
@@ -428,10 +444,11 @@
   border-radius: 9px;
   padding: 10px 12px;
   outline: none;
-  background: var(--ev-bg);
+  background: var(--ev-surface);
   color: var(--ev-ink);
   font-size: 13px;
   font-family: inherit;
+  transition: border-color .15s ease, background .15s ease;
 }
 
 #evalbot-input::placeholder {
@@ -439,7 +456,8 @@
 }
 
 #evalbot-input:focus {
-  border-color: var(--ev-lime);
+  border-color: var(--ev-accent);
+  background: var(--ev-panel);
 }
 
 #evalbot-send {
@@ -447,15 +465,15 @@
   flex-shrink: 0;
   border: none;
   border-radius: 9px;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-accent);
+  color: #ffffff;
   cursor: pointer;
   font-size: 15px;
   transition: background .15s ease;
 }
 
 #evalbot-send:hover {
-  background: var(--ev-cyan);
+  background: var(--ev-accent-hover);
 }
 
 .evalbot-suggestions {
@@ -467,7 +485,7 @@
 
 .evalbot-suggestion {
   border: 1px solid var(--ev-border);
-  background: transparent;
+  background: var(--ev-panel);
   color: var(--ev-muted);
   padding: 6px 10px;
   border-radius: 999px;
@@ -477,9 +495,9 @@
 }
 
 .evalbot-suggestion:hover {
-  background: var(--ev-lime);
-  border-color: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-accent);
+  border-color: var(--ev-accent);
+  color: #ffffff;
 }
 
 @media (max-width: 500px) {
