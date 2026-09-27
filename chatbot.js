@@ -4,7 +4,7 @@
 
 let evalLoopJobs = [];
 
-const EVALLOOP_RESUME_EMAIL = 'uimockup.plus@gmail.com';
+const EVALLOOP_RESUME_EMAIL = 'techultron2020@gmail.com';
 
 
 // -----------------------------
@@ -119,7 +119,7 @@ function createEvalLoopChatbot() {
 
         <div class="evalbot-message evalbot-bot">
 
-          Hi! I'm <strong>EvalLoop AI</strong> 🤖
+          Hi! I'm <strong>EvalLoop AI</strong> 🚀
 
           <br><br>
 
