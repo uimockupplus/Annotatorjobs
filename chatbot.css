@@ -94,31 +94,30 @@
   50% { opacity: 1; transform: scale(1.15); }
 }
 
-/* Toggle button — white, brand-blue icon, soft shadow so it still
-   reads clearly against the site's own dark background. */
+/* Toggle button — solid brand blue, matching the original launcher. */
 #evalbot-toggle {
   position: fixed;
   right: 24px;
   bottom: 24px;
   width: 56px;
   height: 56px;
-  border: 1px solid var(--ev-border);
+  border: none;
   border-radius: 50%;
-  background: var(--ev-panel);
-  color: var(--ev-accent);
+  background: var(--ev-accent);
+  color: #ffffff;
   cursor: pointer;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(16, 24, 40, .22);
+  box-shadow: 0 10px 30px rgba(37, 136, 255, .35);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 #evalbot-toggle:hover {
-  background: var(--ev-accent-tint);
+  background: var(--ev-accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(16, 24, 40, .28);
+  box-shadow: 0 16px 38px rgba(37, 136, 255, .42);
 }
 
 #evalbot-toggle .evalbot-toggle-icon,
