@@ -1,183 +1,184 @@
-/* =========================================================
-   EVALLOOP JOBS - AI CHATBOT
-   Text + Voice Input
-   Voice output ONLY for voice-based prompts
-   ========================================================= */
+// EvalLoopjobs - AI + Job Search Chatbot
+// Uses opportunities.json for job searches
+// Uses /api/chat for general AI questions
 
 let evalLoopJobs = [];
 
-const EVALLOOP_RESUME_EMAIL = "techultron2020@gmail.com";
+const EVALLOOP_RESUME_EMAIL = 'techultron2020@gmail.com';
 
-/* =========================================================
-   GMAIL HELPER
-   ========================================================= */
+// -----------------------------
+// Gmail helpers
+// -----------------------------
 
-function openEvalLoopGmail(subject = "", body = "") {
-  const url =
-    "https://mail.google.com/mail/?view=cm&fs=1" +
-    "&to=" +
-    encodeURIComponent(EVALLOOP_RESUME_EMAIL) +
-    "&su=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
+function buildGmailComposeUrl({ to, subject, body }) {
+  const params = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to,
+    su: subject,
+    body
+  });
 
-  window.open(url, "_blank", "noopener,noreferrer");
+  return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
-/* =========================================================
-   LOAD JOBS
-   ========================================================= */
+function buildResumeGmailUrl() {
+  return buildGmailComposeUrl({
+    to: EVALLOOP_RESUME_EMAIL,
+    subject: 'Resume for personalized AI opportunities',
+    body:
+      'Hello,\n\nPlease find my resume attached.\n\n' +
+      'Target role:\nPreferred location:\nWork type:\n\nThank you.'
+  });
+}
+
+function resumeButtonHTML() {
+  return `
+    <div class="evalbot-resume-cta">
+      <a href="${buildResumeGmailUrl()}" target="_blank" rel="noopener noreferrer">
+        📎 Send resume via Gmail ↗
+      </a>
+    </div>
+  `;
+}
+
+// -----------------------------
+// Load jobs
+// -----------------------------
 
 async function loadEvalLoopJobs() {
+
   try {
-    const response = await fetch("./opportunities.json", {
-      cache: "no-store"
+
+    const response = await fetch('./opportunities.json', {
+      cache: 'no-store'
     });
 
     if (!response.ok) {
-      throw new Error("Unable to load opportunities.json");
+      throw new Error('Could not load opportunities.json');
     }
 
-    const data = await response.json();
-
-    if (Array.isArray(data)) {
-      evalLoopJobs = data;
-    } else {
-      evalLoopJobs = [];
-    }
+    evalLoopJobs = await response.json();
 
     console.log(
-      `EvalLoop AI: loaded ${evalLoopJobs.length} opportunities`
+      `EvalLoop chatbot loaded ${evalLoopJobs.length} opportunities.`
     );
+
   } catch (error) {
-    console.error("EvalLoop jobs loading error:", error);
-    evalLoopJobs = [];
+
+    console.error('Chatbot job loading error:', error);
+
   }
+
 }
 
-/* =========================================================
-   CHATBOT HTML
-   ========================================================= */
+// -----------------------------
+// Chatbot UI
+// -----------------------------
 
 function createEvalLoopChatbot() {
-  if (document.getElementById("evalbot")) {
-    return;
-  }
 
   const chatbotHTML = `
-    <button
-      id="evalbot-toggle"
-      type="button"
-      aria-label="Open EvalLoop AI"
-      title="EvalLoop AI"
-    >
-      <span class="evalbot-toggle-icon">✦</span>
+    <button id="evalbot-toggle" aria-label="Open EvalLoop AI">
+      <span class="evalbot-toggle-icon">◉</span>
+      <span class="evalbot-toggle-close">×</span>
     </button>
 
-    <div
-      id="evalbot-label"
-      aria-hidden="true"
-    >
-      EvalLoop AI
+    <div id="evalbot-label" aria-hidden="true">
+      EvalLoop AI <span class="evalbot-ai-dot"></span>
     </div>
 
-    <section
-      id="evalbot"
-      aria-label="EvalLoop AI chatbot"
-    >
+    <div id="evalbot" role="dialog" aria-label="EvalLoop AI">
 
       <div class="evalbot-header">
 
-        <div class="evalbot-header-info">
-          <div class="evalbot-avatar">
-            ✦
-          </div>
+        <div class="evalbot-title">
+
+          <div class="evalbot-icon">◉</div>
 
           <div>
-            <div class="evalbot-title">
-              EvalLoop AI
-            </div>
-
-            <div class="evalbot-status">
-              AI Jobs & Career Assistant
-            </div>
+            <strong>EvalLoop AI</strong>
+            <small>AI & Job Assistant</small>
           </div>
+
         </div>
 
-        <button
-          id="evalbot-close"
-          type="button"
-          aria-label="Close chatbot"
-          title="Close"
-        >
+        <button id="evalbot-close" aria-label="Close assistant">
           ×
         </button>
 
       </div>
 
-      <div
-        id="evalbot-messages"
-        class="evalbot-messages"
-      >
+      <div id="evalbot-messages">
 
-        <div class="evalbot-message bot-message">
-          <div class="evalbot-message-bubble">
-            Hi! 👋 I'm EvalLoop AI.
+        <div class="evalbot-message evalbot-bot">
 
-            <br><br>
+          Hi! I'm <strong>EvalLoop AI</strong> 🚀
 
-            Ask me about AI jobs, LLM evaluation, data annotation,
-            RAG, prompt engineering, AI training, or anything related
-            to your AI career.
+          <br><br>
+
+          I can answer AI/LLM questions and help you find opportunities from the directory.
+
+          <div class="evalbot-suggestions">
+
+            <button
+              class="evalbot-suggestion"
+              data-question="What is LLM evaluation?"
+            >
+              What is LLM evaluation?
+            </button>
+
+            <button
+              class="evalbot-suggestion"
+              data-question="Show me remote jobs"
+            >
+              Remote jobs
+            </button>
+
+            <button
+              class="evalbot-suggestion"
+              data-question="Show LLM evaluation jobs"
+            >
+              LLM jobs
+            </button>
+
+            <button
+              class="evalbot-suggestion"
+              data-question="Show jobs for freshers"
+            >
+              Fresher jobs
+            </button>
+
+            <button
+              class="evalbot-suggestion"
+              data-question="Show data annotation jobs"
+            >
+              Annotation jobs
+            </button>
+
+            <button
+              class="evalbot-suggestion"
+              data-question="Send my resume"
+            >
+              Send my resume
+            </button>
+
           </div>
+
         </div>
 
       </div>
 
-      <div
-        id="evalbot-typing"
-        class="evalbot-typing"
-        style="display:none;"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="evalbot-quick-actions">
 
-      <div
-        id="evalbot-voice-status"
-        class="evalbot-voice-status"
-        style="display:none;"
-      >
-        Listening...
-      </div>
-
-      <div class="evalbot-suggestions">
-
-        <button
-          type="button"
-          class="evalbot-suggestion"
-          data-question="What AI jobs are available?"
+        <a
+          href="${buildResumeGmailUrl()}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="evalbot-resume-pin"
         >
-          🔎 AI jobs
-        </button>
-
-        <button
-          type="button"
-          class="evalbot-suggestion"
-          data-question="What is LLM evaluation?"
-        >
-          🤖 LLM evaluation
-        </button>
-
-        <button
-          type="button"
-          class="evalbot-suggestion"
-          data-question="How can I improve my AI evaluator career?"
-        >
-          💼 Career
-        </button>
+          📎 Send resume for personalized recommendations
+        </a>
 
       </div>
 
@@ -186,1404 +187,861 @@ function createEvalLoopChatbot() {
         <input
           id="evalbot-input"
           type="text"
+          placeholder="Ask anything about AI or jobs…"
           autocomplete="off"
-          placeholder="Ask EvalLoop AI..."
-          aria-label="Ask EvalLoop AI"
         />
 
         <button
-          id="evalbot-mic"
-          type="button"
-          aria-label="Ask by voice"
-          title="Ask by voice"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="21"
-            height="21"
-            aria-hidden="true"
-          >
-            <path
-              d="M12 14.5a3.5 3.5 0 0 0 3.5-3.5V6a3.5 3.5 0 0 0-7 0v5a3.5 3.5 0 0 0 3.5 3.5Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M18.5 10.5v.5a6.5 6.5 0 0 1-13 0v-.5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M12 17.5V21"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M9 21h6"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
-
-        <button
           id="evalbot-send"
-          type="button"
           aria-label="Send message"
-          title="Send"
         >
-          ➤
+          ↗
         </button>
 
       </div>
 
-      <div class="evalbot-footer">
-        Powered by EvalLoop AI
-      </div>
-
-    </section>
+    </div>
   `;
 
   document.body.insertAdjacentHTML(
-    "beforeend",
+    'beforeend',
     chatbotHTML
   );
 
-  setupEvalLoopChatbotEvents();
-}
+  const toggle =
+    document.getElementById('evalbot-toggle');
 
-/* =========================================================
-   SETUP EVENTS
-   ========================================================= */
+  const closeBtn =
+    document.getElementById('evalbot-close');
 
-function setupEvalLoopChatbotEvents() {
-  const toggle = document.getElementById("evalbot-toggle");
-  const close = document.getElementById("evalbot-close");
-  const input = document.getElementById("evalbot-input");
-  const send = document.getElementById("evalbot-send");
-  const mic = document.getElementById("evalbot-mic");
+  const chatbot =
+    document.getElementById('evalbot');
 
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      toggleEvalLoopChatbot(true);
-    });
-  }
+  const label =
+    document.getElementById('evalbot-label');
 
-  if (close) {
-    close.addEventListener("click", () => {
-      toggleEvalLoopChatbot(false);
-    });
-  }
+  const input =
+    document.getElementById('evalbot-input');
 
-  if (send) {
-    send.addEventListener("click", () => {
-      /*
-       * IMPORTANT:
-       * Typed messages are NOT voice messages.
-       * Therefore the second argument is false.
-       */
-      sendEvalLoopMessage(null, false);
-    });
-  }
+  const send =
+    document.getElementById('evalbot-send');
 
-  if (input) {
-    input.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
+  toggle.addEventListener('click', () => {
 
-        /*
-         * Typed messages remain silent.
-         */
-        sendEvalLoopMessage(null, false);
-      }
-    });
-  }
+    const isOpen =
+      chatbot.classList.toggle('open');
 
-  document
-    .querySelectorAll(".evalbot-suggestion")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const question =
-          button.getAttribute("data-question");
-
-        if (!question) {
-          return;
-        }
-
-        /*
-         * Suggestions are NOT voice prompts.
-         */
-        sendEvalLoopMessage(question, false);
-      });
-    });
-
-  if (mic) {
-    mic.addEventListener("click", () => {
-      startEvalLoopVoiceInput();
-    });
-  }
-}
-
-/* =========================================================
-   OPEN / CLOSE CHATBOT
-   ========================================================= */
-
-function toggleEvalLoopChatbot(open) {
-  const chatbot = document.getElementById("evalbot");
-  const label = document.getElementById("evalbot-label");
-
-  if (!chatbot) {
-    return;
-  }
-
-  if (open) {
-    chatbot.style.display = "flex";
-
-    if (label) {
-      label.style.display = "none";
-    }
-
-    const input =
-      document.getElementById("evalbot-input");
-
-    if (input) {
-      setTimeout(() => {
-        input.focus();
-      }, 100);
-    }
-  } else {
-    chatbot.style.display = "none";
-
-    if (label) {
-      label.style.display = "block";
-    }
-
-    stopEvalLoopSpeech();
-  }
-}
-
-/* =========================================================
-   ADD MESSAGE
-   ========================================================= */
-
-function addEvalLoopMessage(
-  text,
-  sender = "bot"
-) {
-  const messages =
-    document.getElementById("evalbot-messages");
-
-  if (!messages) {
-    return;
-  }
-
-  const wrapper =
-    document.createElement("div");
-
-  wrapper.className =
-    sender === "user"
-      ? "evalbot-message user-message"
-      : "evalbot-message bot-message";
-
-  const bubble =
-    document.createElement("div");
-
-  bubble.className =
-    "evalbot-message-bubble";
-
-  bubble.innerHTML =
-    sender === "user"
-      ? escapeEvalLoopHTML(text)
-      : formatAIResponse(text);
-
-  wrapper.appendChild(bubble);
-  messages.appendChild(wrapper);
-
-  messages.scrollTop =
-    messages.scrollHeight;
-}
-
-/* =========================================================
-   TYPING INDICATOR
-   ========================================================= */
-
-function setEvalLoopTyping(show) {
-  const typing =
-    document.getElementById("evalbot-typing");
-
-  if (!typing) {
-    return;
-  }
-
-  typing.style.display =
-    show ? "flex" : "none";
-
-  if (show) {
-    const messages =
-      document.getElementById(
-        "evalbot-messages"
-      );
-
-    if (messages) {
-      messages.scrollTop =
-        messages.scrollHeight;
-    }
-  }
-}
-
-/* =========================================================
-   VOICE STATUS
-   ========================================================= */
-
-function setEvalLoopVoiceStatus(
-  text,
-  show = true
-) {
-  const status =
-    document.getElementById(
-      "evalbot-voice-status"
+    toggle.classList.toggle(
+      'open',
+      isOpen
     );
 
-  if (!status) {
-    return;
-  }
+    toggle.setAttribute(
+      'aria-label',
+      isOpen
+        ? 'Close EvalLoop AI'
+        : 'Open EvalLoop AI'
+    );
 
-  status.textContent = text;
-  status.style.display =
-    show ? "block" : "none";
-}
+    setEvalLoopChatOpen(isOpen);
 
-/* =========================================================
-   MAIN MESSAGE FUNCTION
-   ========================================================= */
+    if (isOpen) {
+      input.focus();
+    }
 
-/*
- * forcedQuestion:
- *   Used for suggestion buttons.
- *
- * fromVoice:
- *   TRUE  = user spoke using microphone.
- *   FALSE = typed/suggestion.
- *
- * This flag is the main fix that prevents
- * typed questions from being spoken aloud.
- */
+  });
 
-async function sendEvalLoopMessage(
-  forcedQuestion = null,
-  fromVoice = false
-) {
-  const input =
-    document.getElementById("evalbot-input");
+  closeBtn.addEventListener('click', () => {
 
-  if (!input) {
-    return;
-  }
+    chatbot.classList.remove('open');
 
-  const question =
-    forcedQuestion !== null
-      ? String(forcedQuestion).trim()
-      : input.value.trim();
+    toggle.classList.remove('open');
 
-  if (!question) {
-    return;
-  }
+    toggle.setAttribute(
+      'aria-label',
+      'Open EvalLoop AI'
+    );
 
-  /*
-   * Clear the text box.
-   */
-  if (forcedQuestion === null) {
-    input.value = "";
-  }
+    setEvalLoopChatOpen(false);
 
-  /*
-   * Add user's message.
-   */
-  addEvalLoopMessage(
-    question,
-    "user"
+  });
+
+  send.addEventListener(
+    'click',
+    sendEvalLoopMessage
   );
 
-  setEvalLoopTyping(true);
+  input.addEventListener(
+    'keydown',
+    (event) => {
+
+      if (event.key === 'Enter') {
+        sendEvalLoopMessage();
+      }
+
+    }
+  );
+
+  document.addEventListener(
+    'click',
+    (event) => {
+
+      if (
+        event.target.classList.contains(
+          'evalbot-suggestion'
+        )
+      ) {
+
+        const question =
+          event.target.dataset.question;
+
+        input.value = question;
+
+        sendEvalLoopMessage();
+
+      }
+
+    }
+  );
+
+  startEvalLoopLabelLoop(label);
+
+}
+
+// -----------------------------
+// "EvalLoop AI" peekaboo label
+// -----------------------------
+// The toggle button itself never disappears — only this little label
+// bubble beside it fades in and out on a loop, so the AI branding gets
+// noticed without turning into a permanent, ignorable fixture. It pauses
+// automatically once the chat is open and resumes once it's closed again.
+
+let evalLoopChatIsOpen = false;
+
+function setEvalLoopChatOpen(isOpen) {
+  evalLoopChatIsOpen = isOpen;
+  const label = document.getElementById('evalbot-label');
+  if (isOpen && label) label.classList.remove('show');
+}
+
+function startEvalLoopLabelLoop(label) {
+  if (!label) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SHOW_MS = 35000;   // how long the label stays visible each time
+  const HIDE_MS = 1000;  // how long it stays hidden before showing again
+
+  if (reducedMotion) {
+    // Respect the OS-level preference: show it once, statically, no looping.
+    label.classList.add('show');
+    return;
+  }
+
+  function cycle() {
+    if (!evalLoopChatIsOpen) label.classList.add('show');
+
+    setTimeout(() => {
+      label.classList.remove('show');
+      setTimeout(cycle, HIDE_MS);
+    }, SHOW_MS);
+  }
+
+  // First appearance shortly after load, so it isn't the very first thing
+  // a visitor sees before the page has settled.
+  setTimeout(cycle, 1500);
+}
+
+// -----------------------------
+// Send message
+// -----------------------------
+
+async function sendEvalLoopMessage() {
+
+  const input =
+    document.getElementById('evalbot-input');
+
+  const question =
+    input.value.trim();
+
+  if (!question) return;
+
+  addEvalLoopMessage(
+    escapeEvalLoopHTML(question),
+    'user'
+  );
+
+  input.value = '';
+
+  const typing =
+    showEvalLoopTyping();
 
   try {
-    /*
-     * IMPORTANT:
-     *
-     * We explicitly pass fromVoice here.
-     *
-     * Typed question:
-     * generateEvalLoopAnswer(question, false)
-     *
-     * Voice question:
-     * generateEvalLoopAnswer(question, true)
-     */
-    const result =
-      await generateEvalLoopAnswer(
-        question,
-        fromVoice
-      );
 
-    setEvalLoopTyping(false);
+    const answer =
+      await generateEvalLoopAnswer(question);
 
-    if (!result) {
-      addEvalLoopMessage(
-        "Sorry, I couldn't generate a response.",
-        "bot"
-      );
+    typing.remove();
 
-      return;
-    }
-
-    if (result.answer) {
-      addEvalLoopMessage(
-        result.answer,
-        "bot"
-      );
-    }
-
-    /*
-     * CRITICAL VOICE CONTROL
-     *
-     * The browser speaks ONLY when:
-     *
-     * result.speak === true
-     *
-     * and result.speak is set to true only
-     * when the original request came through
-     * the microphone.
-     */
-    if (
-      result.speak === true &&
-      result.aiResponse
-    ) {
-      speakEvalLoopAnswer(
-        result.aiResponse
-      );
-    }
+    addEvalLoopMessage(
+      answer,
+      'bot'
+    );
 
   } catch (error) {
+
     console.error(
-      "EvalLoop message error:",
+      'EvalLoop AI error:',
       error
     );
 
-    setEvalLoopTyping(false);
+    typing.remove();
 
     addEvalLoopMessage(
-      "Sorry, something went wrong. Please try again.",
-      "bot"
+      `
+        Sorry, I couldn't process that request right now.
+        <br><br>
+        Please try again.
+      `,
+      'bot'
     );
+
   }
+
 }
 
-/* =========================================================
-   GENERATE ANSWER
-   ========================================================= */
+// -----------------------------
+// Message rendering
+// -----------------------------
 
-async function generateEvalLoopAnswer(
-  question,
-  fromVoice = false
+function addEvalLoopMessage(
+  content,
+  type
 ) {
-  const normalized =
-    normalizeText(question);
 
-  /*
-   * Greeting
-   */
-  if (
-    /^(hi|hello|hey|hii|helo|good morning|good afternoon|good evening)$/i
-      .test(normalized)
-  ) {
-    return {
-      answer:
-        "Hi! 👋 How can I help you today?",
-      aiResponse:
-        "Hi! How can I help you today?",
-      speak: false
-    };
-  }
+  const messages =
+    document.getElementById(
+      'evalbot-messages'
+    );
 
-  /*
-   * Resume request
-   */
-  if (
-    normalized.includes("resume") &&
-    (
-      normalized.includes("send") ||
-      normalized.includes("email") ||
-      normalized.includes("mail")
-    )
-  ) {
-    const answer = `
-      I can help you send your resume.
+  const message =
+    document.createElement('div');
 
-      <br><br>
+  message.className =
+    `evalbot-message evalbot-${type}`;
 
-      <button
-        type="button"
-        class="evalbot-action-button"
-        onclick="openEvalLoopGmail(
-          'Resume - AI/LLM Evaluation Opportunities',
-          'Hello,\\n\\nPlease find my resume attached for AI/LLM evaluation opportunities.\\n\\nRegards,\\nVivek'
-        )"
-      >
-        📧 Email Resume
-      </button>
-    `;
+  message.innerHTML =
+    content;
 
-    return {
-      answer,
-      aiResponse:
-        "I can help you send your resume by email.",
-      speak: false
-    };
-  }
+  messages.appendChild(
+    message
+  );
 
-  /*
-   * Total jobs
-   */
-  if (
-    normalized.includes("how many jobs") ||
-    normalized.includes("how many opportunities") ||
-    normalized.includes("total jobs") ||
-    normalized.includes("total opportunities")
-  ) {
-    const count =
-      evalLoopJobs.length;
+  messages.scrollTop =
+    messages.scrollHeight;
 
-    return {
-      answer:
-        `There are currently <strong>${count}</strong> opportunities listed on EvalLoop Jobs.`,
-      aiResponse:
-        `There are currently ${count} opportunities listed on EvalLoop Jobs.`,
-      speak: false
-    };
-  }
+  return message;
 
-  /*
-   * Latest jobs
-   */
-  if (
-    normalized.includes("latest jobs") ||
-    normalized.includes("latest opportunities") ||
-    normalized.includes("recent jobs") ||
-    normalized.includes("new jobs")
-  ) {
-    const latest =
-      evalLoopJobs.slice(0, 5);
-
-    return {
-      answer:
-        formatEvalLoopJobs(latest),
-      aiResponse:
-        `I found ${latest.length} recent opportunities on EvalLoop Jobs.`,
-      speak: false
-    };
-  }
-
-  /*
-   * Job search
-   */
-  if (isJobSearch(normalized)) {
-    const jobs =
-      searchEvalLoopJobs(question);
-
-    if (jobs.length > 0) {
-      return {
-        answer:
-          formatEvalLoopJobs(jobs),
-        aiResponse:
-          `I found ${jobs.length} matching opportunities.`,
-        /*
-         * Keep job-card results visual.
-         * We don't read all job cards aloud.
-         */
-        speak: false
-      };
-    }
-
-    return {
-      answer:
-        "I couldn't find a matching job in the current EvalLoop Jobs directory. Try keywords such as AI evaluator, LLM evaluation, data annotation, prompt engineering, or Telugu.",
-      aiResponse:
-        "I couldn't find a matching job in the current EvalLoop Jobs directory.",
-      speak: false
-    };
-  }
-
-  /*
-   * General AI question
-   */
-  const ai =
-    await askEvalLoopAI(question);
-
-  /*
-   * THIS IS THE IMPORTANT PART.
-   *
-   * If fromVoice = true:
-   *   speak = true
-   *
-   * If fromVoice = false:
-   *   speak = false
-   */
-  return {
-    answer: ai.html,
-    aiResponse: ai.text,
-    speak: fromVoice
-  };
 }
 
-/* =========================================================
-   NORMALIZE TEXT
-   ========================================================= */
+function showEvalLoopTyping() {
+
+  const messages =
+    document.getElementById(
+      'evalbot-messages'
+    );
+
+  const typing =
+    document.createElement('div');
+
+  typing.className =
+    'evalbot-message evalbot-bot evalbot-typing';
+
+  typing.innerHTML =
+    '<span></span><span></span><span></span>';
+
+  messages.appendChild(
+    typing
+  );
+
+  messages.scrollTop =
+    messages.scrollHeight;
+
+  return typing;
+
+}
+
+// -----------------------------
+// Normalize text
+// -----------------------------
 
 function normalizeText(text) {
-  return String(text || "")
+
+  return String(text || '')
     .toLowerCase()
-    .replace(/[^\w\s+#.-]/g, " ")
-    .replace(/\s+/g, " ")
+    .replace(/[^\w\s₹.-]/g, ' ')
+    .replace(/\s+/g, ' ')
     .trim();
+
 }
 
-/* =========================================================
-   DETECT JOB SEARCH
-   ========================================================= */
+// -----------------------------
+// Search jobs
+// -----------------------------
 
-function isJobSearch(text) {
-  const keywords = [
-    "job",
-    "jobs",
-    "opportunity",
-    "opportunities",
-    "hiring",
-    "vacancy",
-    "vacancies",
-    "role",
-    "roles",
-    "position",
-    "positions",
-    "annotation",
-    "annotator",
-    "evaluator",
-    "evaluation",
-    "llm",
-    "ai trainer",
-    "prompt engineer",
-    "data annotation",
-    "remote job",
-    "work from home"
-  ];
+function searchEvalLoopJobs(question) {
 
-  return keywords.some((keyword) =>
-    text.includes(keyword)
-  );
-}
+  const q =
+    normalizeText(question);
 
-/* =========================================================
-   SEARCH JOBS
-   ========================================================= */
-
-function searchEvalLoopJobs(query) {
-  if (!Array.isArray(evalLoopJobs)) {
+  if (!evalLoopJobs.length) {
     return [];
   }
-
-  const normalizedQuery =
-    normalizeText(query);
 
   const words =
-    normalizedQuery
-      .split(" ")
+    q.split(' ')
       .filter(
-        (word) => word.length >= 2
+        word => word.length > 2
       );
 
-  if (words.length === 0) {
-    return [];
-  }
-
   const scoredJobs =
-    evalLoopJobs.map((job) => {
+    evalLoopJobs.map(job => {
+
       const searchableText =
         normalizeText(
           [
             job.company,
             job.title,
             job.description,
-            Array.isArray(job.tags)
-              ? job.tags.join(" ")
-              : job.tags,
             job.location,
             job.duration,
-            job.highlight
-          ]
-            .filter(Boolean)
-            .join(" ")
+            job.highlight,
+            ...(job.tags || [])
+          ].join(' ')
         );
 
       let score = 0;
 
-      words.forEach((word) => {
-        if (searchableText.includes(word)) {
+      words.forEach(word => {
+
+        if (
+          searchableText.includes(word)
+        ) {
           score += 1;
         }
+
       });
 
-      /*
-       * Extra weight for title/company matches.
-       */
-      const title =
-        normalizeText(job.title || "");
+      const boosts = [
 
-      const company =
-        normalizeText(job.company || "");
+        ['remote', 'remote'],
 
-      words.forEach((word) => {
-        if (title.includes(word)) {
-          score += 3;
+        ['work from home', 'work from home'],
+
+        ['llm', 'llm'],
+
+        ['annotation', 'annotation'],
+
+        ['evaluation', 'evaluation'],
+
+        ['ai evaluator', 'evaluation'],
+
+        ['hyderabad', 'hyderabad'],
+
+        ['chennai', 'chennai'],
+
+        ['pune', 'pune'],
+
+        ['bangalore', 'bangalore'],
+
+        ['bengaluru', 'bengaluru']
+
+      ];
+
+      boosts.forEach(
+        ([trigger, match]) => {
+
+          if (
+            q.includes(trigger) &&
+            searchableText.includes(match)
+          ) {
+
+            score += 5;
+
+          }
+
+        }
+      );
+
+      if (
+        q.includes('fresher') ||
+        q.includes('freshers')
+      ) {
+
+        if (
+          searchableText.includes('fresher')
+        ) {
+
+          score += 5;
+
         }
 
-        if (company.includes(word)) {
-          score += 1;
-        }
-      });
+      }
 
       return {
         job,
         score
       };
+
     });
 
   return scoredJobs
-    .filter((item) => item.score > 0)
+
+    .filter(
+      item => item.score > 0
+    )
+
     .sort(
       (a, b) => b.score - a.score
     )
-    .slice(0, 8)
-    .map((item) => item.job);
+
+    .slice(0, 5)
+
+    .map(
+      item => item.job
+    );
+
 }
 
-/* =========================================================
-   ASK AI BACKEND
-   ========================================================= */
+// -----------------------------
+// Detect job searches
+// -----------------------------
+
+function isJobSearch(question) {
+
+  const q =
+    normalizeText(question);
+
+  const jobKeywords = [
+
+    'job',
+    'jobs',
+    'opportunity',
+    'opportunities',
+    'hiring',
+    'vacancy',
+    'vacancies',
+    'role',
+    'roles',
+    'apply',
+    'application',
+    'remote job',
+    'fresher job',
+    'annotation job',
+    'llm job',
+    'evaluation job',
+    'latest jobs',
+    'recent jobs',
+    'show jobs',
+    'find jobs'
+
+  ];
+
+  return jobKeywords.some(
+    keyword => q.includes(keyword)
+  );
+
+}
+
+// -----------------------------
+// Ask Gemini
+// -----------------------------
 
 async function askEvalLoopAI(question) {
-  try {
-    const response =
-      await fetch("/api/chat", {
-        method: "POST",
+
+  const response =
+    await fetch(
+      '/api/chat',
+      {
+        method: 'POST',
 
         headers: {
-          "Content-Type":
-            "application/json"
+          'Content-Type':
+            'application/json'
         },
 
         body: JSON.stringify({
           message: question
         })
-      });
 
-    const data =
-      await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data?.error ||
-        "AI request failed"
-      );
-    }
-
-    const text =
-      data?.answer ||
-      "I couldn't generate a response.";
-
-    return {
-      text,
-      html: formatAIResponse(text)
-    };
-
-  } catch (error) {
-    console.error(
-      "AI backend error:",
-      error
+      }
     );
 
-    const fallback =
-      "Sorry, the AI service is temporarily unavailable. Please try again.";
+  if (!response.ok) {
 
-    return {
-      text: fallback,
-      html: formatAIResponse(fallback)
-    };
+    throw new Error(
+      `API request failed: ${response.status}`
+    );
+
   }
+
+  const data =
+    await response.json();
+
+  if (!data.answer) {
+
+    throw new Error(
+      'No AI response received'
+    );
+
+  }
+
+  return formatAIResponse(
+    data.answer
+  );
+
 }
 
-/* =========================================================
-   FORMAT AI RESPONSE
-   ========================================================= */
+// -----------------------------
+// Format AI response
+// -----------------------------
 
 function formatAIResponse(text) {
-  if (!text) {
-    return "";
-  }
 
-  let safe =
+  let safeText =
     escapeEvalLoopHTML(text);
 
-  /*
-   * Bold markdown
-   */
-  safe = safe.replace(
-    /\*\*(.*?)\*\*/g,
-    "<strong>$1</strong>"
-  );
+  // Basic Markdown conversion
 
-  /*
-   * Markdown bullets
-   */
-  safe = safe.replace(
-    /^\s*[-*]\s+/gm,
-    "• "
-  );
+  safeText =
+    safeText.replace(
+      /\*\*(.*?)\*\*/g,
+      '<strong>$1</strong>'
+    );
 
-  /*
-   * New lines
-   */
-  safe = safe.replace(
-    /\n/g,
-    "<br>"
-  );
+  safeText =
+    safeText.replace(
+      /\n/g,
+      '<br>'
+    );
 
-  return safe;
+  return safeText;
+
 }
 
-/* =========================================================
-   FORMAT JOB CARDS
-   ========================================================= */
+// -----------------------------
+// Generate answer
+// -----------------------------
 
-function formatEvalLoopJobs(jobs) {
-  if (!Array.isArray(jobs) || jobs.length === 0) {
-    return `
-      <div class="evalbot-empty">
-        No matching opportunities found.
-      </div>
-    `;
-  }
-
-  return `
-    <div class="evalbot-job-results">
-
-      ${jobs
-        .map((job) => {
-          const company =
-            escapeEvalLoopHTML(
-              job.company || "Company"
-            );
-
-          const title =
-            escapeEvalLoopHTML(
-              job.title || "AI Opportunity"
-            );
-
-          const description =
-            escapeEvalLoopHTML(
-              job.description || ""
-            );
-
-          const location =
-            escapeEvalLoopHTML(
-              job.location || ""
-            );
-
-          const duration =
-            escapeEvalLoopHTML(
-              job.duration || ""
-            );
-
-          const highlight =
-            escapeEvalLoopHTML(
-              job.highlight || ""
-            );
-
-          const link =
-            safeEvalLoopURL(
-              job.link || ""
-            );
-
-          const email =
-            safeEvalLoopEmail(
-              job.email || ""
-            );
-
-          const whatsapp =
-            safeEvalLoopWhatsApp(
-              job.whatsapp || ""
-            );
-
-          return `
-            <div class="evalbot-job-card">
-
-              <div class="evalbot-job-company">
-                ${company}
-              </div>
-
-              <div class="evalbot-job-title">
-                ${title}
-              </div>
-
-              ${
-                description
-                  ? `
-                    <div class="evalbot-job-description">
-                      ${description}
-                    </div>
-                  `
-                  : ""
-              }
-
-              ${
-                location
-                  ? `
-                    <div class="evalbot-job-meta">
-                      📍 ${location}
-                    </div>
-                  `
-                  : ""
-              }
-
-              ${
-                duration
-                  ? `
-                    <div class="evalbot-job-meta">
-                      ⏱ ${duration}
-                    </div>
-                  `
-                  : ""
-              }
-
-              ${
-                highlight
-                  ? `
-                    <div class="evalbot-job-highlight">
-                      ${highlight}
-                    </div>
-                  `
-                  : ""
-              }
-
-              <div class="evalbot-job-actions">
-
-                ${
-                  link
-                    ? `
-                      <a
-                        href="${link}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="evalbot-job-button"
-                      >
-                        Apply
-                      </a>
-                    `
-                    : ""
-                }
-
-                ${
-                  email
-                    ? `
-                      <a
-                        href="mailto:${email}"
-                        class="evalbot-job-button"
-                      >
-                        Email
-                      </a>
-                    `
-                    : ""
-                }
-
-                ${
-                  whatsapp
-                    ? `
-                      <a
-                        href="${whatsapp}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="evalbot-job-button"
-                      >
-                        WhatsApp
-                      </a>
-                    `
-                    : ""
-                }
-
-              </div>
-
-            </div>
-          `;
-        })
-        .join("")}
-
-    </div>
-  `;
-}
-
-/* =========================================================
-   VOICE INPUT
-   ========================================================= */
-
-let evalLoopMediaRecorder = null;
-let evalLoopAudioChunks = [];
-let evalLoopRecording = false;
-
-/*
- * Start microphone recording.
- *
- * IMPORTANT:
- * The resulting transcription is sent with:
- *
- * sendEvalLoopMessage(transcript, true)
- *
- * That TRUE tells the chatbot that the original
- * question came from voice.
- */
-
-async function startEvalLoopVoiceInput() {
-  if (evalLoopRecording) {
-    stopEvalLoopVoiceInput();
-    return;
-  }
-
-  if (
-    !navigator.mediaDevices ||
-    !navigator.mediaDevices.getUserMedia
-  ) {
-    alert(
-      "Voice input is not supported by this browser."
-    );
-
-    return;
-  }
-
-  try {
-    const stream =
-      await navigator.mediaDevices.getUserMedia({
-        audio: true
-      });
-
-    evalLoopAudioChunks = [];
-
-    evalLoopMediaRecorder =
-      new MediaRecorder(stream);
-
-    evalLoopRecording = true;
-
-    const mic =
-      document.getElementById(
-        "evalbot-mic"
-      );
-
-    if (mic) {
-      mic.classList.add(
-        "evalbot-mic-recording"
-      );
-    }
-
-    setEvalLoopVoiceStatus(
-      "Listening... speak now",
-      true
-    );
-
-    evalLoopMediaRecorder.ondataavailable =
-      (event) => {
-        if (
-          event.data &&
-          event.data.size > 0
-        ) {
-          evalLoopAudioChunks.push(
-            event.data
-          );
-        }
-      };
-
-    evalLoopMediaRecorder.onstop =
-      async () => {
-        stream
-          .getTracks()
-          .forEach((track) => {
-            track.stop();
-          });
-
-        const audioBlob =
-          new Blob(
-            evalLoopAudioChunks,
-            {
-              type:
-                evalLoopMediaRecorder.mimeType ||
-                "audio/webm"
-            }
-          );
-
-        evalLoopRecording = false;
-
-        if (mic) {
-          mic.classList.remove(
-            "evalbot-mic-recording"
-          );
-        }
-
-        setEvalLoopVoiceStatus(
-          "Processing voice...",
-          true
-        );
-
-        await transcribeEvalLoopAudio(
-          audioBlob
-        );
-      };
-
-    evalLoopMediaRecorder.start();
-
-    /*
-     * Automatically stop after 30 seconds.
-     */
-    setTimeout(() => {
-      if (evalLoopRecording) {
-        stopEvalLoopVoiceInput();
-      }
-    }, 30000);
-
-  } catch (error) {
-    console.error(
-      "Microphone error:",
-      error
-    );
-
-    evalLoopRecording = false;
-
-    setEvalLoopVoiceStatus(
-      "",
-      false
-    );
-
-    alert(
-      "Microphone permission is required for voice input."
-    );
-  }
-}
-
-/* =========================================================
-   STOP VOICE INPUT
-   ========================================================= */
-
-function stopEvalLoopVoiceInput() {
-  if (
-    evalLoopMediaRecorder &&
-    evalLoopMediaRecorder.state !== "inactive"
-  ) {
-    evalLoopMediaRecorder.stop();
-  }
-}
-
-/* =========================================================
-   TRANSCRIBE AUDIO
-   ========================================================= */
-
-async function transcribeEvalLoopAudio(
-  audioBlob
+async function generateEvalLoopAnswer(
+  question
 ) {
-  try {
-    const formData =
-      new FormData();
 
-    formData.append(
-      "audio",
-      audioBlob,
-      "voice.webm"
-    );
+  const q =
+    normalizeText(question);
 
-    const response =
-      await fetch(
-        "/api/transcribe",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-    const data =
-      await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data?.error ||
-        "Transcription failed"
-      );
-    }
-
-    const transcript =
-      String(
-        data?.text ||
-        data?.transcript ||
-        ""
-      ).trim();
-
-    if (!transcript) {
-      setEvalLoopVoiceStatus(
-        "I couldn't hear anything.",
-        true
-      );
-
-      setTimeout(() => {
-        setEvalLoopVoiceStatus(
-          "",
-          false
-        );
-      }, 2500);
-
-      return;
-    }
-
-    /*
-     * Put transcript into input so the user
-     * can see what was understood.
-     */
-    const input =
-      document.getElementById(
-        "evalbot-input"
-      );
-
-    if (input) {
-      input.value = transcript;
-    }
-
-    setEvalLoopVoiceStatus(
-      "",
-      false
-    );
-
-    /*
-     * VERY IMPORTANT:
-     *
-     * TRUE = this was a voice prompt.
-     *
-     * Therefore the AI answer can be spoken.
-     */
-    await sendEvalLoopMessage(
-      transcript,
-      true
-    );
-
-  } catch (error) {
-    console.error(
-      "Voice transcription error:",
-      error
-    );
-
-    setEvalLoopVoiceStatus(
-      "",
-      false
-    );
-
-    addEvalLoopMessage(
-      "Sorry, I couldn't understand the voice input. Please try again.",
-      "bot"
-    );
-  }
-}
-
-/* =========================================================
-   TEXT TO SPEECH
-   ========================================================= */
-
-function speakEvalLoopAnswer(text) {
-  /*
-   * Safety check:
-   * This function is only called when
-   * result.speak === true.
-   */
+  // Greetings
 
   if (
-    !("speechSynthesis" in window)
+    q === 'hi' ||
+    q === 'hello' ||
+    q === 'hey' ||
+    q.includes('hello chatbot')
   ) {
-    return;
+
+    return `
+      Hello! 👋
+      <br><br>
+      I'm <strong>EvalLoop AI</strong>.
+      I can answer AI/LLM questions and help you find opportunities.
+      <br><br>
+      Try asking:
+      <br><br>
+      • What is LLM evaluation?<br>
+      • What is RLHF?<br>
+      • What is SFT?<br>
+      • Show remote AI jobs<br>
+      • Find LLM evaluation jobs
+    `;
+
   }
 
-  if (!text) {
-    return;
+  // Resume
+
+  if (
+    q.includes('resume') ||
+    q.includes('cv') ||
+    q.includes('personalized') ||
+    q.includes('personal recommendation') ||
+    q.includes('recommend jobs for me') ||
+    q.includes('recommend me')
+  ) {
+
+    return `
+      Send your resume and I'll pass along your preferred role, location, and work type — we'll use that to curate more relevant opportunities for you.
+      ${resumeButtonHTML()}
+    `;
+
   }
 
-  stopEvalLoopSpeech();
+  // Total jobs
 
-  const cleanText =
-    String(text)
-      .replace(/<[^>]*>/g, " ")
-      .replace(/\*\*/g, "")
-      .replace(/[`#]/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
+  if (
+    q.includes('how many jobs') ||
+    q.includes('how many opportunities') ||
+    q.includes('total jobs')
+  ) {
 
-  if (!cleanText) {
-    return;
+    return `
+      Right now there are
+      <strong>${evalLoopJobs.length}</strong>
+      opportunities in the directory.
+    `;
+
   }
 
-  const utterance =
-    new SpeechSynthesisUtterance(
-      cleanText
+  // Latest jobs
+
+  if (
+    q.includes('latest') ||
+    q.includes('recent') ||
+    q.includes('new jobs')
+  ) {
+
+    const latest =
+      [...evalLoopJobs]
+        .sort(
+          (a, b) =>
+            String(
+              b.postedAt || ''
+            ).localeCompare(
+              String(
+                a.postedAt || ''
+              )
+            )
+        )
+        .slice(0, 5);
+
+    return formatEvalLoopJobs(
+      latest,
+      'Here are the most recent opportunities:'
     );
 
-  utterance.lang = "en-IN";
-  utterance.rate = 1;
-  utterance.pitch = 1;
-  utterance.volume = 1;
+  }
 
-  window.speechSynthesis.speak(
-    utterance
+  // Job search
+
+  if (
+    isJobSearch(question)
+  ) {
+
+    const results =
+      searchEvalLoopJobs(
+        question
+      );
+
+    if (results.length) {
+
+      return formatEvalLoopJobs(
+        results,
+        `Found ${results.length} matching opportunit${results.length === 1 ? 'y' : 'ies'}:`
+      );
+
+    }
+
+    // If the user clearly asks for a job
+    // but local search finds nothing,
+    // ask Gemini to explain that no exact
+    // local match was found.
+
+    return `
+      I couldn't find an exact match in the current EvalLoop Jobs directory.
+      <br><br>
+      Try:
+      <br><br>
+      • Show remote jobs<br>
+      • Find LLM evaluation jobs<br>
+      • Show annotation jobs<br>
+      • Show fresher jobs<br>
+      • Show latest jobs
+    `;
+
+  }
+
+  // General AI question → Gemini
+
+  return await askEvalLoopAI(
+    question
   );
+
 }
 
-/* =========================================================
-   STOP TEXT TO SPEECH
-   ========================================================= */
+// -----------------------------
+// Format job results
+// -----------------------------
 
-function stopEvalLoopSpeech() {
-  if (
-    "speechSynthesis" in window
-  ) {
-    window.speechSynthesis.cancel();
-  }
+function formatEvalLoopJobs(
+  jobs,
+  heading
+) {
+
+  let html =
+    `${escapeEvalLoopHTML(heading)}`;
+
+  jobs.forEach(job => {
+
+    const tags =
+      (job.tags || [])
+        .slice(0, 3)
+        .map(
+          tag =>
+            `<span>${escapeEvalLoopHTML(tag)}</span>`
+        )
+        .join('');
+
+    const actions = [];
+
+    if (job.link) {
+
+      actions.push(
+        `<a href="${escapeAttribute(job.link)}" target="_blank" rel="noopener noreferrer">Apply ↗</a>`
+      );
+
+    }
+
+    if (job.email) {
+
+      const subject =
+        encodeURIComponent(
+          `Application for ${job.title || 'the role'}`
+        );
+
+      actions.push(
+        `<a href="mailto:${escapeAttribute(job.email)}?subject=${subject}">Email CV ✉</a>`
+      );
+
+    }
+
+    if (job.whatsapp) {
+
+      actions.push(
+        `<a href="https://wa.me/${escapeAttribute(job.whatsapp)}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>`
+      );
+
+    }
+
+    html += `
+
+      <div class="evalbot-job">
+
+        <strong>
+          ${escapeEvalLoopHTML(
+            job.title || 'Opportunity'
+          )}
+        </strong>
+
+        <small>
+          ${escapeEvalLoopHTML(
+            job.company ||
+            'Company not specified'
+          )}
+        </small>
+
+        <small>
+          📍
+          ${escapeEvalLoopHTML(
+            job.location ||
+            'Location not specified'
+          )}
+        </small>
+
+        ${
+          job.highlight
+            ? `<small>💰 ${escapeEvalLoopHTML(
+                job.highlight
+              )}</small>`
+            : ''
+        }
+
+        ${
+          tags
+            ? `<div class="evalbot-job-tags">${tags}</div>`
+            : ''
+        }
+
+        ${
+          actions.length
+            ? `<div class="evalbot-job-actions">${actions.join('')}</div>`
+            : ''
+        }
+
+      </div>
+
+    `;
+
+  });
+
+  return html;
+
 }
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
+// -----------------------------
+// Security helpers
+// -----------------------------
 
 function escapeEvalLoopHTML(value) {
-  return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
 
-/* =========================================================
-   SAFE URL
-   ========================================================= */
+  return String(value || '')
 
-function safeEvalLoopURL(value) {
-  try {
-    const url =
-      new URL(
-        String(value || ""),
-        window.location.origin
-      );
-
-    if (
-      url.protocol === "http:" ||
-      url.protocol === "https:"
-    ) {
-      return escapeEvalLoopHTML(
-        url.href
-      );
-    }
-
-    return "";
-  } catch {
-    return "";
-  }
-}
-
-/* =========================================================
-   SAFE EMAIL
-   ========================================================= */
-
-function safeEvalLoopEmail(value) {
-  const email =
-    String(value || "").trim();
-
-  if (
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-      email
+    .replace(
+      /&/g,
+      '&amp;'
     )
-  ) {
-    return "";
-  }
 
-  return escapeEvalLoopHTML(
-    email
-  );
-}
+    .replace(
+      /</g,
+      '&lt;'
+    )
 
-/* =========================================================
-   SAFE WHATSAPP
-   ========================================================= */
+    .replace(
+      />/g,
+      '&gt;'
+    )
 
-function safeEvalLoopWhatsApp(value) {
-  const raw =
-    String(value || "").trim();
+    .replace(
+      /"/g,
+      '&quot;'
+    )
 
-  if (!raw) {
-    return "";
-  }
-
-  try {
-    /*
-     * Support both:
-     * https://wa.me/...
-     * https://api.whatsapp.com/...
-     */
-    const url =
-      new URL(raw);
-
-    if (
-      url.protocol !== "http:" &&
-      url.protocol !== "https:"
-    ) {
-      return "";
-    }
-
-    if (
-      !url.hostname.includes(
-        "wa.me"
-      ) &&
-      !url.hostname.includes(
-        "whatsapp.com"
-      )
-    ) {
-      return "";
-    }
-
-    return escapeEvalLoopHTML(
-      url.href
+    .replace(
+      /'/g,
+      '&#039;'
     );
 
-  } catch {
-    return "";
-  }
 }
 
-/* =========================================================
-   INITIALIZE CHATBOT
-   ========================================================= */
+function escapeAttribute(value) {
 
-document.addEventListener(
-  "DOMContentLoaded",
-  async () => {
+  return String(value || '')
+
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+
+    .replace(
+      /'/g,
+      '&#039;'
+    );
+
+}
+
+// -----------------------------
+// Start chatbot
+// -----------------------------
+
+loadEvalLoopJobs()
+  .then(() => {
+
     createEvalLoopChatbot();
 
-    await loadEvalLoopJobs();
-  }
-);
+  });
