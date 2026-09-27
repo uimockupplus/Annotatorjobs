@@ -1,35 +1,35 @@
 // EvalLoopjobs - AI + Job Search + Voice Chatbot
-// Uses opportunities.json for job searches
-// Uses /api/chat for AI
-// Uses /api/transcribe for Groq Whisper speech-to-text
 
 let evalLoopJobs = [];
 
-// Conversation memory
 let evalLoopConversation = [];
 
 let evalLoopMediaRecorder = null;
 let evalLoopAudioChunks = [];
 let evalLoopIsRecording = false;
 
-let evalLoopSpeechUtterance = null;
+const EVALLOOP_RESUME_EMAIL =
+  'techultron2020@gmail.com';
 
-const EVALLOOP_RESUME_EMAIL = 'techultron2020@gmail.com';
 
-
-// -----------------------------
+// =========================================================
 // Gmail helpers
-// -----------------------------
+// =========================================================
 
-function buildGmailComposeUrl({ to, subject, body }) {
+function buildGmailComposeUrl({
+  to,
+  subject,
+  body
+}) {
 
-  const params = new URLSearchParams({
-    view: 'cm',
-    fs: '1',
-    to,
-    su: subject,
-    body
-  });
+  const params =
+    new URLSearchParams({
+      view: 'cm',
+      fs: '1',
+      to,
+      su: subject,
+      body
+    });
 
   return `https://mail.google.com/mail/?${params.toString()}`;
 }
@@ -38,11 +38,16 @@ function buildGmailComposeUrl({ to, subject, body }) {
 function buildResumeGmailUrl() {
 
   return buildGmailComposeUrl({
+
     to: EVALLOOP_RESUME_EMAIL,
-    subject: 'Resume for personalized AI opportunities',
+
+    subject:
+      'Resume for personalized AI opportunities',
+
     body:
       'Hello,\n\nPlease find my resume attached.\n\n' +
       'Target role:\nPreferred location:\nWork type:\n\nThank you.'
+
   });
 
 }
@@ -52,36 +57,55 @@ function resumeButtonHTML() {
 
   return `
     <div class="evalbot-resume-cta">
-      <a href="${buildResumeGmailUrl()}" target="_blank" rel="noopener noreferrer">
+
+      <a
+        href="${buildResumeGmailUrl()}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         📎 Send resume via Gmail ↗
       </a>
+
     </div>
   `;
 
 }
 
 
-// -----------------------------
+// =========================================================
 // Load jobs
-// -----------------------------
+// =========================================================
 
 async function loadEvalLoopJobs() {
 
   try {
 
-    const response = await fetch('./opportunities.json', {
-      cache: 'no-store'
-    });
+    const response =
+      await fetch(
+        './opportunities.json',
+        {
+          cache: 'no-store'
+        }
+      );
+
 
     if (!response.ok) {
-      throw new Error('Could not load opportunities.json');
+
+      throw new Error(
+        'Could not load opportunities.json'
+      );
+
     }
 
-    evalLoopJobs = await response.json();
+
+    evalLoopJobs =
+      await response.json();
+
 
     console.log(
       `EvalLoop chatbot loaded ${evalLoopJobs.length} opportunities.`
     );
+
 
   } catch (error) {
 
@@ -95,9 +119,9 @@ async function loadEvalLoopJobs() {
 }
 
 
-// -----------------------------
-// Mic SVG
-// -----------------------------
+// =========================================================
+// Mic icon
+// =========================================================
 
 function evalLoopMicIcon() {
 
@@ -108,6 +132,7 @@ function evalLoopMicIcon() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
+
       <path
         d="M12 14.5C14.21 14.5 16 12.71 16 10.5V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V10.5C8 12.71 9.79 14.5 12 14.5Z"
         stroke="currentColor"
@@ -136,15 +161,16 @@ function evalLoopMicIcon() {
         stroke-width="1.8"
         stroke-linecap="round"
       />
+
     </svg>
   `;
 
 }
 
 
-// -----------------------------
+// =========================================================
 // Chatbot UI
-// -----------------------------
+// =========================================================
 
 function createEvalLoopChatbot() {
 
@@ -153,15 +179,29 @@ function createEvalLoopChatbot() {
     <button
       id="evalbot-toggle"
       aria-label="Open EvalLoop AI"
+      type="button"
     >
-      <span class="evalbot-toggle-icon">◉</span>
-      <span class="evalbot-toggle-close">×</span>
+
+      <span class="evalbot-toggle-icon">
+        ◉
+      </span>
+
+      <span class="evalbot-toggle-close">
+        ×
+      </span>
+
     </button>
 
 
-    <div id="evalbot-label" aria-hidden="true">
+    <div
+      id="evalbot-label"
+      aria-hidden="true"
+    >
+
       EvalLoop AI
+
       <span class="evalbot-ai-dot"></span>
+
     </div>
 
 
@@ -170,6 +210,7 @@ function createEvalLoopChatbot() {
       role="dialog"
       aria-label="EvalLoop AI"
     >
+
 
       <div class="evalbot-header">
 
@@ -197,6 +238,7 @@ function createEvalLoopChatbot() {
         <button
           id="evalbot-close"
           aria-label="Close assistant"
+          type="button"
         >
           ×
         </button>
@@ -219,41 +261,52 @@ function createEvalLoopChatbot() {
             <button
               class="evalbot-suggestion"
               data-question="What is LLM evaluation?"
+              type="button"
             >
               What is LLM evaluation?
             </button>
 
+
             <button
               class="evalbot-suggestion"
               data-question="Show me remote jobs"
+              type="button"
             >
               Remote jobs
             </button>
 
+
             <button
               class="evalbot-suggestion"
               data-question="Show LLM evaluation jobs"
+              type="button"
             >
               LLM jobs
             </button>
 
+
             <button
               class="evalbot-suggestion"
               data-question="Show jobs for freshers"
+              type="button"
             >
               Fresher jobs
             </button>
 
+
             <button
               class="evalbot-suggestion"
               data-question="Show data annotation jobs"
+              type="button"
             >
               Annotation jobs
             </button>
 
+
             <button
               class="evalbot-suggestion"
               data-question="Send my resume"
+              type="button"
             >
               Send my resume
             </button>
@@ -307,15 +360,16 @@ function createEvalLoopChatbot() {
           ↗
         </button>
 
+
+        <div
+          id="evalbot-voice-status"
+          class="evalbot-voice-status"
+        ></div>
+
       </div>
 
-
-      <div
-        id="evalbot-voice-status"
-        class="evalbot-voice-status"
-      ></div>
-
     </div>
+
   `;
 
 
@@ -326,71 +380,117 @@ function createEvalLoopChatbot() {
 
 
   const toggle =
-    document.getElementById('evalbot-toggle');
+    document.getElementById(
+      'evalbot-toggle'
+    );
+
 
   const closeBtn =
-    document.getElementById('evalbot-close');
+    document.getElementById(
+      'evalbot-close'
+    );
+
 
   const chatbot =
-    document.getElementById('evalbot');
+    document.getElementById(
+      'evalbot'
+    );
+
 
   const label =
-    document.getElementById('evalbot-label');
+    document.getElementById(
+      'evalbot-label'
+    );
+
 
   const input =
-    document.getElementById('evalbot-input');
+    document.getElementById(
+      'evalbot-input'
+    );
+
 
   const send =
-    document.getElementById('evalbot-send');
+    document.getElementById(
+      'evalbot-send'
+    );
+
 
   const mic =
-    document.getElementById('evalbot-mic');
-
-
-  toggle.addEventListener('click', () => {
-
-    const isOpen =
-      chatbot.classList.toggle('open');
-
-    toggle.classList.toggle(
-      'open',
-      isOpen
+    document.getElementById(
+      'evalbot-mic'
     );
 
-    toggle.setAttribute(
-      'aria-label',
-      isOpen
-        ? 'Close EvalLoop AI'
-        : 'Open EvalLoop AI'
-    );
 
-    setEvalLoopChatOpen(isOpen);
+  toggle.addEventListener(
+    'click',
+    () => {
 
-    if (isOpen) {
-      input.focus();
+      const isOpen =
+        chatbot.classList.toggle(
+          'open'
+        );
+
+
+      toggle.classList.toggle(
+        'open',
+        isOpen
+      );
+
+
+      toggle.setAttribute(
+        'aria-label',
+        isOpen
+          ? 'Close EvalLoop AI'
+          : 'Open EvalLoop AI'
+      );
+
+
+      setEvalLoopChatOpen(
+        isOpen
+      );
+
+
+      if (isOpen) {
+        input.focus();
+      }
+
     }
+  );
 
-  });
+
+  closeBtn.addEventListener(
+    'click',
+    () => {
+
+      if (
+        evalLoopIsRecording
+      ) {
+        stopEvalLoopRecording();
+      }
 
 
-  closeBtn.addEventListener('click', () => {
+      chatbot.classList.remove(
+        'open'
+      );
 
-    if (evalLoopIsRecording) {
-      stopEvalLoopRecording();
+
+      toggle.classList.remove(
+        'open'
+      );
+
+
+      toggle.setAttribute(
+        'aria-label',
+        'Open EvalLoop AI'
+      );
+
+
+      setEvalLoopChatOpen(
+        false
+      );
+
     }
-
-    chatbot.classList.remove('open');
-
-    toggle.classList.remove('open');
-
-    toggle.setAttribute(
-      'aria-label',
-      'Open EvalLoop AI'
-    );
-
-    setEvalLoopChatOpen(false);
-
-  });
+  );
 
 
   send.addEventListener(
@@ -401,10 +501,16 @@ function createEvalLoopChatbot() {
 
   input.addEventListener(
     'keydown',
-    (event) => {
+    event => {
 
-      if (event.key === 'Enter') {
+      if (
+        event.key === 'Enter'
+      ) {
+
+        event.preventDefault();
+
         sendEvalLoopMessage();
+
       }
 
     }
@@ -419,7 +525,7 @@ function createEvalLoopChatbot() {
 
   document.addEventListener(
     'click',
-    (event) => {
+    event => {
 
       if (
         event.target.classList.contains(
@@ -430,7 +536,10 @@ function createEvalLoopChatbot() {
         const question =
           event.target.dataset.question;
 
-        input.value = question;
+
+        input.value =
+          question;
+
 
         sendEvalLoopMessage();
 
@@ -440,50 +549,74 @@ function createEvalLoopChatbot() {
   );
 
 
-  startEvalLoopLabelLoop(label);
+  startEvalLoopLabelLoop(
+    label
+  );
 
 }
 
 
-// -----------------------------
-// Label loop
-// -----------------------------
+// =========================================================
+// Label
+// =========================================================
 
 let evalLoopChatIsOpen = false;
 
-function setEvalLoopChatOpen(isOpen) {
 
-  evalLoopChatIsOpen = isOpen;
+function setEvalLoopChatOpen(
+  isOpen
+) {
+
+  evalLoopChatIsOpen =
+    isOpen;
+
 
   const label =
-    document.getElementById('evalbot-label');
+    document.getElementById(
+      'evalbot-label'
+    );
+
 
   if (
     isOpen &&
     label
   ) {
-    label.classList.remove('show');
+
+    label.classList.remove(
+      'show'
+    );
+
   }
 
 }
 
 
-function startEvalLoopLabelLoop(label) {
+function startEvalLoopLabelLoop(
+  label
+) {
 
   if (!label) return;
+
 
   const reducedMotion =
     window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
-  const SHOW_MS = 35000;
-  const HIDE_MS = 1000;
+
+  const SHOW_MS =
+    35000;
+
+
+  const HIDE_MS =
+    1000;
 
 
   if (reducedMotion) {
 
-    label.classList.add('show');
+    label.classList.add(
+      'show'
+    );
 
     return;
 
@@ -493,20 +626,30 @@ function startEvalLoopLabelLoop(label) {
   function cycle() {
 
     if (!evalLoopChatIsOpen) {
-      label.classList.add('show');
+
+      label.classList.add(
+        'show'
+      );
+
     }
 
 
-    setTimeout(() => {
+    setTimeout(
+      () => {
 
-      label.classList.remove('show');
+        label.classList.remove(
+          'show'
+        );
 
-      setTimeout(
-        cycle,
-        HIDE_MS
-      );
 
-    }, SHOW_MS);
+        setTimeout(
+          cycle,
+          HIDE_MS
+        );
+
+      },
+      SHOW_MS
+    );
 
   }
 
@@ -519,21 +662,25 @@ function startEvalLoopLabelLoop(label) {
 }
 
 
-// -----------------------------
+// =========================================================
 // Send message
-// -----------------------------
+// =========================================================
 
 async function sendEvalLoopMessage(
   forcedQuestion = null
 ) {
 
   const input =
-    document.getElementById('evalbot-input');
+    document.getElementById(
+      'evalbot-input'
+    );
 
 
   const question =
     forcedQuestion !== null
-      ? String(forcedQuestion).trim()
+      ? String(
+          forcedQuestion
+        ).trim()
       : input.value.trim();
 
 
@@ -543,12 +690,15 @@ async function sendEvalLoopMessage(
 
 
   addEvalLoopMessage(
-    escapeEvalLoopHTML(question),
+    escapeEvalLoopHTML(
+      question
+    ),
     'user'
   );
 
 
-  input.value = '';
+  input.value =
+    '';
 
 
   const typing =
@@ -572,25 +722,34 @@ async function sendEvalLoopMessage(
     );
 
 
-    // Save AI conversation history
-    if (result.aiResponse) {
+    if (
+      result.aiResponse
+    ) {
 
       evalLoopConversation.push({
+
         role: 'user',
-        content: question
+
+        content:
+          question
+
       });
 
+
       evalLoopConversation.push({
+
         role: 'assistant',
-        content: result.aiResponse
+
+        content:
+          result.aiResponse
+
       });
 
     }
 
 
-    // Speak normal AI answers
     if (
-      result.speak !== false &&
+      result.speak &&
       result.aiResponse
     ) {
 
@@ -626,9 +785,9 @@ async function sendEvalLoopMessage(
 }
 
 
-// -----------------------------
+// =========================================================
 // Message rendering
-// -----------------------------
+// =========================================================
 
 function addEvalLoopMessage(
   content,
@@ -642,7 +801,9 @@ function addEvalLoopMessage(
 
 
   const message =
-    document.createElement('div');
+    document.createElement(
+      'div'
+    );
 
 
   message.className =
@@ -676,7 +837,9 @@ function showEvalLoopTyping() {
 
 
   const typing =
-    document.createElement('div');
+    document.createElement(
+      'div'
+    );
 
 
   typing.className =
@@ -701,9 +864,9 @@ function showEvalLoopTyping() {
 }
 
 
-// -----------------------------
+// =========================================================
 // Voice status
-// -----------------------------
+// =========================================================
 
 function setEvalLoopVoiceStatus(
   text,
@@ -729,24 +892,34 @@ function setEvalLoopVoiceStatus(
 
 
   if (state) {
-    status.classList.add(state);
+
+    status.classList.add(
+      state
+    );
+
   }
 
 
   if (visible) {
-    status.classList.add('show');
+
+    status.classList.add(
+      'show'
+    );
+
   }
 
 }
 
 
-// -----------------------------
-// Voice recording
-// -----------------------------
+// =========================================================
+// Start / stop recording
+// =========================================================
 
 async function toggleEvalLoopRecording() {
 
-  if (evalLoopIsRecording) {
+  if (
+    evalLoopIsRecording
+  ) {
 
     stopEvalLoopRecording();
 
@@ -791,10 +964,12 @@ async function startEvalLoopRecording() {
       });
 
 
-    evalLoopAudioChunks = [];
+    evalLoopAudioChunks =
+      [];
 
 
-    let mimeType = '';
+    let mimeType =
+      '';
 
 
     if (
@@ -822,9 +997,13 @@ async function startEvalLoopRecording() {
       mimeType
         ? new MediaRecorder(
             stream,
-            { mimeType }
+            {
+              mimeType
+            }
           )
-        : new MediaRecorder(stream);
+        : new MediaRecorder(
+            stream
+          );
 
 
     evalLoopMediaRecorder.addEventListener(
@@ -853,7 +1032,8 @@ async function startEvalLoopRecording() {
         stream
           .getTracks()
           .forEach(
-            track => track.stop()
+            track =>
+              track.stop()
           );
 
 
@@ -879,7 +1059,8 @@ async function startEvalLoopRecording() {
     evalLoopMediaRecorder.start();
 
 
-    evalLoopIsRecording = true;
+    evalLoopIsRecording =
+      true;
 
 
     mic.classList.add(
@@ -933,11 +1114,14 @@ function stopEvalLoopRecording() {
     !evalLoopMediaRecorder ||
     !evalLoopIsRecording
   ) {
+
     return;
+
   }
 
 
-  evalLoopIsRecording = false;
+  evalLoopIsRecording =
+    false;
 
 
   const mic =
@@ -979,9 +1163,9 @@ function stopEvalLoopRecording() {
 }
 
 
-// -----------------------------
-// Transcribe audio
-// -----------------------------
+// =========================================================
+// Transcription
+// =========================================================
 
 async function transcribeEvalLoopAudio(
   audioBlob
@@ -1045,23 +1229,12 @@ async function transcribeEvalLoopAudio(
     }
 
 
-    const input =
-      document.getElementById(
-        'evalbot-input'
-      );
-
-
-    input.value =
-      transcript;
-
-
     setEvalLoopVoiceStatus(
       'Sending…',
       true
     );
 
 
-    // Automatically send transcript
     await sendEvalLoopMessage(
       transcript
     );
@@ -1086,7 +1259,8 @@ async function transcribeEvalLoopAudio(
 
   } finally {
 
-    evalLoopAudioChunks = [];
+    evalLoopAudioChunks =
+      [];
 
 
     if (mic) {
@@ -1120,9 +1294,9 @@ async function transcribeEvalLoopAudio(
 }
 
 
-// -----------------------------
-// Browser voice output
-// -----------------------------
+// =========================================================
+// Browser speech output
+// =========================================================
 
 function speakEvalLoopAnswer(
   text
@@ -1131,7 +1305,9 @@ function speakEvalLoopAnswer(
   if (
     !('speechSynthesis' in window)
   ) {
+
     return;
+
   }
 
 
@@ -1156,134 +1332,205 @@ function speakEvalLoopAnswer(
   window.speechSynthesis.cancel();
 
 
-  evalLoopSpeechUtterance =
+  const utterance =
     new SpeechSynthesisUtterance(
       cleanText
     );
 
 
-  evalLoopSpeechUtterance.rate =
+  utterance.rate =
     1;
 
 
-  evalLoopSpeechUtterance.pitch =
+  utterance.pitch =
     1;
 
 
-  evalLoopSpeechUtterance.volume =
+  utterance.volume =
     1;
 
 
   window.speechSynthesis.speak(
-    evalLoopSpeechUtterance
+    utterance
   );
 
 }
 
 
-// -----------------------------
-// Normalize text
-// -----------------------------
+// =========================================================
+// Normalize
+// =========================================================
 
-function normalizeText(text) {
+function normalizeText(
+  text
+) {
 
-  return String(text || '')
+  return String(
+    text || ''
+  )
     .toLowerCase()
-    .replace(/[^\w\s₹.-]/g, ' ')
-    .replace(/\s+/g, ' ')
+    .replace(
+      /[^\w\s₹.-]/g,
+      ' '
+    )
+    .replace(
+      /\s+/g,
+      ' '
+    )
     .trim();
 
 }
 
 
-// -----------------------------
-// Search jobs
-// -----------------------------
+// =========================================================
+// Job search
+// =========================================================
 
 function searchEvalLoopJobs(
   question
 ) {
 
   const q =
-    normalizeText(question);
+    normalizeText(
+      question
+    );
 
 
-  if (!evalLoopJobs.length) {
+  if (
+    !evalLoopJobs.length
+  ) {
+
     return [];
+
   }
 
 
   const words =
     q.split(' ')
       .filter(
-        word => word.length > 2
+        word =>
+          word.length > 2
       );
 
 
   const scoredJobs =
-    evalLoopJobs.map(job => {
+    evalLoopJobs.map(
+      job => {
 
-      const searchableText =
-        normalizeText(
-          [
-            job.company,
-            job.title,
-            job.description,
-            job.location,
-            job.duration,
-            job.highlight,
-            ...(job.tags || [])
-          ].join(' ')
+        const searchableText =
+          normalizeText(
+            [
+              job.company,
+              job.title,
+              job.description,
+              job.location,
+              job.duration,
+              job.highlight,
+              ...(job.tags || [])
+            ].join(' ')
+          );
+
+
+        let score =
+          0;
+
+
+        words.forEach(
+          word => {
+
+            if (
+              searchableText.includes(
+                word
+              )
+            ) {
+
+              score += 1;
+
+            }
+
+          }
         );
 
 
-      let score = 0;
+        const boosts = [
+
+          ['remote', 'remote'],
+
+          [
+            'work from home',
+            'work from home'
+          ],
+
+          ['llm', 'llm'],
+
+          [
+            'annotation',
+            'annotation'
+          ],
+
+          [
+            'evaluation',
+            'evaluation'
+          ],
+
+          [
+            'ai evaluator',
+            'evaluation'
+          ],
+
+          [
+            'hyderabad',
+            'hyderabad'
+          ],
+
+          [
+            'chennai',
+            'chennai'
+          ],
+
+          [
+            'pune',
+            'pune'
+          ],
+
+          [
+            'bangalore',
+            'bangalore'
+          ],
+
+          [
+            'bengaluru',
+            'bengaluru'
+          ]
+
+        ];
 
 
-      words.forEach(word => {
+        boosts.forEach(
+          ([trigger, match]) => {
+
+            if (
+              q.includes(trigger) &&
+              searchableText.includes(match)
+            ) {
+
+              score += 5;
+
+            }
+
+          }
+        );
+
 
         if (
-          searchableText.includes(word)
+          q.includes('fresher') ||
+          q.includes('freshers')
         ) {
-          score += 1;
-        }
-
-      });
-
-
-      const boosts = [
-
-        ['remote', 'remote'],
-
-        ['work from home', 'work from home'],
-
-        ['llm', 'llm'],
-
-        ['annotation', 'annotation'],
-
-        ['evaluation', 'evaluation'],
-
-        ['ai evaluator', 'evaluation'],
-
-        ['hyderabad', 'hyderabad'],
-
-        ['chennai', 'chennai'],
-
-        ['pune', 'pune'],
-
-        ['bangalore', 'bangalore'],
-
-        ['bengaluru', 'bengaluru']
-
-      ];
-
-
-      boosts.forEach(
-        ([trigger, match]) => {
 
           if (
-            q.includes(trigger) &&
-            searchableText.includes(match)
+            searchableText.includes(
+              'fresher'
+            )
           ) {
 
             score += 5;
@@ -1291,37 +1538,22 @@ function searchEvalLoopJobs(
           }
 
         }
-      );
 
 
-      if (
-        q.includes('fresher') ||
-        q.includes('freshers')
-      ) {
-
-        if (
-          searchableText.includes('fresher')
-        ) {
-
-          score += 5;
-
-        }
+        return {
+          job,
+          score
+        };
 
       }
-
-
-      return {
-        job,
-        score
-      };
-
-    });
+    );
 
 
   return scoredJobs
 
     .filter(
-      item => item.score > 0
+      item =>
+        item.score > 0
     )
 
     .sort(
@@ -1329,25 +1561,31 @@ function searchEvalLoopJobs(
         b.score - a.score
     )
 
-    .slice(0, 5)
+    .slice(
+      0,
+      5
+    )
 
     .map(
-      item => item.job
+      item =>
+        item.job
     );
 
 }
 
 
-// -----------------------------
-// Detect job searches
-// -----------------------------
+// =========================================================
+// Job detection
+// =========================================================
 
 function isJobSearch(
   question
 ) {
 
   const q =
-    normalizeText(question);
+    normalizeText(
+      question
+    );
 
 
   const jobKeywords = [
@@ -1384,9 +1622,9 @@ function isJobSearch(
 }
 
 
-// -----------------------------
+// =========================================================
 // Ask AI
-// -----------------------------
+// =========================================================
 
 async function askEvalLoopAI(
   question
@@ -1396,6 +1634,7 @@ async function askEvalLoopAI(
     await fetch(
       '/api/chat',
       {
+
         method: 'POST',
 
         headers: {
@@ -1403,14 +1642,18 @@ async function askEvalLoopAI(
             'application/json'
         },
 
-        body: JSON.stringify({
+        body:
+          JSON.stringify({
 
-          message: question,
+            message:
+              question,
 
-          history:
-            evalLoopConversation.slice(-12)
+            history:
+              evalLoopConversation.slice(
+                -12
+              )
 
-        })
+          })
 
       }
     );
@@ -1439,25 +1682,32 @@ async function askEvalLoopAI(
 
 
   return {
-    html: formatAIResponse(
+
+    html:
+      formatAIResponse(
+        data.answer
+      ),
+
+    text:
       data.answer
-    ),
-    text: data.answer
+
   };
 
 }
 
 
-// -----------------------------
-// Format AI response
-// -----------------------------
+// =========================================================
+// Format AI
+// =========================================================
 
 function formatAIResponse(
   text
 ) {
 
   let safeText =
-    escapeEvalLoopHTML(text);
+    escapeEvalLoopHTML(
+      text
+    );
 
 
   safeText =
@@ -1479,53 +1729,56 @@ function formatAIResponse(
 }
 
 
-// -----------------------------
+// =========================================================
 // Generate answer
-// -----------------------------
+// =========================================================
 
 async function generateEvalLoopAnswer(
   question
 ) {
 
   const q =
-    normalizeText(question);
+    normalizeText(
+      question
+    );
 
-
-  // Greetings
 
   if (
     q === 'hi' ||
     q === 'hello' ||
     q === 'hey' ||
-    q.includes('hello chatbot')
+    q.includes(
+      'hello chatbot'
+    )
   ) {
 
-    const answer = `
-      Hello! 👋
-      <br><br>
-      I'm <strong>EvalLoop AI</strong>.
-      I can answer AI/LLM questions and help you find opportunities.
-      <br><br>
-      Try asking:
-      <br><br>
-      • What is LLM evaluation?<br>
-      • What is RLHF?<br>
-      • What is SFT?<br>
-      • Show remote AI jobs<br>
-      • Find LLM evaluation jobs
-    `;
-
-
     return {
-      answer,
-      aiResponse: null,
-      speak: false
+
+      answer: `
+        Hello! 👋
+        <br><br>
+        I'm <strong>EvalLoop AI</strong>.
+        I can answer AI/LLM questions and help you find opportunities.
+        <br><br>
+        Try asking:
+        <br><br>
+        • What is LLM evaluation?<br>
+        • What is RLHF?<br>
+        • What is SFT?<br>
+        • Show remote AI jobs<br>
+        • Find LLM evaluation jobs
+      `,
+
+      aiResponse:
+        null,
+
+      speak:
+        false
+
     };
 
   }
 
-
-  // Resume
 
   if (
     q.includes('resume') ||
@@ -1537,18 +1790,22 @@ async function generateEvalLoopAnswer(
   ) {
 
     return {
+
       answer: `
         Send your resume and I'll pass along your preferred role, location, and work type — we'll use that to curate more relevant opportunities for you.
         ${resumeButtonHTML()}
       `,
-      aiResponse: null,
-      speak: false
+
+      aiResponse:
+        null,
+
+      speak:
+        false
+
     };
 
   }
 
-
-  // Total jobs
 
   if (
     q.includes('how many jobs') ||
@@ -1557,19 +1814,23 @@ async function generateEvalLoopAnswer(
   ) {
 
     return {
+
       answer: `
         Right now there are
         <strong>${evalLoopJobs.length}</strong>
         opportunities in the directory.
       `,
-      aiResponse: null,
-      speak: false
+
+      aiResponse:
+        null,
+
+      speak:
+        false
+
     };
 
   }
 
-
-  // Latest jobs
 
   if (
     q.includes('latest') ||
@@ -1589,22 +1850,30 @@ async function generateEvalLoopAnswer(
               )
             )
         )
-        .slice(0, 5);
+        .slice(
+          0,
+          5
+        );
 
 
     return {
-      answer: formatEvalLoopJobs(
-        latest,
-        'Here are the most recent opportunities:'
-      ),
-      aiResponse: null,
-      speak: false
+
+      answer:
+        formatEvalLoopJobs(
+          latest,
+          'Here are the most recent opportunities:'
+        ),
+
+      aiResponse:
+        null,
+
+      speak:
+        false
+
     };
 
   }
 
-
-  // Job search
 
   if (
     isJobSearch(question)
@@ -1616,21 +1885,31 @@ async function generateEvalLoopAnswer(
       );
 
 
-    if (results.length) {
+    if (
+      results.length
+    ) {
 
       return {
-        answer: formatEvalLoopJobs(
-          results,
-          `Found ${results.length} matching opportunit${results.length === 1 ? 'y' : 'ies'}:`
-        ),
-        aiResponse: null,
-        speak: false
+
+        answer:
+          formatEvalLoopJobs(
+            results,
+            `Found ${results.length} matching opportunit${results.length === 1 ? 'y' : 'ies'}:`
+          ),
+
+        aiResponse:
+          null,
+
+        speak:
+          false
+
       };
 
     }
 
 
     return {
+
       answer: `
         I couldn't find an exact match in the current EvalLoop Jobs directory.
         <br><br>
@@ -1642,14 +1921,17 @@ async function generateEvalLoopAnswer(
         • Show fresher jobs<br>
         • Show latest jobs
       `,
-      aiResponse: null,
-      speak: false
+
+      aiResponse:
+        null,
+
+      speak:
+        false
+
     };
 
   }
 
-
-  // General AI question
 
   const ai =
     await askEvalLoopAI(
@@ -1658,17 +1940,24 @@ async function generateEvalLoopAnswer(
 
 
   return {
-    answer: ai.html,
-    aiResponse: ai.text,
-    speak: true
+
+    answer:
+      ai.html,
+
+    aiResponse:
+      ai.text,
+
+    speak:
+      true
+
   };
 
 }
 
 
-// -----------------------------
-// Format jobs
-// -----------------------------
+// =========================================================
+// Job cards
+// =========================================================
 
 function formatEvalLoopJobs(
   jobs,
@@ -1676,107 +1965,134 @@ function formatEvalLoopJobs(
 ) {
 
   let html =
-    `${escapeEvalLoopHTML(heading)}`;
+    escapeEvalLoopHTML(
+      heading
+    );
 
 
-  jobs.forEach(job => {
+  jobs.forEach(
+    job => {
 
-    const tags =
-      (job.tags || [])
-        .slice(0, 3)
-        .map(
-          tag =>
-            `<span>${escapeEvalLoopHTML(tag)}</span>`
-        )
-        .join('');
-
-
-    const actions = [];
-
-
-    if (job.link) {
-
-      actions.push(
-        `<a href="${escapeAttribute(job.link)}" target="_blank" rel="noopener noreferrer">Apply ↗</a>`
-      );
-
-    }
+      const tags =
+        (job.tags || [])
+          .slice(
+            0,
+            3
+          )
+          .map(
+            tag =>
+              `<span>${escapeEvalLoopHTML(tag)}</span>`
+          )
+          .join('');
 
 
-    if (job.email) {
+      const actions =
+        [];
 
-      const subject =
-        encodeURIComponent(
-          `Application for ${job.title || 'the role'}`
+
+      if (job.link) {
+
+        actions.push(
+          `<a href="${escapeAttribute(job.link)}" target="_blank" rel="noopener noreferrer">Apply ↗</a>`
         );
 
+      }
 
-      actions.push(
-        `<a href="mailto:${escapeAttribute(job.email)}?subject=${subject}">Email CV ✉</a>`
-      );
+
+      if (job.email) {
+
+        const subject =
+          encodeURIComponent(
+            `Application for ${job.title || 'the role'}`
+          );
+
+
+        actions.push(
+          `<a href="mailto:${escapeAttribute(job.email)}?subject=${subject}">Email CV ✉</a>`
+        );
+
+      }
+
+
+      if (job.whatsapp) {
+
+        actions.push(
+          `<a href="https://wa.me/${escapeAttribute(job.whatsapp)}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>`
+        );
+
+      }
+
+
+      html += `
+
+        <div class="evalbot-job">
+
+          <strong>
+            ${escapeEvalLoopHTML(
+              job.title ||
+              'Opportunity'
+            )}
+          </strong>
+
+
+          <small>
+            ${escapeEvalLoopHTML(
+              job.company ||
+              'Company not specified'
+            )}
+          </small>
+
+
+          <small>
+            📍
+            ${escapeEvalLoopHTML(
+              job.location ||
+              'Location not specified'
+            )}
+          </small>
+
+
+          ${
+            job.highlight
+              ? `
+                <small>
+                  💰
+                  ${escapeEvalLoopHTML(
+                    job.highlight
+                  )}
+                </small>
+              `
+              : ''
+          }
+
+
+          ${
+            tags
+              ? `
+                <div class="evalbot-job-tags">
+                  ${tags}
+                </div>
+              `
+              : ''
+          }
+
+
+          ${
+            actions.length
+              ? `
+                <div class="evalbot-job-actions">
+                  ${actions.join('')}
+                </div>
+              `
+              : ''
+          }
+
+        </div>
+
+      `;
 
     }
-
-
-    if (job.whatsapp) {
-
-      actions.push(
-        `<a href="https://wa.me/${escapeAttribute(job.whatsapp)}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>`
-      );
-
-    }
-
-
-    html += `
-
-      <div class="evalbot-job">
-
-        <strong>
-          ${escapeEvalLoopHTML(
-            job.title || 'Opportunity'
-          )}
-        </strong>
-
-        <small>
-          ${escapeEvalLoopHTML(
-            job.company ||
-            'Company not specified'
-          )}
-        </small>
-
-        <small>
-          📍
-          ${escapeEvalLoopHTML(
-            job.location ||
-            'Location not specified'
-          )}
-        </small>
-
-        ${
-          job.highlight
-            ? `<small>💰 ${escapeEvalLoopHTML(
-                job.highlight
-              )}</small>`
-            : ''
-        }
-
-        ${
-          tags
-            ? `<div class="evalbot-job-tags">${tags}</div>`
-            : ''
-        }
-
-        ${
-          actions.length
-            ? `<div class="evalbot-job-actions">${actions.join('')}</div>`
-            : ''
-        }
-
-      </div>
-
-    `;
-
-  });
+  );
 
 
   return html;
@@ -1784,13 +2100,17 @@ function formatEvalLoopJobs(
 }
 
 
-// -----------------------------
+// =========================================================
 // Security
-// -----------------------------
+// =========================================================
 
-function escapeEvalLoopHTML(value) {
+function escapeEvalLoopHTML(
+  value
+) {
 
-  return String(value || '')
+  return String(
+    value || ''
+  )
 
     .replace(
       /&/g,
@@ -1820,9 +2140,13 @@ function escapeEvalLoopHTML(value) {
 }
 
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
-  return String(value || '')
+  return String(
+    value || ''
+  )
 
     .replace(
       /"/g,
@@ -1837,13 +2161,13 @@ function escapeAttribute(value) {
 }
 
 
-// -----------------------------
-// Start chatbot
-// -----------------------------
+// =========================================================
+// Start
+// =========================================================
 
 loadEvalLoopJobs()
-  .then(() => {
-
-    createEvalLoopChatbot();
-
-  });
+  .then(
+    () => {
+      createEvalLoopChatbot();
+    }
+  );
