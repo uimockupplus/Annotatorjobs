@@ -191,6 +191,7 @@
 }
 
 .evalbot-icon {
+  position: relative;
   width: 34px;
   height: 34px;
   flex-shrink: 0;
@@ -202,6 +203,32 @@
   justify-content: center;
   font-size: 15px;
   box-shadow: 0 4px 12px rgba(37, 136, 255, .3);
+}
+
+.evalbot-icon::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--ev-accent);
+  opacity: .5;
+  animation: evalbotRing 2.4s ease-out infinite;
+}
+
+@keyframes evalbotRing {
+  0% { transform: scale(.85); opacity: .5; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
+.evalbot-status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, .6);
+  vertical-align: middle;
 }
 
 .evalbot-title strong {
@@ -239,9 +266,9 @@
 
 #evalbot-messages {
   flex: 1;
-  padding: 16px;
+  padding: 4px 0;
   overflow-y: auto;
-  background: var(--ev-surface);
+  background: var(--ev-panel);
   display: flex;
   flex-direction: column;
 }
@@ -255,36 +282,64 @@
   border-radius: 6px;
 }
 
-.evalbot-message {
-  max-width: 88%;
-  padding: 11px 13px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.55;
+/* Full-width message rows with avatars — the structural signature of
+   modern LLM chat UIs (ChatGPT/Claude), rather than left/right bubbles. */
+.evalbot-turn {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  animation: evalbotTurnIn .25s ease;
 }
 
-.evalbot-bot {
-  background: var(--ev-panel);
-  border: 1px solid var(--ev-border);
-  color: var(--ev-ink);
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+.evalbot-turn-user {
+  background: var(--ev-surface);
 }
 
-.evalbot-user {
-  align-self: flex-end;
-  background: var(--ev-accent);
+@keyframes evalbotTurnIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.evalbot-avatar {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.evalbot-turn-bot .evalbot-avatar {
+  background: linear-gradient(135deg, var(--ev-accent), var(--ev-accent-hover));
   color: #ffffff;
-  border-bottom-right-radius: 4px;
+  box-shadow: 0 0 0 3px var(--ev-accent-tint);
+}
+
+.evalbot-turn-user .evalbot-avatar {
+  background: #e4e8f0;
+  color: var(--ev-muted);
+  font-size: 9px;
+}
+
+.evalbot-turn-body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 3px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ev-ink);
 }
 
 .evalbot-typing {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 13px 15px;
+  padding: 3px 0;
 }
 
 .evalbot-typing span {
@@ -305,9 +360,10 @@
 
 .evalbot-job {
   margin-top: 10px;
-  padding: 12px;
+  padding: 12px 12px 12px 13px;
   border: 1px solid var(--ev-border);
-  border-radius: 10px;
+  border-left: 3px solid var(--ev-accent);
+  border-radius: 8px;
   background: var(--ev-panel);
   box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
 }
@@ -499,6 +555,15 @@
   color: #ffffff;
 }
 
+.evalbot-disclaimer {
+  padding: 8px 16px 12px;
+  background: var(--ev-panel);
+  color: var(--ev-muted);
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.4;
+}
+
 @media (max-width: 500px) {
   #evalbot {
     right: 12px;
@@ -524,7 +589,9 @@
 @media (prefers-reduced-motion: reduce) {
   #evalbot.open,
   .evalbot-typing span,
-  #evalbot-toggle {
+  #evalbot-toggle,
+  .evalbot-icon::after,
+  .evalbot-turn {
     animation: none;
     transition: none;
   }
