@@ -4,7 +4,7 @@
 
 let evalLoopJobs = [];
 
-const EVALLOOP_RESUME_EMAIL = 'techultron2020@gmail.com';
+const EVALLOOP_RESUME_EMAIL = 'uimockup.plus@gmail.com';
 
 
 // -----------------------------
@@ -103,7 +103,7 @@ function createEvalLoopChatbot() {
 
           <div>
             <strong>EvalLoop AI</strong>
-            <small>AI & Job Assistant</small>
+            <small><span class="evalbot-status-dot"></span>Online · AI & Job Assistant</small>
           </div>
 
         </div>
@@ -117,57 +117,63 @@ function createEvalLoopChatbot() {
 
       <div id="evalbot-messages">
 
-        <div class="evalbot-message evalbot-bot">
+        <div class="evalbot-turn evalbot-turn-bot">
 
-          Hi! I'm <strong>EvalLoop AI</strong> 🚀
+          <div class="evalbot-avatar">◉</div>
 
-          <br><br>
+          <div class="evalbot-turn-body">
 
-          I can answer AI/LLM questions and help you find opportunities from the directory.
+            Hi! I'm <strong>EvalLoop AI</strong> 🤖
 
-          <div class="evalbot-suggestions">
+            <br><br>
 
-            <button
-              class="evalbot-suggestion"
-              data-question="What is LLM evaluation?"
-            >
-              What is LLM evaluation?
-            </button>
+            I can answer AI/LLM questions and help you find opportunities from the directory.
 
-            <button
-              class="evalbot-suggestion"
-              data-question="Show me remote jobs"
-            >
-              Remote jobs
-            </button>
+            <div class="evalbot-suggestions">
 
-            <button
-              class="evalbot-suggestion"
-              data-question="Show LLM evaluation jobs"
-            >
-              LLM jobs
-            </button>
+              <button
+                class="evalbot-suggestion"
+                data-question="What is LLM evaluation?"
+              >
+                What is LLM evaluation?
+              </button>
 
-            <button
-              class="evalbot-suggestion"
-              data-question="Show jobs for freshers"
-            >
-              Fresher jobs
-            </button>
+              <button
+                class="evalbot-suggestion"
+                data-question="Show me remote jobs"
+              >
+                Remote jobs
+              </button>
 
-            <button
-              class="evalbot-suggestion"
-              data-question="Show data annotation jobs"
-            >
-              Annotation jobs
-            </button>
+              <button
+                class="evalbot-suggestion"
+                data-question="Show LLM evaluation jobs"
+              >
+                LLM jobs
+              </button>
 
-            <button
-              class="evalbot-suggestion"
-              data-question="Send my resume"
-            >
-              Send my resume
-            </button>
+              <button
+                class="evalbot-suggestion"
+                data-question="Show jobs for freshers"
+              >
+                Fresher jobs
+              </button>
+
+              <button
+                class="evalbot-suggestion"
+                data-question="Show data annotation jobs"
+              >
+                Annotation jobs
+              </button>
+
+              <button
+                class="evalbot-suggestion"
+                data-question="Send my resume"
+              >
+                Send my resume
+              </button>
+
+            </div>
 
           </div>
 
@@ -206,6 +212,10 @@ function createEvalLoopChatbot() {
           ↗
         </button>
 
+      </div>
+
+      <div class="evalbot-disclaimer">
+        EvalLoop AI can make mistakes. Verify details before applying.
       </div>
 
     </div>
@@ -345,8 +355,8 @@ function startEvalLoopLabelLoop(label) {
   if (!label) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const SHOW_MS = 25000;   // how long the label stays visible each time
-  const HIDE_MS = 2000;  // how long it stays hidden before showing again
+  const SHOW_MS = 5000;  // how long the label stays visible each time
+  const HIDE_MS = 8000;  // how long it stays hidden before showing again
 
   if (reducedMotion) {
     // Respect the OS-level preference: show it once, statically, no looping.
@@ -446,23 +456,35 @@ function addEvalLoopMessage(
       'evalbot-messages'
     );
 
-  const message =
+  const turn =
     document.createElement('div');
 
-  message.className =
-    `evalbot-message evalbot-${type}`;
+  turn.className =
+    `evalbot-turn evalbot-turn-${type}`;
 
-  message.innerHTML =
-    content;
+  const avatar =
+    document.createElement('div');
+
+  avatar.className = 'evalbot-avatar';
+  avatar.textContent = type === 'user' ? 'You' : '◉';
+
+  const body =
+    document.createElement('div');
+
+  body.className = 'evalbot-turn-body';
+  body.innerHTML = content;
+
+  turn.appendChild(avatar);
+  turn.appendChild(body);
 
   messages.appendChild(
-    message
+    turn
   );
 
   messages.scrollTop =
     messages.scrollHeight;
 
-  return message;
+  return turn;
 
 }
 
@@ -474,23 +496,27 @@ function showEvalLoopTyping() {
       'evalbot-messages'
     );
 
-  const typing =
+  const turn =
     document.createElement('div');
 
-  typing.className =
-    'evalbot-message evalbot-bot evalbot-typing';
+  turn.className =
+    'evalbot-turn evalbot-turn-bot';
 
-  typing.innerHTML =
-    '<span></span><span></span><span></span>';
+  turn.innerHTML = `
+    <div class="evalbot-avatar">◉</div>
+    <div class="evalbot-turn-body">
+      <div class="evalbot-typing"><span></span><span></span><span></span></div>
+    </div>
+  `;
 
   messages.appendChild(
-    typing
+    turn
   );
 
   messages.scrollTop =
     messages.scrollHeight;
 
-  return typing;
+  return turn;
 
 }
 
