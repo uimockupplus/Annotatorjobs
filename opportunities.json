@@ -2,7 +2,7 @@
   {
   "company": "Abstrabit",
   "title": "AI Engineering Intern",
-  "description": "Work on the AI engineering layer of production AI systems, including deploying and evaluating open-weight language and embedding models, building inference and retrieval pipelines, developing RAG systems, creating evaluation datasets, experimenting with model configurations, and investigating model failures. The role provides hands-on exposure to Python, LLM inference, embeddings, vector databases, evaluation frameworks, GPUs, containers, cloud infrastructure, and model-serving technologies. Strong Python fundamentals, programming and problem-solving skills, basic knowledge of APIs, Git and software development, and at least one meaningful technical project are required. Prior experience with model deployment, RAG, PyTorch, Hugging Face, vector databases, GPUs, or cloud infrastructure is useful but not required.",
+  "description": "Work on production AI systems by deploying and evaluating open-weight models, building RAG and inference pipelines, creating evaluation datasets, and investigating model performance. Gain hands-on experience with Python, LLMs, embeddings, vector databases, GPUs, cloud infrastructure, and model serving. Strong Python, programming, API, Git, and problem-solving skills are required; prior AI engineering experience is a plus but not mandatory.",
   "tags": ["AI Engineering", "LLM", "RAG", "AI Evaluation", "Model Deployment", "Python", "AI Infrastructure"],
   "location": "Brigade Metro Rd, Brigade Metropolis, Garudachar Palya, Mahadevapura, Bengaluru, Karnataka 560048, India",
   "duration": "Internship",
