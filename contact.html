@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Contact EvalLoop Jobs for questions, opportunity corrections, partnerships, submissions and general enquiries.">
+
+<title>Contact — EvalLoop Jobs</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="chatbot.css">
+</head>
+
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<div class="shell">
+
+<header class="header">
+
+<a href="index.html" class="logo">
+<span class="logo-mark">◉</span>
+<span>EvalLoop Jobs</span>
+</a>
+
+<nav class="nav">
+<a href="opportunities.html">Opportunities</a>
+<a href="about.html">About</a>
+<a href="index.html#how">How it works</a>
+</nav>
+
+<a href="opportunities.html" class="top-cta">Explore roles ↗</a>
+
+</header>
+
+
+<main class="page wrap">
+
+<div class="eyebrow">CONNECT / 06</div>
+
+<h1 class="page-title">
+Let's keep the <em>loop</em> open.
+</h1>
+
+<p class="page-intro">
+Have a question, found an outdated opportunity, want to discuss a partnership, or need to reach the EvalLoop team? Send a message.
+</p>
+
+
+<div class="content-grid">
+
+<section class="panel">
+
+<h2>Contact EvalLoop.</h2>
+
+<p>
+For the fastest response, email us directly. Please include enough context for us to understand what you need.
+</p>
+
+<div class="contact-list">
+
+<a class="contact-item" href="mailto:evalloopjobs@gmail.com">
+<span class="contact-label">General email</span>
+<span class="contact-value">evalloopjobs@gmail.com ↗</span>
+</a>
+
+<a class="contact-item" href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">
+<span class="contact-label">LinkedIn</span>
+<span class="contact-value">EvalLoop Jobs ↗</span>
+</a>
+
+</div>
+
+</section>
+
+
+<section class="panel panel-blue">
+
+<h2>Good reasons to reach out.</h2>
+
+<ul>
+<li>Report an outdated opportunity</li>
+<li>Submit an AI job or project</li>
+<li>Discuss partnerships</li>
+<li>Ask about the contributor network</li>
+<li>Suggest a correction</li>
+<li>General website questions</li>
+</ul>
+
+</section>
+
+</div>
+
+
+<form class="form-card"
+action="mailto:evalloopjobs@gmail.com"
+method="post"
+enctype="text/plain">
+
+<div class="form-grid">
+
+<div class="field">
+<label for="name">Name *</label>
+<input id="name" name="Name" required placeholder="Your name">
+</div>
+
+
+<div class="field">
+<label for="email">Email *</label>
+<input id="email" name="Email" type="email" required placeholder="you@example.com">
+</div>
+
+
+<div class="field full">
+<label for="reason">Reason *</label>
+
+<select id="reason" name="Reason" required>
+<option value="">Select a reason</option>
+<option>General question</option>
+<option>Opportunity correction</option>
+<option>Submit an opportunity</option>
+<option>Partnership</option>
+<option>Contributor network</option>
+<option>Report suspicious listing</option>
+<option>Other</option>
+</select>
+
+</div>
+
+
+<div class="field full">
+<label for="message">Message *</label>
+
+<textarea
+id="message"
+name="Message"
+required
+placeholder="How can we help?"></textarea>
+
+</div>
+
+</div>
+
+
+<div class="form-submit">
+
+<button class="btn primary" type="submit">
+Send message ↗
+</button>
+
+</div>
+
+</form>
+
+
+</main>
+
+
+<footer class="footer wrap">
+
+<a href="index.html" class="logo">
+<span class="logo-mark">◉</span>
+<span>EvalLoop Jobs</span>
+</a>
+
+<span>Curated pathways into the work behind better AI.</span>
+
+<nav class="footer-links">
+<a href="about.html">About</a>
+<a href="opportunities.html">Opportunities</a>
+<a href="submit-opportunity.html">Submit Opportunity</a>
+<a href="join-network.html">Join Network</a>
+<a class="footer-current" href="contact.html">Contact</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+<a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+</nav>
+
+</footer>
+
+</div>
+
+<script src="chatbot.js"></script>
+
+<script>
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+
+let mx=innerWidth/2;
+let my=innerHeight/2;
+let rx=mx;
+let ry=my;
+
+addEventListener('pointermove',e=>{
+mx=e.clientX;
+my=e.clientY;
+dot.style.left=mx+'px';
+dot.style.top=my+'px';
+});
+
+(function tick(){
+rx+=(mx-rx)*.16;
+ry+=(my-ry)*.16;
+ring.style.left=rx+'px';
+ring.style.top=ry+'px';
+requestAnimationFrame(tick);
+})();
+
+document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+el.onmouseenter=()=>{
+ring.classList.add('active');
+dot.classList.add('hot');
+};
+
+el.onmouseleave=()=>{
+ring.classList.remove('active');
+dot.classList.remove('hot');
+};
+});
+</script>
+
+</body>
+</html>
