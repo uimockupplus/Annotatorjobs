@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Learn about EvalLoop Jobs, a curated hub for AI training, annotation, evaluation, expert, and GenAI opportunities.">
+
+<title>About — EvalLoop Jobs</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="chatbot.css">
+</head>
+
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<div class="shell">
+
+<header class="header">
+
+<a href="index.html" class="logo">
+<span class="logo-mark">◉</span>
+<span>EvalLoop Jobs</span>
+</a>
+
+<nav class="nav">
+<a href="opportunities.html">Opportunities</a>
+<a href="about.html">About</a>
+<a href="index.html#how">How it works</a>
+</nav>
+
+<a href="opportunities.html" class="top-cta">Explore roles ↗</a>
+
+</header>
+
+<main class="page wrap">
+
+<div class="eyebrow">ABOUT / 01</div>
+
+<h1 class="page-title">
+A clearer path into the <em>AI work</em> economy.
+</h1>
+
+<p class="page-intro">
+EvalLoop Jobs is a curated opportunity hub for people looking for work across AI training, annotation, evaluation, GenAI, agentic systems, expert review, voice and data projects, and related fields.
+</p>
+
+
+<div class="content-grid">
+
+<section class="panel">
+<h2>Why EvalLoop exists.</h2>
+
+<p>
+AI work is growing quickly, but finding legitimate opportunities can still mean searching across many different platforms, communities, company pages, and project boards.
+</p>
+
+<p>
+EvalLoop Jobs brings those signals into one place so contributors can spend less time hunting and more time understanding the opportunity itself.
+</p>
+
+<p>
+The goal is simple: make useful AI-work opportunities easier to discover, compare, and reach through their official application channels.
+</p>
+</section>
+
+
+<section class="panel panel-blue">
+
+<h2>The simple loop.</h2>
+
+<div class="signal-grid">
+
+<div class="signal">
+<div class="signal-number">01</div>
+<h3>Discover</h3>
+<p>Find relevant AI work from a focused opportunity directory.</p>
+</div>
+
+<div class="signal">
+<div class="signal-number">02</div>
+<h3>Check</h3>
+<p>Review the role, requirements, location, compensation and platform.</p>
+</div>
+
+<div class="signal">
+<div class="signal-number">03</div>
+<h3>Apply</h3>
+<p>Follow the official application route and complete the platform's process.</p>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<section class="panel" style="margin-top:22px">
+
+<h2>Who is it for?</h2>
+
+<p>
+EvalLoop is designed for people exploring practical ways to participate in the AI economy, including:
+</p>
+
+<div class="signal-grid">
+
+<div class="signal">
+<div class="signal-number">AI / LLM</div>
+<h3>AI Evaluators</h3>
+<p>People interested in model evaluation, preference ranking, quality review and AI response assessment.</p>
+</div>
+
+<div class="signal">
+<div class="signal-number">DATA</div>
+<h3>Annotators</h3>
+<p>Contributors working with text, image, video, audio, speech, grounding and multimodal data.</p>
+</div>
+
+<div class="signal">
+<div class="signal-number">EXPERT</div>
+<h3>Subject Experts</h3>
+<p>Professionals who can contribute domain knowledge to AI training and evaluation projects.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="panel" style="margin-top:22px">
+
+<h2>What you will find here.</h2>
+
+<ul>
+<li>AI training and evaluation opportunities</li>
+<li>Data annotation and labeling projects</li>
+<li>LLM and GenAI evaluation work</li>
+<li>Expert and specialist AI projects</li>
+<li>Voice, speech and language-data opportunities</li>
+<li>Agentic AI and multimodal projects</li>
+<li>Contributor networks and referral platforms</li>
+</ul>
+
+</section>
+
+
+<div class="cta">
+
+<h2>Ready to find your next signal?</h2>
+
+<p>
+Browse the current opportunity directory or join the EvalLoop network if you want to be considered for future AI work opportunities.
+</p>
+
+<div class="actions">
+<a href="opportunities.html" class="btn primary">Browse opportunities ↗</a>
+<a href="join-network.html" class="btn secondary">Join the network →</a>
+</div>
+
+</div>
+
+</main>
+
+
+<footer class="footer wrap">
+
+<a href="index.html" class="logo">
+<span class="logo-mark">◉</span>
+<span>EvalLoop Jobs</span>
+</a>
+
+<span>Curated pathways into the work behind better AI.</span>
+
+<nav class="footer-links" aria-label="Footer">
+<a class="footer-current" href="about.html">About</a>
+<a href="opportunities.html">Opportunities</a>
+<a href="submit-opportunity.html">Submit Opportunity</a>
+<a href="join-network.html">Join Network</a>
+<a href="contact.html">Contact</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+<a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+</nav>
+
+</footer>
+
+</div>
+
+<script src="chatbot.js"></script>
+
+<script>
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+
+let mx=innerWidth/2;
+let my=innerHeight/2;
+let rx=mx;
+let ry=my;
+
+addEventListener('pointermove',e=>{
+mx=e.clientX;
+my=e.clientY;
+dot.style.left=mx+'px';
+dot.style.top=my+'px';
+});
+
+(function tick(){
+rx+=(mx-rx)*.16;
+ry+=(my-ry)*.16;
+ring.style.left=rx+'px';
+ring.style.top=ry+'px';
+requestAnimationFrame(tick);
+})();
+
+document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+el.onmouseenter=()=>{
+ring.classList.add('active');
+dot.classList.add('hot');
+};
+
+el.onmouseleave=()=>{
+ring.classList.remove('active');
+dot.classList.remove('hot');
+};
+});
+</script>
+
+</body>
+</html>
