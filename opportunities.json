@@ -1,17 +1,5 @@
 [
   {
-  "company": "Roborax",
-  "title": "Annotation Specialist – Robotics Data",
-  "description": "Work on robotics datasets involving action segmentation, affordance masks, and language captions. Hiring is based on gold-set calibration, with performance-based tiering and advancement. Work on real robotics platforms and production programs.",
-  "tags": ["Robotics Data Annotation", "Action Segmentation", "Affordance Masks", "Language Captions", "AI Training", "Computer Vision", "Data Annotation"],
-  "location": "Remote · Multiple Countries",
-  "duration": "Full-Time / Ongoing Programs",
-  "highlight": "Calibration-Based Hiring · Performance-Based Tiering · Robotics Data",
-  "email": "careers@roborax.ai",
-  "whatsapp": "",
-  "link": ""
-  },
-  {
   "company": "WonderBotz",
   "title": "Junior AI Engineer",
   "description": "Hiring Junior AI Engineers to build and deploy Generative AI and Agentic AI solutions under senior engineer guidance. Work includes LLM applications, RAG pipelines, agentic workflows, vector databases, prompt engineering, REST APIs, cloud services, AI evaluation, and CI/CD. Strong Python skills and foundational knowledge of LLMs, RAG, and prompt engineering are required.",
