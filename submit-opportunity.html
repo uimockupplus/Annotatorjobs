@@ -58,9 +58,13 @@ Submit an AI training, evaluation, annotation, expert, voice, data, GenAI, or ag
 
 
 <form class="form-card"
-action="mailto:evalloopjobs@gmail.com"
-method="post"
-enctype="text/plain">
+action="https://formsubmit.co/evalloopjobs@gmail.com"
+method="POST">
+
+<input type="hidden" name="_subject" value="New Opportunity Submission — EvalLoop Jobs">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://annotatorjobs.vercel.app/submit-opportunity.html">
 
 <div class="form-note">
 <strong>Before submitting:</strong>
@@ -152,7 +156,7 @@ Please provide an official opportunity or application link wherever possible. We
 <div class="field full">
 
 <label class="checkbox">
-<input type="checkbox" required>
+<input type="checkbox" name="Confirmation" value="Confirmed" required>
 <span>
 I confirm that the information submitted is accurate to the best of my knowledge and that I am authorized to share this opportunity.
 </span>
