@@ -1,5 +1,17 @@
 [
   {
+  "company": "WonderBotz",
+  "title": "Junior AI Engineer",
+  "description": "Hiring Junior AI Engineers to build and deploy Generative AI and Agentic AI solutions under senior engineer guidance. Work includes LLM applications, RAG pipelines, agentic workflows, vector databases, prompt engineering, REST APIs, cloud services, AI evaluation, and CI/CD. Strong Python skills and foundational knowledge of LLMs, RAG, and prompt engineering are required.",
+  "tags": ["Junior AI Engineer", "Generative AI", "Agentic AI", "LLM", "RAG", "LangChain", "LangGraph", "Python", "AI Engineering", "Prompt Engineering"],
+  "location": "Ahmedabad, Gujarat, India · Work From Office",
+  "duration": "Full-Time",
+  "highlight": "0–3 Years Experience · Immediate Start · Competitive Salary",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://wonderbotz.applytojob.com/apply/RbPIL43iH6/Junior-AI-Engineer?source=LILI"
+  },
+  {
   "company": "CyberMeru Technologies",
   "title": "AI Engineer",
   "description": "Hiring AI Engineers with 2–3 years of experience to build GenAI, RAG, and multi-agent applications. Work with LangChain, Claude, Gemini, MCP, PyTorch/TensorFlow, Python, FastAPI, Django, vector databases, SQL, Redis, Celery, Docker, and AWS.",
