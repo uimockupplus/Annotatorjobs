@@ -654,6 +654,11 @@ h1 em,
   font-size:11px;
 }
 
+
+/* =========================
+   REFERRAL CARDS
+========================= */
+
 .cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -666,19 +671,43 @@ h1 em,
   display:flex;
   flex-direction:column;
   padding:21px;
+  position:relative;
+  overflow:hidden;
+
   border:1px solid var(--border);
-  border-radius:6px;
-  background:linear-gradient(145deg,rgba(17,29,54,.9),rgba(15,25,48,.84));
-  transition:.25s;
+  border-radius:12px;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(37,136,255,.14),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(17,29,54,.98),
+      rgba(11,20,40,.96)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.24),
+    0 0 34px rgba(37,136,255,.06);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+
   will-change:transform;
 }
 
 .card:hover{
-  border-color:var(--lime);
-  transform:translateY(-5px);
+  border-color:rgba(77,179,255,.65);
+  transform:translateY(-7px);
+
   box-shadow:
-    0 18px 38px rgba(0,0,0,.25),
-    0 0 28px rgba(37,136,255,.12);
+    0 30px 70px rgba(0,0,0,.32),
+    0 0 42px rgba(37,136,255,.12);
 }
 
 .card-top,
@@ -1151,8 +1180,7 @@ h1 em,
 
 
 /* =========================================================
-   NEW HOMEPAGE ACTION SECTIONS
-   SUBMIT / JOIN / CONTACT
+   HOMEPAGE ACTION SECTIONS
 ========================================================= */
 
 .home-actions{
@@ -1161,9 +1189,6 @@ h1 em,
   padding-top:0;
   padding-bottom:105px;
 }
-
-
-/* Large full-width editorial card */
 
 .action-card{
   position:relative;
@@ -1201,21 +1226,7 @@ h1 em,
 }
 
 
-/* Giant background number */
-
-.action-card:before{
-  content:attr(data-number);
-  position:absolute;
-  right:-18px;
-  bottom:-65px;
-  color:rgba(77,179,255,.035);
-  font:700 240px/.8 "Space Grotesk";
-  letter-spacing:-.12em;
-  pointer-events:none;
-}
-
-
-/* Grid lines */
+/* Grid lines only — no giant background numbers */
 
 .action-card:after{
   content:"";
@@ -1484,7 +1495,7 @@ h1 em,
 
 
 /* =========================
-   CLOSING
+   CLOSING / KEEP IN TOUCH
 ========================= */
 
 .closing{
@@ -1492,15 +1503,84 @@ h1 em,
 }
 
 .closing-card{
+  position:relative;
+  overflow:hidden;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:30px;
+
   padding:43px 47px;
+
   color:var(--ink);
-  background:linear-gradient(120deg,#15233f,#111d36);
-  border:1px solid var(--lime);
-  box-shadow:0 0 32px rgba(37,136,255,.12);
+
+  border:1px solid rgba(77,179,255,.35);
+  border-radius:12px;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(37,136,255,.14),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(17,29,54,.98),
+      rgba(11,20,40,.96)
+    );
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.28),
+    0 0 38px rgba(37,136,255,.08);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.closing-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.3;
+
+  background-image:
+    linear-gradient(
+      rgba(77,179,255,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(77,179,255,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:42px 42px;
+
+  mask-image:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      black 45%,
+      transparent 100%
+    );
+}
+
+.closing-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.closing-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(77,179,255,.65);
+
+  box-shadow:
+    0 36px 80px rgba(0,0,0,.34),
+    0 0 45px rgba(37,136,255,.12);
 }
 
 .closing-card h2{
@@ -1838,8 +1918,6 @@ h1 em,
   }
 
 
-  /* Action cards on tablet */
-
   .action-card{
     grid-template-columns:1fr;
     gap:45px;
@@ -2098,7 +2176,7 @@ h1 em,
   }
 
 
-  /* Big action sections on mobile */
+  /* Action cards on mobile */
 
   .home-actions{
     padding-bottom:70px;
@@ -2110,12 +2188,6 @@ h1 em,
     gap:0;
     padding:34px 24px 28px;
     border-radius:10px;
-  }
-
-  .action-card:before{
-    font-size:150px;
-    right:-10px;
-    bottom:-35px;
   }
 
   .action-card h3{
@@ -2841,943 +2913,3 @@ JOIN THE NETWORK / 07
 </div>
 
 <div class="action-icon">
-◎
-</div>
-
-<h3>
-Want to work with <em>EvalLoop Jobs?</em>
-</h3>
-
-<p>
-Join the EvalLoop network and stay connected to AI training, evaluation, annotation, expert work, and other opportunities across the AI work ecosystem.
-</p>
-
-<div class="action-bottom">
-
-<a
-class="action-link"
-href="join-network.html"
->
-Join the network →
-</a>
-
-</div>
-
-</div>
-
-
-<div class="action-panel">
-
-<div class="action-panel-top">
-
-<span>
-NETWORK SIGNAL
-</span>
-
-<span class="action-live">
-<i></i>
-CONNECT
-</span>
-
-</div>
-
-<div class="action-lines">
-
-<div class="action-line">
-
-<span class="action-line-index">
-01
-</span>
-
-<div class="action-line-content">
-
-<b>Get discovered</b>
-
-<span>
-Share your skills, experience, interests, and the kind of AI work you want to pursue.
-</span>
-
-</div>
-
-</div>
-
-
-<div class="action-line">
-
-<span class="action-line-index">
-02
-</span>
-
-<div class="action-line-content">
-
-<b>Find relevant work</b>
-
-<span>
-Stay connected to opportunities that match your profile, experience, and preferred work type.
-</span>
-
-</div>
-
-</div>
-
-
-<div class="action-line">
-
-<span class="action-line-index">
-03
-</span>
-
-<div class="action-line-content">
-
-<b>Keep growing</b>
-
-<span>
-Build experience across evaluation, annotation, AI training, expert work, and emerging AI roles.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="action-bottom">
-
-<span class="action-label">
-PROFILE · AI WORK · NETWORK · OPPORTUNITIES
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     08 / CONTACT
-===================================================== -->
-
-<section
-id="contact"
-class="home-actions wrap contact-action"
->
-
-<div class="action-card reveal" data-number="03">
-
-<div class="action-main">
-
-<div class="action-number">
-OPEN CHANNEL / 08
-</div>
-
-<div class="action-icon">
-✉
-</div>
-
-<h3>
-Have a question? <em>Let's connect.</em>
-</h3>
-
-<p>
-For questions, suggestions, partnerships, or website feedback, send a message to EvalLoop Jobs and start a conversation.
-</p>
-
-<div class="action-bottom">
-
-<a
-class="action-link"
-href="contact.html"
->
-Contact EvalLoop →
-</a>
-
-</div>
-
-</div>
-
-
-<div class="action-panel">
-
-<div class="action-panel-top">
-
-<span>
-DIRECT COMMUNICATION
-</span>
-
-<span class="action-live">
-<i></i>
-ONLINE
-</span>
-
-</div>
-
-<div class="action-lines">
-
-<div class="action-line">
-
-<span class="action-line-index">
-01
-</span>
-
-<div class="action-line-content">
-
-<b>Questions</b>
-
-<span>
-Ask about the directory, opportunities, referrals, or how EvalLoop Jobs works.
-</span>
-
-</div>
-
-</div>
-
-
-<div class="action-line">
-
-<span class="action-line-index">
-02
-</span>
-
-<div class="action-line-content">
-
-<b>Feedback</b>
-
-<span>
-Tell us what would make the website and opportunity discovery experience more useful.
-</span>
-
-</div>
-
-</div>
-
-
-<div class="action-line">
-
-<span class="action-line-index">
-03
-</span>
-
-<div class="action-line-content">
-
-<b>Partnerships</b>
-
-<span>
-Reach out if you want to collaborate with the EvalLoop Jobs network or contribute opportunities.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="action-bottom">
-
-<span class="action-label">
-QUESTIONS · FEEDBACK · PARTNERSHIPS · SUPPORT
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CLOSING
-========================= -->
-
-<section class="closing wrap">
-
-<div class="closing-card">
-
-<div>
-
-<div class="eyebrow">
-KEEP IN TOUCH
-</div>
-
-<h2>
-Want the next good lead?
-</h2>
-
-<p>
-Recent opportunity posts and practical application notes are coming soon.
-</p>
-
-</div>
-
-<div class="op-actions closing-actions">
-
-<a
-class="btn dark-btn"
-href="mailto:evalloopjobs@gmail.com?subject=AI%20Training%20Jobs%20update"
->
-Get updates ✉
-</a>
-
-<a
-class="btn dark-btn"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-Follow on LinkedIn ↗
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer wrap">
-
-<a href="#top" class="logo">
-
-<span class="logo-mark">◉</span>
-
-<span>EvalLoopjobs</span>
-
-</a>
-
-<span>
-Curated pathways into the work behind better AI.
-</span>
-
-<nav class="footer-links" aria-label="Footer">
-
-<a class="back" href="about.html">
-About
-</a>
-
-<a class="back" href="opportunities.html">
-Opportunities
-</a>
-
-<a class="back" href="submit-opportunity.html">
-Submit opportunity
-</a>
-
-<a class="back" href="join-network.html">
-Join network
-</a>
-
-<a class="back" href="contact.html">
-Contact
-</a>
-
-<a class="back" href="disclaimer.html">
-Disclaimer
-</a>
-
-<a class="back" href="terms.html">
-Terms
-</a>
-
-<a class="back" href="privacy.html">
-Privacy
-</a>
-
-<a
-class="back"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn ↗
-</a>
-
-<a class="back" href="#top">
-Back to top ↗
-</a>
-
-</nav>
-
-</footer>
-
-</div>
-
-
-<script>
-
-const referrals=[
-
-[
-'Sovrano AI',
-'AI evaluation and training work for contributors who enjoy careful, structured feedback.',
-'AI training',
-'Contributor network',
-'https://app.sovrano.ai/signup?utm_source=user&utm_medium=referral&utm_campaign=mainReferral&utm_content=v1&source=referral&referral_code=Q2F6TE86',
-'Sovrano',
-'m1'
-],
-
-[
-'Micro1',
-'Remote opportunities across software, data, and AI talent projects.',
-'AI training',
-'Remote projects',
-'https://refer.micro1.ai/referral/jobs?referralCode=3fccd99c-ee34-4ad0-be84-2160c6be8f26&utm_source=referral&utm_medium=share&utm_campaign=job_referral',
-'Micro1',
-'m2'
-],
-
-[
-'Mercor',
-'Expert-led work matching for research, evaluation, and specialist AI projects.',
-'Expert work',
-'Expert marketplace',
-'https://t.mercor.com/UcMkl',
-'Mercor',
-'m3'
-],
-
-[
-'Ambrose Groups',
-'Flexible opportunities to contribute your knowledge to better AI systems.',
-'Expert work',
-'Apply to join',
-'https://www.ambrosegroups.app/auth?ref=76BF92D2',
-'Ambrose',
-'m4'
-],
-
-[
-'AfterQuery Experts',
-'Subject-matter experts help shape high-quality answers, research, and model outputs.',
-'Expert work',
-'Expert application',
-'https://experts.afterquery.com/apply?ref=uyoAIpowbYYtBUnogptciYqDrup1',
-'AfterQuery',
-'m5'
-],
-
-[
-'Silencio Voice AI',
-'Voice and speech data projects for contributors with a clear, expressive voice.',
-'Voice & data',
-'Voice projects',
-'https://ai.silencio.store?ref=ADZP3G',
-'Silencio',
-'m6'
-],
-
-[
-'Trainplex',
-'A growing hub for annotation, evaluation, and AI training tasks.',
-'AI training',
-'Training tasks',
-'https://trainplex.info/register?ref=EDVTYBC',
-'Trainplex',
-'m7'
-],
-
-[
-'Ethos',
-'Join an expert network for testing and improving the next generation of AI agents.',
-'AI training',
-'Agent evaluation',
-'https://agent.askethos.com/refer/zivl82w3npsb',
-'Ethos',
-'m8'
-],
-
-[
-'Rex Zone',
-'A flexible portal for distributed contributor and data operations work.',
-'AI training',
-'Contributor portal',
-'https://portal.rex.zone/login?inviteCode=NmE2MjQzZjUwY2M3YzEwODcyOTk3OTVi',
-'Rex Zone',
-'m9'
-],
-
-[
-'Atlas Capture',
-'Real-world data capture opportunities that help make AI more useful in context.',
-'Voice & data',
-'Data collection',
-'https://audit.atlascapture.io/?ref_id=6a8bb2b7482b1393573fdecb',
-'Atlas',
-'m10'
-],
-
-[
-'Terac',
-'Flexible opportunities to contribute to AI and data projects.',
-'AI training',
-'Contributor opportunities',
-'https://terac.com/refer/754472fb',
-'Terac',
-'m11'
-]
-
-];
-
-
-const cards=document.getElementById('cards');
-const search=document.getElementById('search');
-const tabs=[...document.querySelectorAll('.tab')];
-
-let filter='All';
-
-
-function render(){
-
-  let q=search.value.toLowerCase().trim();
-
-  cards.innerHTML=referrals
-
-  .filter(r=>
-    (filter==='All'||r[2]===filter)&&
-    (!q||r.join(' ').toLowerCase().includes(q))
-  )
-
-  .map((r,i)=>`
-
-  <article class="card">
-
-    <div class="card-top">
-
-      <span class="mark ${r[6]}">
-        ${r[5][0]}
-      </span>
-
-      <span class="num">
-        ${String(i+1).padStart(2,'0')}
-      </span>
-
-    </div>
-
-    <div class="card-body">
-
-      <div class="cat">
-        ${r[2]}
-      </div>
-
-      <h3>
-        ${r[0]}
-      </h3>
-
-      <p>
-        ${r[1]}
-      </p>
-
-    </div>
-
-    <div class="card-foot">
-
-      <span>
-        <b class="mini"></b>
-        ${r[3]}
-      </span>
-
-      <a
-        class="arrow"
-        href="${r[4]}"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Open ${r[0]} referral"
-      >
-        ↗
-      </a>
-
-    </div>
-
-  </article>
-
-  `)
-
-  .join('')
-
-  ||'<p style="color:#8fa0bb">No platforms match that search yet.</p>';
-
-}
-
-
-tabs.forEach(t=>
-
-  t.addEventListener('click',()=>{
-
-    tabs.forEach(x=>x.classList.remove('active'));
-
-    t.classList.add('active');
-
-    filter=t.dataset.filter;
-
-    render();
-
-  })
-
-);
-
-search.addEventListener('input',render);
-
-render();
-
-
-/* =========================
-   CURSOR
-========================= */
-
-const dot=document.querySelector('.cursor-dot');
-const ring=document.querySelector('.cursor-ring');
-
-let mx=innerWidth/2;
-let my=innerHeight/2;
-let rx=mx;
-let ry=my;
-
-
-addEventListener('pointermove',e=>{
-
-  mx=e.clientX;
-  my=e.clientY;
-
-  dot.style.left=mx+'px';
-  dot.style.top=my+'px';
-
-  document.documentElement.style.setProperty(
-    '--cursor-x',
-    mx+'px'
-  );
-
-  document.documentElement.style.setProperty(
-    '--cursor-y',
-    my+'px'
-  );
-
-  document.documentElement.style.setProperty(
-    '--spot-x',
-    (mx/innerWidth*100)+'%'
-  );
-
-  document.documentElement.style.setProperty(
-    '--spot-y',
-    (my/innerHeight*100)+'%'
-  );
-
-});
-
-
-(function tick(){
-
-  rx+=(mx-rx)*.16;
-  ry+=(my-ry)*.16;
-
-  ring.style.left=rx+'px';
-  ring.style.top=ry+'px';
-
-  requestAnimationFrame(tick);
-
-})();
-
-
-function attachCursor(el){
-
-  el.onmouseenter=()=>{
-
-    ring.classList.add('active');
-    dot.classList.add('hot');
-
-  };
-
-  el.onmouseleave=()=>{
-
-    ring.classList.remove('active');
-    dot.classList.remove('hot');
-
-  };
-
-}
-
-
-document
-.querySelectorAll('a,button,input')
-.forEach(attachCursor);
-
-
-/* =========================
-   REVEAL
-========================= */
-
-const io=new IntersectionObserver(
-
-  es=>es.forEach(e=>
-    e.isIntersecting&&e.target.classList.add('in')
-  ),
-
-  {threshold:.12}
-
-);
-
-
-document
-.querySelectorAll(
-  '.section-head,.card,.op,.step,.closing-card,.signal,.action-card,.resume-card'
-)
-.forEach(e=>{
-
-  e.classList.add('reveal');
-
-  io.observe(e);
-
-});
-
-</script>
-
-
-<script>
-
-/*
-Opportunities are loaded from opportunities.json — edit that file to update the site.
-The home page shows the first MAX_HOME jobs; the rest live on opportunities.html.
-*/
-
-(async function(){
-
-  const MAX_HOME=10;
-
-  const list=document.getElementById('opList');
-
-  if(!list)return;
-
-
-  const esc=s=>String(s??'').replace(
-    /[&<>"']/g,
-    c=>({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[c])
-  );
-
-
-  const badgeColors=[
-    'm3',
-    'm2',
-    'm1',
-    'm4'
-  ];
-
-
-  try{
-
-    const res=await fetch(
-      'opportunities.json',
-      {cache:'no-store'}
-    );
-
-    if(!res.ok)
-      throw new Error('HTTP '+res.status);
-
-
-    const jobs=await res.json();
-
-
-    if(!Array.isArray(jobs)||!jobs.length){
-
-      list.innerHTML=
-        '<p style="color:#8fa0bb">New opportunities are coming soon.</p>';
-
-      return;
-
-    }
-
-
-    const shown=jobs.slice(0,MAX_HOME);
-
-
-    list.innerHTML=shown.map((j,i)=>`
-
-      <article class="op">
-
-        <div class="op-badge ${badgeColors[i%badgeColors.length]}">
-
-          <span>
-            ${String(i+1).padStart(2,'0')}
-          </span>
-
-          ▣
-
-        </div>
-
-
-        <div class="op-main">
-
-          <div class="op-meta">
-
-            <span class="op-company">
-              ${esc(j.company)}
-            </span>
-
-            <span class="open">
-              ● OPEN LEAD
-            </span>
-
-          </div>
-
-
-          <h3>
-            ${esc(j.title)}
-          </h3>
-
-
-          <p>
-            ${esc(j.description)}
-          </p>
-
-
-          <div class="op-tags">
-
-            ${(j.tags||[]).map(t=>
-              `<span>${esc(t)}</span>`
-            ).join('')}
-
-          </div>
-
-        </div>
-
-
-        <div class="op-side">
-
-          <div class="facts">
-
-            <span>
-              ◉ &nbsp; ${esc(j.location)}
-            </span>
-
-            <span>
-              ◷ &nbsp; ${esc(j.duration)}
-            </span>
-
-            <strong>
-              ${esc(j.highlight)}
-            </strong>
-
-          </div>
-
-
-          <div class="op-actions">
-
-            ${
-              j.email
-              ?`
-              <a
-                class="apply"
-                href="mailto:${esc(j.email)}?subject=${encodeURIComponent('Application for '+j.title)}"
-              >
-                Email CV ✉
-              </a>
-              `
-              :''
-            }
-
-
-            ${
-              j.whatsapp
-              ?`
-              <a
-                class="whatsapp"
-                href="https://wa.me/${esc(j.whatsapp)}"
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp ↗
-              </a>
-              `
-              :''
-            }
-
-
-            ${
-              j.link
-              ?`
-              <a
-                class="apply"
-                href="${esc(j.link)}"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Apply ↗
-              </a>
-              `
-              :''
-            }
-
-          </div>
-
-        </div>
-
-      </article>
-
-    `).join('')
-
-    +(jobs.length>MAX_HOME?`
-
-      <div class="load-more">
-
-        <a
-          class="btn primary"
-          href="opportunities.html"
-        >
-          Load more opportunities ↓
-        </a>
-
-        <small>
-          ${jobs.length-MAX_HOME} MORE OPEN LEADS
-        </small>
-
-      </div>
-
-    `:'');
-
-
-    list.querySelectorAll('.op').forEach(el=>{
-
-      if(typeof io!=='undefined'){
-
-        el.classList.add('reveal');
-
-        io.observe(el);
-
-      }
-
-    });
-
-
-    list.querySelectorAll('a').forEach(attachCursor);
-
-
-  }catch(e){
-
-    list.innerHTML=
-      '<p style="color:#8fa0bb">Opportunities will be back shortly.</p>';
-
-  }
-
-})();
-
-</script>
-
-
-<script src="chatbot.js"></script>
-
-</body>
-</html>
