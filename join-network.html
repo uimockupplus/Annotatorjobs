@@ -97,9 +97,14 @@ Submitting your profile does not guarantee a job, project, interview, acceptance
 
 
 <form class="form-card"
-action="mailto:evalloopjobs@gmail.com"
-method="post"
-enctype="text/plain">
+action="https://formsubmit.co/evalloopjobs@gmail.com"
+method="POST">
+
+<input type="hidden" name="_subject" value="New EvalLoop Network Registration">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://annotatorjobs.vercel.app/join-network.html">
+
 
 <div class="form-note">
 <strong>Privacy note:</strong>
@@ -227,7 +232,7 @@ For now, use a shareable resume link. Make sure the file can be viewed by the in
 <div class="field full">
 
 <label class="checkbox">
-<input type="checkbox" required>
+<input type="checkbox" name="Confirmation" value="Confirmed" required>
 
 <span>
 I understand that joining the network does not guarantee employment or paid work, and I agree to the handling of my submitted information according to the <a href="privacy.html" style="color:var(--cyan)">Privacy Policy</a>.
