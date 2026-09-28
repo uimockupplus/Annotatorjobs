@@ -1,5 +1,26 @@
 [
   {
+  "company": "DENSE AI",
+  "title": "AI Data Annotation & LLM Review Roles",
+  "description": "DENSE AI is hiring freshers and graduates across India for remote AI industry roles, including image/video/spatial annotation, NLP annotation, multilingual transcription, LLM prompt review, QA, and project-based data collection. Training is provided and prior experience is not required.",
+  "tags": [
+    "Data Annotation",
+    "AI Training",
+    "LLM Evaluation",
+    "NLP",
+    "Speech",
+    "QA",
+    "Prompt Review",
+    "Freshers"
+  ],
+  "location": "Remote - India",
+  "duration": "Full-time / Freelance / Project-Based",
+  "highlight": "Freshers can apply | No prior experience required | Training provided",
+  "email": "contact@dense-ai.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "",
   "title": "Data Labelling / Annotation – Automotive / ADAS",
   "description": "Hiring experienced Data Labelling/Annotation professionals with 2–3 years of experience in Automotive, ADAS, or Computer Vision projects. Work includes lane detection, traffic signal and road sign annotation, object detection/classification, 2D/3D annotation, and ADAS datasets. LiDAR annotation experience is an added advantage.",
