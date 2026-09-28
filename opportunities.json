@@ -1,5 +1,17 @@
 [
   {
+  "company": "CyberMeru Technologies",
+  "title": "AI Engineer",
+  "description": "Hiring AI Engineers with 2–3 years of experience to build GenAI, RAG, and multi-agent applications. Work with LangChain, Claude, Gemini, MCP, PyTorch/TensorFlow, Python, FastAPI, Django, vector databases, SQL, Redis, Celery, Docker, and AWS.",
+  "tags": ["AI Engineer", "Generative AI", "GenAI", "LLM", "RAG", "Agentic AI", "LangChain", "Python", "Machine Learning", "AWS"],
+  "location": "Bavdhan, Pune, Maharashtra, India · Work From Office",
+  "duration": "Full-Time",
+  "highlight": "2–3 Years Experience · Immediate Joiners Only",
+  "email": "careers@cybermeru.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Arctic Engines",
   "title": "Operations Lead / QC Lead – Video Annotation",
   "description": "Hiring Operations and QC Leads for large-scale egocentric video annotation projects in Physical AI. Operations Leads manage 100+ annotators and own hiring, onboarding, capacity planning, productivity, and delivery. QC Leads manage annotation guidelines, calibration, quality reviews, error analysis, rework, and reviewer teams. Direct experience with egocentric video, robotics, or Physical AI datasets is mandatory.",
