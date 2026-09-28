@@ -47,6 +47,121 @@ h1,.section-title{font-weight:600}.lede,.section-head>p,.card p,.op-main p,.how 
 .load-more{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:44px}
 .load-more small{color:var(--muted);font:700 10px "Space Grotesk";letter-spacing:.14em}
 
+/* Homepage action sections */
+.home-actions{position:relative;z-index:1;padding-top:0;padding-bottom:120px}
+
+.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+
+.action-card{
+  position:relative;
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:linear-gradient(145deg,rgba(17,29,54,.96),rgba(15,25,48,.9));
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  overflow:hidden;
+  transition:.25s;
+}
+
+.action-card:before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:-70px;
+  top:-70px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(37,136,255,.18),transparent 70%);
+  pointer-events:none;
+}
+
+.action-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--lime);
+  box-shadow:0 22px 48px rgba(0,0,0,.3),0 0 30px rgba(37,136,255,.12);
+}
+
+.action-number{
+  color:var(--cyan);
+  font:700 10px "Space Grotesk";
+  letter-spacing:.15em;
+}
+
+.action-icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin-top:34px;
+  border:1px solid var(--blue);
+  border-radius:7px;
+  color:var(--cyan);
+  background:rgba(37,136,255,.1);
+  font:500 20px "Space Grotesk";
+  box-shadow:0 0 20px rgba(37,136,255,.08);
+}
+
+.action-card h3{
+  margin:22px 0 10px;
+  font:500 27px/.98 "Space Grotesk";
+  letter-spacing:-.06em;
+}
+
+.action-card h3 em{
+  color:var(--cyan);
+  font-style:italic;
+  font-weight:400;
+}
+
+.action-card p{
+  max-width:310px;
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.65;
+}
+
+.action-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  width:max-content;
+  margin-top:28px;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--blue);
+  color:var(--cyan);
+  font:700 11px "Space Grotesk";
+}
+
+.action-link:hover{
+  color:var(--white);
+  border-color:var(--cyan);
+  transform:translateX(4px);
+}
+
+.action-label{
+  display:block;
+  margin-top:22px;
+  color:var(--muted);
+  font:700 8px "Space Grotesk";
+  letter-spacing:.12em;
+}
+
+@media(max-width:900px){
+  .action-grid{grid-template-columns:1fr}
+  .action-card{min-height:285px}
+}
+
+@media(max-width:640px){
+  .home-actions{padding-bottom:88px}
+  .action-card{min-height:300px;padding:25px 22px}
+  .action-card h3{font-size:25px}
+}
+
 /* Footer with legal links */
 .footer{position:relative;z-index:1}
 .footer-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px 26px}
@@ -56,6 +171,7 @@ h1,.section-title{font-weight:600}.lede,.section-head>p,.card p,.op-main p,.how 
 </head>
 
 <body>
+
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
@@ -81,7 +197,9 @@ h1,.section-title{font-weight:600}.lede,.section-head>p,.card p,.op-main p,.how 
 <main id="top">
 
 <section class="hero wrap">
+
 <div>
+
 <div class="eyebrow">REFERRAL INDEX / 01</div>
 
 <h1>Find your place in the <em>AI work</em> economy.</h1>
@@ -98,9 +216,11 @@ A curated hub for annotation, evaluation, AI, GenAI, agentic roles, expert work,
 <div class="note">
 <b>✓</b> Links are shared for easy access; always check each platform's current terms.
 </div>
+
 </div>
 
 <div class="visual">
+
 <div class="orb one"></div>
 <div class="orb two"></div>
 
@@ -115,6 +235,7 @@ A curated hub for annotation, evaluation, AI, GenAI, agentic roles, expert work,
 </div>
 
 <div class="board main-board">
+
 <div class="board-top">
 <span class="live"></span>
 LIVE DIRECTORY
@@ -122,11 +243,20 @@ LIVE DIRECTORY
 </div>
 
 <div class="board-title">
+
 <span class="spark">✦</span>
+
 <div>
+
 <small>CURATED FOR HUMANS</small>
-<h2>Opportunities<br><em>worth your time.</em></h2>
+
+<h2>
+Opportunities<br>
+<em>worth your time.</em>
+</h2>
+
 </div>
+
 </div>
 
 <div class="rule"></div>
@@ -145,76 +275,108 @@ LLM Trainer <span>— Agent function call</span>
 <a class="board-link" href="https://work.turing.com/r/y2DgoDEu7y" target="_blank" rel="noreferrer">
 View featured role ↗
 </a>
+
 </div>
 
 <div class="caption">
 <span>01</span>
 <span>PEOPLE POWERING THE<br>MACHINE</span>
 </div>
+
 </div>
+
 </section>
 
 <section class="job-stream" aria-label="Live job signal stream">
+
 <div class="stream-line"></div>
 
 <div class="stream-track">
+
 <div class="stream-set">
+
 <span>LLM TRAINER</span>
 <b>→</b>
+
 <span>MODEL EVALUATOR</span>
 <b>→</b>
+
 <span>DATA ANNOTATION</span>
 <b>→</b>
+
 <span>AI RED TEAMER</span>
 <b>→</b>
+
 <span>VOICE DATA</span>
 <b>→</b>
+
 <span>EXPERT REVIEW</span>
 <b>→</b>
+
 </div>
 
 <div class="stream-set" aria-hidden="true">
+
 <span>LLM TRAINER</span>
 <b>→</b>
+
 <span>MODEL EVALUATOR</span>
 <b>→</b>
+
 <span>DATA ANNOTATION</span>
 <b>→</b>
+
 <span>AI RED TEAMER</span>
 <b>→</b>
+
 <span>VOICE DATA</span>
 <b>→</b>
+
 <span>EXPERT REVIEW</span>
 <b>→</b>
+
 </div>
+
 </div>
+
 </section>
 
 <section id="directory" class="directory wrap">
 
 <div class="section-head">
+
 <div>
+
 <div class="eyebrow">THE DIRECTORY / 02</div>
-<h2 class="section-title">Start with a <em>signal.</em></h2>
+
+<h2 class="section-title">
+Start with a <em>signal.</em>
+</h2>
+
 </div>
 
 <p>
 Explore trusted starting points across the AI training ecosystem. Each card takes you directly to the referral application.
 </p>
+
 </div>
 
 <div class="toolbar">
+
 <div class="tabs">
+
 <button class="tab active" data-filter="All">All</button>
 <button class="tab" data-filter="AI training">AI training</button>
 <button class="tab" data-filter="Expert work">Expert work</button>
 <button class="tab" data-filter="Voice & data">Voice & data</button>
+
 </div>
 
 <label class="search">
 ⌕
 <input id="search" placeholder="Search the index" />
 </label>
+
 </div>
 
 <div id="cards" class="cards"></div>
@@ -226,14 +388,21 @@ Explore trusted starting points across the AI training ecosystem. Each card take
 <div class="wrap">
 
 <div class="section-head">
+
 <div>
+
 <div class="eyebrow">FIELD NOTES / 03</div>
-<h2 class="section-title">Recent <em>opportunities.</em></h2>
+
+<h2 class="section-title">
+Recent <em>opportunities.</em>
+</h2>
+
 </div>
 
 <p>
 Fresh roles and project drops will land here as they are found, checked, and ready to share.
 </p>
+
 </div>
 
 <div class="op-list" id="opList"></div>
@@ -245,6 +414,7 @@ Fresh roles and project drops will land here as they are found, checked, and rea
 <section id="how" class="how wrap">
 
 <div>
+
 <div class="eyebrow">A SIMPLE LOOP / 04</div>
 
 <h2 class="section-title">
@@ -255,35 +425,51 @@ Less hunting.<br>
 <p>
 The goal is simple: make the first step easier, then let your work speak for itself.
 </p>
+
 </div>
 
 <div class="steps">
 
 <div class="step">
+
 <i>01</i>
+
 <b>⌘</b>
+
 <h3>Browse</h3>
+
 <p>
 Scan the directory for work types that fit your strengths, interests, and availability.
 </p>
+
 </div>
 
 <div class="step highlight">
+
 <i>02</i>
+
 <b>ↄ</b>
+
 <h3>Follow the link</h3>
+
 <p>
 Open the referral, complete the platform's own application, and read the current requirements.
 </p>
+
 </div>
 
 <div class="step">
+
 <i>03</i>
+
 <b>◎</b>
+
 <h3>Show up well</h3>
+
 <p>
 Keep your profile clear, respond thoughtfully, and treat every task as a portfolio signal.
 </p>
+
 </div>
 
 </div>
@@ -306,9 +492,13 @@ Share your resume and the kind of AI work you want to find. We’ll use your exp
 </p>
 
 <div class="resume-points">
+
 <span><b>01</b> Attach your resume</span>
+
 <span><b>02</b> Add your target roles</span>
+
 <span><b>03</b> Receive curated leads</span>
+
 </div>
 
 </div>
@@ -316,9 +506,13 @@ Share your resume and the kind of AI work you want to find. We’ll use your exp
 <div class="resume-card">
 
 <div class="resume-card-top">
+
 <span class="pulse-dot"></span>
+
 <span>RESUME INTAKE CHANNEL</span>
+
 <span class="resume-code">05 / 05</span>
+
 </div>
 
 <div class="resume-card-body">
@@ -348,11 +542,203 @@ Resume intake is handled through email. Recurring automated job delivery require
 
 </section>
 
+
+<!-- ========================= -->
+<!-- 06 / SUBMIT OPPORTUNITY -->
+<!-- ========================= -->
+
+<section id="submit-opportunity" class="home-actions wrap">
+
+<div class="section-head">
+
+<div>
+
+<div class="eyebrow">SHARE A LEAD / 06</div>
+
+<h2 class="section-title">
+Have an <em>opportunity?</em>
+</h2>
+
+</div>
+
+<p>
+Help expand the directory by sharing an AI training, evaluation, annotation, expert, or related opportunity.
+</p>
+
+</div>
+
+<div class="action-grid">
+
+<article class="action-card reveal">
+
+<div>
+
+<div class="action-number">01 / SUBMIT</div>
+
+<div class="action-icon">↗</div>
+
+<h3>
+Submit an <em>opportunity.</em>
+</h3>
+
+<p>
+Know a legitimate AI work opportunity that should be listed? Send it to EvalLoop Jobs for consideration.
+</p>
+
+</div>
+
+<div>
+
+<a class="action-link" href="submit-opportunity.html">
+Submit an opportunity →
+</a>
+
+<span class="action-label">
+AI TRAINING · EVALUATION · ANNOTATION · EXPERT WORK
+</span>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- 07 / JOIN NETWORK -->
+<!-- ========================= -->
+
+<section id="join-network" class="home-actions wrap">
+
+<div class="section-head">
+
+<div>
+
+<div class="eyebrow">JOIN THE NETWORK / 07</div>
+
+<h2 class="section-title">
+Want to work with<br>
+<em>EvalLoop Jobs?</em>
+</h2>
+
+</div>
+
+<p>
+Join the network and stay connected to AI training, evaluation, annotation, expert work, and other opportunities.
+</p>
+
+</div>
+
+<div class="action-grid">
+
+<article class="action-card reveal">
+
+<div>
+
+<div class="action-number">02 / NETWORK</div>
+
+<div class="action-icon">◎</div>
+
+<h3>
+Join the <em>network.</em>
+</h3>
+
+<p>
+Share your skills, experience, target roles, and interests so you can stay connected to relevant AI work opportunities.
+</p>
+
+</div>
+
+<div>
+
+<a class="action-link" href="join-network.html">
+Join the network →
+</a>
+
+<span class="action-label">
+BUILD YOUR PROFILE · DISCOVER AI WORK · KEEP GROWING
+</span>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- 08 / CONTACT -->
+<!-- ========================= -->
+
+<section id="contact" class="home-actions wrap">
+
+<div class="section-head">
+
+<div>
+
+<div class="eyebrow">OPEN CHANNEL / 08</div>
+
+<h2 class="section-title">
+Talk to <em>EvalLoop.</em>
+</h2>
+
+</div>
+
+<p>
+Have a question, suggestion, partnership idea, or something we should know about? Get in touch.
+</p>
+
+</div>
+
+<div class="action-grid">
+
+<article class="action-card reveal">
+
+<div>
+
+<div class="action-number">03 / CONTACT</div>
+
+<div class="action-icon">✉</div>
+
+<h3>
+Contact <em>EvalLoop Jobs.</em>
+</h3>
+
+<p>
+Reach out for questions about opportunities, referrals, submissions, the network, or anything related to the platform.
+</p>
+
+</div>
+
+<div>
+
+<a class="action-link" href="contact.html">
+Contact us →
+</a>
+
+<span class="action-label">
+QUESTIONS · FEEDBACK · PARTNERSHIPS · SUPPORT
+</span>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
 <section class="closing wrap">
 
 <div class="closing-card">
 
 <div>
+
 <div class="eyebrow">KEEP IN TOUCH</div>
 
 <h2>Want the next good lead?</h2>
@@ -360,6 +746,7 @@ Resume intake is handled through email. Recurring automated job delivery require
 <p>
 Recent opportunity posts and practical application notes are coming soon.
 </p>
+
 </div>
 
 <div class="op-actions closing-actions">
@@ -380,14 +767,20 @@ Follow on LinkedIn ↗
 
 </main>
 
+
 <footer class="footer wrap">
 
 <a href="#top" class="logo">
+
 <span class="logo-mark">◉</span>
+
 <span>EvalLoopjobs</span>
+
 </a>
 
-<span>Curated pathways into the work behind better AI.</span>
+<span>
+Curated pathways into the work behind better AI.
+</span>
 
 <nav class="footer-links" aria-label="Footer">
 
@@ -407,9 +800,13 @@ Follow on LinkedIn ↗
 
 <a class="back" href="privacy.html">Privacy</a>
 
-<a class="back" href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+<a class="back" href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">
+LinkedIn ↗
+</a>
 
-<a class="back" href="#top">Back to top ↗</a>
+<a class="back" href="#top">
+Back to top ↗
+</a>
 
 </nav>
 
@@ -417,19 +814,33 @@ Follow on LinkedIn ↗
 
 </div>
 
+
 <script>
+
 const referrals=[
+
 ['Sovrano AI','AI evaluation and training work for contributors who enjoy careful, structured feedback.','AI training','Contributor network','https://app.sovrano.ai/signup?utm_source=user&utm_medium=referral&utm_campaign=mainReferral&utm_content=v1&source=referral&referral_code=Q2F6TE86','Sovrano','m1'],
+
 ['Micro1','Remote opportunities across software, data, and AI talent projects.','AI training','Remote projects','https://refer.micro1.ai/referral/jobs?referralCode=3fccd99c-ee34-4ad0-be84-2160c6be8f26&utm_source=referral&utm_medium=share&utm_campaign=job_referral','Micro1','m2'],
+
 ['Mercor','Expert-led work matching for research, evaluation, and specialist AI projects.','Expert work','Expert marketplace','https://t.mercor.com/UcMkl','Mercor','m3'],
+
 ['Ambrose Groups','Flexible opportunities to contribute your knowledge to better AI systems.','Expert work','Apply to join','https://www.ambrosegroups.app/auth?ref=76BF92D2','Ambrose','m4'],
+
 ['AfterQuery Experts','Subject-matter experts help shape high-quality answers, research, and model outputs.','Expert work','Expert application','https://experts.afterquery.com/apply?ref=uyoAIpowbYYtBUnogptciYqDrup1','AfterQuery','m5'],
+
 ['Silencio Voice AI','Voice and speech data projects for contributors with a clear, expressive voice.','Voice & data','Voice projects','https://ai.silencio.store?ref=ADZP3G','Silencio','m6'],
+
 ['Trainplex','A growing hub for annotation, evaluation, and AI training tasks.','AI training','Training tasks','https://trainplex.info/register?ref=EDVTYBC','Trainplex','m7'],
+
 ['Ethos','Join an expert network for testing and improving the next generation of AI agents.','AI training','Agent evaluation','https://agent.askethos.com/refer/zivl82w3npsb','Ethos','m8'],
+
 ['Rex Zone','A flexible portal for distributed contributor and data operations work.','AI training','Contributor portal','https://portal.rex.zone/login?inviteCode=NmE2MjQzZjUwY2M3YzEwODcyOTk3OTVi','Rex Zone','m9'],
+
 ['Atlas Capture','Real-world data capture opportunities that help make AI more useful in context.','Voice & data','Data collection','https://audit.atlascapture.io/?ref_id=6a8bb2b7482b1393573fdecb','Atlas','m10'],
+
 ['Terac','Flexible opportunities to contribute to AI and data projects.','AI training','Contributor opportunities','https://terac.com/refer/754472fb','Terac','m11']
+
 ];
 
 const cards=document.getElementById('cards'),
@@ -439,41 +850,93 @@ tabs=[...document.querySelectorAll('.tab')];
 let filter='All';
 
 function render(){
+
 let q=search.value.toLowerCase().trim();
 
 cards.innerHTML=referrals
-.filter(r=>(filter==='All'||r[2]===filter)&&(!q||r.join(' ').toLowerCase().includes(q)))
+
+.filter(r=>
+(filter==='All'||r[2]===filter)&&
+(!q||r.join(' ').toLowerCase().includes(q))
+)
+
 .map((r,i)=>`
+
 <article class="card">
+
 <div class="card-top">
-<span class="mark ${r[6]}">${r[5][0]}</span>
-<span class="num">${String(i+1).padStart(2,'0')}</span>
+
+<span class="mark ${r[6]}">
+${r[5][0]}
+</span>
+
+<span class="num">
+${String(i+1).padStart(2,'0')}
+</span>
+
 </div>
 
 <div class="card-body">
-<div class="cat">${r[2]}</div>
-<h3>${r[0]}</h3>
-<p>${r[1]}</p>
+
+<div class="cat">
+${r[2]}
+</div>
+
+<h3>
+${r[0]}
+</h3>
+
+<p>
+${r[1]}
+</p>
+
 </div>
 
 <div class="card-foot">
-<span><b class="mini"></b>${r[3]}</span>
-<a class="arrow" href="${r[4]}" target="_blank" rel="noreferrer" aria-label="Open ${r[0]} referral">↗</a>
+
+<span>
+<b class="mini"></b>
+${r[3]}
+</span>
+
+<a
+class="arrow"
+href="${r[4]}"
+target="_blank"
+rel="noreferrer"
+aria-label="Open ${r[0]} referral"
+>
+↗
+</a>
+
 </div>
+
 </article>
+
 `)
-.join('')||'<p style="color:#8fa0bb">No platforms match that search yet.</p>';
+
+.join('')
+
+||'<p style="color:#8fa0bb">No platforms match that search yet.</p>';
+
 }
 
 tabs.forEach(t=>t.addEventListener('click',()=>{
+
 tabs.forEach(x=>x.classList.remove('active'));
+
 t.classList.add('active');
+
 filter=t.dataset.filter;
+
 render();
+
 }));
 
 search.addEventListener('input',render);
+
 render();
+
 
 const dot=document.querySelector('.cursor-dot'),
 ring=document.querySelector('.cursor-ring');
@@ -484,6 +947,7 @@ rx=mx,
 ry=my;
 
 addEventListener('pointermove',e=>{
+
 mx=e.clientX;
 my=e.clientY;
 
@@ -492,11 +956,21 @@ dot.style.top=my+'px';
 
 document.documentElement.style.setProperty('--cursor-x',mx+'px');
 document.documentElement.style.setProperty('--cursor-y',my+'px');
-document.documentElement.style.setProperty('--spot-x',(mx/innerWidth*100)+'%');
-document.documentElement.style.setProperty('--spot-y',(my/innerHeight*100)+'%');
+
+document.documentElement.style.setProperty(
+'--spot-x',
+(mx/innerWidth*100)+'%'
+);
+
+document.documentElement.style.setProperty(
+'--spot-y',
+(my/innerHeight*100)+'%'
+);
+
 });
 
 (function tick(){
+
 rx+=(mx-rx)*.16;
 ry+=(my-ry)*.16;
 
@@ -504,34 +978,57 @@ ring.style.left=rx+'px';
 ring.style.top=ry+'px';
 
 requestAnimationFrame(tick);
+
 })();
 
 document.querySelectorAll('a,button,input').forEach(e=>{
+
 e.onmouseenter=()=>{
+
 ring.classList.add('active');
 dot.classList.add('hot');
+
 };
 
 e.onmouseleave=()=>{
+
 ring.classList.remove('active');
 dot.classList.remove('hot');
+
 };
+
 });
+
 
 const io=new IntersectionObserver(
-es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),
+
+es=>es.forEach(e=>
+e.isIntersecting&&e.target.classList.add('in')
+),
+
 {threshold:.12}
+
 );
 
-document.querySelectorAll('.section-head,.card,.op,.step,.closing-card,.signal').forEach(e=>{
+document.querySelectorAll(
+'.section-head,.card,.op,.step,.closing-card,.signal,.action-card'
+).forEach(e=>{
+
 e.classList.add('reveal');
+
 io.observe(e);
+
 });
+
 </script>
 
+
 <script>
-/* Opportunities are loaded from opportunities.json — edit that file to update the site.
-   The home page shows the first MAX_HOME jobs; the rest live on opportunities.html. */
+
+/*
+Opportunities are loaded from opportunities.json — edit that file to update the site.
+The home page shows the first MAX_HOME jobs; the rest live on opportunities.html.
+*/
 
 (async function(){
 
@@ -541,48 +1038,84 @@ const list=document.getElementById('opList');
 
 if(!list)return;
 
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>
-({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])
+const esc=s=>String(s??'').replace(
+/[&<>"']/g,
+c=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c])
 );
 
 const badgeColors=['m3','m2','m1','m4'];
 
 try{
 
-const res=await fetch('opportunities.json',{cache:'no-store'});
+const res=await fetch(
+'opportunities.json',
+{cache:'no-store'}
+);
 
-if(!res.ok)throw new Error('HTTP '+res.status);
+if(!res.ok)
+throw new Error('HTTP '+res.status);
 
 const jobs=await res.json();
 
 if(!Array.isArray(jobs)||!jobs.length){
-list.innerHTML='<p style="color:#8fa0bb">New opportunities are coming soon.</p>';
+
+list.innerHTML=
+'<p style="color:#8fa0bb">New opportunities are coming soon.</p>';
+
 return;
+
 }
 
 const shown=jobs.slice(0,MAX_HOME);
 
 list.innerHTML=shown.map((j,i)=>`
+
 <article class="op">
 
 <div class="op-badge ${badgeColors[i%badgeColors.length]}">
-<span>${String(i+1).padStart(2,'0')}</span>
+
+<span>
+${String(i+1).padStart(2,'0')}
+</span>
+
 ▣
+
 </div>
 
 <div class="op-main">
 
 <div class="op-meta">
-<span class="op-company">${esc(j.company)}</span>
-<span class="open">● OPEN LEAD</span>
+
+<span class="op-company">
+${esc(j.company)}
+</span>
+
+<span class="open">
+● OPEN LEAD
+</span>
+
 </div>
 
-<h3>${esc(j.title)}</h3>
+<h3>
+${esc(j.title)}
+</h3>
 
-<p>${esc(j.description)}</p>
+<p>
+${esc(j.description)}
+</p>
 
 <div class="op-tags">
-${(j.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}
+
+${(j.tags||[]).map(t=>
+`<span>${esc(t)}</span>`
+).join('')}
+
 </div>
 
 </div>
@@ -591,44 +1124,72 @@ ${(j.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}
 
 <div class="facts">
 
-<span>◉ &nbsp; ${esc(j.location)}</span>
+<span>
+◉ &nbsp; ${esc(j.location)}
+</span>
 
-<span>◷ &nbsp; ${esc(j.duration)}</span>
+<span>
+◷ &nbsp; ${esc(j.duration)}
+</span>
 
-<strong>${esc(j.highlight)}</strong>
+<strong>
+${esc(j.highlight)}
+</strong>
 
 </div>
 
 <div class="op-actions">
 
-${j.email
+${
+j.email
 ?`<a class="apply" href="mailto:${esc(j.email)}?subject=${encodeURIComponent('Application for '+j.title)}">Email CV ✉</a>`
-:''}
+:''
+}
 
-${j.whatsapp
+${
+j.whatsapp
 ?`<a class="whatsapp" href="https://wa.me/${esc(j.whatsapp)}" target="_blank" rel="noreferrer">WhatsApp ↗</a>`
-:''}
+:''
+}
 
-${j.link
+${
+j.link
 ?`<a class="apply" href="${esc(j.link)}" target="_blank" rel="noreferrer">Apply ↗</a>`
-:''}
+:''
+}
 
 </div>
 
 </div>
 
 </article>
-`).join('')+(jobs.length>MAX_HOME?`
+
+`).join('')
+
++(jobs.length>MAX_HOME?`
+
 <div class="load-more">
-<a class="btn primary" href="opportunities.html">Load more opportunities ↓</a>
-<small>${jobs.length-MAX_HOME} MORE OPEN LEADS</small>
-</div>`:'');
+
+<a class="btn primary" href="opportunities.html">
+Load more opportunities ↓
+</a>
+
+<small>
+${jobs.length-MAX_HOME} MORE OPEN LEADS
+</small>
+
+</div>
+
+`:''); 
 
 list.querySelectorAll('.op').forEach(el=>{
 
 if(typeof io!=='undefined'){
+
 el.classList.add('reveal');
+
 io.observe(el);
+
 }
 
 });
@@ -636,24 +1197,30 @@ io.observe(el);
 list.querySelectorAll('a').forEach(a=>{
 
 a.onmouseenter=()=>{
+
 ring.classList.add('active');
 dot.classList.add('hot');
+
 };
 
 a.onmouseleave=()=>{
+
 ring.classList.remove('active');
 dot.classList.remove('hot');
+
 };
 
 });
 
 }catch(e){
 
-list.innerHTML='<p style="color:#8fa0bb">Opportunities will be back shortly.</p>';
+list.innerHTML=
+'<p style="color:#8fa0bb">Opportunities will be back shortly.</p>';
 
 }
 
 })();
+
 </script>
 
 <script src="chatbot.js"></script>
