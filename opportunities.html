@@ -50,16 +50,17 @@ button{cursor:pointer}
 .search input{width:100%;min-width:0;border:0;outline:0;color:var(--ink);background:transparent;font-size:11px}
 
 /* filters */
-.filters{display:grid;gap:14px;margin-top:22px}
+.filters{display:grid;gap:16px;margin-top:22px;padding:20px 22px;border:1px solid rgba(77,179,255,.35);border-radius:8px;background:linear-gradient(145deg,rgba(21,35,63,.85),rgba(15,25,48,.85));box-shadow:0 0 30px rgba(37,136,255,.08)}
 .f-row{display:flex;align-items:center;gap:18px}
-.f-label{flex:0 0 96px;color:var(--muted);font:700 9px "Space Grotesk";letter-spacing:.14em;text-transform:uppercase}
-.f-chips{display:flex;flex-wrap:wrap;gap:8px}
-.tab{padding:8px 13px;border:1px solid var(--border);border-radius:999px;color:var(--muted);background:transparent;font-size:11px;transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
-.tab i{margin-left:6px;font:normal 10px "Space Grotesk";opacity:.6}
-.tab:hover{color:var(--ink);border-color:var(--blue)}
-.tab.active{color:var(--ink);background:var(--blue);border-color:var(--blue);box-shadow:0 0 20px rgba(37,136,255,.24)}
+.f-label{flex:0 0 110px;color:var(--ink);font:700 11px "Space Grotesk";letter-spacing:.12em;text-transform:uppercase}
+.f-chips{display:flex;flex-wrap:wrap;gap:9px}
+.tab{padding:9px 15px;border:1px solid rgba(77,179,255,.45);border-radius:999px;color:#d5e0f2;background:rgba(37,136,255,.08);font-size:12px;font-weight:500;transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
+.tab i{margin-left:7px;font:normal 700 10px "Space Grotesk";color:var(--cyan)}
+.tab:hover{color:#fff;border-color:var(--cyan);background:rgba(37,136,255,.22)}
+.tab.active{color:#fff;font-weight:700;background:var(--blue);border-color:var(--cyan);box-shadow:0 0 20px rgba(37,136,255,.45)}
+.tab.active i{color:#fff}
 .tab:focus-visible,.clear:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-.clear{align-self:flex-start;padding:0;border:0;background:transparent;color:var(--cyan);font:700 10px "Space Grotesk";letter-spacing:.12em}
+.clear{align-self:flex-start;padding:0;border:0;background:transparent;color:var(--cyan);font:700 11px "Space Grotesk";letter-spacing:.12em}
 .clear:hover{text-decoration:underline}
 
 /* opportunity list */
@@ -290,8 +291,8 @@ ${j.link?`<a class="apply" href="${esc(j.link)}" target="_blank" rel="noreferrer
 
 /* ---------- filters ---------- */
 const GROUPS=[
-{key:'exp',label:'Experience',opts:[['freshers','Freshers'],['0-1','0–1 year'],['2+','2+ years'],['unspecified','Not specified']]},
-{key:'mode',label:'Work mode',opts:[['remote','Remote'],['office','Work from office'],['unspecified','Not specified']]},
+{key:'exp',label:'Experience',opts:[['freshers','Freshers'],['0-1','0–1 year'],['2+','2+ years']]},
+{key:'mode',label:'Work mode',opts:[['remote','Remote'],['office','Work from office']]},
 {key:'role',label:'Job role',opts:[['annotation','Annotation'],['ai-engineer','AI engineer'],['gen-ai','Gen AI'],['agentic','Agentic AI'],['others','Others']]}
 ];
 
@@ -331,37 +332,40 @@ return modeOf(j.mode)||modeOf(j.location)||modeOf([j.title,j.description,(j.tags
 }
 
 const ROLE_RULES=[
-['agentic',/agent/],
-['gen-ai',/gen\s?-?ai|generative|llm|prompt/],
-['annotation',/annotat|label|rater|transcri|data collect/],
-['ai-engineer',/engineer|developer|scientist|machine learning|\bml\b/]
+['annotation',/annotat|\blabel(l)?(er|ers|ing)?\b|\brater\b|\braters\b|transcri|data collect|\btagging\b|\bcurator\b|content review|moderat/],
+['agentic',/\bagent\b|\bagents\b|agentic|multi ?agent|tool use|function call/],
+['gen-ai',/\bgen ?ai\b|generative|\bllms?\b|prompt|rlhf|language model|chatbot|conversational/],
+['ai-engineer',/\b(engineer|engineers|developer|developers|scientist|scientists|mlops|architect)\b|machine learning|\bml\b/]
 ];
 
-function roleOf(s){
-s=String(s||'').toLowerCase();
-for(const [k,re] of ROLE_RULES)if(re.test(s))return k;
-return null;
+/* Title only. A title can belong to more than one role, e.g. "Gen AI Engineer" is both Gen AI and AI engineer. */
+function detectRoles(j){
+const t=' '+String(j.title||'').toLowerCase().replace(/[^a-z0-9+]+/g,' ')+' ';
+const found=ROLE_RULES.filter(([k,re])=>re.test(t)).map(r=>r[0]);
+return found.length?found:['others'];
 }
 
-function detectRole(j){
-const explicit=String(j.role||'').toLowerCase();
-if(GROUPS[2].opts.some(o=>o[0]===explicit))return explicit;
-return roleOf(j.title)||roleOf((j.tags||[]).join(' '))||'others';
+function explicitRoles(v){
+const valid=GROUPS[2].opts.map(o=>o[0]);
+const arr=(Array.isArray(v)?v:[v]).map(x=>String(x||'').toLowerCase().trim()).filter(x=>valid.includes(x));
+return arr.length?arr:null;
 }
 
 function enrich(j){
 return Object.assign({},j,{
 _exp:normExp(j.experience)||detectExp(j),
 _mode:detectMode(j),
-_role:detectRole(j)
+_roles:explicitRoles(j.role)||detectRoles(j)
 });
 }
+
+const has=(j,k,v)=>k==='role'?j._roles.includes(v):j['_'+k]===v;
 
 function buildFilters(){
 const box=document.getElementById('filters');
 box.innerHTML=GROUPS.map(g=>{
 const chips=[['all','All',jobs.length]].concat(
-g.opts.map(([v,l])=>[v,l,jobs.filter(j=>j['_'+g.key]===v).length]).filter(o=>o[2]>0)
+g.opts.map(([v,l])=>[v,l,jobs.filter(j=>has(j,g.key,v)).length]).filter(o=>o[2]>0)
 );
 return `<div class="f-row" role="group" aria-label="${g.label}">
 <span class="f-label">${g.label}</span>
@@ -407,9 +411,9 @@ const q=search.value.toLowerCase().trim();
 const matches=jobs
 .map((j,i)=>({j,i}))
 .filter(({j})=>
-(active.exp==='all'||j._exp===active.exp)&&
-(active.mode==='all'||j._mode===active.mode)&&
-(active.role==='all'||j._role===active.role)&&
+(active.exp==='all'||has(j,'exp',active.exp))&&
+(active.mode==='all'||has(j,'mode',active.mode))&&
+(active.role==='all'||has(j,'role',active.role))&&
 (!q||[j.company,j.title,j.description,j.location,(j.tags||[]).join(' ')].join(' ').toLowerCase().includes(q))
 );
 
