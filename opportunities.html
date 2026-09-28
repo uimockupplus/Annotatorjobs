@@ -96,6 +96,51 @@ button{cursor:pointer}
 .apply:hover,.whatsapp:hover{background:var(--blue);transform:translateY(-3px)}
 .empty{padding:60px 0;color:var(--muted);font-size:13px;text-align:center}
 
+/* submit opportunity callout */
+.submit-callout{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  margin-top:56px;
+  padding:28px 30px;
+  border:1px solid rgba(77,179,255,.35);
+  border-radius:8px;
+  background:linear-gradient(145deg,rgba(21,35,63,.8),rgba(15,25,48,.8));
+  box-shadow:0 0 30px rgba(37,136,255,.07);
+}
+.submit-callout-copy{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.submit-callout-copy strong{
+  color:var(--ink);
+  font:500 20px "Space Grotesk";
+  letter-spacing:-.03em;
+}
+.submit-callout-copy span{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+}
+.submit-callout .btn{
+  flex:0 0 auto;
+  min-height:42px;
+}
+.submit-link{
+  color:var(--cyan);
+  border:1px solid rgba(77,179,255,.45);
+  background:rgba(37,136,255,.1);
+}
+.submit-link:hover{
+  color:#fff;
+  background:var(--blue);
+  border-color:var(--cyan);
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(37,136,255,.25);
+}
+
 /* back link block */
 .back-row{display:flex;justify-content:center;margin-top:44px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:46px;padding:0 18px;border-radius:4px;font-size:12px;font-weight:700}
@@ -126,6 +171,7 @@ button{cursor:pointer}
 .section-head>p{margin:0;max-width:420px}
 .op{grid-template-columns:62px 1fr}
 .op-side{grid-column:2;flex-direction:row;align-items:end}
+.submit-callout{align-items:flex-start;flex-direction:column}
 }
 @media(max-width:640px){
 body{cursor:auto}
@@ -151,6 +197,9 @@ body{cursor:auto}
 .op-main h3{font-size:23px}
 .op-side{grid-column:auto;flex-direction:column;align-items:stretch}
 .apply,.whatsapp{flex:1}
+.submit-callout{margin-top:42px;padding:24px 20px}
+.submit-callout-copy strong{font-size:18px}
+.submit-callout .btn{width:100%}
 .footer{min-height:145px;align-items:flex-start;flex-direction:column;justify-content:center;padding:26px 20px}
 }
 </style>
@@ -205,6 +254,17 @@ Every role and project drop we have shared, in one place. Always check each plat
 
 <section class="opps wrap">
 <div class="op-list" id="opList"></div>
+
+<div class="submit-callout">
+<div class="submit-callout-copy">
+<strong>Can’t find your opportunity?</strong>
+<span>Know an AI training, evaluation, annotation, or expert opportunity worth sharing?</span>
+</div>
+
+<a class="btn submit-link" href="submit-opportunity.html">
+Submit an opportunity ↗
+</a>
+</div>
 
 <div class="back-row">
 <a class="btn primary" href="index.html">← Back to home</a>
