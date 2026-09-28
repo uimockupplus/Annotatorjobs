@@ -49,6 +49,19 @@ button{cursor:pointer}
 .search{display:flex;gap:9px;width:240px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.2);color:var(--muted)}
 .search input{width:100%;min-width:0;border:0;outline:0;color:var(--ink);background:transparent;font-size:11px}
 
+/* filters */
+.filters{display:grid;gap:14px;margin-top:22px}
+.f-row{display:flex;align-items:center;gap:18px}
+.f-label{flex:0 0 96px;color:var(--muted);font:700 9px "Space Grotesk";letter-spacing:.14em;text-transform:uppercase}
+.f-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tab{padding:8px 13px;border:1px solid var(--border);border-radius:999px;color:var(--muted);background:transparent;font-size:11px;transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
+.tab i{margin-left:6px;font:normal 10px "Space Grotesk";opacity:.6}
+.tab:hover{color:var(--ink);border-color:var(--blue)}
+.tab.active{color:var(--ink);background:var(--blue);border-color:var(--blue);box-shadow:0 0 20px rgba(37,136,255,.24)}
+.tab:focus-visible,.clear:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.clear{align-self:flex-start;padding:0;border:0;background:transparent;color:var(--cyan);font:700 10px "Space Grotesk";letter-spacing:.12em}
+.clear:hover{text-decoration:underline}
+
 /* opportunity list */
 .opps{margin-top:34px;padding:0 0 132px}
 .op-list{display:grid;gap:13px}
@@ -109,6 +122,9 @@ body{cursor:auto}
 .section-title{font-size:3.25rem}
 .toolbar{align-items:stretch;flex-direction:column;margin-top:38px}
 .search{width:100%}
+.f-row{flex-direction:column;align-items:flex-start;gap:8px;width:100%}
+.f-chips{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:4px}
+.tab{white-space:nowrap}
 .opps{padding-bottom:88px}
 .op{grid-template-columns:1fr;gap:18px;padding:23px 20px}
 .op-badge{width:44px;height:48px;flex-direction:row;gap:9px}
@@ -164,6 +180,8 @@ Every role and project drop we have shared, in one place. Always check each plat
 <input id="search" placeholder="Search title, company, tag" />
 </label>
 </div>
+
+<div class="filters" id="filters"></div>
 </section>
 
 <section class="opps wrap">
@@ -270,19 +288,141 @@ ${j.link?`<a class="apply" href="${esc(j.link)}" target="_blank" rel="noreferrer
 </article>`;
 }
 
+/* ---------- filters ---------- */
+const GROUPS=[
+{key:'exp',label:'Experience',opts:[['freshers','Freshers'],['0-1','0–1 year'],['2+','2+ years'],['unspecified','Not specified']]},
+{key:'mode',label:'Work mode',opts:[['remote','Remote'],['office','Work from office'],['unspecified','Not specified']]},
+{key:'role',label:'Job role',opts:[['annotation','Annotation'],['ai-engineer','AI engineer'],['gen-ai','Gen AI'],['agentic','Agentic AI'],['others','Others']]}
+];
+
+const active={exp:'all',mode:'all',role:'all'};
+
+const blob=j=>[j.title,j.description,(j.tags||[]).join(' '),j.highlight].join(' ').toLowerCase();
+
+function normExp(v){
+const t=String(v||'').toLowerCase();
+if(!t)return null;
+if(/fresh|entry|no experience|graduate/.test(t))return 'freshers';
+const m=t.match(/(\d+)/);
+if(m)return parseInt(m[1],10)>=2?'2+':'0-1';
+if(/senior|experienced/.test(t))return '2+';
+return null;
+}
+
+function detectExp(j){
+const t=blob(j);
+if(/\b(fresher|freshers|entry[- ]level|no experience|recent graduate|new grad|graduate)\b/.test(t))return 'freshers';
+const m=t.match(/(\d+)\s*(?:\+|-|–|to)?\s*\d*\s*(?:years?|yrs?)\b/);
+if(m)return parseInt(m[1],10)>=2?'2+':'0-1';
+if(/\b(senior|sr\.|principal|staff|experienced)\b/.test(t))return '2+';
+if(/\b(junior|jr\.|intern|trainee)\b/.test(t))return '0-1';
+return 'unspecified';
+}
+
+function modeOf(s){
+s=String(s||'').toLowerCase();
+if(/\b(hybrid|on-?site|in-?office|work from office|wfo|office)\b/.test(s))return 'office';
+if(/\b(remote|work from home|wfh|anywhere)\b/.test(s))return 'remote';
+return null;
+}
+
+function detectMode(j){
+return modeOf(j.mode)||modeOf(j.location)||modeOf([j.title,j.description,(j.tags||[]).join(' '),j.duration,j.highlight].join(' '))||'unspecified';
+}
+
+const ROLE_RULES=[
+['agentic',/agent/],
+['gen-ai',/gen\s?-?ai|generative|llm|prompt/],
+['annotation',/annotat|label|rater|transcri|data collect/],
+['ai-engineer',/engineer|developer|scientist|machine learning|\bml\b/]
+];
+
+function roleOf(s){
+s=String(s||'').toLowerCase();
+for(const [k,re] of ROLE_RULES)if(re.test(s))return k;
+return null;
+}
+
+function detectRole(j){
+const explicit=String(j.role||'').toLowerCase();
+if(GROUPS[2].opts.some(o=>o[0]===explicit))return explicit;
+return roleOf(j.title)||roleOf((j.tags||[]).join(' '))||'others';
+}
+
+function enrich(j){
+return Object.assign({},j,{
+_exp:normExp(j.experience)||detectExp(j),
+_mode:detectMode(j),
+_role:detectRole(j)
+});
+}
+
+function buildFilters(){
+const box=document.getElementById('filters');
+box.innerHTML=GROUPS.map(g=>{
+const chips=[['all','All',jobs.length]].concat(
+g.opts.map(([v,l])=>[v,l,jobs.filter(j=>j['_'+g.key]===v).length]).filter(o=>o[2]>0)
+);
+return `<div class="f-row" role="group" aria-label="${g.label}">
+<span class="f-label">${g.label}</span>
+<div class="f-chips">${chips.map(([v,l,n])=>
+`<button type="button" class="tab${v==='all'?' active':''}" data-group="${g.key}" data-val="${v}" aria-pressed="${v==='all'}">${l}<i>${n}</i></button>`
+).join('')}</div>
+</div>`;
+}).join('')+'<button type="button" class="clear" id="clear" hidden>Clear filters ✕</button>';
+
+box.querySelectorAll('button').forEach(hoverFx);
+
+box.addEventListener('click',e=>{
+const b=e.target.closest('.tab');
+if(b){
+active[b.dataset.group]=b.dataset.val;
+syncChips();
+render();
+return;
+}
+if(e.target.closest('#clear'))clearAll();
+});
+}
+
+function syncChips(){
+document.querySelectorAll('#filters .tab').forEach(b=>{
+const on=active[b.dataset.group]===b.dataset.val;
+b.classList.toggle('active',on);
+b.setAttribute('aria-pressed',on);
+});
+}
+
+function clearAll(){
+active.exp=active.mode=active.role='all';
+search.value='';
+syncChips();
+render();
+}
+
+/* ---------- render ---------- */
 function render(){
 const q=search.value.toLowerCase().trim();
 
 const matches=jobs
 .map((j,i)=>({j,i}))
-.filter(({j})=>!q||[j.company,j.title,j.description,j.location,(j.tags||[]).join(' ')].join(' ').toLowerCase().includes(q));
+.filter(({j})=>
+(active.exp==='all'||j._exp===active.exp)&&
+(active.mode==='all'||j._mode===active.mode)&&
+(active.role==='all'||j._role===active.role)&&
+(!q||[j.company,j.title,j.description,j.location,(j.tags||[]).join(' ')].join(' ').toLowerCase().includes(q))
+);
 
-count.innerHTML=q
+const filtered=q||active.exp!=='all'||active.mode!=='all'||active.role!=='all';
+const clear=document.getElementById('clear');
+if(clear)clear.hidden=!filtered;
+
+count.innerHTML=filtered
 ?`SHOWING <b>${matches.length}</b> OF ${jobs.length}`
 :`<b>${jobs.length}</b> OPPORTUNITIES`;
 
 if(!matches.length){
-list.innerHTML='<p class="empty">No opportunities match that search.</p>';
+list.innerHTML='<p class="empty">No opportunities match these filters. Try clearing one.</p>';
 return;
 }
 
@@ -307,7 +447,8 @@ count.textContent='NO OPPORTUNITIES YET';
 list.innerHTML='<p class="empty">New opportunities are coming soon.</p>';
 return;
 }
-jobs=data;
+jobs=data.map(enrich);
+buildFilters();
 render();
 }catch(e){
 count.textContent='UNAVAILABLE';
