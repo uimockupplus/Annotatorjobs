@@ -1,5 +1,17 @@
 [
   {
+  "company": "Welo Data",
+  "title": "Audio Transcription Reviewer (Annotator)",
+  "description": "Review short English (US) audio clips and verify or correct word-level timestamps, segment boundaries, and automated transcriptions. Follow detailed style guidelines, flag unclear segments for review, and maintain high accuracy and consistency across annotation batches.",
+  "tags": ["Audio Annotation", "Transcription Review", "Speech Data", "AI Training", "Data Annotation", "Timestamp Annotation", "English US"],
+  "location": "New Delhi, India · Remote",
+  "duration": "Freelance · 15–20 Hours/Week",
+  "highlight": "USD 4.55/hour · Remote · No Coding Required",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://jobs.lever.co/weloglobal/b3fbbcd9-4d27-4cf4-b588-6af829e8c043"
+  },
+  {
   "company": "QualityAI",
   "title": "Data Collection & Annotation Engineer",
   "description": "Collect, annotate, review, and validate image and video datasets for AI model training and evaluation. Perform data collection across different environments and scenarios, use annotation guidelines and tools such as CVAT, and conduct basic camera and firmware testing. Windows OS familiarity is required.",
