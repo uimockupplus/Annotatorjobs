@@ -1,5 +1,17 @@
 [
   {
+  "company": "QualityAI",
+  "title": "Data Collection & Annotation Engineer",
+  "description": "Collect, annotate, review, and validate image and video datasets for AI model training and evaluation. Perform data collection across different environments and scenarios, use annotation guidelines and tools such as CVAT, and conduct basic camera and firmware testing. Windows OS familiarity is required.",
+  "tags": ["Data Collection", "Data Annotation", "Image Annotation", "Video Annotation", "AI Training", "AI Evaluation", "Manual QA", "CVAT", "Computer Vision"],
+  "location": "India",
+  "duration": "Full-Time",
+  "highlight": "0–1 Years Experience · Windows Required · CVAT Advantage",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://careers.quality-ai.com/job/Bangalore-Data-Collection-&-Annotation-Engineer-560045/59591044/?utm_source=LINKEDIN&utm_medium=referrer"
+  },
+  {
   "company": "Eurofins Scientific",
   "title": "AI Content Support Analyst",
   "description": "Transform training content into structured, AI-ready knowledge assets by transcribing videos, organizing content into chapters and timelines, formatting documentation, and preparing information for AI and chatbot retrieval. Maintain accuracy, readability, consistency, and quality while supporting a global AI and knowledge management initiative.",
