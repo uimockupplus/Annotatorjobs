@@ -1,5 +1,17 @@
 [
   {
+  "company": "TSMG",
+  "title": "AI Text Validation Specialist – Telugu",
+  "description": "Review AI-generated Telugu transcripts and convert them into natural display text by applying punctuation, capitalization, number/date/time/currency formatting, and other normalization rules. Keep all original words unchanged, follow project guidelines, and use reference audio only when needed. Training is provided.",
+  "tags": ["AI Text Validation", "Telugu", "AI Training", "Speech Recognition", "Linguistic QA", "Data Annotation", "Text Normalization"],
+  "location": "Remote · Global",
+  "duration": "Project-based",
+  "highlight": "Telugu Language · Training Provided · No Prior Experience Required",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://jobs.lever.co/tsmg/92f235bd-9bb9-4270-a2b1-e3838b2fda45/apply?lever-source=LinkedIn"
+  },
+  {
   "company": "Netopsys AI Pvt Ltd",
   "title": "AI Engineer – Generative AI & Agentic Systems",
   "description": "Build production-ready Generative AI applications using Python, LLMs, RAG, Agentic AI, REST APIs, vector databases, and modern AI technologies. Work on conversational and Voice AI, prompt engineering, model evaluation, AI agents, retrieval optimization, and production deployment.",
