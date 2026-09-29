@@ -1,5 +1,17 @@
 [
   {
+    "company": "INFOeSearch",
+    "title": "Data Annotation Associate",
+    "description": "Work on data annotation tasks supporting AI and machine learning workflows. Follow annotation guidelines, maintain accuracy and consistency, and contribute to live enterprise workloads with structured training.",
+    "tags": ["Data Annotation", "AI Training", "Data Labeling", "AI/ML"],
+    "location": "Hyderabad, Telangana, India · On-site",
+    "duration": "Full-Time",
+    "highlight": "Fresher · Live Enterprise Workloads",
+    "email": "",
+    "whatsapp": "",
+    "link": "https://infoesearch.com/careers"
+  },
+  {
   "company": "WonderBotz",
   "title": "Junior AI Engineer",
   "description": "Hiring Junior AI Engineers to build and deploy Generative AI and Agentic AI solutions under senior engineer guidance. Work includes LLM applications, RAG pipelines, agentic workflows, vector databases, prompt engineering, REST APIs, cloud services, AI evaluation, and CI/CD. Strong Python skills and foundational knowledge of LLMs, RAG, and prompt engineering are required.",
