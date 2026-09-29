@@ -1,5 +1,17 @@
 [
   {
+  "company": "AlphaSense",
+  "title": "Annotation Specialist II",
+  "description": "Curate, structure, and benchmark complex financial datasets used to fine-tune LLMs. Evaluate AI model outputs, diagnose edge cases and hallucination risks, establish annotation guidelines and validation frameworks, improve internal annotation tools and workflows, and act as a final quality gate for production GenAI features. Strong financial research and capital markets knowledge is required.",
+  "tags": ["Data Annotation", "LLM Evaluation", "Generative AI", "Financial Data", "AI Training", "AI Evaluation", "Financial Research", "Quality Assurance", "Capital Markets", "Data Operations"],
+  "location": "Mumbai, Maharashtra, India",
+  "duration": "Full-Time",
+  "highlight": "2+ Years Experience · MBA Finance · Financial Data & LLM Evaluation",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://job-boards.greenhouse.io/alphasense/jobs/8794640002?gh_src=8a5751f62us"
+  },
+  {
   "company": "GlobalLogic",
   "title": "Data Annotator – OTT Content Review",
   "description": "Review video, image, website, and advertising content and apply consistent labels such as IAB categories, advertiser domains, sensitive-content categories, and creative attributes. Build and maintain ground-truth datasets for model evaluation, perform quality checks, identify ambiguous cases, provide feedback on model errors, and improve annotation guidelines and processes.",
