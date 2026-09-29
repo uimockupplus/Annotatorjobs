@@ -1191,8 +1191,6 @@ h1 em,
     box-shadow .35s ease;
 }
 
-/* Grid lines */
-
 .action-card:after{
   content:"";
   position:absolute;
@@ -1221,8 +1219,6 @@ h1 em,
       transparent 100%
     );
 }
-
-/* Left content */
 
 .action-main{
   position:relative;
@@ -1286,8 +1282,6 @@ h1 em,
   font-size:14px;
   line-height:1.75;
 }
-
-/* Right information panel */
 
 .action-panel{
   position:relative;
@@ -1359,8 +1353,6 @@ h1 em,
   line-height:1.5;
 }
 
-/* CTA */
-
 .action-bottom{
   display:flex;
   align-items:center;
@@ -1393,8 +1385,6 @@ h1 em,
   font:700 8px "Space Grotesk";
   letter-spacing:.1em;
 }
-
-/* Different visual identities */
 
 .submit-action .action-card{
   border-color:rgba(77,179,255,.28);
@@ -1435,8 +1425,6 @@ h1 em,
 .contact-action .action-icon{
   border-radius:50% 50% 50% 8px;
 }
-
-/* Hover energy */
 
 .action-card:hover{
   transform:translateY(-7px);
@@ -1575,21 +1563,21 @@ h1 em,
   animation:stream 28s linear infinite;
 }
 
+/*
+  Arrows removed.
+  48px keeps approximately the same visual
+  spacing that existed when the arrows were present.
+*/
+
 .stream-set{
   display:flex;
   align-items:center;
-  gap:24px;
-  padding-right:24px;
+  gap:48px;
+  padding-right:48px;
   white-space:nowrap;
   color:var(--white);
   font:700 10px "Space Grotesk";
   letter-spacing:.16em;
-}
-
-.stream-set b{
-  color:var(--blue);
-  font-size:16px;
-  text-shadow:0 0 10px var(--blue);
 }
 
 .stream-set span{
@@ -2153,8 +2141,8 @@ h1 em,
   }
 
   .stream-set{
-    gap:13px;
-    padding-right:13px;
+    gap:36px;
+    padding-right:36px;
     font-size:8px;
   }
 
@@ -2305,10 +2293,9 @@ class="board-link"
 href="https://work.turing.com/r/y2DgoDEu7y"
 target="_blank"
 rel="noreferrer"
-
 >
-
-View featured role ↗ </a>
+View featured role ↗
+</a>
 
 </div>
 
@@ -2321,6 +2308,10 @@ View featured role ↗ </a>
 
 </section>
 
+<!-- =========================
+     JOB STREAM
+========================= -->
+
 <section class="job-stream" aria-label="Live job signal stream">
 
 <div class="stream-line"></div>
@@ -2329,33 +2320,33 @@ View featured role ↗ </a>
 
 <div class="stream-set">
 
-<span>LLM TRAINER</span> <b>→</b>
+<span>LLM TRAINER</span>
 
-<span>MODEL EVALUATOR</span> <b>→</b>
+<span>MODEL EVALUATOR</span>
 
-<span>DATA ANNOTATION</span> <b>→</b>
+<span>DATA ANNOTATION</span>
 
-<span>AI RED TEAMER</span> <b>→</b>
+<span>AI RED TEAMER</span>
 
-<span>VOICE DATA</span> <b>→</b>
+<span>VOICE DATA</span>
 
-<span>EXPERT REVIEW</span> <b>→</b>
+<span>EXPERT REVIEW</span>
 
 </div>
 
 <div class="stream-set" aria-hidden="true">
 
-<span>LLM TRAINER</span> <b>→</b>
+<span>LLM TRAINER</span>
 
-<span>MODEL EVALUATOR</span> <b>→</b>
+<span>MODEL EVALUATOR</span>
 
-<span>DATA ANNOTATION</span> <b>→</b>
+<span>DATA ANNOTATION</span>
 
-<span>AI RED TEAMER</span> <b>→</b>
+<span>AI RED TEAMER</span>
 
-<span>VOICE DATA</span> <b>→</b>
+<span>VOICE DATA</span>
 
-<span>EXPERT REVIEW</span> <b>→</b>
+<span>EXPERT REVIEW</span>
 
 </div>
 
@@ -2580,10 +2571,9 @@ Tell us about your experience, skills, preferred work, and resume so we can unde
 <a
 class="btn primary"
 href="join-network.html"
-
 >
-
-Join the network → </a>
+Join the network →
+</a>
 
 </div>
 
@@ -2625,10 +2615,9 @@ Help grow the EvalLoop Jobs directory by sharing AI training, evaluation, annota
 <a
 class="action-link"
 href="submit-opportunity.html"
-
 >
-
-Submit an opportunity → </a>
+Submit an opportunity →
+</a>
 
 </div>
 
@@ -2751,10 +2740,9 @@ For questions, suggestions, partnerships, or website feedback, send a message to
 <a
 class="action-link"
 href="contact.html"
-
 >
-
-Contact EvalLoop → </a>
+Contact EvalLoop →
+</a>
 
 </div>
 
@@ -2872,20 +2860,18 @@ Recent opportunity posts and practical application notes are coming soon.
 <a
 class="btn dark-btn"
 href="mailto:evalloopjobs@gmail.com?subject=AI%20Training%20Jobs%20update"
-
 >
-
-Get updates ✉ </a>
+Get updates ✉
+</a>
 
 <a
 class="btn dark-btn"
 href="https://www.linkedin.com/company/evalloopjobs/"
 target="_blank"
 rel="noreferrer"
-
 >
-
-Follow on LinkedIn ↗ </a>
+Follow on LinkedIn ↗
+</a>
 
 </div>
 
@@ -2948,10 +2934,9 @@ class="back"
 href="https://www.linkedin.com/company/evalloopjobs/"
 target="_blank"
 rel="noreferrer"
-
 >
-
-LinkedIn ↗ </a>
+LinkedIn ↗
+</a>
 
 <a class="back" href="#top">
 Back to top ↗
@@ -3502,5 +3487,3 @@ The home page shows the first MAX_HOME jobs; the rest live on opportunities.html
 
 </body>
 </html>
-
-can you see the scrolling animation with passing signal
