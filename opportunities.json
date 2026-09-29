@@ -237,18 +237,6 @@
   "link": ""
   },
   {
-  "company": "Gleantrap",
-  "title": "AI Backend Engineer",
-  "description": "Hiring a backend engineer to build and maintain PHP backend systems while developing AI-powered features using Python. Responsibilities include LLM integrations, AI agents, RAG, vector databases, APIs, ETL pipelines, data processing, and AI product features. Strong PHP, Python, SQL, backend development, LLM APIs, RAG, and AI agent knowledge are required.",
-  "tags": ["AI Backend", "Python", "PHP", "LLM", "RAG", "AI Agents", "Vector Databases", "ETL", "Backend Development", "SQL"],
-  "location": "Not Specified",
-  "duration": "Full-Time",
-  "highlight": "1+ Years Software Development Experience",
-  "email": "",
-  "whatsapp": "",
-  "link": "https://www.linkedin.com/jobs/view/4426413349/"
-  },
-  {
   "company": "Sovrano",
   "title": "Robotics Data Annotator",
   "description": "Join a qualified pool for upcoming robotics AI projects involving frame-by-frame and caption-based annotation of robot and human-hand actions in short video clips. Follow detailed labeling guidelines, maintain high accuracy and consistency, flag unclear clips, and complete a free qualification exam. Prior annotation, video annotation, robotics, or computer vision experience is a plus.",
