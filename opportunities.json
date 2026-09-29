@@ -1,5 +1,17 @@
 [
   {
+  "company": "Netopsys AI Pvt Ltd",
+  "title": "AI Engineer – Generative AI & Agentic Systems",
+  "description": "Build production-ready Generative AI applications using Python, LLMs, RAG, Agentic AI, REST APIs, vector databases, and modern AI technologies. Work on conversational and Voice AI, prompt engineering, model evaluation, AI agents, retrieval optimization, and production deployment.",
+  "tags": ["AI Engineer", "Generative AI", "Agentic AI", "LLM", "RAG", "Python", "AI Agents", "Vector Databases", "Voice AI", "Prompt Engineering", "AI Evaluation"],
+  "location": "Visakhapatnam, Andhra Pradesh, India",
+  "duration": "Full-Time",
+  "highlight": "1–3 Years Experience · Production AI · RAG & Agentic AI",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://netopsys.in/careers/NET-AI-001"
+  },
+  {
     "company": "INFOeSearch",
     "title": "Data Annotation Associate",
     "description": "Work on data annotation tasks supporting AI and machine learning workflows. Follow annotation guidelines, maintain accuracy and consistency, and contribute to live enterprise workloads with structured training.",
