@@ -12,6 +12,18 @@
   "link": ""
   },
   {
+  "company": "Company: Golden Eagle IT Technologies",
+  "title": "GenAI Developer",
+  "description": "Develop Generative AI solutions using LLMs, Python, AI/ML concepts, RAG, and LangChain or similar frameworks. Work on real-world AI projects while applying strong problem-solving and analytical skills.",
+  "tags": ["Generative AI", "GenAI", "LLM", "Python", "RAG", "LangChain", "AI/ML", "AI Development"],
+  "location": "Pune, Maharashtra, India",
+  "duration": "Full-Time",
+  "highlight": "1+ Years Experience · Immediate Joiners Preferred · GenAI & LLM · RAG & LangChain",
+  "email": "srashti.s@goldeneagle.ai",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: Sarvam",
   "title": "Agent Engineer – Deployment Engineering",
   "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
