@@ -16,7 +16,11 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWMRL2H5C7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+
   gtag('js', new Date());
 
   gtag('config', 'G-CWMRL2H5C7');
@@ -27,11 +31,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
 
 <link rel="stylesheet" href="chatbot.css">
 
+
+<!-- Directory structured data.
+     This page represents the EvalLoop Jobs DIRECTORY,
+     not a single employer's job posting. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "AI & LLM Opportunities — EvalLoop Jobs",
+  "description": "An independent directory of AI training, data annotation, LLM evaluation, GenAI, agentic AI, and related opportunities.",
+  "url": "https://annotatorjobs.vercel.app/opportunities.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "EvalLoop Jobs",
+    "url": "https://annotatorjobs.vercel.app/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "AI and LLM opportunities"
+  }
+}
+</script>
+
+
 <style>
+
 :root{
   --bg:#0b1224;
   --ink:#f5f8ff;
@@ -46,9 +78,13 @@
   --red:#ff4d61
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth
+}
 
 body{
   margin:0;
@@ -68,9 +104,14 @@ a{
     box-shadow .22s ease
 }
 
-button,input{font:inherit}
+button,
+input{
+  font:inherit
+}
 
-button{cursor:pointer}
+button{
+  cursor:pointer
+}
 
 .shell{
   position:relative;
@@ -101,7 +142,10 @@ button{cursor:pointer}
   padding-right:32px
 }
 
-/* header */
+
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
 
 .header{
   position:relative;
@@ -164,7 +208,10 @@ button{cursor:pointer}
   border-color:var(--blue)
 }
 
-/* page heading */
+
+/* -------------------------------------------------------
+   PAGE HEADING
+------------------------------------------------------- */
 
 .page-head{
   padding-top:96px;
@@ -215,7 +262,10 @@ button{cursor:pointer}
   line-height:1.6
 }
 
-/* directory identity note */
+
+/* -------------------------------------------------------
+   DIRECTORY IDENTITY
+------------------------------------------------------- */
 
 .directory-note{
   margin-top:30px;
@@ -239,7 +289,10 @@ button{cursor:pointer}
   text-underline-offset:3px
 }
 
-/* toolbar */
+
+/* -------------------------------------------------------
+   TOOLBAR
+------------------------------------------------------- */
 
 .toolbar{
   display:flex;
@@ -281,7 +334,10 @@ button{cursor:pointer}
   font-size:11px
 }
 
-/* filters */
+
+/* -------------------------------------------------------
+   FILTERS
+------------------------------------------------------- */
 
 .filters{
   display:grid;
@@ -383,7 +439,10 @@ button{cursor:pointer}
   text-decoration:underline
 }
 
-/* opportunity list */
+
+/* -------------------------------------------------------
+   OPPORTUNITY LIST
+------------------------------------------------------- */
 
 .opps{
   margin-top:34px;
@@ -557,7 +616,10 @@ button{cursor:pointer}
   text-align:center
 }
 
-/* submit opportunity callout */
+
+/* -------------------------------------------------------
+   SUBMIT OPPORTUNITY
+------------------------------------------------------- */
 
 .submit-callout{
   display:flex;
@@ -614,7 +676,10 @@ button{cursor:pointer}
   box-shadow:0 12px 28px rgba(37,136,255,.25)
 }
 
-/* back link */
+
+/* -------------------------------------------------------
+   BACK LINK
+------------------------------------------------------- */
 
 .back-row{
   display:flex;
@@ -647,7 +712,10 @@ button{cursor:pointer}
   box-shadow:0 16px 38px rgba(37,136,255,.42)
 }
 
-/* footer */
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
 
 .footer{
   position:relative;
@@ -683,7 +751,10 @@ button{cursor:pointer}
   color:var(--cyan)
 }
 
-/* cursor + reveal */
+
+/* -------------------------------------------------------
+   CURSOR + REVEAL
+------------------------------------------------------- */
 
 .cursor-dot,
 .cursor-ring{
@@ -742,29 +813,53 @@ button{cursor:pointer}
 }
 
 @keyframes grid{
-  to{background-position:44px 44px}
+  to{
+    background-position:44px 44px
+  }
 }
 
+
+/* -------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------- */
+
 @media(hover:none),(pointer:coarse){
-  body{cursor:auto}
+
+  body{
+    cursor:auto
+  }
+
   .cursor-dot,
-  .cursor-ring{display:none}
+  .cursor-ring{
+    display:none
+  }
+
   .tab,
   .apply,
   .whatsapp,
   .details,
   .btn,
-  .top-cta{min-height:40px}
+  .top-cta{
+    min-height:40px
+  }
+
 }
 
+
 @media(prefers-reduced-motion:reduce){
-  .shell:before{animation:none}
+
+  .shell:before{
+    animation:none
+  }
+
   .reveal{
     opacity:1;
     transform:none;
     transition:none
   }
+
 }
+
 
 @media(max-width:900px){
 
@@ -796,12 +891,17 @@ button{cursor:pointer}
 
 }
 
+
 @media(max-width:640px){
 
-  body{cursor:auto}
+  body{
+    cursor:auto
+  }
 
   .cursor-dot,
-  .cursor-ring{display:none}
+  .cursor-ring{
+    display:none
+  }
 
   .wrap{
     padding-left:20px;
@@ -813,7 +913,9 @@ button{cursor:pointer}
     min-height:74px
   }
 
-  .nav{display:none}
+  .nav{
+    display:none
+  }
 
   .top-cta{
     padding:10px 12px;
@@ -932,8 +1034,10 @@ button{cursor:pointer}
   }
 
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -942,6 +1046,7 @@ button{cursor:pointer}
 
 <div class="shell">
 
+
 <header class="header">
 
 <a href="index.html" class="logo">
@@ -949,13 +1054,28 @@ button{cursor:pointer}
 <span>EvalLoop Jobs</span>
 </a>
 
+
 <nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="about.html">About</a>
-<a href="index.html#how">How it works</a>
+
+<a href="opportunities.html">
+Opportunities
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="index.html#how">
+How it works
+</a>
+
 </nav>
 
-<a href="opportunities.html" class="top-cta">
+
+<a
+href="opportunities.html"
+class="top-cta"
+>
 Explore roles ↗
 </a>
 
@@ -964,9 +1084,12 @@ Explore roles ↗
 
 <main id="top">
 
+
 <section class="page-head wrap">
 
+
 <div class="section-head">
+
 
 <div>
 
@@ -974,23 +1097,37 @@ Explore roles ↗
 FIELD NOTES / ALL
 </div>
 
+
 <h1 class="section-title">
 All <em>opportunities.</em>
 </h1>
 
 </div>
 
+
 <p>
-Every role and project drop we have shared, in one place. EvalLoop Jobs is an independent opportunity discovery platform; always verify the actual employer or opportunity provider and current requirements before applying.
+Every role and project drop we have shared, in one place.
+EvalLoop Jobs is an independent opportunity discovery platform;
+always verify the actual employer or opportunity provider and
+current requirements before applying.
 </p>
+
 
 </div>
 
 
 <div class="directory-note">
 
-<strong>Independent opportunity directory.</strong>
-EvalLoop Jobs curates and organizes opportunities from companies, hiring platforms, project providers, contributor networks, and other sources. The company shown on each opportunity is the associated employer or opportunity provider where available. EvalLoop Jobs itself is not the employer for third-party opportunities.
+<strong>
+Independent opportunity directory.
+</strong>
+
+EvalLoop Jobs curates and organizes opportunities from companies,
+hiring platforms, project providers, contributor networks, and
+other sources. The company shown on each opportunity is the
+associated employer or opportunity provider where available.
+EvalLoop Jobs itself is not the employer for third-party
+opportunities.
 
 <a href="about.html">
 Learn more →
@@ -1001,33 +1138,49 @@ Learn more →
 
 <div class="toolbar">
 
-<div class="count" id="count">
+<div
+class="count"
+id="count"
+>
 LOADING…
 </div>
 
+
 <label class="search">
+
 ⌕
+
 <input
 id="search"
 placeholder="Search title, company, tag"
 aria-label="Search opportunities"
 />
+
 </label>
 
 </div>
 
 
-<div class="filters" id="filters"></div>
+<div
+class="filters"
+id="filters"
+></div>
+
 
 </section>
 
 
 <section class="opps wrap">
 
-<div class="op-list" id="opList"></div>
+
+<div
+class="op-list"
+id="opList"
+></div>
 
 
 <div class="submit-callout">
+
 
 <div class="submit-callout-copy">
 
@@ -1041,6 +1194,7 @@ Know an AI training, evaluation, annotation, or expert opportunity worth sharing
 
 </div>
 
+
 <a
 class="btn submit-link"
 href="submit-opportunity.html"
@@ -1053,11 +1207,15 @@ Submit an opportunity ↗
 
 <div class="back-row">
 
-<a class="btn primary" href="index.html">
+<a
+class="btn primary"
+href="index.html"
+>
 ← Back to home
 </a>
 
 </div>
+
 
 </section>
 
@@ -1066,46 +1224,83 @@ Submit an opportunity ↗
 
 <footer class="footer wrap">
 
+
 <a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
+
+<span class="logo-mark">
+◉
+</span>
+
+<span>
+EvalLoop Jobs
+</span>
+
 </a>
+
 
 <span>
 Independent opportunity discovery for the work behind better AI.
 </span>
 
-<nav class="footer-links" aria-label="Footer">
 
-<a class="back" href="about.html">
+<nav
+class="footer-links"
+aria-label="Footer"
+>
+
+<a
+class="back"
+href="about.html"
+>
 About
 </a>
 
-<a class="back current" href="opportunities.html">
+<a
+class="back current"
+href="opportunities.html"
+>
 Opportunities
 </a>
 
-<a class="back" href="submit-opportunity.html">
+<a
+class="back"
+href="submit-opportunity.html"
+>
 Submit opportunity
 </a>
 
-<a class="back" href="join-network.html">
+<a
+class="back"
+href="join-network.html"
+>
 Join network
 </a>
 
-<a class="back" href="contact.html">
+<a
+class="back"
+href="contact.html"
+>
 Contact
 </a>
 
-<a class="back" href="disclaimer.html">
+<a
+class="back"
+href="disclaimer.html"
+>
 Disclaimer
 </a>
 
-<a class="back" href="terms.html">
+<a
+class="back"
+href="terms.html"
+>
 Terms
 </a>
 
-<a class="back" href="privacy.html">
+<a
+class="back"
+href="privacy.html"
+>
 Privacy
 </a>
 
@@ -1113,12 +1308,15 @@ Privacy
 class="back"
 href="https://www.linkedin.com/company/evalloopjobs/"
 target="_blank"
-rel="noreferrer"
+rel="noopener noreferrer"
 >
 LinkedIn ↗
 </a>
 
-<a class="back" href="#top">
+<a
+class="back"
+href="#top"
+>
 Back to top ↗
 </a>
 
@@ -1126,138 +1324,237 @@ Back to top ↗
 
 </footer>
 
+
 </div>
 
 
 <script>
 
-const dot=document.querySelector('.cursor-dot'),
-ring=document.querySelector('.cursor-ring');
+/* -------------------------------------------------------
+   CUSTOM CURSOR
+------------------------------------------------------- */
 
-let mx=innerWidth/2,
-my=innerHeight/2,
-rx=mx,
-ry=my;
+const dot =
+document.querySelector('.cursor-dot');
 
-addEventListener('pointermove',e=>{
-mx=e.clientX;
-my=e.clientY;
+const ring =
+document.querySelector('.cursor-ring');
 
-dot.style.left=mx+'px';
-dot.style.top=my+'px';
-});
+
+let mx=innerWidth/2;
+let my=innerHeight/2;
+
+let rx=mx;
+let ry=my;
+
+
+addEventListener(
+'pointermove',
+e=>{
+
+  mx=e.clientX;
+  my=e.clientY;
+
+  dot.style.left=mx+'px';
+  dot.style.top=my+'px';
+
+}
+);
+
 
 (function tick(){
 
-rx+=(mx-rx)*.16;
-ry+=(my-ry)*.16;
+  rx+=(mx-rx)*.16;
+  ry+=(my-ry)*.16;
 
-ring.style.left=rx+'px';
-ring.style.top=ry+'px';
+  ring.style.left=rx+'px';
+  ring.style.top=ry+'px';
 
-requestAnimationFrame(tick);
+  requestAnimationFrame(tick);
 
 })();
 
 
 function hoverFx(el){
 
-el.onmouseenter=()=>{
-ring.classList.add('active');
-dot.classList.add('hot');
-};
+  el.onmouseenter=()=>{
 
-el.onmouseleave=()=>{
-ring.classList.remove('active');
-dot.classList.remove('hot');
-};
+    ring.classList.add('active');
+    dot.classList.add('hot');
+
+  };
+
+
+  el.onmouseleave=()=>{
+
+    ring.classList.remove('active');
+    dot.classList.remove('hot');
+
+  };
 
 }
+
 
 document
 .querySelectorAll('a,button,input')
 .forEach(hoverFx);
 
 
-const io=new IntersectionObserver(
-es=>es.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add('in');
-io.unobserve(e.target);
-}
-}),
-{threshold:.08}
+/* -------------------------------------------------------
+   REVEAL ANIMATION
+------------------------------------------------------- */
+
+const io =
+new IntersectionObserver(
+  entries =>
+    entries.forEach(entry=>{
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add('in');
+
+        io.unobserve(entry.target);
+
+      }
+
+    }),
+  {
+    threshold:.08
+  }
 );
 
 
-const list=document.getElementById('opList'),
-search=document.getElementById('search'),
-count=document.getElementById('count');
+/* -------------------------------------------------------
+   ELEMENTS
+------------------------------------------------------- */
+
+const list =
+document.getElementById('opList');
+
+const search =
+document.getElementById('search');
+
+const count =
+document.getElementById('count');
+
 
 let jobs=[];
 
 
 /* -------------------------------------------------------
-   SAME SLUG RULE USED BY THE FUTURE STATIC JOB GENERATOR
-   ------------------------------------------------------- */
+   SLUG GENERATION
+   -------------------------------------------------------
+   IMPORTANT:
+   This matches the build-jobs.js logic.
+
+   Duplicate company + title combinations receive:
+     first:  company-title.html
+     second: company-title-2.html
+     third:  company-title-3.html
+
+   We calculate this BEFORE filtering so filtering does not
+   change the generated URLs.
+------------------------------------------------------- */
 
 function slugify(value){
 
-return String(value||'')
-.toLowerCase()
-.trim()
-
-.replace(/&/g,' and ')
-
-.replace(/[^a-z0-9]+/g,'-')
-
-.replace(/^-+|-+$/g,'')
-
-.replace(/-{2,}/g,'-');
+  return String(value||'')
+    .toLowerCase()
+    .trim()
+    .replace(/&/g,' and ')
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-+|-+$/g,'')
+    .replace(/-{2,}/g,'-');
 
 }
 
 
-function jobSlug(j){
+function baseJobSlug(j){
 
-const company=slugify(j.company);
+  const company =
+    slugify(j.company);
 
-const title=slugify(j.title);
+  const title =
+    slugify(j.title);
 
-return `${company}-${title}`;
+  if(!company || !title){
+    return '';
+  }
+
+  return `${company}-${title}`;
+
+}
+
+
+function assignJobSlugs(data){
+
+  const counts={};
+
+  return data.map(j=>{
+
+    const base =
+      baseJobSlug(j);
+
+    if(!base){
+      return Object.assign({},j,{
+        _slug:''
+      });
+    }
+
+    counts[base] =
+      (counts[base]||0)+1;
+
+    const finalSlug =
+      counts[base]===1
+        ? base
+        : `${base}-${counts[base]}`;
+
+    return Object.assign({},j,{
+      _slug:finalSlug
+    });
+
+  });
 
 }
 
 
 function jobUrl(j){
 
-return `jobs/${jobSlug(j)}.html`;
+  if(!j._slug){
+    return '#';
+  }
+
+  return `jobs/${j._slug}.html`;
 
 }
 
 
 /* -------------------------------------------------------
    ESCAPE HTML
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>
-({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#39;'
-}[c])
+const esc =
+s =>
+String(s??'').replace(
+  /[&<>"']/g,
+  c =>
+  ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[c])
 );
 
 
 /* -------------------------------------------------------
    OPPORTUNITY CARD
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 function card(j,i){
 
-return `
+  return `
 
 <article class="op">
 
@@ -1300,8 +1597,8 @@ ${esc(j.description)}
 <div class="op-tags">
 
 ${(j.tags||[])
-.map(t=>`<span>${esc(t)}</span>`)
-.join('')}
+  .map(t=>`<span>${esc(t)}</span>`)
+  .join('')}
 
 </div>
 
@@ -1329,9 +1626,11 @@ ${esc(j.highlight)}
 
 <div class="op-actions">
 
+
 <a
 class="details"
 href="${jobUrl(j)}"
+aria-label="View details for ${esc(j.title)} at ${esc(j.company)}"
 >
 View details ↗
 </a>
@@ -1355,7 +1654,7 @@ ${j.whatsapp
 class="whatsapp"
 href="https://wa.me/${esc(j.whatsapp)}"
 target="_blank"
-rel="noreferrer"
+rel="noopener noreferrer"
 >
 WhatsApp ↗
 </a>
@@ -1369,12 +1668,13 @@ ${j.link
 class="apply"
 href="${esc(j.link)}"
 target="_blank"
-rel="noreferrer"
+rel="noopener noreferrer"
 >
 Apply ↗
 </a>
 `
 :''}
+
 
 </div>
 
@@ -1389,56 +1689,60 @@ Apply ↗
 
 /* -------------------------------------------------------
    FILTERS
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 const GROUPS=[
 
 {
-key:'exp',
-label:'Experience',
-opts:[
-['freshers','Freshers'],
-['0-1','0–1 year'],
-['2+','2+ years']
-]
+  key:'exp',
+  label:'Experience',
+  opts:[
+    ['freshers','Freshers'],
+    ['0-1','0–1 year'],
+    ['2+','2+ years']
+  ]
 },
 
 {
-key:'mode',
-label:'Work mode',
-opts:[
-['remote','Remote'],
-['office','Work from office']
-]
+  key:'mode',
+  label:'Work mode',
+  opts:[
+    ['remote','Remote'],
+    ['office','Work from office']
+  ]
 },
 
 {
-key:'role',
-label:'Job role',
-opts:[
-['annotation','Annotation'],
-['ai-engineer','AI engineer'],
-['gen-ai','Gen AI'],
-['agentic','Agentic AI'],
-['others','Others']
-]
+  key:'role',
+  label:'Job role',
+  opts:[
+    ['annotation','Annotation'],
+    ['ai-engineer','AI engineer'],
+    ['gen-ai','Gen AI'],
+    ['agentic','Agentic AI'],
+    ['others','Others']
+  ]
 }
 
 ];
 
 
 const active={
-exp:'all',
-mode:'all',
-role:'all'
+
+  exp:'all',
+  mode:'all',
+  role:'all'
+
 };
 
 
-const blob=j=>[
-j.title,
-j.description,
-(j.tags||[]).join(' '),
-j.highlight
+const blob =
+j =>
+[
+  j.title,
+  j.description,
+  (j.tags||[]).join(' '),
+  j.highlight
 ]
 .join(' ')
 .toLowerCase();
@@ -1446,82 +1750,138 @@ j.highlight
 
 function normExp(v){
 
-const t=String(v||'').toLowerCase();
+  const t =
+    String(v||'').toLowerCase();
 
-if(!t)return null;
+  if(!t){
+    return null;
+  }
 
-if(/fresh|entry|no experience|graduate/.test(t))
-return 'freshers';
 
-const m=t.match(/(\d+)/);
+  if(
+    /fresh|entry|no experience|graduate/.test(t)
+  ){
+    return 'freshers';
+  }
 
-if(m)
-return parseInt(m[1],10)>=2?'2+':'0-1';
 
-if(/senior|experienced/.test(t))
-return '2+';
+  const m =
+    t.match(/(\d+)/);
 
-return null;
+
+  if(m){
+    return parseInt(m[1],10)>=2
+      ? '2+'
+      : '0-1';
+  }
+
+
+  if(
+    /senior|experienced/.test(t)
+  ){
+    return '2+';
+  }
+
+
+  return null;
 
 }
 
 
 function detectExp(j){
 
-const t=blob(j);
+  const t =
+    blob(j);
 
-if(/\b(fresher|freshers|entry[- ]level|no experience|recent graduate|new grad|graduate)\b/.test(t))
-return 'freshers';
 
-const m=t.match(
-/(\d+)\s*(?:\+|-|–|to)?\s*\d*\s*(?:years?|yrs?)\b/
-);
+  if(
+    /\b(fresher|freshers|entry[- ]level|no experience|recent graduate|new grad|graduate)\b/
+    .test(t)
+  ){
+    return 'freshers';
+  }
 
-if(m)
-return parseInt(m[1],10)>=2?'2+':'0-1';
 
-if(/\b(senior|sr\.|principal|staff|experienced)\b/.test(t))
-return '2+';
+  const m =
+    t.match(
+      /(\d+)\s*(?:\+|-|–|to)?\s*\d*\s*(?:years?|yrs?)\b/
+    );
 
-if(/\b(junior|jr\.|intern|trainee)\b/.test(t))
-return '0-1';
 
-return 'unspecified';
+  if(m){
+
+    return parseInt(m[1],10)>=2
+      ? '2+'
+      : '0-1';
+
+  }
+
+
+  if(
+    /\b(senior|sr\.|principal|staff|experienced)\b/
+    .test(t)
+  ){
+    return '2+';
+  }
+
+
+  if(
+    /\b(junior|jr\.|intern|trainee)\b/
+    .test(t)
+  ){
+    return '0-1';
+  }
+
+
+  return 'unspecified';
 
 }
 
 
 function modeOf(s){
 
-s=String(s||'').toLowerCase();
+  s =
+    String(s||'').toLowerCase();
 
-if(
-/\b(hybrid|on-?site|in-?office|work from office|wfo|office)\b/.test(s)
-)
-return 'office';
 
-if(
-/\b(remote|work from home|wfh|anywhere)\b/.test(s)
-)
-return 'remote';
+  if(
+    /\b(hybrid|on-?site|in-?office|work from office|wfo|office)\b/
+    .test(s)
+  ){
+    return 'office';
+  }
 
-return null;
+
+  if(
+    /\b(remote|work from home|wfh|anywhere)\b/
+    .test(s)
+  ){
+    return 'remote';
+  }
+
+
+  return null;
 
 }
 
 
 function detectMode(j){
 
-return modeOf(j.mode)
-||modeOf(j.location)
-||modeOf([
-j.title,
-j.description,
-(j.tags||[]).join(' '),
-j.duration,
-j.highlight
-].join(' '))
-||'unspecified';
+  return (
+    modeOf(j.mode)
+    ||
+    modeOf(j.location)
+    ||
+    modeOf([
+      j.title,
+      j.description,
+      (j.tags||[]).join(' '),
+      j.duration,
+      j.highlight
+    ].join(' '))
+    ||
+    'unspecified'
+  );
 
 }
 
@@ -1529,120 +1889,146 @@ j.highlight
 const ROLE_RULES=[
 
 [
-'annotation',
-/annotat|\blabel(l)?(er|ers|ing)?\b|\brater\b|\braters\b|transcri|data collect|\btagging\b|\bcurator\b|content review|moderat/
+  'annotation',
+  /annotat|\blabel(l)?(er|ers|ing)?\b|\brater\b|\braters\b|transcri|data collect|\btagging\b|\bcurator\b|content review|moderat/
 ],
 
 [
-'agentic',
-/\bagent\b|\bagents\b|agentic|multi ?agent|tool use|function call/
+  'agentic',
+  /\bagent\b|\bagents\b|agentic|multi ?agent|tool use|function call/
 ],
 
 [
-'gen-ai',
-/\bgen ?ai\b|generative|\bllms?\b|prompt|rlhf|language model|chatbot|conversational/
+  'gen-ai',
+  /\bgen ?ai\b|generative|\bllms?\b|prompt|rlhf|language model|chatbot|conversational/
 ],
 
 [
-'ai-engineer',
-/\b(engineer|engineers|developer|developers|scientist|scientists|mlops|architect)\b|machine learning|\bml\b/
+  'ai-engineer',
+  /\b(engineer|engineers|developer|developers|scientist|scientists|mlops|architect)\b|machine learning|\bml\b/
 ]
 
 ];
 
 
 /*
-Title only.
-
-A title can belong to more than one role,
-for example "Gen AI Engineer".
-*/
+ * Title only.
+ *
+ * A title can belong to more than one role,
+ * for example "Gen AI Engineer".
+ */
 
 function detectRoles(j){
 
-const t=
-' '+
-String(j.title||'')
-.toLowerCase()
-.replace(/[^a-z0-9+]+/g,' ')+
-' ';
+  const t =
+    ' '+
+    String(j.title||'')
+      .toLowerCase()
+      .replace(/[^a-z0-9+]+/g,' ')+
+    ' ';
 
-const found=
-ROLE_RULES
-.filter(([k,re])=>re.test(t))
-.map(r=>r[0]);
 
-return found.length?found:['others'];
+  const found =
+    ROLE_RULES
+      .filter(([k,re])=>re.test(t))
+      .map(r=>r[0]);
+
+
+  return found.length
+    ? found
+    : ['others'];
 
 }
 
 
 function explicitRoles(v){
 
-const valid=
-GROUPS[2]
-.opts
-.map(o=>o[0]);
+  const valid =
+    GROUPS[2]
+      .opts
+      .map(o=>o[0]);
 
-const arr=
-(Array.isArray(v)?v:[v])
-.map(x=>String(x||'').toLowerCase().trim())
-.filter(x=>valid.includes(x));
 
-return arr.length?arr:null;
+  const arr =
+    (Array.isArray(v)?v:[v])
+      .map(x=>String(x||'').toLowerCase().trim())
+      .filter(x=>valid.includes(x));
+
+
+  return arr.length
+    ? arr
+    : null;
 
 }
 
 
 function enrich(j){
 
-return Object.assign({},j,{
+  return Object.assign(
+    {},
+    j,
+    {
 
-_exp:normExp(j.experience)||detectExp(j),
+      _exp:
+        normExp(j.experience)
+        ||
+        detectExp(j),
 
-_mode:detectMode(j),
+      _mode:
+        detectMode(j),
 
-_roles:explicitRoles(j.role)||detectRoles(j)
+      _roles:
+        explicitRoles(j.role)
+        ||
+        detectRoles(j)
 
-});
+    }
+  );
 
 }
 
 
-const has=(j,k,v)=>
+const has =
+(j,k,v) =>
 k==='role'
-?j._roles.includes(v)
-:j['_'+k]===v;
+  ? j._roles.includes(v)
+  : j['_'+k]===v;
 
 
 /* -------------------------------------------------------
    BUILD FILTERS
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 function buildFilters(){
 
-const box=document.getElementById('filters');
+  const box =
+    document.getElementById('filters');
 
-box.innerHTML=
 
-GROUPS.map(g=>{
+  box.innerHTML =
 
-const chips=[
-['all','All',jobs.length]
-]
-.concat(
+    GROUPS.map(g=>{
 
-g.opts
-.map(([v,l])=>[
-v,
-l,
-jobs.filter(j=>has(j,g.key,v)).length
-])
-.filter(o=>o[2]>0)
+      const chips =
+        [
+          ['all','All',jobs.length]
+        ]
+        .concat(
 
-);
+          g.opts
+            .map(([v,l])=>[
+              v,
+              l,
+              jobs.filter(
+                j=>has(j,g.key,v)
+              ).length
+            ])
+            .filter(o=>o[2]>0)
 
-return `
+        );
+
+
+      return `
 
 <div
 class="f-row"
@@ -1654,10 +2040,11 @@ aria-label="${g.label}"
 ${g.label}
 </span>
 
+
 <div class="f-chips">
 
 ${chips
-.map(([v,l,n])=>
+  .map(([v,l,n])=>
 
 `
 <button
@@ -1672,8 +2059,8 @@ ${l}
 </button>
 `
 
-)
-.join('')}
+  )
+  .join('')}
 
 </div>
 
@@ -1681,9 +2068,9 @@ ${l}
 
 `;
 
-}).join('')
+    }).join('')
 
-+
+    +
 
 `
 <button
@@ -1697,239 +2084,317 @@ Clear filters ✕
 `;
 
 
-box
-.querySelectorAll('button')
-.forEach(hoverFx);
+  box
+    .querySelectorAll('button')
+    .forEach(hoverFx);
 
 
-box.addEventListener('click',e=>{
+  box.addEventListener(
+    'click',
+    e=>{
 
-const b=e.target.closest('.tab');
+      const b =
+        e.target.closest('.tab');
 
-if(b){
 
-active[b.dataset.group]=b.dataset.val;
+      if(b){
 
-syncChips();
+        active[b.dataset.group] =
+          b.dataset.val;
 
-render();
+        syncChips();
 
-return;
+        render();
 
-}
+        return;
 
-if(e.target.closest('#clear'))
-clearAll();
+      }
 
-});
+
+      if(
+        e.target.closest('#clear')
+      ){
+
+        clearAll();
+
+      }
+
+    }
+  );
 
 }
 
 
 /* -------------------------------------------------------
    SYNC FILTER BUTTONS
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 function syncChips(){
 
-document
-.querySelectorAll('#filters .tab')
-.forEach(b=>{
+  document
+    .querySelectorAll('#filters .tab')
+    .forEach(b=>{
 
-const on=
-active[b.dataset.group]===b.dataset.val;
+      const on =
+        active[b.dataset.group]
+        ===
+        b.dataset.val;
 
-b.classList.toggle('active',on);
 
-b.setAttribute('aria-pressed',on);
+      b.classList.toggle(
+        'active',
+        on
+      );
 
-});
+
+      b.setAttribute(
+        'aria-pressed',
+        on
+      );
+
+    });
 
 }
 
 
 /* -------------------------------------------------------
    CLEAR FILTERS
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 function clearAll(){
 
-active.exp=
-active.mode=
-active.role='all';
+  active.exp='all';
+  active.mode='all';
+  active.role='all';
 
-search.value='';
+  search.value='';
 
-syncChips();
+  syncChips();
 
-render();
+  render();
 
 }
 
 
 /* -------------------------------------------------------
    RENDER
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 function render(){
 
-const q=
-search.value
-.toLowerCase()
-.trim();
+  const q =
+    search.value
+      .toLowerCase()
+      .trim();
 
 
-const matches=
+  const matches =
 
-jobs
-.map((j,i)=>({j,i}))
+    jobs
+      .map((j,i)=>({
+        j,
+        i
+      }))
 
-.filter(({j})=>
+      .filter(({j})=>
 
-(active.exp==='all'||has(j,'exp',active.exp))
+        (
+          active.exp==='all'
+          ||
+          has(j,'exp',active.exp)
+        )
 
-&&
+        &&
 
-(active.mode==='all'||has(j,'mode',active.mode))
+        (
+          active.mode==='all'
+          ||
+          has(j,'mode',active.mode)
+        )
 
-&&
+        &&
 
-(active.role==='all'||has(j,'role',active.role))
+        (
+          active.role==='all'
+          ||
+          has(j,'role',active.role)
+        )
 
-&&
+        &&
 
-(
-!q
-||
-[
-j.company,
-j.title,
-j.description,
-j.location,
-(j.tags||[]).join(' ')
-]
-.join(' ')
-.toLowerCase()
-.includes(q)
-)
+        (
+          !q
+          ||
+          [
+            j.company,
+            j.title,
+            j.description,
+            j.location,
+            (j.tags||[]).join(' ')
+          ]
+          .join(' ')
+          .toLowerCase()
+          .includes(q)
+        )
 
+      );
+
+
+  const filtered =
+    q
+    ||
+    active.exp!=='all'
+    ||
+    active.mode!=='all'
+    ||
+    active.role!=='all';
+
+
+  const clear =
+    document.getElementById('clear');
+
+
+  if(clear){
+    clear.hidden=!filtered;
+  }
+
+
+  count.innerHTML =
+
+    filtered
+
+      ? `SHOWING <b>${matches.length}</b> OF ${jobs.length}`
+
+      : `<b>${jobs.length}</b> OPPORTUNITIES`;
+
+
+  if(!matches.length){
+
+    list.innerHTML =
+      '<p class="empty">No opportunities match these filters. Try clearing one.</p>';
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    matches
+      .map(({j,i})=>card(j,i))
+      .join('');
+
+
+  list
+    .querySelectorAll('.op')
+    .forEach(el=>{
+
+      el.classList.add('reveal');
+
+      io.observe(el);
+
+
+      el
+        .querySelectorAll('a')
+        .forEach(hoverFx);
+
+    });
+
+}
+
+
+/* -------------------------------------------------------
+   SEARCH
+------------------------------------------------------- */
+
+search.addEventListener(
+  'input',
+  render
 );
-
-
-const filtered=
-q
-||
-active.exp!=='all'
-||
-active.mode!=='all'
-||
-active.role!=='all';
-
-
-const clear=
-document.getElementById('clear');
-
-if(clear)
-clear.hidden=!filtered;
-
-
-count.innerHTML=
-
-filtered
-
-?`SHOWING <b>${matches.length}</b> OF ${jobs.length}`
-
-:`<b>${jobs.length}</b> OPPORTUNITIES`;
-
-
-if(!matches.length){
-
-list.innerHTML=
-'<p class="empty">No opportunities match these filters. Try clearing one.</p>';
-
-return;
-
-}
-
-
-list.innerHTML=
-matches
-.map(({j,i})=>card(j,i))
-.join('');
-
-
-list
-.querySelectorAll('.op')
-.forEach(el=>{
-
-el.classList.add('reveal');
-
-io.observe(el);
-
-el
-.querySelectorAll('a')
-.forEach(hoverFx);
-
-});
-
-}
-
-
-search.addEventListener('input',render);
 
 
 /* -------------------------------------------------------
    LOAD OPPORTUNITIES
-   ------------------------------------------------------- */
+------------------------------------------------------- */
 
 (async function(){
 
-try{
+  try{
 
-const res=
-await fetch(
-'opportunities.json',
-{cache:'no-store'}
-);
-
-if(!res.ok)
-throw new Error('HTTP '+res.status);
-
-const data=
-await res.json();
+    const res =
+      await fetch(
+        'opportunities.json',
+        {
+          cache:'no-store'
+        }
+      );
 
 
-if(!Array.isArray(data)||!data.length){
+    if(!res.ok){
 
-count.textContent=
-'NO OPPORTUNITIES YET';
+      throw new Error(
+        'HTTP '+res.status
+      );
 
-list.innerHTML=
-'<p class="empty">New opportunities are coming soon.</p>';
-
-return;
-
-}
+    }
 
 
-jobs=
-data.map(enrich);
+    const data =
+      await res.json();
 
-buildFilters();
 
-render();
+    if(
+      !Array.isArray(data)
+      ||
+      !data.length
+    ){
 
-}catch(e){
+      count.textContent =
+        'NO OPPORTUNITIES YET';
 
-console.error('EvalLoop Jobs opportunities error:',e);
 
-count.textContent=
-'UNAVAILABLE';
+      list.innerHTML =
+        '<p class="empty">New opportunities are coming soon.</p>';
 
-list.innerHTML=
-'<p class="empty">Opportunities will be back shortly.</p>';
 
-}
+      return;
+
+    }
+
+
+    /*
+     * First enrich the original array.
+     * Then assign permanent slugs.
+     *
+     * Slugs are assigned BEFORE filters/search,
+     * so filtering can never change a job's URL.
+     */
+
+    jobs =
+      assignJobSlugs(data)
+        .map(enrich);
+
+
+    buildFilters();
+
+    render();
+
+
+  }catch(e){
+
+    console.error(
+      'EvalLoop Jobs opportunities error:',
+      e
+    );
+
+
+    count.textContent =
+      'UNAVAILABLE';
+
+
+    list.innerHTML =
+      '<p class="empty">Opportunities will be back shortly.</p>';
+
+  }
 
 })();
 
