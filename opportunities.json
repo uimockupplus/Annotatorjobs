@@ -24,6 +24,18 @@
     "link": ""
   },
   {
+  "company": "Company: Dense AI",
+  "title": "Freelance LiDAR / 3D Point Cloud Annotation Specialist",
+  "description": "Dense AI is looking for individual freelance professionals for an ongoing LiDAR / 3D Point Cloud Annotation project. Candidates should be familiar with or have prior experience in 3D point cloud segmentation, 3D bounding box/cuboid annotation, LiDAR annotation, point cloud classification, 3D object detection, or point cloud QA/QC. Prior hands-on experience with similar projects is preferred.",
+  "tags": ["LiDAR Annotation", "3D Point Cloud", "3D Annotation", "Point Cloud Segmentation", "3D Bounding Box", "3D Object Detection", "QA/QC", "Freelance"],
+  "location": "Remote",
+  "duration": "Ongoing",
+  "highlight": "Freelance opportunity focused on LiDAR and 3D Point Cloud annotation; prior hands-on experience is preferred.",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSfL3rARy_NyxuynnLO0h9u5RXM58liOc7HAhhmu9Bqhlj1HKw/viewform?usp=send_form"
+  },
+  {
     "company": "Company: Emplay",
     "title": "Backend / AI Engineer",
     "description": "Design and build LLM-powered agents and scalable backend services, architect advanced RAG pipelines, and develop MCP and multi-agent workflows. Build enterprise API and webhook integrations, bulk data pipelines, usage analytics, secure production-grade services, and scalable AI solutions using AWS. Work with OpenAI, Anthropic, Bedrock, OpenSearch, Pinecone, pgvector, LangChain, LlamaIndex, Python, FastAPI, Flask, and modern authentication and infrastructure technologies.",
