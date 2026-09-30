@@ -1,5 +1,17 @@
 [
   {
+  "company": "Coremantle.ai",
+  "title": "Freelance / Full-Time Transcriber – Audio Transcription Data Annotation",
+  "description": "Work as an individual contributor on audio transcription and data annotation projects, producing high-quality transcriptions with 95%+ accuracy. Freelance opportunities are available for Marathi, Tamil, Telugu, Gujarati, Bengali, Malayalam, Kannada, Punjabi, and Odia. Full-time opportunities are available for Telugu and Malayalam. Vendors are not eligible.",
+  "tags": ["Audio Transcription", "Data Annotation", "Speech Data", "Transcription", "AI Training", "Telugu", "Malayalam", "Marathi", "Tamil", "Gujarati", "Bengali", "Kannada", "Punjabi", "Odia"],
+  "location": "Remote",
+  "duration": "Freelance / Full-Time",
+  "highlight": "95%+ Accuracy Required · Individual Contributors Only · Multiple Indian Languages · Compensation Based on Experience & Language",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSe_Fn-fFp3xESBjYZcmLqBW50WFnPVhiYz99Qf2Eii0AZ8U7g/viewform"
+  },
+  {
   "company": "AlphaSense",
   "title": "Annotation Specialist II",
   "description": "Curate, structure, and benchmark complex financial datasets used to fine-tune LLMs. Evaluate AI model outputs, diagnose edge cases and hallucination risks, establish annotation guidelines and validation frameworks, improve internal annotation tools and workflows, and act as a final quality gate for production GenAI features. Strong financial research and capital markets knowledge is required.",
