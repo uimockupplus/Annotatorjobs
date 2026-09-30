@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: MyManah",
+  "title": "Generative AI & Machine Learning Engineer Intern",
+  "description": "Work on real-world AI solutions for mental healthcare, including LLMs, Agentic AI workflows, RAG systems, NLP pipelines, model evaluation, and AI-powered healthcare experiences. Develop and optimize ML models, process structured and unstructured datasets, conduct research and prototypes, monitor model performance, and collaborate with product, engineering, and clinical teams. Strong Python, ML fundamentals, Data Science, Pandas, NumPy, Scikit-Learn, Git, and familiarity with LLMs and prompt engineering are required.",
+  "tags": ["Generative AI", "Machine Learning", "AI Internship", "LLM", "Agentic AI", "RAG", "NLP", "Prompt Engineering", "AI Evaluation", "Python", "Pandas", "NumPy", "Scikit-Learn", "LangChain", "LangGraph", "LlamaIndex", "Vector Databases", "PyTorch", "TensorFlow", "AWS", "Docker", "MLOps"],
+  "location": "Bengaluru, Karnataka, India · Remote / Hybrid",
+  "duration": "3-Month Internship",
+  "highlight": "Students / Freshers / Final-Year Graduates · Potential PPO · Mentorship · Real-World AI Products",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://mymanah.com/careers/generative-ai-machine-learning-engineer-intern"
+  },
+  {
   "company": "Company: Sarvam",
   "title": "Agent Engineer – Deployment Engineering",
   "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
