@@ -1,33 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.join(__dirname, "..");
 const JSON_FILE = path.join(ROOT, "opportunities.json");
 const JOBS_DIR = path.join(ROOT, "jobs");
 
 const SITE_URL = "https://annotatorjobs.vercel.app";
+const SITE_NAME = "EvalLoop Jobs";
 
-
-/* -------------------------------------------------------
-   BASIC HELPERS
-------------------------------------------------------- */
-
-function esc(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[char]));
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
-
-function jsonLd(value) {
-  return JSON.stringify(value, null, 2)
-    .replace(/</g, "\\u003c");
+function escapeJson(value) {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026");
 }
-
 
 function slugify(value) {
   return String(value || "")
@@ -39,1333 +34,805 @@ function slugify(value) {
     .replace(/-{2,}/g, "-");
 }
 
-
-function baseJobSlug(job) {
-  const company = slugify(job.company);
-  const title = slugify(job.title);
-
-  if (!company || !title) {
-    return "";
-  }
-
-  return `${company}-${title}`;
+function cleanText(value) {
+  return String(value || "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-
-/*
- * The final slug is generated once and then passed into
- * every function that needs the job URL.
- *
- * This prevents duplicate-slug problems where:
- *
- *   file = job-name-2.html
- *
- * but:
- *
- *   canonical = job-name.html
- *
- * or:
- *
- *   JSON-LD url = job-name.html
- */
-function absoluteJobUrl(slug) {
-  return `${SITE_URL}/jobs/${slug}.html`;
-}
-
-
-/* -------------------------------------------------------
-   JOB TYPE DETECTION
-------------------------------------------------------- */
-
-function isUnknownCompany(company) {
-  const value = String(company || "")
-    .trim()
-    .toLowerCase();
-
+function isValidJob(job) {
   return (
-    !value ||
-    value === "unknown" ||
-    value === "n/a" ||
-    value === "na" ||
-    value === "not specified"
+    job &&
+    typeof job === "object" &&
+    cleanText(job.title) &&
+    cleanText(job.company)
   );
 }
 
-
 function looksLikeJob(job) {
-
-  const text = [
-    job.title,
-    job.description,
-    job.duration,
-    job.highlight,
-    ...(Array.isArray(job.tags) ? job.tags : [])
-  ]
-    .join(" ")
-    .toLowerCase();
-
+  const title = cleanText(job.title).toLowerCase();
+  const description = cleanText(job.description).toLowerCase();
+  const duration = cleanText(job.duration).toLowerCase();
+  const combined = `${title} ${description} ${duration}`;
 
   const jobSignals = [
-    "job",
-    "role",
     "engineer",
     "developer",
     "analyst",
     "specialist",
-    "associate",
-    "manager",
-    "lead",
-    "intern",
-    "trainee",
-    "executive",
-    "consultant",
-    "administrator",
-    "coordinator",
-    "moderator",
     "annotator",
+    "annotation",
     "evaluator",
+    "evaluation",
     "reviewer",
+    "trainer",
+    "operator",
+    "moderator",
+    "manager",
+    "designer",
     "scientist",
-    "architect",
-    "operations",
-    "employment",
-    "full-time",
-    "full time",
-    "part-time",
-    "part time"
+    "researcher",
+    "consultant",
+    "associate",
+    "intern",
+    "apprentice",
+    "qa",
+    "quality",
+    "data entry",
+    "data labeling",
+    "data labelling",
+    "prompt",
+    "llm",
+    "ai",
+    "machine learning",
+    "genai",
+    "generative ai"
   ];
 
+  return jobSignals.some((signal) => combined.includes(signal));
+}
 
-  return jobSignals.some(signal =>
-    text.includes(signal)
+function employmentTypeFromDuration(duration) {
+  const value = cleanText(duration).toLowerCase();
+
+  if (!value) return null;
+
+  if (value.includes("full-time") || value.includes("full time")) {
+    return "FULL_TIME";
+  }
+
+  if (value.includes("part-time") || value.includes("part time")) {
+    return "PART_TIME";
+  }
+
+  if (value.includes("contract")) {
+    return "CONTRACTOR";
+  }
+
+  if (value.includes("intern")) {
+    return "INTERN";
+  }
+
+  if (value.includes("temporary") || value.includes("temp")) {
+    return "TEMPORARY";
+  }
+
+  return null;
+}
+
+function isRemoteLocation(location) {
+  const value = cleanText(location).toLowerCase();
+
+  return (
+    value.includes("remote") ||
+    value.includes("work from home") ||
+    value.includes("wfh") ||
+    value.includes("work-from-home")
   );
 }
 
+function buildMetaDescription(job) {
+  const company = cleanText(job.company);
+  const title = cleanText(job.title);
+  const location = cleanText(job.location);
 
-/* -------------------------------------------------------
-   STRUCTURED DATA
-------------------------------------------------------- */
+  let text = `${title} at ${company}. Listed and curated by ${SITE_NAME}, an independent opportunity discovery platform.`;
 
-function buildStructuredData(job, slug) {
-
-  /*
-   * EvalLoop Jobs is NOT the hiring organization.
-   *
-   * The actual company from opportunities.json is used
-   * as hiringOrganization.
-   */
-
-  if (isUnknownCompany(job.company)) {
-    return null;
+  if (location) {
+    text = `${title} at ${company} — ${location}. Listed and curated by ${SITE_NAME}, an independent opportunity discovery platform.`;
   }
 
-
-  if (!looksLikeJob(job)) {
-    return null;
-  }
-
-
-  const pageUrl =
-    absoluteJobUrl(slug);
-
-
-  const data = {
-
-    "@context": "https://schema.org",
-
-    "@type": "JobPosting",
-
-    "title": String(job.title || ""),
-
-    "description": String(job.description || ""),
-
-    "url": pageUrl,
-
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": String(job.company)
-    }
-
-  };
-
-
-  /*
-   * Employment type
-   *
-   * Only add this when the source clearly indicates it.
-   */
-
-  const duration =
-    String(job.duration || "")
-      .toLowerCase();
-
-
-  if (
-    duration.includes("full-time") ||
-    duration.includes("full time")
-  ) {
-
-    data.employmentType = "FULL_TIME";
-
-  } else if (
-    duration.includes("part-time") ||
-    duration.includes("part time")
-  ) {
-
-    data.employmentType = "PART_TIME";
-
-  } else if (
-    duration.includes("intern")
-  ) {
-
-    data.employmentType = "INTERN";
-
-  }
-
-
-  /*
-   * IMPORTANT:
-   *
-   * We intentionally do NOT convert the free-form
-   * location string into Schema.org jobLocation data.
-   *
-   * A string such as:
-   *
-   * "Hyderabad, India · Remote"
-   *
-   * does not give us enough verified structure to safely
-   * claim a city, country, postal address, etc.
-   */
-
-
-  return data;
+  return text.slice(0, 300);
 }
 
+function buildDescription(job) {
+  const description = cleanText(job.description);
 
-/* -------------------------------------------------------
-   PAGE HTML
-------------------------------------------------------- */
+  if (description) {
+    return description;
+  }
 
-function buildJobPage(job, slug) {
+  return `${cleanText(job.title)} opportunity associated with ${cleanText(job.company)}.`;
+}
 
-  const title =
-    String(job.title || "Opportunity");
+function buildJobPage(job, finalSlug) {
+  const company = cleanText(job.company);
+  const title = cleanText(job.title);
+  const description = buildDescription(job);
+  const location = cleanText(job.location);
+  const duration = cleanText(job.duration);
+  const highlight = cleanText(job.highlight);
+  const link = cleanText(job.link);
 
-  const company =
-    String(job.company || "Opportunity Provider");
+  const jobUrl = `${SITE_URL}/jobs/${finalSlug}.html`;
+  const metaDescription = buildMetaDescription(job);
 
-  const description =
-    String(job.description || "");
+  const employmentType = employmentTypeFromDuration(duration);
 
-  const location =
-    String(job.location || "See original listing");
+  /*
+   * Structured data is intentionally conservative.
+   *
+   * EvalLoop Jobs is NOT the employer.
+   * The actual company from opportunities.json is used as
+   * hiringOrganization.
+   */
+  let structuredData = null;
 
-  const duration =
-    String(job.duration || "See original listing");
+  if (looksLikeJob(job) && company) {
+    structuredData = {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title,
+      description,
+      url: jobUrl,
+      hiringOrganization: {
+        "@type": "Organization",
+        name: company
+      }
+    };
 
-  const highlight =
-    String(job.highlight || "");
+    if (employmentType) {
+      structuredData.employmentType = employmentType;
+    }
 
-  const tags =
-    Array.isArray(job.tags)
-      ? job.tags
-      : [];
+    /*
+     * Only mark a job as telecommute when the source data
+     * explicitly indicates remote work.
+     */
+    if (isRemoteLocation(location)) {
+      structuredData.jobLocationType = "TELECOMMUTE";
+    }
+  }
 
-  const pageUrl =
-    absoluteJobUrl(slug);
+  const structuredDataHtml = structuredData
+    ? `
+    <script type="application/ld+json">
+${escapeJson(structuredData)}
+    </script>`
+    : "";
 
-  const applyLink =
-    job.link
-      ? String(job.link)
-      : "";
+  const tags = Array.isArray(job.tags)
+    ? job.tags.filter(Boolean).map((tag) => cleanText(tag))
+    : [];
 
+  const tagsHtml = tags.length
+    ? `
+      <div class="tags">
+        ${tags
+          .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
+          .join("")}
+      </div>
+    `
+    : "";
 
-  const structuredData =
-    buildStructuredData(job, slug);
+  const locationHtml = location
+    ? `
+      <div class="info-row">
+        <span class="label">Location</span>
+        <span>${escapeHtml(location)}</span>
+      </div>
+    `
+    : "";
 
+  const durationHtml = duration
+    ? `
+      <div class="info-row">
+        <span class="label">Type / Duration</span>
+        <span>${escapeHtml(duration)}</span>
+      </div>
+    `
+    : "";
 
-  const jsonLdScript =
-    structuredData
-      ? `
-<script type="application/ld+json">
-${jsonLd(structuredData)}
-</script>
-`
-      : "";
+  const highlightHtml = highlight
+    ? `
+      <div class="highlight">
+        <strong>Highlight</strong>
+        <p>${escapeHtml(highlight)}</p>
+      </div>
+    `
+    : "";
 
-
-  const tagHtml =
-    tags
-      .map(tag => `
-<span>${esc(tag)}</span>
-`)
-      .join("");
-
-
-  const applyHtml =
-    applyLink
-      ? `
-<a
-  class="btn primary"
-  href="${esc(applyLink)}"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Apply on original site ↗
-</a>
-`
-      : `
-<div class="no-apply">
-  No direct application link is currently available.
-</div>
-`;
-
-
-  const contactHtml = [
-
-    job.email
-      ? `
-<a
-  class="btn secondary"
-  href="mailto:${esc(job.email)}?subject=${encodeURIComponent("Application for " + title)}"
->
-  Email CV ✉
-</a>
-`
-      : "",
-
-    job.whatsapp
-      ? `
-<a
-  class="btn secondary"
-  href="https://wa.me/${esc(job.whatsapp)}"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  WhatsApp ↗
-</a>
-`
-      : ""
-
-  ].join("");
-
+  const applyHtml = link
+    ? `
+      <a
+        class="apply-button"
+        href="${escapeHtml(link)}"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+      >
+        Apply / View Original Opportunity ↗
+      </a>
+    `
+    : `
+      <div class="no-link">
+        The original application link was not provided.
+      </div>
+    `;
 
   return `<!doctype html>
 <html lang="en">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1"
->
-
-<meta
-  name="description"
-  content="${esc(title)} at ${esc(company)}. Opportunity details curated by EvalLoop Jobs."
->
-
-<meta
-  name="robots"
-  content="index,follow"
->
-
-<link
-  rel="canonical"
-  href="${esc(pageUrl)}"
->
-
-<title>
-${esc(title)} — ${esc(company)} | EvalLoop Jobs
-</title>
-
-<link
-  rel="icon"
-  type="image/png"
-  href="/favicon.png?v=2"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
->
-
-<style>
-
-:root{
-  --bg:#0b1224;
-  --ink:#f5f8ff;
-  --muted:#8fa0bb;
-  --blue:#2588ff;
-  --border:#233555;
-  --cyan:#4db3ff;
-  --panel:#111d36;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:"DM Sans",sans-serif;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.shell{
-  min-height:100vh;
-  background:
-    linear-gradient(
-      rgba(11,18,36,.96),
-      rgba(11,18,36,.98)
-    );
-}
-
-.wrap{
-  width:min(1100px,calc(100% - 40px));
-  margin:auto;
-}
-
-.header{
-  min-height:88px;
-  display:flex;
-  align-items:center;
-  gap:28px;
-  border-bottom:1px solid var(--border);
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font:700 13px "Space Grotesk";
-  letter-spacing:.12em;
-}
-
-.logo-mark{
-  display:grid;
-  place-items:center;
-  width:23px;
-  height:23px;
-  border-radius:50%;
-  background:var(--blue);
-  color:#fff;
-}
-
-.nav{
-  display:flex;
-  gap:28px;
-  margin-left:auto;
-  color:var(--muted);
-  font-size:12px;
-}
-
-.nav a:hover{
-  color:var(--cyan);
-}
-
-.page{
-  padding:90px 0 120px;
-}
-
-.eyebrow{
-  color:var(--cyan);
-  font:700 10px "Space Grotesk";
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.eyebrow:before{
-  content:"";
-  display:inline-block;
-  width:28px;
-  height:1px;
-  margin-right:10px;
-  vertical-align:middle;
-  background:var(--blue);
-}
-
-h1{
-  max-width:900px;
-  margin:18px 0 16px;
-  font:600 clamp(2.7rem,6vw,5.5rem)/.96 "Space Grotesk";
-  letter-spacing:-.07em;
-}
-
-.company{
-  color:var(--cyan);
-  font:700 13px "Space Grotesk";
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.attribution{
-  margin-top:32px;
-  padding:20px 22px;
-  border:1px solid rgba(77,179,255,.35);
-  border-radius:8px;
-  background:rgba(21,35,63,.55);
-}
-
-.attribution strong{
-  display:block;
-  margin-bottom:7px;
-  color:var(--ink);
-  font:600 14px "Space Grotesk";
-}
-
-.attribution span{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.6;
-}
-
-.content{
-  display:grid;
-  grid-template-columns:1.5fr .8fr;
-  gap:30px;
-  margin-top:34px;
-}
-
-.card{
-  padding:30px;
-  border:1px solid var(--border);
-  background:rgba(21,35,63,.45);
-  border-radius:8px;
-}
-
-.card h2{
-  margin:0 0 16px;
-  font:600 22px "Space Grotesk";
-  letter-spacing:-.04em;
-}
-
-.description{
-  color:#c9d5e8;
-  font-size:14px;
-  line-height:1.75;
-  white-space:pre-line;
-}
-
-.facts{
-  display:grid;
-  gap:18px;
-}
-
-.fact{
-  padding-bottom:16px;
-  border-bottom:1px solid var(--border);
-}
-
-.fact:last-child{
-  border-bottom:0;
-  padding-bottom:0;
-}
-
-.fact-label{
-  display:block;
-  margin-bottom:6px;
-  color:var(--muted);
-  font:700 9px "Space Grotesk";
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.fact-value{
-  color:var(--ink);
-  font-size:13px;
-  line-height:1.5;
-}
-
-.highlight{
-  color:var(--cyan);
-  font:600 16px "Space Grotesk";
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:20px;
-}
-
-.tags span{
-  padding:7px 10px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:26px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:44px;
-  padding:0 17px;
-  border-radius:4px;
-  font-size:11px;
-  font-weight:700;
-}
-
-.primary{
-  background:var(--blue);
-  color:#fff;
-  box-shadow:0 0 22px rgba(37,136,255,.25);
-}
-
-.primary:hover{
-  background:var(--cyan);
-  transform:translateY(-2px);
-}
-
-.secondary{
-  border:1px solid var(--border);
-  background:rgba(37,136,255,.08);
-  color:var(--cyan);
-}
-
-.secondary:hover{
-  border-color:var(--cyan);
-  color:#fff;
-  transform:translateY(-2px);
-}
-
-.no-apply{
-  padding:12px;
-  border:1px solid var(--border);
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.5;
-}
-
-.notice{
-  margin-top:30px;
-  padding:20px 22px;
-  border:1px solid var(--border);
-  background:rgba(11,18,36,.65);
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.65;
-}
-
-.notice strong{
-  color:var(--ink);
-}
-
-.back{
-  display:inline-flex;
-  margin-top:34px;
-  color:var(--cyan);
-  font-size:11px;
-}
-
-.back:hover{
-  text-decoration:underline;
-  text-underline-offset:4px;
-}
-
-.footer{
-  min-height:110px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:10px;
-}
-
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px 22px;
-}
-
-.footer-links a:hover{
-  color:var(--cyan);
-}
-
-@media(max-width:800px){
-
-  .nav{
-    display:none;
-  }
-
-  .content{
-    grid-template-columns:1fr;
-  }
-
-  .page{
-    padding-top:65px;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .wrap{
-    width:min(100% - 32px,1100px);
-  }
-
-  .header{
-    min-height:74px;
-  }
-
-  h1{
-    font-size:3.1rem;
-  }
-
-  .card{
-    padding:22px;
-  }
-
-  .actions{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-  .footer{
-    align-items:flex-start;
-    flex-direction:column;
-    justify-content:center;
-    padding:28px 0;
-  }
-
-}
-
-</style>
-
-${jsonLdScript}
-
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="${escapeHtml(metaDescription)}"
+  >
+
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <link
+    rel="canonical"
+    href="${escapeHtml(jobUrl)}"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="/favicon.png?v=2"
+  >
+
+  <title>${escapeHtml(title)} — ${escapeHtml(company)} | ${SITE_NAME}</title>
+
+  ${structuredDataHtml}
+
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0d131d;
+      --panel-2: #111925;
+      --border: rgba(255,255,255,0.10);
+      --text: #f4f7fb;
+      --muted: #a6b0bf;
+      --blue: #2588ff;
+      --blue-dark: #176dcc;
+      --green: #35d07f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(37,136,255,0.12),
+          transparent 34%
+        ),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7,11,18,0.88);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .back:hover {
+      color: var(--text);
+    }
+
+    main {
+      padding: 56px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -1.8px;
+    }
+
+    .company {
+      margin-top: 18px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .company-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 8px;
+    }
+
+    .card {
+      margin-top: 34px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.045),
+        rgba(255,255,255,0.02)
+      );
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+
+    .info {
+      display: grid;
+      gap: 0;
+      margin-bottom: 28px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .description {
+      white-space: pre-line;
+      color: #dbe2ec;
+      font-size: 16px;
+    }
+
+    .highlight {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--blue);
+      background: rgba(37,136,255,0.07);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .highlight strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .highlight p {
+      margin: 0;
+      color: #dbe2ec;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .apply-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .apply-button:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .no-link {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .directory-note {
+      margin-top: 26px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .directory-note strong {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0 45px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 22px, 920px);
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      main {
+        padding: 38px 0 60px;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .apply-button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="shell">
+<header>
+  <div class="container nav">
+    <a class="logo" href="/index.html">
+      EvalLoop <span>Jobs</span>
+    </a>
 
-<header class="header wrap">
-
-<a href="/index.html" class="logo">
-
-<span class="logo-mark">
-◉
-</span>
-
-<span>
-EvalLoop Jobs
-</span>
-
-</a>
-
-
-<nav class="nav">
-
-<a href="/opportunities.html">
-Opportunities
-</a>
-
-<a href="/about.html">
-About
-</a>
-
-<a href="/index.html#how">
-How it works
-</a>
-
-</nav>
-
+    <a class="back" href="/opportunities.html">
+      ← All opportunities
+    </a>
+  </div>
 </header>
 
-
-<main class="page wrap">
-
-
-<div class="eyebrow">
-OPPORTUNITY / DETAILS
-</div>
-
-
-<h1>
-${esc(title)}
-</h1>
-
-
-<div class="company">
-${esc(company)}
-</div>
-
-
-<div class="attribution">
-
-<strong>
-Employer / Opportunity Provider
-</strong>
-
-<span>
-${esc(company)}
-</span>
-
-<br><br>
-
-<strong>
-Listed and curated by
-</strong>
-
-<span>
-EvalLoop Jobs — an independent opportunity discovery platform.
-</span>
-
-</div>
-
-
-<div class="content">
-
-
-<section class="card">
-
-<h2>
-About this opportunity
-</h2>
-
-<div class="description">
-${esc(description)}
-</div>
-
-
-${tags.length ? `
-
-<div class="tags">
-
-${tagHtml}
-
-</div>
-
-` : ""}
-
-
-<div class="actions">
-
-${applyHtml}
-
-${contactHtml}
-
-</div>
-
-</section>
-
-
-<aside class="card">
-
-<h2>
-Opportunity details
-</h2>
-
-
-<div class="facts">
-
-
-<div class="fact">
-
-<span class="fact-label">
-Employer / Provider
-</span>
-
-<div class="fact-value">
-${esc(company)}
-</div>
-
-</div>
-
-
-<div class="fact">
-
-<span class="fact-label">
-Location / Work mode
-</span>
-
-<div class="fact-value">
-${esc(location)}
-</div>
-
-</div>
-
-
-<div class="fact">
-
-<span class="fact-label">
-Duration
-</span>
-
-<div class="fact-value">
-${esc(duration)}
-</div>
-
-</div>
-
-
-${highlight ? `
-
-<div class="fact">
-
-<span class="fact-label">
-Highlight
-</span>
-
-<div class="highlight">
-${esc(highlight)}
-</div>
-
-</div>
-
-` : ""}
-
-
-</div>
-
-</aside>
-
-</div>
-
-
-<div class="notice">
-
-<strong>
-Important:
-</strong>
-
-EvalLoop Jobs is an independent opportunity discovery platform and is not the employer, hiring company, or opportunity provider for this listing. Application decisions, eligibility, compensation, work arrangements, and hiring are determined by the employer or opportunity provider. Please verify the current opportunity details on the original application page before applying.
-
-</div>
-
-
-<a
-class="back"
-href="/opportunities.html"
->
-← Back to all opportunities
-</a>
-
-
+<main>
+  <div class="container">
+
+    <div class="eyebrow">
+      AI / Data Opportunity
+    </div>
+
+    <h1>
+      ${escapeHtml(title)}
+    </h1>
+
+    <div class="company">
+      <span class="company-label">
+        Employer / Opportunity Provider
+      </span>
+      ${escapeHtml(company)}
+    </div>
+
+    <section class="card">
+
+      <div class="info">
+        ${locationHtml}
+        ${durationHtml}
+      </div>
+
+      <div class="description">
+        ${escapeHtml(description)}
+      </div>
+
+      ${highlightHtml}
+
+      ${tagsHtml}
+
+      ${applyHtml}
+
+      <div class="directory-note">
+        <strong>About this listing:</strong><br>
+        This opportunity is listed and curated by
+        <strong>${SITE_NAME}</strong>, an independent opportunity
+        discovery platform. ${SITE_NAME} is not the employer or
+        recruiter for third-party opportunities listed here.
+        The company shown above is the associated employer or
+        opportunity provider where available.
+        Please verify the original opportunity, eligibility,
+        application process, and other details independently
+        before applying.
+      </div>
+
+    </section>
+
+  </div>
 </main>
 
-
-<footer class="footer wrap">
-
-<a href="/index.html" class="logo">
-
-<span class="logo-mark">
-◉
-</span>
-
-<span>
-EvalLoop Jobs
-</span>
-
-</a>
-
-
-<span>
-Independent opportunity discovery for the work behind better AI.
-</span>
-
-
-<nav class="footer-links">
-
-<a href="/about.html">
-About
-</a>
-
-<a href="/opportunities.html">
-Opportunities
-</a>
-
-<a href="/submit-opportunity.html">
-Submit opportunity
-</a>
-
-<a href="/contact.html">
-Contact
-</a>
-
-<a href="/disclaimer.html">
-Disclaimer
-</a>
-
-<a href="/terms.html">
-Terms
-</a>
-
-<a href="/privacy.html">
-Privacy
-</a>
-
-</nav>
-
+<footer>
+  <div class="container">
+    © ${new Date().getFullYear()} ${SITE_NAME}.
+    Independent opportunity discovery platform.
+  </div>
 </footer>
 
-</div>
-
 </body>
-
 </html>`;
 }
 
-
-/* -------------------------------------------------------
-   READ JSON
-------------------------------------------------------- */
-
-if (!fs.existsSync(JSON_FILE)) {
-
-  console.error(
-    "ERROR: opportunities.json was not found."
-  );
-
-  process.exit(1);
-}
-
-
-let jobs;
-
-
-try {
-
-  jobs = JSON.parse(
-    fs.readFileSync(
-      JSON_FILE,
-      "utf8"
-    )
-  );
-
-} catch (error) {
-
-  console.error(
-    "ERROR: Could not read opportunities.json"
-  );
-
-  console.error(error);
-
-  process.exit(1);
-}
-
-
-if (!Array.isArray(jobs)) {
-
-  console.error(
-    "ERROR: opportunities.json must contain an array."
-  );
-
-  process.exit(1);
-}
-
-
-/* -------------------------------------------------------
-   CREATE JOB DIRECTORY
-------------------------------------------------------- */
-
-fs.mkdirSync(
-  JOBS_DIR,
-  {
-    recursive: true
-  }
-);
-
-
-/* -------------------------------------------------------
-   REMOVE OLD GENERATED JOB PAGES
-------------------------------------------------------- */
-
-for (const file of fs.readdirSync(JOBS_DIR)) {
-
-  if (file.endsWith(".html")) {
-
-    fs.unlinkSync(
-      path.join(
-        JOBS_DIR,
-        file
-      )
-    );
-
-  }
-}
-
-
-/* -------------------------------------------------------
-   HANDLE DUPLICATE SLUGS
-------------------------------------------------------- */
-
-const slugCounts = {};
-
-
-/* -------------------------------------------------------
-   GENERATE PAGES
-------------------------------------------------------- */
-
-const generatedUrls = [];
-
-let generatedCount = 0;
-
-let skippedCount = 0;
-
-
-jobs.forEach((job, index) => {
-
-  if (
-    !job ||
-    typeof job !== "object"
-  ) {
-
-    skippedCount++;
-
-    return;
-  }
-
-
-  if (
-    !job.title ||
-    !job.company
-  ) {
-
-    console.warn(
-      `Skipping opportunity ${index + 1}: missing company or title.`
-    );
-
-    skippedCount++;
-
-    return;
-  }
-
-
-  let slug =
-    baseJobSlug(job);
-
-
-  if (!slug) {
-
-    console.warn(
-      `Skipping opportunity ${index + 1}: could not create slug.`
-    );
-
-    skippedCount++;
-
-    return;
-  }
-
-
-  slugCounts[slug] =
-    (slugCounts[slug] || 0) + 1;
-
-
-  if (
-    slugCounts[slug] > 1
-  ) {
-
-    slug =
-      `${slug}-${slugCounts[slug]}`;
-
-  }
-
-
-  const fileName =
-    `${slug}.html`;
-
-
-  const filePath =
-    path.join(
-      JOBS_DIR,
-      fileName
-    );
-
-
-  const page =
-    buildJobPage(
-      job,
-      slug
-    );
-
-
-  fs.writeFileSync(
-    filePath,
-    page,
-    "utf8"
-  );
-
-
-  generatedUrls.push(
-    `${SITE_URL}/jobs/${fileName}`
-  );
-
-
-  generatedCount++;
-
-});
-
-
-/* -------------------------------------------------------
-   GENERATE SITEMAP
-------------------------------------------------------- */
-
-const staticPages = [
-
-  `${SITE_URL}/`,
-
-  `${SITE_URL}/index.html`,
-
-  `${SITE_URL}/opportunities.html`,
-
-  `${SITE_URL}/about.html`,
-
-  `${SITE_URL}/contact.html`,
-
-  `${SITE_URL}/join-network.html`,
-
-  `${SITE_URL}/submit-opportunity.html`,
-
-  `${SITE_URL}/disclaimer.html`,
-
-  `${SITE_URL}/terms.html`,
-
-  `${SITE_URL}/privacy.html`
-
-];
-
-
-const allUrls =
-  [
-    ...new Set([
-      ...staticPages,
-      ...generatedUrls
-    ])
+function buildSitemap(slugs) {
+  const urls = [
+    `${SITE_URL}/`,
+    `${SITE_URL}/index.html`,
+    `${SITE_URL}/opportunities.html`,
+    `${SITE_URL}/about.html`,
+    `${SITE_URL}/disclaimer.html`,
+    `${SITE_URL}/terms.html`,
+    `${SITE_URL}/privacy.html`,
+    `${SITE_URL}/contact.html`,
+    `${SITE_URL}/join-network.html`,
+    `${SITE_URL}/submit-opportunity.html`,
+    ...slugs.map((slug) => `${SITE_URL}/jobs/${slug}.html`)
   ];
 
+  const uniqueUrls = [...new Set(urls)];
 
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  const xmlUrls = uniqueUrls
+    .map(
+      (url) => `  <url>
+    <loc>${escapeHtml(url)}</loc>
+  </url>`
+    )
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 >
-
-${allUrls
-  .map(url => `  <url>
-    <loc>${esc(url)}</loc>
-  </url>`)
-  .join("\n\n")}
-
+${xmlUrls}
 </urlset>
 `;
+}
 
-
-fs.writeFileSync(
-  path.join(
-    ROOT,
-    "sitemap.xml"
-  ),
-  sitemap,
-  "utf8"
-);
-
-
-/* -------------------------------------------------------
-   GENERATE ROBOTS.TXT
-------------------------------------------------------- */
-
-const robots = `User-agent: *
+function buildRobots() {
+  return `User-agent: *
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
+}
 
+function main() {
+  if (!fs.existsSync(JSON_FILE)) {
+    throw new Error(`Missing opportunities.json at: ${JSON_FILE}`);
+  }
 
-fs.writeFileSync(
-  path.join(
-    ROOT,
-    "robots.txt"
-  ),
-  robots,
-  "utf8"
-);
+  const raw = fs.readFileSync(JSON_FILE, "utf8");
 
+  let opportunities;
 
-/* -------------------------------------------------------
-   SUMMARY
-------------------------------------------------------- */
+  try {
+    opportunities = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(
+      `Unable to parse opportunities.json: ${error.message}`
+    );
+  }
 
-console.log("");
+  if (!Array.isArray(opportunities)) {
+    throw new Error(
+      "opportunities.json must contain an array of opportunities."
+    );
+  }
 
-console.log(
-  "======================================"
-);
+  const jobs = opportunities.filter(isValidJob);
 
-console.log(
-  " EvalLoop Jobs — Job Page Generator"
-);
+  /*
+   * Assign final slugs ONCE here.
+   *
+   * This is important because two opportunities can have
+   * the same company + title.
+   *
+   * Example:
+   *
+   * acme-ai-evaluator.html
+   * acme-ai-evaluator-2.html
+   * acme-ai-evaluator-3.html
+   */
+  const slugCounts = {};
 
-console.log(
-  "======================================"
-);
+  const jobsWithSlugs = jobs.map((job) => {
+    const baseSlug =
+      `${slugify(job.company)}-${slugify(job.title)}`
+        .replace(/^-+|-+$/g, "");
 
-console.log("");
+    slugCounts[baseSlug] = (slugCounts[baseSlug] || 0) + 1;
 
-console.log(
-  `Opportunities in JSON: ${jobs.length}`
-);
+    const count = slugCounts[baseSlug];
 
-console.log(
-  `Pages generated:       ${generatedCount}`
-);
+    const finalSlug =
+      count === 1
+        ? baseSlug
+        : `${baseSlug}-${count}`;
 
-console.log(
-  `Skipped:                ${skippedCount}`
-);
+    return {
+      ...job,
+      _slug: finalSlug
+    };
+  });
 
-console.log(
-  `Sitemap URLs:           ${allUrls.length}`
-);
+  /*
+   * Remove old generated job pages.
+   */
+  if (fs.existsSync(JOBS_DIR)) {
+    const oldFiles = fs.readdirSync(JOBS_DIR);
 
-console.log("");
+    for (const file of oldFiles) {
+      if (file.endsWith(".html")) {
+        fs.unlinkSync(path.join(JOBS_DIR, file));
+      }
+    }
+  } else {
+    fs.mkdirSync(JOBS_DIR, { recursive: true });
+  }
 
-console.log(
-  `Generated directory:   ${JOBS_DIR}`
-);
+  const generatedSlugs = [];
 
-console.log("");
+  for (const job of jobsWithSlugs) {
+    const filename = `${job._slug}.html`;
+    const outputPath = path.join(JOBS_DIR, filename);
 
-console.log(
-  "Done."
-);
+    const html = buildJobPage(job, job._slug);
 
-console.log("");
+    fs.writeFileSync(outputPath, html, "utf8");
+
+    generatedSlugs.push(job._slug);
+
+    console.log(`Generated: jobs/${filename}`);
+  }
+
+  /*
+   * Generate sitemap.xml
+   */
+  const sitemap = buildSitemap(generatedSlugs);
+
+  fs.writeFileSync(
+    path.join(ROOT, "sitemap.xml"),
+    sitemap,
+    "utf8"
+  );
+
+  /*
+   * Generate robots.txt
+   */
+  const robots = buildRobots();
+
+  fs.writeFileSync(
+    path.join(ROOT, "robots.txt"),
+    robots,
+    "utf8"
+  );
+
+  console.log("");
+  console.log("======================================");
+  console.log(`${SITE_NAME} job build complete`);
+  console.log("======================================");
+  console.log(`Opportunities found: ${opportunities.length}`);
+  console.log(`Valid listings:      ${jobs.length}`);
+  console.log(`Job pages generated: ${generatedSlugs.length}`);
+  console.log(`Sitemap:             ${SITE_URL}/sitemap.xml`);
+  console.log(`Robots:              ${SITE_URL}/robots.txt`);
+  console.log("======================================");
+}
+
+try {
+  main();
+} catch (error) {
+  console.error("");
+  console.error("BUILD FAILED");
+  console.error(error.message);
+  process.exit(1);
+}
