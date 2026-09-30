@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: LAB3",
+  "title": "AI Engineer / AI Agent Engineer",
+  "description": "Build next-generation AI systems focused on AI agents, agentic workflows, MCP, RAG, multi-agent systems, and LLM applications. Candidates should have at least 1 year of AI or software engineering experience, hands-on experience with LLMs and AI agents or workflows, and proficiency in Python, TypeScript, JavaScript, or Go. Strong system design and engineering skills are required.",
+  "tags": ["AI Engineer", "AI Agent Engineer", "AI Agents", "Agentic AI", "Agentic Workflow", "MCP", "RAG", "Multi-Agent Systems", "LLM", "Python", "TypeScript", "JavaScript", "Go", "System Design"],
+  "location": "Remote · Worldwide",
+  "duration": "Full-Time",
+  "highlight": "1+ Year Experience · Fully Remote · Send your CV + GitHub/Portfolio",
+  "email": "hradmin@lab3.asia",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: MyManah",
   "title": "Generative AI & Machine Learning Engineer Intern",
   "description": "Work on real-world AI solutions for mental healthcare, including LLMs, Agentic AI workflows, RAG systems, NLP pipelines, model evaluation, and AI-powered healthcare experiences. Develop and optimize ML models, process structured and unstructured datasets, conduct research and prototypes, monitor model performance, and collaborate with product, engineering, and clinical teams. Strong Python, ML fundamentals, Data Science, Pandas, NumPy, Scikit-Learn, Git, and familiarity with LLMs and prompt engineering are required.",
