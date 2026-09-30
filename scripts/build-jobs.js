@@ -40,13 +40,36 @@ function slugify(value) {
 }
 
 
-function jobSlug(job) {
-  return `${slugify(job.company)}-${slugify(job.title)}`;
+function baseJobSlug(job) {
+  const company = slugify(job.company);
+  const title = slugify(job.title);
+
+  if (!company || !title) {
+    return "";
+  }
+
+  return `${company}-${title}`;
 }
 
 
-function absoluteJobUrl(job) {
-  return `${SITE_URL}/jobs/${jobSlug(job)}.html`;
+/*
+ * The final slug is generated once and then passed into
+ * every function that needs the job URL.
+ *
+ * This prevents duplicate-slug problems where:
+ *
+ *   file = job-name-2.html
+ *
+ * but:
+ *
+ *   canonical = job-name.html
+ *
+ * or:
+ *
+ *   JSON-LD url = job-name.html
+ */
+function absoluteJobUrl(slug) {
+  return `${SITE_URL}/jobs/${slug}.html`;
 }
 
 
@@ -55,13 +78,17 @@ function absoluteJobUrl(job) {
 ------------------------------------------------------- */
 
 function isUnknownCompany(company) {
-  const value = String(company || "").trim().toLowerCase();
+  const value = String(company || "")
+    .trim()
+    .toLowerCase();
 
-  return !value ||
+  return (
+    !value ||
     value === "unknown" ||
     value === "n/a" ||
     value === "na" ||
-    value === "not specified";
+    value === "not specified"
+  );
 }
 
 
@@ -77,10 +104,6 @@ function looksLikeJob(job) {
     .join(" ")
     .toLowerCase();
 
-  /*
-   * These are signals that the listing is more likely
-   * to represent an actual employment/job opportunity.
-   */
 
   const jobSignals = [
     "job",
@@ -112,7 +135,10 @@ function looksLikeJob(job) {
     "part time"
   ];
 
-  return jobSignals.some(signal => text.includes(signal));
+
+  return jobSignals.some(signal =>
+    text.includes(signal)
+  );
 }
 
 
@@ -120,24 +146,28 @@ function looksLikeJob(job) {
    STRUCTURED DATA
 ------------------------------------------------------- */
 
-function buildStructuredData(job) {
+function buildStructuredData(job, slug) {
 
   /*
-   * IMPORTANT:
-   *
    * EvalLoop Jobs is NOT the hiring organization.
    *
-   * The actual company from opportunities.json becomes
-   * hiringOrganization.
+   * The actual company from opportunities.json is used
+   * as hiringOrganization.
    */
 
   if (isUnknownCompany(job.company)) {
     return null;
   }
 
+
   if (!looksLikeJob(job)) {
     return null;
   }
+
+
+  const pageUrl =
+    absoluteJobUrl(slug);
+
 
   const data = {
 
@@ -149,7 +179,7 @@ function buildStructuredData(job) {
 
     "description": String(job.description || ""),
 
-    "url": absoluteJobUrl(job),
+    "url": pageUrl,
 
     "hiringOrganization": {
       "@type": "Organization",
@@ -160,39 +190,15 @@ function buildStructuredData(job) {
 
 
   /*
-   * Location
-   *
-   * We only provide a simple location string when one
-   * exists. We intentionally don't invent addresses,
-   * countries, cities, postal codes, etc.
-   */
-
-  if (job.location) {
-
-    const locationText =
-      String(job.location).trim();
-
-    if (locationText) {
-
-      data.jobLocation = {
-        "@type": "Place",
-        "name": locationText
-      };
-
-    }
-
-  }
-
-
-  /*
    * Employment type
    *
-   * Only add values when the listing clearly indicates
-   * the employment arrangement.
+   * Only add this when the source clearly indicates it.
    */
 
   const duration =
-    String(job.duration || "").toLowerCase();
+    String(job.duration || "")
+      .toLowerCase();
+
 
   if (
     duration.includes("full-time") ||
@@ -217,6 +223,21 @@ function buildStructuredData(job) {
   }
 
 
+  /*
+   * IMPORTANT:
+   *
+   * We intentionally do NOT convert the free-form
+   * location string into Schema.org jobLocation data.
+   *
+   * A string such as:
+   *
+   * "Hyderabad, India · Remote"
+   *
+   * does not give us enough verified structure to safely
+   * claim a city, country, postal address, etc.
+   */
+
+
   return data;
 }
 
@@ -225,7 +246,7 @@ function buildStructuredData(job) {
    PAGE HTML
 ------------------------------------------------------- */
 
-function buildJobPage(job) {
+function buildJobPage(job, slug) {
 
   const title =
     String(job.title || "Opportunity");
@@ -251,7 +272,7 @@ function buildJobPage(job) {
       : [];
 
   const pageUrl =
-    absoluteJobUrl(job);
+    absoluteJobUrl(slug);
 
   const applyLink =
     job.link
@@ -260,7 +281,7 @@ function buildJobPage(job) {
 
 
   const structuredData =
-    buildStructuredData(job);
+    buildStructuredData(job, slug);
 
 
   const jsonLdScript =
@@ -1030,19 +1051,26 @@ Privacy
 ------------------------------------------------------- */
 
 if (!fs.existsSync(JSON_FILE)) {
-  console.error("ERROR: opportunities.json was not found.");
+
+  console.error(
+    "ERROR: opportunities.json was not found."
+  );
+
   process.exit(1);
 }
 
 
 let jobs;
 
+
 try {
 
-  jobs =
-    JSON.parse(
-      fs.readFileSync(JSON_FILE, "utf8")
-    );
+  jobs = JSON.parse(
+    fs.readFileSync(
+      JSON_FILE,
+      "utf8"
+    )
+  );
 
 } catch (error) {
 
@@ -1053,7 +1081,6 @@ try {
   console.error(error);
 
   process.exit(1);
-
 }
 
 
@@ -1064,7 +1091,6 @@ if (!Array.isArray(jobs)) {
   );
 
   process.exit(1);
-
 }
 
 
@@ -1074,7 +1100,9 @@ if (!Array.isArray(jobs)) {
 
 fs.mkdirSync(
   JOBS_DIR,
-  { recursive:true }
+  {
+    recursive: true
+  }
 );
 
 
@@ -1087,11 +1115,13 @@ for (const file of fs.readdirSync(JOBS_DIR)) {
   if (file.endsWith(".html")) {
 
     fs.unlinkSync(
-      path.join(JOBS_DIR,file)
+      path.join(
+        JOBS_DIR,
+        file
+      )
     );
 
   }
-
 }
 
 
@@ -1113,18 +1143,23 @@ let generatedCount = 0;
 let skippedCount = 0;
 
 
-jobs.forEach((job,index)=>{
+jobs.forEach((job, index) => {
 
-  if (!job || typeof job !== "object") {
+  if (
+    !job ||
+    typeof job !== "object"
+  ) {
 
     skippedCount++;
 
     return;
-
   }
 
 
-  if (!job.title || !job.company) {
+  if (
+    !job.title ||
+    !job.company
+  ) {
 
     console.warn(
       `Skipping opportunity ${index + 1}: missing company or title.`
@@ -1133,12 +1168,11 @@ jobs.forEach((job,index)=>{
     skippedCount++;
 
     return;
-
   }
 
 
   let slug =
-    jobSlug(job);
+    baseJobSlug(job);
 
 
   if (!slug) {
@@ -1150,7 +1184,6 @@ jobs.forEach((job,index)=>{
     skippedCount++;
 
     return;
-
   }
 
 
@@ -1158,7 +1191,9 @@ jobs.forEach((job,index)=>{
     (slugCounts[slug] || 0) + 1;
 
 
-  if (slugCounts[slug] > 1) {
+  if (
+    slugCounts[slug] > 1
+  ) {
 
     slug =
       `${slug}-${slugCounts[slug]}`;
@@ -1178,7 +1213,10 @@ jobs.forEach((job,index)=>{
 
 
   const page =
-    buildJobPage(job);
+    buildJobPage(
+      job,
+      slug
+    );
 
 
   fs.writeFileSync(
@@ -1228,16 +1266,12 @@ const staticPages = [
 
 
 const allUrls =
-  [...new Set([
-    ...staticPages,
-    ...generatedUrls
-  ])];
-
-
-const today =
-  new Date()
-    .toISOString()
-    .split("T")[0];
+  [
+    ...new Set([
+      ...staticPages,
+      ...generatedUrls
+    ])
+  ];
 
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -1245,17 +1279,21 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 >
 
-${allUrls.map(url => `  <url>
+${allUrls
+  .map(url => `  <url>
     <loc>${esc(url)}</loc>
-    <lastmod>${today}</lastmod>
-  </url>`).join("\n\n")}
+  </url>`)
+  .join("\n\n")}
 
 </urlset>
 `;
 
 
 fs.writeFileSync(
-  path.join(ROOT,"sitemap.xml"),
+  path.join(
+    ROOT,
+    "sitemap.xml"
+  ),
   sitemap,
   "utf8"
 );
@@ -1273,7 +1311,10 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 
 fs.writeFileSync(
-  path.join(ROOT,"robots.txt"),
+  path.join(
+    ROOT,
+    "robots.txt"
+  ),
   robots,
   "utf8"
 );
@@ -1284,9 +1325,19 @@ fs.writeFileSync(
 ------------------------------------------------------- */
 
 console.log("");
-console.log("======================================");
-console.log(" EvalLoop Jobs — Job Page Generator");
-console.log("======================================");
+
+console.log(
+  "======================================"
+);
+
+console.log(
+  " EvalLoop Jobs — Job Page Generator"
+);
+
+console.log(
+  "======================================"
+);
+
 console.log("");
 
 console.log(
@@ -1313,5 +1364,8 @@ console.log(
 
 console.log("");
 
-console.log("Done.");
+console.log(
+  "Done."
+);
+
 console.log("");
