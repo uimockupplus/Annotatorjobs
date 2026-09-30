@@ -12,6 +12,30 @@
   "link": "https://www.sarvam.ai/careers/jobs/36f89b00-2010-4d23-aae3-17a2f53d9eaa"
   },
   {
+    "company": "Company: Emplay",
+    "title": "Associate Backend / AI Engineer",
+    "description": "Build and maintain backend services using Python, FastAPI, and Flask while developing LLM-powered features, RAG pipelines, conversational AI, embeddings, vector search, AI agents, and tool-based workflows using LangChain or LlamaIndex. Work with AWS services, REST APIs, webhooks, databases, testing, performance monitoring, and AI/backend troubleshooting.",
+    "tags": ["Backend Engineering", "AI Engineer", "Generative AI", "LLM", "RAG", "Vector Search", "AI Agents", "Python", "FastAPI", "Flask", "LangChain", "LlamaIndex", "AWS", "REST APIs", "Databases"],
+    "location": "Remote · Work From Home",
+    "duration": "Full-Time",
+    "highlight": "1–2 Years Experience · Remote · Python · GenAI · RAG · AWS",
+    "email": "placement@emplay.net",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
+    "company": "Company: Emplay",
+    "title": "Backend / AI Engineer",
+    "description": "Design and build LLM-powered agents and scalable backend services, architect advanced RAG pipelines, and develop MCP and multi-agent workflows. Build enterprise API and webhook integrations, bulk data pipelines, usage analytics, secure production-grade services, and scalable AI solutions using AWS. Work with OpenAI, Anthropic, Bedrock, OpenSearch, Pinecone, pgvector, LangChain, LlamaIndex, Python, FastAPI, Flask, and modern authentication and infrastructure technologies.",
+    "tags": ["Backend Engineering", "AI Engineer", "Generative AI", "LLM", "AI Agents", "Advanced RAG", "MCP", "Multi-Agent Systems", "AWS Bedrock", "OpenAI", "Anthropic", "OpenSearch", "Pinecone", "pgvector", "LangChain", "LlamaIndex", "Python", "FastAPI", "Flask", "REST APIs", "GraphQL", "OAuth 2.0", "SAML", "OIDC", "Terraform", "AWS CDK"],
+    "location": "Remote · Work From Home",
+    "duration": "Full-Time",
+    "highlight": "2–3 Years Experience · Remote · Advanced RAG · MCP · Multi-Agent · AWS",
+    "email": "placement@emplay.net",
+    "whatsapp": "",
+    "link": ""
+  },
+  {
   "company": "Company: Zecdata",
   "title": "GenAI with Python Developer",
   "description": "Develop Generative AI solutions using Python, LangGraph, RAG, and Agentic Workflows. Candidates should have 4+ years of relevant experience and strong hands-on skills in Python and modern GenAI technologies.",
