@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: Sarvam",
+  "title": "Agent Engineer – Deployment Engineering",
+  "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
+  "tags": ["Agent Engineer", "AI Agents", "Agentic AI", "Generative AI", "LLM", "Python", "Prompt Engineering", "Context Engineering", "AI Evaluation", "Evals", "Backend", "APIs", "Cloud Infrastructure", "Data Pipelines", "Production AI", "Regression Testing", "Tool Use"],
+  "location": "Bengaluru, Karnataka, India · On-site",
+  "duration": "Full-Time",
+  "highlight": "3+ Years Experience · Production AI Agents · Strong Python · LLMs & Agentic AI · AI Evaluation",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://www.sarvam.ai/careers/jobs/36f89b00-2010-4d23-aae3-17a2f53d9eaa"
+  },
+  {
   "company": "Company: LAB3",
   "title": "AI Engineer / AI Agent Engineer",
   "description": "Build next-generation AI systems focused on AI agents, agentic workflows, MCP, RAG, multi-agent systems, and LLM applications. Candidates should have at least 1 year of AI or software engineering experience, hands-on experience with LLMs and AI agents or workflows, and proficiency in Python, TypeScript, JavaScript, or Go. Strong system design and engineering skills are required.",
@@ -24,17 +36,17 @@
   "link": ""
   },
   {
-  "company": "Company: Sarvam",
-  "title": "Agent Engineer – Deployment Engineering",
-  "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
-  "tags": ["Agent Engineer", "AI Agents", "Agentic AI", "Generative AI", "LLM", "Python", "Prompt Engineering", "Context Engineering", "AI Evaluation", "Evals", "Backend", "APIs", "Cloud Infrastructure", "Data Pipelines", "Production AI", "Regression Testing", "Tool Use"],
-  "location": "Bengaluru, Karnataka, India · On-site",
+  "company": "Company: PragmaEdge",
+  "title": "Associate Trainee – AI Engineer",
+  "description": "Hiring freshers for an AI Engineer trainee role. Candidates should have Python coding skills, knowledge of AI, Generative AI, Machine Learning, LLMs and LLM tools, along with basic RAG concepts. Familiarity with Flask, FastAPI, Django, and Python fundamentals before OOP is required or preferred.",
+  "tags": ["AI Engineer", "Generative AI", "GenAI", "Machine Learning", "LLM", "LLM Tools", "Python", "RAG", "Flask", "FastAPI", "Django", "Prompt Engineering"],
+  "location": "Hyderabad, Telangana, India",
   "duration": "Full-Time",
-  "highlight": "3+ Years Experience · Production AI Agents · Strong Python · LLMs & Agentic AI · AI Evaluation",
-  "email": "",
+  "highlight": "Fresher · 2026 B.Tech CSE/ECE/IT & MCA Graduates · AI & GenAI",
+  "email": "divya.vullamparthi@pragmaedge.com",
   "whatsapp": "",
-  "link": "https://www.sarvam.ai/careers/jobs/36f89b00-2010-4d23-aae3-17a2f53d9eaa"
-  },
+  "link": ""
+}
   {
   "company": "Company: Coremantle.ai",
   "title": "Transcriber – Audio Transcription, Data Annotation",
