@@ -1,6 +1,6 @@
 [
   {
-  "company": "Observe.AI",
+  "company": "Company: Observe.AI",
   "title": "AI Agent Engineer",
   "description": "Design, integrate, test, and deploy enterprise Voice and Chat AI agents and AI Copilots for customer environments. Own prompt design, workflow configuration, API and enterprise system integrations, telephony setup, evaluation frameworks, client demos, deployment, and ongoing optimization. Work directly with customers to translate requirements into production solutions, integrate CRMs and knowledge bases, troubleshoot SIP/CCaaS/PSTN systems, optimize LLM agent performance, and collaborate with product and engineering teams. Strong hands-on skills in prompt design, workflow building, API integration, LLMs, RAG, and scripting are required.",
   "tags": ["AI Agent Engineer", "AI Agents", "Agentic AI", "Generative AI", "LLM", "Prompt Engineering", "AI Copilots", "Conversational AI", "Voice AI", "Chat AI", "API Integration", "Workflow Automation", "RAG", "LangChain", "LlamaIndex", "Python", "JavaScript", "Telephony", "SIP", "CCaaS", "PSTN", "Twilio", "Amazon Connect", "Vector Databases", "n8n", "Zapier", "Solution Engineering", "Customer-Facing AI"],
