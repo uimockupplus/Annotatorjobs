@@ -21,23 +21,23 @@
 <link rel="icon" type="image/png" href="/favicon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="chatbot.css">
 
 <style>
 
 :root{
-  --bg:#101211;
-  --ink:#f1f1ef;
-  --muted:#a4aaa6;
-  --lime:#3ecf8e;
-  --paper:#171b18;
-  --dark:#101211;
-  --border:#2b3730;
-  --cyan:#85e7ba;
-  --blue:#3ecf8e;
-  --white:#f1f1ef;
-  --red:#f38b68;
+  --bg:#0b1224;
+  --ink:#f5f8ff;
+  --muted:#8fa0bb;
+  --lime:#2588ff;
+  --paper:#111d36;
+  --dark:#0b1224;
+  --border:#233555;
+  --cyan:#4db3ff;
+  --blue:#2588ff;
+  --white:#f5f8ff;
+  --red:#ff4d61;
 }
 
 *{box-sizing:border-box}
@@ -48,7 +48,7 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:"Inter",sans-serif;
+  font-family:"DM Sans",sans-serif;
   cursor:none;
 }
 
@@ -79,8 +79,8 @@ button{cursor:pointer}
   pointer-events:none;
   opacity:.12;
   background-image:
-    linear-gradient(rgba(62,207,142,.11) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(62,207,142,.11) 1px,transparent 1px);
+    linear-gradient(rgba(37,136,255,.11) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,136,255,.11) 1px,transparent 1px);
   background-size:44px 44px;
 }
 
@@ -106,7 +106,7 @@ button{cursor:pointer}
 }
 
 .logo{
-  font:700 13px "Inter";
+  font:700 13px "Space Grotesk";
   letter-spacing:.12em;
   display:flex;
   align-items:center;
@@ -122,7 +122,7 @@ button{cursor:pointer}
   background:var(--lime);
   color:var(--ink);
   font-size:14px;
-  box-shadow:0 0 22px rgba(62,207,142,.3);
+  box-shadow:0 0 22px rgba(37,136,255,.3);
 }
 
 .logo-dot{
@@ -182,8 +182,8 @@ button{cursor:pointer}
   z-index:-1;
   pointer-events:none;
   background-image:
-    linear-gradient(rgba(133,231,186,.3) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(133,231,186,.3) 1px,transparent 1px);
+    linear-gradient(rgba(77,179,255,.3) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(77,179,255,.3) 1px,transparent 1px);
   background-size:44px 44px;
   mask-image:
     radial-gradient(
@@ -211,7 +211,7 @@ button{cursor:pointer}
   align-items:center;
   gap:10px;
   color:var(--cyan);
-  font:700 10px "Inter";
+  font:700 10px "Space Grotesk";
   letter-spacing:.16em;
 }
 
@@ -226,7 +226,7 @@ button{cursor:pointer}
 h1{
   max-width:615px;
   margin:24px 0 26px;
-  font:600 clamp(3.4rem,6vw,6.8rem)/.93 "Inter";
+  font:600 clamp(3.4rem,6vw,6.8rem)/.93 "Space Grotesk";
   letter-spacing:-.075em;
 }
 
@@ -267,13 +267,13 @@ h1 em,
   color:var(--ink);
   background:var(--lime);
   transition:.25s;
-  box-shadow:0 0 22px rgba(62,207,142,.25);
+  box-shadow:0 0 22px rgba(37,136,255,.25);
 }
 
 .primary:hover{
   background:var(--cyan);
   transform:translateY(-3px);
-  box-shadow:0 16px 38px rgba(62,207,142,.42);
+  box-shadow:0 16px 38px rgba(37,136,255,.42);
 }
 
 .text-link{
@@ -314,7 +314,7 @@ h1 em,
   background:
     radial-gradient(
       circle at var(--spot-x,70%) var(--spot-y,35%),
-      rgba(62,207,142,.13),
+      rgba(37,136,255,.13),
       transparent 24%
     );
   pointer-events:none;
@@ -331,7 +331,7 @@ h1 em,
   height:360px;
   right:4%;
   top:11%;
-  background:radial-gradient(circle,rgba(62,207,142,.25),transparent 67%);
+  background:radial-gradient(circle,rgba(37,136,255,.25),transparent 67%);
   animation:pulse 5s ease-in-out infinite;
 }
 
@@ -340,7 +340,7 @@ h1 em,
   height:250px;
   left:0;
   bottom:4%;
-  background:radial-gradient(circle,rgba(133,231,186,.16),transparent 70%);
+  background:radial-gradient(circle,rgba(77,179,255,.16),transparent 70%);
   animation:pulse 7s ease-in-out infinite reverse;
 }
 
@@ -357,11 +357,11 @@ h1 em,
   right:5%;
   top:10%;
   color:var(--ink);
-  background:linear-gradient(145deg,rgba(23,27,24,.98),rgba(16,18,17,.98));
+  background:linear-gradient(145deg,rgba(21,35,63,.98),rgba(15,25,48,.98));
   border:1px solid var(--border);
   box-shadow:
     0 28px 70px rgba(0,0,0,.42),
-    0 0 38px rgba(62,207,142,.16);
+    0 0 38px rgba(37,136,255,.16);
   transform:rotate(2.8deg);
   animation:
     float 6s ease-in-out infinite,
@@ -372,7 +372,7 @@ h1 em,
   display:flex;
   gap:8px;
   color:var(--muted);
-  font:800 9px "Inter";
+  font:800 9px "Space Grotesk";
   letter-spacing:.14em;
 }
 
@@ -410,14 +410,14 @@ h1 em,
 
 .board-title small{
   color:var(--muted);
-  font:800 9px "Inter";
+  font:800 9px "Space Grotesk";
   letter-spacing:.15em;
 }
 
 .board-title h2{
   margin:8px 0 0;
   color:var(--ink);
-  font:500 34px/.96 "Inter";
+  font:500 34px/.96 "Space Grotesk";
   letter-spacing:-.07em;
 }
 
@@ -442,7 +442,7 @@ h1 em,
 .feature-name{
   margin-top:10px;
   color:var(--ink);
-  font:600 21px "Inter";
+  font:600 21px "Space Grotesk";
 }
 
 .feature-name span{
@@ -486,8 +486,8 @@ h1 em,
   flex-direction:column;
   justify-content:space-between;
   padding:21px 23px;
-  color:rgba(241,241,239,.55);
-  background:linear-gradient(145deg,rgba(17,29,54,.9),rgba(16,18,17,.84));
+  color:rgba(241,238,227,.55);
+  background:linear-gradient(145deg,rgba(17,29,54,.9),rgba(15,25,48,.84));
   border:1px solid var(--border);
   box-shadow:0 16px 40px rgba(0,0,0,.2);
 }
@@ -500,7 +500,7 @@ h1 em,
 
 .back-board b{
   color:var(--ink);
-  font:500 24px "Inter";
+  font:500 24px "Space Grotesk";
 }
 
 .back-one{
@@ -522,7 +522,7 @@ h1 em,
   display:flex;
   gap:16px;
   color:var(--muted);
-  font:9px/1.25 "Inter";
+  font:9px/1.25 "Space Grotesk";
   letter-spacing:.12em;
 }
 
@@ -537,7 +537,7 @@ h1 em,
 .signals{
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
-  background:rgba(16,18,17,.65);
+  background:rgba(11,18,36,.65);
 }
 
 .signal-grid{
@@ -557,7 +557,7 @@ h1 em,
 
 .signal strong{
   color:var(--cyan);
-  font:400 40px "Inter";
+  font:400 40px "Space Grotesk";
   letter-spacing:-.08em;
 }
 
@@ -589,7 +589,7 @@ h1 em,
 .section-title{
   margin:18px 0 0;
   color:var(--ink);
-  font:600 clamp(2.8rem,5vw,5.1rem)/.94 "Inter";
+  font:600 clamp(2.8rem,5vw,5.1rem)/.94 "Space Grotesk";
   letter-spacing:-.08em;
 }
 
@@ -630,7 +630,7 @@ h1 em,
 .tab:hover{
   color:var(--ink);
   background:var(--lime);
-  box-shadow:0 0 20px rgba(62,207,142,.24);
+  box-shadow:0 0 20px rgba(37,136,255,.24);
 }
 
 .search{
@@ -666,7 +666,7 @@ h1 em,
   padding:21px;
   border:1px solid var(--border);
   border-radius:6px;
-  background:linear-gradient(145deg,rgba(17,29,54,.9),rgba(16,18,17,.84));
+  background:linear-gradient(145deg,rgba(17,29,54,.9),rgba(15,25,48,.84));
   transition:.25s;
   will-change:transform;
 }
@@ -676,7 +676,7 @@ h1 em,
   transform:translateY(-5px);
   box-shadow:
     0 18px 38px rgba(0,0,0,.25),
-    0 0 28px rgba(62,207,142,.12);
+    0 0 28px rgba(37,136,255,.12);
 }
 
 .card-top,
@@ -694,12 +694,12 @@ h1 em,
   border-radius:50%;
   background:var(--lime);
   color:var(--ink);
-  font:700 15px "Inter";
+  font:700 15px "Space Grotesk";
 }
 
 .num{
   color:var(--muted);
-  font:10px "Inter";
+  font:10px "Space Grotesk";
 }
 
 .card-body{
@@ -710,7 +710,7 @@ h1 em,
 .cat,
 .op-company{
   color:var(--cyan);
-  font:500 16px "Inter";
+  font:500 16px "Space Grotesk";
   letter-spacing:.02em;
   text-transform:none
 }
@@ -718,7 +718,7 @@ h1 em,
 .card h3{
   margin:9px 0 10px;
   color:var(--ink);
-  font:500 22px "Inter";
+  font:500 22px "Space Grotesk";
   letter-spacing:-.045em;
 }
 
@@ -800,15 +800,15 @@ h1 em,
   align-items:center;
   padding:27px 30px;
   border:1px solid var(--border);
-  background:rgba(23,27,24,.42);
+  background:rgba(21,35,63,.42);
   transition:.28s;
 }
 
 .op:hover{
-  background:rgba(23,27,24,.56);
-  border-color:rgba(133,231,186,.5);
+  background:rgba(21,35,63,.56);
+  border-color:rgba(77,179,255,.5);
   transform:translateY(-2px);
-  box-shadow:0 10px 24px rgba(62,207,142,.08);
+  box-shadow:0 10px 24px rgba(37,136,255,.08);
 }
 
 .op-badge{
@@ -822,13 +822,13 @@ h1 em,
   border-radius:5px;
   color:var(--ink);
   background:var(--lime);
-  font:700 10px "Inter";
+  font:700 10px "Space Grotesk";
 }
 
 .op-main h3{
   margin:11px 0 8px;
   color:var(--ink);
-  font:500 25px "Inter";
+  font:500 25px "Space Grotesk";
   letter-spacing:-.06em;
 }
 
@@ -851,7 +851,7 @@ h1 em,
   gap:7px;
   align-items:center;
   color:var(--cyan);
-  font:8px "Inter";
+  font:8px "Space Grotesk";
   letter-spacing:.12em;
 }
 
@@ -893,7 +893,7 @@ h1 em,
 
 .facts strong{
   color:var(--ink);
-  font:600 14px "Inter";
+  font:600 14px "Space Grotesk";
 }
 
 .op-actions{
@@ -912,7 +912,7 @@ h1 em,
   padding:0 11px;
   border:1px solid var(--lime);
   color:var(--ink);
-  background:rgba(62,207,142,.12);
+  background:rgba(37,136,255,.12);
   font-size:10px;
   font-weight:700;
 }
@@ -932,7 +932,7 @@ h1 em,
 
 .load-more small{
   color:var(--muted);
-  font:700 10px "Inter";
+  font:700 10px "Space Grotesk";
   letter-spacing:.14em;
 }
 
@@ -979,7 +979,7 @@ h1 em,
 .step h3{
   margin:18px 0 10px;
   color:var(--ink);
-  font:500 20px "Inter";
+  font:500 20px "Space Grotesk";
 }
 
 .step p{
@@ -994,12 +994,12 @@ h1 em,
   top:21px;
   right:4px;
   color:var(--muted);
-  font:10px "Inter";
+  font:10px "Space Grotesk";
 }
 
 .highlight{
   border-top-color:var(--lime);
-  background:rgba(62,207,142,.07);
+  background:rgba(37,136,255,.07);
 }
 
 /* =========================
@@ -1028,7 +1028,7 @@ h1 em,
   display:grid;
   gap:12px;
   color:var(--muted);
-  font:11px "Inter";
+  font:11px "Space Grotesk";
   letter-spacing:.04em;
 }
 
@@ -1055,8 +1055,8 @@ h1 em,
   padding:27px 30px 24px;
   border:1px solid var(--blue);
   border-radius:8px;
-  background:linear-gradient(145deg,rgba(23,27,24,.94),rgba(16,18,17,.92));
-  box-shadow:0 0 34px rgba(62,207,142,.12);
+  background:linear-gradient(145deg,rgba(21,35,63,.94),rgba(15,25,48,.92));
+  box-shadow:0 0 34px rgba(37,136,255,.12);
 }
 
 .resume-card:before{
@@ -1067,7 +1067,7 @@ h1 em,
   background:linear-gradient(
     110deg,
     transparent 25%,
-    rgba(133,231,186,.08),
+    rgba(77,179,255,.08),
     transparent 70%
   );
   transform:translateX(-110%);
@@ -1080,7 +1080,7 @@ h1 em,
   align-items:center;
   gap:9px;
   color:var(--muted);
-  font:800 9px "Inter";
+  font:800 9px "Space Grotesk";
   letter-spacing:.14em;
 }
 
@@ -1112,13 +1112,13 @@ h1 em,
   color:var(--white);
   background:var(--blue);
   font-size:20px;
-  box-shadow:0 0 22px rgba(62,207,142,.3);
+  box-shadow:0 0 22px rgba(37,136,255,.3);
 }
 
 .resume-card h3{
   margin:18px 0 10px;
   color:var(--white);
-  font:500 30px/.98 "Inter";
+  font:500 30px/.98 "Space Grotesk";
   letter-spacing:-.06em;
 }
 
@@ -1172,7 +1172,7 @@ h1 em,
   background:
     radial-gradient(
       circle at 85% 20%,
-      rgba(62,207,142,.14),
+      rgba(37,136,255,.14),
       transparent 28%
     ),
     linear-gradient(
@@ -1183,7 +1183,7 @@ h1 em,
 
   box-shadow:
     0 30px 80px rgba(0,0,0,.28),
-    0 0 45px rgba(62,207,142,.06);
+    0 0 45px rgba(37,136,255,.06);
 
   transition:
     transform .35s ease,
@@ -1200,2294 +1200,9 @@ h1 em,
 
   background-image:
     linear-gradient(
-      rgba(133,231,186,.08) 1px,
+      rgba(77,179,255,.08) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(133,231,186,.08) 1px,
-      transparent 1px
-    );
-
-  background-size:42px 42px;
-
-  mask-image:
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      black 45%,
-      transparent 100%
-    );
-}
-
-.action-main{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.action-number{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--cyan);
-  font:700 10px "Inter";
-  letter-spacing:.17em;
-}
-
-.action-number:before{
-  content:"";
-  width:30px;
-  height:1px;
-  background:var(--lime);
-  box-shadow:0 0 12px var(--lime);
-}
-
-.action-icon{
-  display:grid;
-  place-items:center;
-  width:58px;
-  height:58px;
-  margin:34px 0 25px;
-  border:1px solid rgba(133,231,186,.5);
-  border-radius:10px;
-  color:var(--cyan);
-  background:rgba(62,207,142,.08);
-  font:500 24px "Inter";
-  box-shadow:
-    inset 0 0 22px rgba(62,207,142,.05),
-    0 0 28px rgba(62,207,142,.08);
-}
-
-.action-card h3{
-  max-width:680px;
-  margin:0 0 18px;
-  color:var(--ink);
-  font:500 clamp(2.5rem,4.5vw,4.7rem)/.94 "Inter";
-  letter-spacing:-.075em;
-}
-
-.action-card h3 em{
-  color:var(--cyan);
-  font-style:italic;
-  font-weight:400;
-}
-
-.action-card p{
-  max-width:560px;
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.75;
-}
-
-.action-panel{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  min-width:0;
-  padding-left:38px;
-  border-left:1px solid var(--border);
-}
-
-.action-panel-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:18px;
-  color:var(--muted);
-  font:700 9px "Inter";
-  letter-spacing:.13em;
-}
-
-.action-live{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  color:var(--cyan);
-}
-
-.action-live i{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 12px var(--blue);
-  animation:blink 1.4s ease-in-out infinite;
-}
-
-.action-lines{
-  display:grid;
-  border-top:1px solid var(--border);
-}
-
-.action-line{
-  display:grid;
-  grid-template-columns:42px 1fr;
-  gap:15px;
-  padding:18px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.action-line-index{
-  color:var(--cyan);
-  font:700 9px "Inter";
-  padding-top:3px;
-}
-
-.action-line-content b{
-  display:block;
-  margin-bottom:5px;
-  color:var(--ink);
-  font:500 16px "Inter";
-}
-
-.action-line-content span{
-  display:block;
-  color:var(--muted);
-  font-size:10px;
-  line-height:1.5;
-}
-
-.action-bottom{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  margin-top:28px;
-}
-
-.action-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  min-height:43px;
-  padding:0 17px;
-  border:1px solid var(--lime);
-  border-radius:4px;
-  color:var(--ink);
-  background:rgba(62,207,142,.12);
-  font:700 11px "Inter";
-}
-
-.action-link:hover{
-  background:var(--lime);
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(62,207,142,.25);
-}
-
-.action-label{
-  color:var(--muted);
-  font:700 8px "Inter";
-  letter-spacing:.1em;
-}
-
-.submit-action .action-card{
-  border-color:rgba(133,231,186,.28);
-}
-
-.submit-action .action-icon{
-  transform:rotate(-4deg);
-}
-
-.join-action .action-card{
-  border-color:rgba(62,207,142,.4);
-  background:
-    radial-gradient(
-      circle at 15% 80%,
-      rgba(133,231,186,.08),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 85% 15%,
-      rgba(62,207,142,.14),
-      transparent 30%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(17,29,54,.98),
-      rgba(11,20,40,.96)
-    );
-}
-
-.join-action .action-icon{
-  border-radius:50%;
-}
-
-.contact-action .action-card{
-  border-color:rgba(133,231,186,.22);
-}
-
-.contact-action .action-icon{
-  border-radius:50% 50% 50% 8px;
-}
-
-.action-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(133,231,186,.65);
-  box-shadow:
-    0 38px 90px rgba(0,0,0,.35),
-    0 0 50px rgba(62,207,142,.12);
-}
-
-.action-card:hover .action-icon{
-  box-shadow:
-    0 0 30px rgba(62,207,142,.2),
-    inset 0 0 25px rgba(133,231,186,.08);
-  border-color:var(--cyan);
-}
-
-/* =========================
-   CLOSING
-========================= */
-
-.closing{
-  padding-bottom:90px;
-}
-
-.closing-card{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-  padding:43px 47px;
-  color:var(--ink);
-  background:linear-gradient(120deg,#171b18,#171b18);
-  border:1px solid var(--lime);
-  box-shadow:0 0 32px rgba(62,207,142,.12);
-}
-
-.closing-card h2{
-  margin:14px 0 7px;
-  color:var(--ink);
-  font:500 33px "Inter";
-  letter-spacing:-.065em;
-}
-
-.closing-card p{
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.dark-btn{
-  color:var(--ink);
-  background:var(--lime);
-}
-
-.closing-card .btn:hover{
-  transform:translateY(-3px);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  min-height:110px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:10px;
-}
-
-.footer-links{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px 26px;
-}
-
-.footer-links a{
-  display:inline-flex;
-  align-items:center;
-  min-height:32px;
-}
-
-/* =========================
-   JOB STREAM
-========================= */
-
-.job-stream{
-  position:relative;
-  z-index:2;
-  overflow:hidden;
-  padding:18px 0 20px;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  background:rgba(16,18,17,.8);
-  box-shadow:inset 0 0 28px rgba(62,207,142,.05);
-}
-
-.stream-line{
-  position:absolute;
-  left:0;
-  right:0;
-  top:50%;
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--blue),
-    var(--cyan),
-    var(--blue),
-    transparent
-  );
-  opacity:.7;
-}
-
-.stream-line:after{
-  content:"";
-  position:absolute;
-  top:-2px;
-  left:-10%;
-  width:90px;
-  height:5px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 14px 4px var(--blue);
-  animation:dataPulse 2.8s linear infinite;
-}
-
-.stream-track{
-  position:relative;
-  display:flex;
-  width:max-content;
-  animation:stream 28s linear infinite;
-}
-
-/*
-  Arrows removed.
-  48px keeps approximately the same visual
-  spacing that existed when the arrows were present.
-*/
-
-.stream-set{
-  display:flex;
-  align-items:center;
-  gap:48px;
-  padding-right:48px;
-  white-space:nowrap;
-  color:var(--white);
-  font:700 10px "Inter";
-  letter-spacing:.16em;
-}
-
-.stream-set span{
-  position:relative;
-  padding:7px 12px;
-  border:1px solid rgba(62,207,142,.45);
-  border-radius:4px;
-  background:rgba(16,18,17,.72);
-}
-
-.stream-set span:after{
-  content:"";
-  position:absolute;
-  right:-2px;
-  top:50%;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 8px var(--blue);
-  transform:translateY(-50%);
-}
-
-/* =========================
-   CURSOR
-========================= */
-
-.cursor-dot,
-.cursor-ring{
-  position:fixed;
-  left:0;
-  top:0;
-  z-index:99;
-  pointer-events:none;
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  mix-blend-mode:screen;
-}
-
-.cursor-dot{
-  width:7px;
-  height:7px;
-  background:var(--cyan);
-  box-shadow:0 0 16px var(--lime);
-  transition:
-    width .15s,
-    height .15s,
-    background .2s;
-}
-
-.cursor-dot.hot{
-  width:11px;
-  height:11px;
-  background:var(--lime);
-}
-
-.cursor-ring{
-  width:34px;
-  height:34px;
-  border:1px solid rgba(133,231,186,.7);
-  transition:.2s;
-  animation:ring 2s ease-in-out infinite;
-  will-change:left,top,transform;
-}
-
-.cursor-ring.active{
-  width:54px;
-  height:54px;
-  border-color:var(--lime);
-}
-
-/* =========================
-   REVEAL
-========================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(22px);
-  transition:
-    opacity .72s ease,
-    transform .72s cubic-bezier(.2,.75,.25,1);
-}
-
-.reveal.in{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes grid{
-  to{background-position:44px 44px}
-}
-
-@keyframes pulse{
-  50%{
-    transform:scale(1.08);
-    opacity:.7;
-  }
-}
-
-@keyframes float{
-  50%{
-    transform:rotate(1deg) translateY(-10px);
-  }
-}
-
-@keyframes consoleGlow{
-  50%{
-    box-shadow:
-      0 28px 70px rgba(0,0,0,.42),
-      0 0 48px rgba(62,207,142,.25);
-  }
-}
-
-@keyframes ring{
-  50%{
-    box-shadow:0 0 0 8px rgba(62,207,142,.04);
-  }
-}
-
-@keyframes stream{
-  to{transform:translateX(-50%)}
-}
-
-@keyframes dataPulse{
-  to{left:110%}
-}
-
-@keyframes resumeScan{
-  50%{transform:translateX(110%)}
-}
-
-@keyframes blink{
-  50%{
-    opacity:.35;
-    transform:scale(.7);
-  }
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media(max-width:900px){
-
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:76px;
-  }
-
-  .hero-copy h1{
-    max-width:700px;
-  }
-
-  .visual{
-    max-width:680px;
-    width:100%;
-    margin:auto;
-  }
-
-  .signal-grid{
-    grid-template-columns:repeat(3,1fr);
-    padding:25px 32px;
-  }
-
-  .signal-note{
-    display:none;
-  }
-
-  .section-head{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:24px;
-  }
-
-  .section-head>p{
-    margin:0;
-    max-width:420px;
-  }
-
-  .cards{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .op{
-    grid-template-columns:62px 1fr;
-  }
-
-  .op-side{
-    grid-column:2;
-    flex-direction:row;
-    align-items:end;
-  }
-
-  .how{
-    grid-template-columns:1fr;
-    gap:55px;
-  }
-
-  .how p{
-    max-width:400px;
-  }
-
-  .resume-intake{
-    grid-template-columns:1fr;
-    gap:45px;
-  }
-
-  .action-card{
-    grid-template-columns:1fr;
-    gap:45px;
-    min-height:auto;
-    padding:48px;
-  }
-
-  .action-panel{
-    padding-left:0;
-    padding-top:34px;
-    border-left:0;
-    border-top:1px solid var(--border);
-  }
-
-  .action-card h3{
-    max-width:700px;
-  }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:640px){
-
-  body{
-    cursor:auto;
-  }
-
-  .cursor-dot,
-  .cursor-ring{
-    display:none;
-  }
-
-  .wrap{
-    padding-left:20px;
-    padding-right:20px;
-  }
-
-  .header{
-    width:calc(100% - 40px);
-    min-height:74px;
-  }
-
-  .nav{
-    display:none;
-  }
-
-  .top-cta{
-    margin-left:auto;
-    padding:10px 12px;
-    font-size:10px;
-  }
-
-  .hero{
-    padding-top:66px;
-    padding-bottom:88px;
-  }
-
-  .hero-copy h1{
-    font-size:clamp(3.15rem,16vw,5rem);
-  }
-
-  .lede{
-    font-size:14px;
-  }
-
-  .actions{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .note{
-    margin-top:42px;
-    line-height:1.4;
-  }
-
-  .visual{
-    min-height:390px;
-  }
-
-  .main-board{
-    min-height:335px;
-    right:0;
-    top:12%;
-    padding:22px 20px 18px;
-  }
-
-  .board-title{
-    margin-top:29px;
-  }
-
-  .board-title h2{
-    font-size:28px;
-  }
-
-  .board-title em{
-    font-size:28px;
-  }
-
-  .feature-name{
-    font-size:18px;
-  }
-
-  .feature-name span{
-    font-size:14px;
-  }
-
-  .board-link{
-    margin-top:25px;
-  }
-
-  .back-board{
-    width:72%;
-  }
-
-  .back-one{
-    left:-6%;
-  }
-
-  .caption{
-    left:0;
-    bottom:7px;
-  }
-
-  .signal-grid{
-    gap:7px;
-    padding-left:20px;
-    padding-right:20px;
-  }
-
-  .signal{
-    gap:7px;
-  }
-
-  .signal strong{
-    font-size:28px;
-  }
-
-  .signal span{
-    font-size:9px;
-  }
-
-  .directory{
-    padding-top:88px;
-    padding-bottom:88px;
-  }
-
-  .section-title{
-    font-size:3.25rem;
-  }
-
-  .toolbar{
-    align-items:stretch;
-    flex-direction:column;
-    margin-top:38px;
-  }
-
-  .tabs{
-    flex-wrap:nowrap;
-    overflow-x:auto;
-  }
-
-  .tab{
-    white-space:nowrap;
-  }
-
-  .search{
-    width:100%;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    min-height:255px;
-  }
-
-  .opps{
-    padding:88px 0;
-  }
-
-  .op-list{
-    margin-top:38px;
-  }
-
-  .op{
-    grid-template-columns:1fr;
-    gap:18px;
-    padding:23px 20px;
-  }
-
-  .op-badge{
-    width:44px;
-    height:48px;
-    flex-direction:row;
-    gap:9px;
-  }
-
-  .op-meta{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:8px;
-  }
-
-  .op-main h3{
-    font-size:23px;
-  }
-
-  .op-side{
-    grid-column:auto;
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .apply,
-  .whatsapp{
-    flex:1;
-  }
-
-  .how{
-    padding-top:88px;
-    padding-bottom:88px;
-  }
-
-  .steps{
-    grid-template-columns:1fr;
-    gap:0;
-  }
-
-  .step{
-    min-height:auto;
-    padding:24px 0;
-  }
-
-  .step b{
-    margin-top:28px;
-  }
-
-  .resume-intake{
-    padding-top:88px;
-    padding-bottom:88px;
-  }
-
-  .resume-card{
-    padding:22px 20px;
-  }
-
-  .resume-card h3,
-  .resume-card h3 em{
-    font-size:26px;
-  }
-
-  .home-actions{
-    padding-bottom:70px;
-  }
-
-  .action-card{
-    min-height:0;
-    grid-template-columns:1fr;
-    gap:0;
-    padding:34px 24px 28px;
-    border-radius:10px;
-  }
-
-  .action-card h3{
-    font-size:clamp(2.5rem,13vw,4rem);
-    line-height:.94;
-    margin-bottom:17px;
-  }
-
-  .action-card p{
-    font-size:12px;
-    line-height:1.7;
-  }
-
-  .action-icon{
-    width:52px;
-    height:52px;
-    margin-top:28px;
-    margin-bottom:22px;
-  }
-
-  .action-panel{
-    margin-top:38px;
-    padding-top:28px;
-  }
-
-  .action-line{
-    grid-template-columns:34px 1fr;
-    gap:10px;
-    padding:15px 0;
-  }
-
-  .action-line-content b{
-    font-size:14px;
-  }
-
-  .action-line-content span{
-    font-size:9px;
-  }
-
-  .action-bottom{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:13px;
-    margin-top:23px;
-  }
-
-  .action-link{
-    width:100%;
-  }
-
-  .action-label{
-    font-size:7px;
-    line-height:1.5;
-  }
-
-  .closing{
-    padding-bottom:58px;
-  }
-
-  .closing-card{
-    align-items:flex-start;
-    flex-direction:column;
-    padding:31px 24px;
-  }
-
-  .closing-card h2{
-    font-size:28px;
-  }
-
-  .footer{
-    min-height:145px;
-    align-items:flex-start;
-    flex-direction:column;
-    justify-content:center;
-    padding:26px 20px;
-  }
-
-  .footer-links{
-    gap:5px 16px;
-  }
-
-  .job-stream{
-    padding:14px 0 16px;
-  }
-
-  .stream-set{
-    gap:36px;
-    padding-right:36px;
-    font-size:8px;
-  }
-
-  .stream-set span{
-    padding:6px 8px;
-  }
-
-}
-
-/* Reduced motion */
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *:before,
-  *:after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    scroll-behavior:auto!important;
-  }
-
-}
-
-
-/* Portfolio mirror theme — shared with Kaneti Vivek portfolio */
-:root{--bg:#101211;--ink:#f1f1ef;--muted:#a4aaa6;--lime:#3ecf8e;--paper:#171b18;--dark:#101211;--border:rgba(241,241,239,.14);--cyan:#85e7ba;--blue:#3ecf8e;--white:#f1f1ef;--red:#f38b68}
-body,.shell{background:#101211;color:#f1f1ef;font-family:"Inter",system-ui,sans-serif}.shell:before{opacity:.23;background-image:linear-gradient(rgba(62,207,142,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(62,207,142,.05) 1px,transparent 1px);background-size:48px 48px}.header{border-color:rgba(241,241,239,.14)}.logo,.nav,.top-cta,.eyebrow,h1,h2,h3,h4,.section-title,.btn,.label,.feature-name,.board-title,.board-top{font-family:"Inter",system-ui,sans-serif}.mono,.op-meta,.op-tags,.facts,.status,.signal-label{font-family:"DM Mono",monospace}.logo{font-weight:500}.logo-mark{background:#3ecf8e;box-shadow:0 0 22px rgba(62,207,142,.25)}.logo-dot,.eyebrow,.board-num,.board-link,.reward,.op-company,.open,.apply,.whatsapp{color:#3ecf8e}.top-cta{border-color:rgba(62,207,142,.45);border-radius:5px}.top-cta:hover{border-color:#3ecf8e;color:#85e7ba}.hero:after{background-image:linear-gradient(rgba(62,207,142,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(62,207,142,.22) 1px,transparent 1px);background-size:48px 48px}.primary{background:#3ecf8e;color:#10251b;box-shadow:0 0 22px rgba(62,207,142,.2)}.primary:hover{background:#85e7ba;box-shadow:0 16px 38px rgba(62,207,142,.25)}.main-board,.back-board,.card,.op,.closing-card,.action-card,.resume-card,.signal,.step{background:linear-gradient(145deg,rgba(23,27,24,.98),rgba(16,18,17,.98));border-color:rgba(241,241,239,.14);box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 38px rgba(62,207,142,.09)}.spark,.live,.op-badge,.action-icon{background:#3ecf8e;color:#10251b}.rule,.card,.op,.closing-card,.action-card,.resume-card{border-color:rgba(241,241,239,.14)}.section-title em,.board-title em{color:#3ecf8e}.section-title h2,h1{font-weight:500}.btn{font-weight:500}.op:hover,.card:hover,.action-card:hover,.closing-card:hover{border-color:#3ecf8e;box-shadow:inset 0 2px 0 #3ecf8e,0 20px 50px rgba(0,0,0,.2)}.op-tags span,.facts strong,.op-side strong{color:#85e7ba}.apply,.whatsapp{border-color:rgba(62,207,142,.45)}.apply:hover,.whatsapp:hover{background:#3ecf8e;color:#10251b}.cursor-ring.active{border-color:#3ecf8e;background:rgba(62,207,142,.08)}.cursor-dot{background:#85e7ba;box-shadow:0 0 16px #3ecf8e}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-</style>
-
-</head>
-
-<body>
-
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<div class="shell">
-
-<header class="header">
-
-<a href="#top" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="about.html">About</a>
-<a href="#how">How it works</a>
-</nav>
-
-<a href="opportunities.html" class="top-cta">
-Explore roles ↗
-</a>
-
-</header>
-
-<main id="top">
-
-<section class="hero wrap">
-
-<div>
-
-<div class="eyebrow">
-REFERRAL INDEX / 01
-</div>
-
-<h1>
-Find your place in the <em>AI work</em> economy.
-</h1>
-
-<p class="lede">
-A curated hub for annotation, evaluation, AI, GenAI, agentic roles, expert work, and other opportunities to build your career in the AI economy.
-</p>
-
-<div class="actions">
-
-<a class="btn primary" href="#directory">
-Browse referrals ↓
-</a>
-
-<a class="text-link" href="#opportunities">
-See what's coming ›
-</a>
-
-</div>
-
-<div class="note">
-<b>✓</b>
-Links are shared for easy access; always check each platform's current terms.
-</div>
-
-</div>
-
-<div class="visual">
-
-<div class="orb one"></div>
-<div class="orb two"></div>
-
-<div class="board back-board back-one">
-<span>EVAL RUN #1284</span>
-<b>Data + AI</b>
-</div>
-
-<div class="board back-board back-two">
-<span>MODEL CHECK</span>
-<b>Expert work</b>
-</div>
-
-<div class="board main-board">
-
-<div class="board-top">
-<span class="live"></span>
-LIVE DIRECTORY
-<span class="board-num">01 / 10</span>
-</div>
-
-<div class="board-title">
-
-<span class="spark">✦</span>
-
-<div>
-
-<small>CURATED FOR HUMANS</small>
-
-<h2>
-Opportunities<br>
-<em>worth your time.</em>
-</h2>
-
-</div>
-
-</div>
-
-<div class="rule"></div>
-
-<div class="label">
-FEATURED ROLE
-</div>
-
-<div class="feature-name">
-LLM Trainer <span>— Agent function call</span>
-</div>
-
-<div class="meta">
-<span>▣ &nbsp; Turing</span>
-<span class="reward">$150 reward</span>
-</div>
-
-<a
-class="board-link"
-href="https://work.turing.com/r/y2DgoDEu7y"
-target="_blank"
-rel="noreferrer"
->
-View featured role ↗
-</a>
-
-</div>
-
-<div class="caption">
-<span>01</span>
-<span>PEOPLE POWERING THE<br>MACHINE</span>
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     JOB STREAM
-========================= -->
-
-<section class="job-stream" aria-label="Live job signal stream">
-
-<div class="stream-line"></div>
-
-<div class="stream-track">
-
-<div class="stream-set">
-
-<span>LLM TRAINER</span>
-
-<span>MODEL EVALUATOR</span>
-
-<span>DATA ANNOTATION</span>
-
-<span>AI RED TEAMER</span>
-
-<span>VOICE DATA</span>
-
-<span>EXPERT REVIEW</span>
-
-</div>
-
-<div class="stream-set" aria-hidden="true">
-
-<span>LLM TRAINER</span>
-
-<span>MODEL EVALUATOR</span>
-
-<span>DATA ANNOTATION</span>
-
-<span>AI RED TEAMER</span>
-
-<span>VOICE DATA</span>
-
-<span>EXPERT REVIEW</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="directory" class="directory wrap">
-
-<div class="section-head">
-
-<div>
-
-<div class="eyebrow">
-THE DIRECTORY / 02
-</div>
-
-<h2 class="section-title">
-Start with a <em>signal.</em>
-</h2>
-
-</div>
-
-<p>
-Explore trusted starting points across the AI training ecosystem. Each card takes you directly to the referral application.
-</p>
-
-</div>
-
-<div class="toolbar">
-
-<div class="tabs">
-
-<button class="tab active" data-filter="All">
-All
-</button>
-
-<button class="tab" data-filter="AI training">
-AI training
-</button>
-
-<button class="tab" data-filter="Expert work">
-Expert work
-</button>
-
-<button class="tab" data-filter="Voice & data">
-Voice & data
-</button>
-
-</div>
-
-<label class="search">
-⌕
-<input id="search" placeholder="Search the index" />
-</label>
-
-</div>
-
-<div id="cards" class="cards"></div>
-
-</section>
-
-<section id="opportunities" class="opps">
-
-<div class="wrap">
-
-<div class="section-head">
-
-<div>
-
-<div class="eyebrow">
-FIELD NOTES / 03
-</div>
-
-<h2 class="section-title">
-Recent <em>opportunities.</em>
-</h2>
-
-</div>
-
-<p>
-Fresh roles and project drops will land here as they are found, checked, and ready to share.
-</p>
-
-</div>
-
-<div class="op-list" id="opList"></div>
-
-</div>
-
-</section>
-
-<section id="how" class="how wrap">
-
-<div>
-
-<div class="eyebrow">
-A SIMPLE LOOP / 04
-</div>
-
-<h2 class="section-title">
-Less hunting.<br>
-<em>More making.</em>
-</h2>
-
-<p>
-The goal is simple: make the first step easier, then let your work speak for itself.
-</p>
-
-</div>
-
-<div class="steps">
-
-<div class="step">
-
-<i>01</i>
-
-<b>⌘</b>
-
-<h3>Browse</h3>
-
-<p>
-Scan the directory for work types that fit your strengths, interests, and availability.
-</p>
-
-</div>
-
-<div class="step highlight">
-
-<i>02</i>
-
-<b>ↄ</b>
-
-<h3>Follow the link</h3>
-
-<p>
-Open the referral, complete the platform's own application, and read the current requirements.
-</p>
-
-</div>
-
-<div class="step">
-
-<i>03</i>
-
-<b>◎</b>
-
-<h3>Show up well</h3>
-
-<p>
-Keep your profile clear, respond thoughtfully, and treat every task as a portfolio signal.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="resume-intake" class="resume-intake wrap">
-
-<div class="resume-copy">
-
-<div class="eyebrow">
-PERSONAL SIGNAL / 05
-</div>
-
-<h2 class="section-title">
-Send your resume.<br>
-<em>Get a better signal.</em>
-</h2>
-
-<p>
-Share your resume and the kind of AI work you want to find. We’ll use your experience, strengths, and interests to better understand what opportunities may be relevant to you.
-</p>
-
-<div class="resume-points">
-
-<span>
-<b>01</b>
-Share your profile
-</span>
-
-<span>
-<b>02</b>
-Add your target roles
-</span>
-
-<span>
-<b>03</b>
-Stay connected to relevant opportunities
-</span>
-
-</div>
-
-</div>
-
-<div class="resume-card">
-
-<div class="resume-card-top">
-
-<span class="pulse-dot"></span>
-
-<span>NETWORK INTAKE</span>
-
-<span class="resume-code">05 / 05</span>
-
-</div>
-
-<div class="resume-card-body">
-
-<span class="resume-icon">↗</span>
-
-<h3>
-Put your profile in the loop.
-</h3>
-
-<p>
-Tell us about your experience, skills, preferred work, and resume so we can understand what kind of AI opportunities you’re looking for.
-</p>
-
-<a
-class="btn primary"
-href="join-network.html"
->
-Join the network →
-</a>
-
-</div>
-
-<small class="resume-note">
-Your profile does not guarantee a job, interview, project, or paid work.
-</small>
-
-</div>
-
-</section>
-
-<section
-id="submit-opportunity"
-class="home-actions wrap submit-action"
->
-
-<div class="action-card reveal">
-
-<div class="action-main">
-
-<div class="action-number">
-SHARE A LEAD / 06
-</div>
-
-<div class="action-icon">
-↗
-</div>
-
-<h3>
-Know a good <em>opportunity?</em>
-</h3>
-
-<p>
-Help grow the EvalLoop Jobs directory by sharing AI training, evaluation, annotation, expert, GenAI, or agentic work opportunities with the community.
-</p>
-
-<div class="action-bottom">
-
-<a
-class="action-link"
-href="submit-opportunity.html"
->
-Submit an opportunity →
-</a>
-
-</div>
-
-</div>
-
-<div class="action-panel">
-
-<div class="action-panel-top">
-
-<span>
-SUBMISSION CHANNEL
-</span>
-
-<span class="action-live">
-<i></i>
-OPEN
-</span>
-
-</div>
-
-<div class="action-lines">
-
-<div class="action-line">
-
-<span class="action-line-index">
-01
-</span>
-
-<div class="action-line-content">
-
-<b>Share the opportunity</b>
-
-<span>
-Send the role, project, platform, or contributor opportunity you think belongs in the directory.
-</span>
-
-</div>
-
-</div>
-
-<div class="action-line">
-
-<span class="action-line-index">
-02
-</span>
-
-<div class="action-line-content">
-
-<b>Give useful details</b>
-
-<span>
-Include the application link, work type, location, compensation, or other information when available.
-</span>
-
-</div>
-
-</div>
-
-<div class="action-line">
-
-<span class="action-line-index">
-03
-</span>
-
-<div class="action-line-content">
-
-<b>Help others discover it</b>
-
-<span>
-Relevant submissions can become part of the opportunity ecosystem explored by EvalLoop visitors.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="action-bottom">
-
-<span class="action-label">
-AI TRAINING · EVALUATION · ANNOTATION · EXPERT WORK
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section
-id="contact"
-class="home-actions wrap contact-action"
->
-
-<div class="action-card reveal">
-
-<div class="action-main">
-
-<div class="action-number">
-OPEN CHANNEL / 07
-</div>
-
-<div class="action-icon">
-✉
-</div>
-
-<h3>
-Have a question? <em>Let's connect.</em>
-</h3>
-
-<p>
-For questions, suggestions, partnerships, or website feedback, send a message to EvalLoop Jobs and start a conversation.
-</p>
-
-<div class="action-bottom">
-
-<a
-class="action-link"
-href="contact.html"
->
-Contact EvalLoop →
-</a>
-
-</div>
-
-</div>
-
-<div class="action-panel">
-
-<div class="action-panel-top">
-
-<span>
-DIRECT COMMUNICATION
-</span>
-
-<span class="action-live">
-<i></i>
-ONLINE
-</span>
-
-</div>
-
-<div class="action-lines">
-
-<div class="action-line">
-
-<span class="action-line-index">
-01
-</span>
-
-<div class="action-line-content">
-
-<b>Questions</b>
-
-<span>
-Ask about the directory, opportunities, referrals, or how EvalLoop Jobs works.
-</span>
-
-</div>
-
-</div>
-
-<div class="action-line">
-
-<span class="action-line-index">
-02
-</span>
-
-<div class="action-line-content">
-
-<b>Feedback</b>
-
-<span>
-Tell us what would make the website and opportunity discovery experience more useful.
-</span>
-
-</div>
-
-</div>
-
-<div class="action-line">
-
-<span class="action-line-index">
-03
-</span>
-
-<div class="action-line-content">
-
-<b>Partnerships</b>
-
-<span>
-Reach out if you want to collaborate with the EvalLoop Jobs network or contribute opportunities.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="action-bottom">
-
-<span class="action-label">
-QUESTIONS · FEEDBACK · PARTNERSHIPS · SUPPORT
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="closing wrap">
-
-<div class="closing-card">
-
-<div>
-
-<div class="eyebrow">
-KEEP IN TOUCH
-</div>
-
-<h2>
-Want the next good lead?
-</h2>
-
-<p>
-Recent opportunity posts and practical application notes are coming soon.
-</p>
-
-</div>
-
-<div class="op-actions closing-actions">
-
-<a
-class="btn dark-btn"
-href="mailto:evalloopjobs@gmail.com?subject=AI%20Training%20Jobs%20update"
->
-Get updates ✉
-</a>
-
-<a
-class="btn dark-btn"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-Follow on LinkedIn ↗
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer class="footer wrap">
-
-<a href="#top" class="logo">
-
-<span class="logo-mark">◉</span>
-
-<span>EvalLoop Jobs</span>
-
-</a>
-
-<span>
-Curated pathways into the work behind better AI.
-</span>
-
-<nav class="footer-links" aria-label="Footer">
-
-<a class="back" href="about.html">
-About
-</a>
-
-<a class="back" href="opportunities.html">
-Opportunities
-</a>
-
-<a class="back" href="submit-opportunity.html">
-Submit opportunity
-</a>
-
-<a class="back" href="join-network.html">
-Join network
-</a>
-
-<a class="back" href="contact.html">
-Contact
-</a>
-
-<a class="back" href="disclaimer.html">
-Disclaimer
-</a>
-
-<a class="back" href="terms.html">
-Terms
-</a>
-
-<a class="back" href="privacy.html">
-Privacy
-</a>
-
-<a
-class="back"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn ↗
-</a>
-
-<a class="back" href="#top">
-Back to top ↗
-</a>
-
-</nav>
-
-</footer>
-
-</div>
-
-<script>
-
-const referrals=[
-
-[
-'Sovrano AI',
-'AI evaluation and training work for contributors who enjoy careful, structured feedback.',
-'AI training',
-'Contributor network',
-'https://app.sovrano.ai/signup?utm_source=user&utm_medium=referral&utm_campaign=mainReferral&utm_content=v1&source=referral&referral_code=Q2F6TE86',
-'Sovrano',
-'m1'
-],
-
-[
-'Micro1',
-'Remote opportunities across software, data, and AI talent projects.',
-'AI training',
-'Remote projects',
-'https://refer.micro1.ai/referral/jobs?referralCode=3fccd99c-ee34-4ad0-be84-2160c6be8f26&utm_source=referral&utm_medium=share&utm_campaign=job_referral',
-'Micro1',
-'m2'
-],
-
-[
-'Mercor',
-'Expert-led work matching for research, evaluation, and specialist AI projects.',
-'Expert work',
-'Expert marketplace',
-'https://t.mercor.com/UcMkl',
-'Mercor',
-'m3'
-],
-
-[
-'Ambrose Groups',
-'Flexible opportunities to contribute your knowledge to better AI systems.',
-'Expert work',
-'Apply to join',
-'https://www.ambrosegroups.app/auth?ref=76BF92D2',
-'Ambrose',
-'m4'
-],
-
-[
-'AfterQuery Experts',
-'Subject-matter experts help shape high-quality answers, research, and model outputs.',
-'Expert work',
-'Expert application',
-'https://experts.afterquery.com/apply?ref=uyoAIpowbYYtBUnogptciYqDrup1',
-'AfterQuery',
-'m5'
-],
-
-[
-'Silencio Voice AI',
-'Voice and speech data projects for contributors with a clear, expressive voice.',
-'Voice & data',
-'Voice projects',
-'https://ai.silencio.store?ref=ADZP3G',
-'Silencio',
-'m6'
-],
-
-[
-'Trainplex',
-'A growing hub for annotation, evaluation, and AI training tasks.',
-'AI training',
-'Training tasks',
-'https://trainplex.info/register?ref=EDVTYBC',
-'Trainplex',
-'m7'
-],
-
-[
-'Ethos',
-'Join an expert network for testing and improving the next generation of AI agents.',
-'AI training',
-'Agent evaluation',
-'https://agent.askethos.com/refer/zivl82w3npsb',
-'Ethos',
-'m8'
-],
-
-[
-'Rex Zone',
-'A flexible portal for distributed contributor and data operations work.',
-'AI training',
-'Contributor portal',
-'https://portal.rex.zone/login?inviteCode=NmE2MjQzZjUwY2M3YzEwODcyOTk3OTVi',
-'Rex Zone',
-'m9'
-],
-
-[
-'Atlas Capture',
-'Real-world data capture opportunities that help make AI more useful in context.',
-'Voice & data',
-'Data collection',
-'https://audit.atlascapture.io/?ref_id=6a8bb2b7482b1393573fdecb',
-'Atlas',
-'m10'
-],
-
-[
-'Terac',
-'Flexible opportunities to contribute to AI and data projects.',
-'AI training',
-'Contributor opportunities',
-'https://terac.com/refer/754472fb',
-'Terac',
-'m11'
-]
-
-];
-
-const cards=document.getElementById('cards');
-const search=document.getElementById('search');
-const tabs=[...document.querySelectorAll('.tab')];
-
-let filter='All';
-
-function render(){
-
-  let q=search.value.toLowerCase().trim();
-
-  cards.innerHTML=referrals
-
-  .filter(r=>
-    (filter==='All'||r[2]===filter)&&
-    (!q||r.join(' ').toLowerCase().includes(q))
-  )
-
-  .map((r,i)=>`
-
-  <article class="card">
-
-    <div class="card-top">
-
-      <span class="mark ${r[6]}">
-        ${r[5][0]}
-      </span>
-
-      <span class="num">
-        ${String(i+1).padStart(2,'0')}
-      </span>
-
-    </div>
-
-    <div class="card-body">
-
-      <div class="cat">
-        ${r[2]}
-      </div>
-
-      <h3>
-        ${r[0]}
-      </h3>
-
-      <p>
-        ${r[1]}
-      </p>
-
-    </div>
-
-    <div class="card-foot">
-
-      <span>
-        <b class="mini"></b>
-        ${r[3]}
-      </span>
-
-      <a
-        class="arrow"
-        href="${r[4]}"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Open ${r[0]} referral"
-      >
-        ↗
-      </a>
-
-    </div>
-
-  </article>
-
-  `)
-
-  .join('')
-
-  ||'<p style="color:#a4aaa6">No platforms match that search yet.</p>';
-
-}
-
-tabs.forEach(t=>
-
-  t.addEventListener('click',()=>{
-
-    tabs.forEach(x=>x.classList.remove('active'));
-
-    t.classList.add('active');
-
-    filter=t.dataset.filter;
-
-    render();
-
-  })
-
-);
-
-search.addEventListener('input',render);
-
-render();
-
-/* =========================
-   CURSOR
-========================= */
-
-const dot=document.querySelector('.cursor-dot');
-const ring=document.querySelector('.cursor-ring');
-
-let mx=innerWidth/2;
-let my=innerHeight/2;
-let rx=mx;
-let ry=my;
-
-addEventListener('pointermove',e=>{
-
-  mx=e.clientX;
-  my=e.clientY;
-
-  dot.style.left=mx+'px';
-  dot.style.top=my+'px';
-
-  document.documentElement.style.setProperty(
-    '--cursor-x',
-    mx+'px'
-  );
-
-  document.documentElement.style.setProperty(
-    '--cursor-y',
-    my+'px'
-  );
-
-  document.documentElement.style.setProperty(
-    '--spot-x',
-    (mx/innerWidth*100)+'%'
-  );
-
-  document.documentElement.style.setProperty(
-    '--spot-y',
-    (my/innerHeight*100)+'%'
-  );
-
-});
-
-(function tick(){
-
-  rx+=(mx-rx)*.16;
-  ry+=(my-ry)*.16;
-
-  ring.style.left=rx+'px';
-  ring.style.top=ry+'px';
-
-  requestAnimationFrame(tick);
-
-})();
-
-function attachCursor(el){
-
-  el.onmouseenter=()=>{
-
-    ring.classList.add('active');
-    dot.classList.add('hot');
-
-  };
-
-  el.onmouseleave=()=>{
-
-    ring.classList.remove('active');
-    dot.classList.remove('hot');
-
-  };
-
-}
-
-document
-.querySelectorAll('a,button,input')
-.forEach(attachCursor);
-
-/* =========================
-   REVEAL
-========================= */
-
-const io=new IntersectionObserver(
-
-  es=>es.forEach(e=>
-    e.isIntersecting&&e.target.classList.add('in')
-  ),
-
-  {threshold:.12}
-
-);
-
-document
-.querySelectorAll(
-  '.section-head,.card,.op,.step,.closing-card,.signal,.action-card,.resume-card'
-)
-.forEach(e=>{
-
-  e.classList.add('reveal');
-
-  io.observe(e);
-
-});
-
-</script>
-
-<script>
-
-/*
-Opportunities are loaded from opportunities.json — edit that file to update the site.
-The home page shows the first MAX_HOME jobs; the rest live on opportunities.html.
-*/
-
-(async function(){
-
-  const MAX_HOME=10;
-
-  const list=document.getElementById('opList');
-
-  if(!list)return;
-
-  const esc=s=>String(s??'').replace(
-    /[&<>"']/g,
-    c=>({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[c])
-  );
-
-  const badgeColors=[
-    'm3',
-    'm2',
-    'm1',
-    'm4'
-  ];
-
-  try{
-
-    const res=await fetch(
-      'opportunities.json',
-      {cache:'no-store'}
-    );
-
-    if(!res.ok)
-      throw new Error('HTTP '+res.status);
-
-    const jobs=await res.json();
-
-    if(!Array.isArray(jobs)||!jobs.length){
-
-      list.innerHTML=
-        '<p style="color:#a4aaa6">New opportunities are coming soon.</p>';
-
-      return;
-
-    }
-
-    const shown=jobs.slice(0,MAX_HOME);
-
-    list.innerHTML=shown.map((j,i)=>`
-
-      <article class="op">
-
-        <div class="op-badge ${badgeColors[i%badgeColors.length]}">
-
-          <span>
-            ${String(i+1).padStart(2,'0')}
-          </span>
-
-          ▣
-
-        </div>
-
-        <div class="op-main">
-
-          <div class="op-meta">
-
-            <span class="op-company">
-              ${esc(j.company)}
-            </span>
-
-            <span class="open">
-              ● OPEN LEAD
-            </span>
-
-          </div>
-
-          <h3>
-            ${esc(j.title)}
-          </h3>
-
-          <p>
-            ${esc(j.description)}
-          </p>
-
-          <div class="op-tags">
-
-            ${(j.tags||[]).map(t=>
-              `<span>${esc(t)}</span>`
-            ).join('')}
-
-          </div>
-
-        </div>
-
-        <div class="op-side">
-
-          <div class="facts">
-
-            <span>
-              ◉ &nbsp; ${esc(j.location)}
-            </span>
-
-            <span>
-              ◷ &nbsp; ${esc(j.duration)}
-            </span>
-
-            <strong>
-              ${esc(j.highlight)}
-            </strong>
-
-          </div>
-
-          <div class="op-actions">
-
-            ${
-              j.email
-              ?`
-              <a
-                class="apply"
-                href="mailto:${esc(j.email)}?subject=${encodeURIComponent('Application for '+j.title)}"
-              >
-                Email CV ✉
-              </a>
-              `
-              :''
-            }
-
-            ${
-              j.whatsapp
-              ?`
-              <a
-                class="whatsapp"
-                href="https://wa.me/${esc(j.whatsapp)}"
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp ↗
-              </a>
-              `
-              :''
-            }
-
-            ${
-              j.link
-              ?`
-              <a
-                class="apply"
-                href="${esc(j.link)}"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Apply ↗
-              </a>
-              `
-              :''
-            }
-
-          </div>
-
-        </div>
-
-      </article>
-
-    `).join('')
-
-    +(jobs.length>MAX_HOME?`
-
-      <div class="load-more">
-
-        <a
-          class="btn primary"
-          href="opportunities.html"
-        >
-          Load more opportunities ↓
-        </a>
-
-        <small>
-          ${jobs.length-MAX_HOME} MORE OPEN LEADS
-        </small>
-
-      </div>
-
-    `:'');
-
-    list.querySelectorAll('.op').forEach(el=>{
-
-      if(typeof io!=='undefined'){
-
-        el.classList.add('reveal');
-
-        io.observe(el);
-
-      }
-
-    });
-
-    list.querySelectorAll('a').forEach(attachCursor);
-
-  }catch(e){
-
-    list.innerHTML=
-      '<p style="color:#a4aaa6">Opportunities will be back shortly.</p>';
-
-  }
-
-})();
-
-</script>
-
-<script src="chatbot.js"></script>
-
-</body>
-</html>
+      rgba(77,179,255,
