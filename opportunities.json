@@ -12,6 +12,18 @@
   "link": "https://www.observe.ai/position?gh_jid=5432596008"
   },
   {
+  "company": "Aptino Inc.",
+  "title": "AI Engineer – Fresher",
+  "description": "Work on real-world AI solutions involving Artificial Intelligence, Machine Learning, Generative AI, Agentic AI, LLMs, MLOps, and modern AI frameworks. Freshers and candidates with 0–1 year of experience are welcome.",
+  "tags": ["AI Engineer", "Artificial Intelligence", "Machine Learning", "Generative AI", "GenAI", "Agentic AI", "LLM", "MLOps", "AI Frameworks", "Fresher"],
+  "location": "Pune, Maharashtra, India · On-site",
+  "duration": "Full-Time",
+  "highlight": "Fresher · 0–1 Year Experience · ₹35,000–₹40,000/Month · Generative AI · Agentic AI · LLMs · MLOps",
+  "email": "recruitment@aptino.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: Sarvam",
   "title": "Agent Engineer – Deployment Engineering",
   "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
