@@ -12,6 +12,37 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSc8FGn7ihHG9pGM6Kav6sj9jnzI4Y_xWIJ7b6_jebAp5ryUfw/viewform"
   },
   {
+  "company": "Perfect Smile Dental",
+  "title": "AI Product Engineer",
+  "description": "Perfect Smile Dental, a growing UK dental group, is hiring an AI Product Engineer to build and maintain internal products, automation, and customer-facing applications. The role involves web applications, backend services, APIs, integrations, LLM/Generative AI, databases, cloud infrastructure, CI/CD, testing, and production support. Candidates should have hands-on software development experience and practical experience with LLMs, RAG, embeddings, tool/function calling, or AI agents.",
+  "tags": [
+    "AI Product Engineer",
+    "AI",
+    "LLM",
+    "Generative AI",
+    "RAG",
+    "AI Agents",
+    "Backend",
+    "Node.js",
+    "TypeScript",
+    "Python",
+    "PostgreSQL",
+    "APIs",
+    "Next.js",
+    "NestJS",
+    "Docker",
+    "GitHub Actions",
+    "Cloud",
+    "Full-time"
+  ],
+  "location": "Ahmedabad, Gujarat",
+  "duration": "Full-time",
+  "highlight": "0.5-1.5 years experience; practical LLM/Generative AI experience required; competitive compensation based on experience and capability",
+  "email": "megh.shah@perfectsmile-dental.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: Accenture",
   "title": "AI / ML Engineer – Large Language Models (LLMs)",
   "description": "Lead the development and deployment of AI and Generative AI solutions, design scalable AI applications and production-ready pipelines, collaborate across teams, drive technical decisions, and mentor junior team members. Work on LLMs, deep learning, chatbots, and image processing use cases. Strong skills in Generative AI, prompt engineering, AI/ML solution development, deep learning frameworks, cloud AI services, neural network architectures, and production-ready AI pipelines are required.",
