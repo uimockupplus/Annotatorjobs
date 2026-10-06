@@ -1,6 +1,6 @@
 [
   {
-  "company": "Marveit",
+  "company": "Company: Marveit",
   "title": "Data Annotator / Video Annotation Operator",
   "description": "Perform image and video annotation for AI/ML training data projects. Candidates should have basic computer knowledge, strong attention to detail, the ability to follow instructions accurately, basic English communication skills, and their own laptop/PC with stable internet. Previous annotation experience is a plus, but training will be provided.",
   "tags": ["Data Annotator", "Video Annotation", "Image Annotation", "Data Annotation", "AI Training Data", "AI/ML", "Computer Vision", "Remote Work", "Data Labeling"],
@@ -12,7 +12,19 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSdAQnsGDg2TaNzvf6dFfqaFDRsZ-BkaTLKgoz0w6DOlY9R7mQ/viewform"
   },
   {
-  "company": "Zensar Technologies",
+  "company": "Company: Brain Inventory",
+  "title": "AI Engineer",
+  "description": "Build intelligent AI solutions using Python, FastAPI/Flask, OpenAI, Claude, and open-source LLMs. Work with prompt engineering, RAG, vector databases, LangChain, LangGraph, AI agents, REST APIs, Git, and CI/CD. Additional experience with Claude Code, Cursor, Docker, cloud platforms, or voice AI is an advantage.",
+  "tags": ["AI Engineer", "Artificial Intelligence", "Generative AI", "LLM", "OpenAI", "Claude", "Prompt Engineering", "RAG", "Vector Databases", "LangChain", "LangGraph", "AI Agents", "Python", "FastAPI", "Flask", "REST APIs", "Git", "CI/CD", "Claude Code", "Cursor", "Docker", "Cloud", "Voice AI"],
+  "location": "Indore, Madhya Pradesh, India · On-site",
+  "duration": "Full-Time",
+  "highlight": "1–3 Years Experience",
+  "email": "a.mishra@braininventory.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
+  "company": "Company: Zensar Technologies",
   "title": "Generative AI Engineer",
   "description": "Build end-to-end Generative AI applications and intelligent agents, develop innovative PoCs and production-ready AI solutions, and work on advanced GenAI initiatives involving MCP and A2A frameworks. Candidates should have experience with Generative AI, LLMs, Agentic AI, RAG, LangGraph, CrewAI, AutoGen, Python, and cloud platforms such as AWS, Azure, or GCP.",
   "tags": ["Generative AI", "GenAI", "LLM", "Agentic AI", "AI Agents", "RAG", "LangGraph", "CrewAI", "AutoGen", "Python", "MCP", "A2A", "AWS", "Azure", "GCP", "Cloud", "AI Applications"],
