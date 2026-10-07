@@ -12,7 +12,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSdAQnsGDg2TaNzvf6dFfqaFDRsZ-BkaTLKgoz0w6DOlY9R7mQ/viewform"
   },
   {
-  "company": "Company: Company: TaskUs",
+  "company": "Company: TaskUs",
   "title": "Video Labeling Specialist",
   "description": "Perform video labeling and data annotation activities for AI operations and training data projects. Candidates with experience in any field can apply. The role is suitable for professionals looking to start or grow their career in AI, data annotation, and video labeling.",
   "tags": ["Video Labeling Specialist", "Video Labeling", "Data Annotation", "AI Operations", "AI Training Data", "Video Annotation", "Data Labeling", "Artificial Intelligence"],
@@ -21,6 +21,18 @@
   "highlight": "200 Openings · Experienced in Any Field · Video Labeling · Data Annotation · AI Operations · Noida",
   "email": "bhatiar829@gmail.com",
   "whatsapp": "8868866012",
+  "link": ""
+  },
+  {
+  "company": "Company: Brainvire",
+  "title": "AI Engineer",
+  "description": "Build production-grade LLM systems and AI applications using Python, FastAPI/Django, SQL, Docker, Git, and Linux. Work with OpenAI, Anthropic, Gemini, Bedrock, Azure AI, Vertex AI, LangGraph, LangChain, MCP, Agentic AI, RAG, embeddings, hybrid search, reranking, GraphRAG, PostgreSQL/pgvector, vector databases, LLM evaluation, observability, AI security, and cost/latency optimization. Experience with Hugging Face, LoRA/QLoRA, ML, and multimodal AI is required, while vLLM, Triton, PyTorch, OpenCV, LiveKit, Llama, Mistral, Qwen, and Guardrails are good-to-have skills.",
+  "tags": ["AI Engineer", "Artificial Intelligence", "Generative AI", "LLM", "Large Language Models", "Python", "FastAPI", "Django", "SQL", "Docker", "Git", "Linux", "OpenAI", "Anthropic", "Gemini", "AWS Bedrock", "Azure AI", "Vertex AI", "LangGraph", "LangChain", "MCP", "Agentic AI", "RAG", "Embeddings", "Hybrid Search", "Reranking", "GraphRAG", "PostgreSQL", "pgvector", "Vector Databases", "LLM Evaluation", "LangSmith", "Langfuse", "OpenTelemetry", "AI Security", "Prompt Injection", "Hugging Face", "LoRA", "QLoRA", "Multimodal AI"],
+  "location": "Mumbai, Maharashtra, India",
+  "duration": "Full-Time",
+  "highlight": "2–5 Years Experience · 2+ Years Production LLMs",
+  "email": "preeti.singh@brianvire.com",
+  "whatsapp": "",
   "link": ""
   },
   {
