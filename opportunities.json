@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: Raglic",
+  "title": "AI Engineer (LLM Agents & RAG)",
+  "description": "Design, build, and deploy production-ready AI agents that answer customer support questions using client documents, qualify leads, screen candidates, and escalate conversations to human agents when necessary. Integrate LLM agents with client systems such as help desks, CRMs, and WhatsApp. Create test datasets from real conversations, measure response quality, monitor live agents, review conversations, and continuously improve performance. Explain technical trade-offs to clients in clear language and deliver working software in weekly development cycles. Candidates should have experience deploying LLM-based features to production and be comfortable with TypeScript or Python, APIs, queues, and databases. Experience with retrieval, embeddings, vector or hybrid search, Zendesk, Intercom, or the WhatsApp Business Platform is an advantage.",
+  "tags": ["AI Engineer", "LLM", "LLM Agents", "AI Agents", "Agentic AI", "RAG", "Retrieval-Augmented Generation", "Generative AI", "Python", "TypeScript", "API Integration", "Workflow Automation", "Vector Search", "Hybrid Search", "Embeddings", "LLM Evaluation", "AI Quality Assurance", "Customer Support AI", "CRM Integration", "WhatsApp Business Platform", "Zendesk", "Intercom", "Production AI", "Database", "Remote Work"],
+  "location": "Remote · US, UK & India",
+  "duration": "Full-Time",
+  "highlight": "Remote · US, UK & India · Production LLM Agents · RAG · Python/TypeScript · API Integrations · AI Evaluation · Client-Facing Engineering",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://raglic.com/careers/ai-engineer-llm-agents-rag"
+  },
+  {
   "company": "Company: Marveit",
   "title": "Data Annotator / Video Annotation Operator",
   "description": "Perform image and video annotation for AI/ML training data projects. Candidates should have basic computer knowledge, strong attention to detail, the ability to follow instructions accurately, basic English communication skills, and their own laptop/PC with stable internet. Previous annotation experience is a plus, but training will be provided.",
