@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: Polluxa",
+  "title": "GenAI Solutions Architect",
+  "description": "Design and build next-generation AI-powered solutions using Generative AI, LLM integration, RAG pipelines, and AI agent development. Work on scalable AI architectures, cloud infrastructure, Python development, prompt engineering, MLOps, and LLMOps to develop and deploy intelligent AI applications. Candidates should have a strong interest in Generative AI, LLMs, intelligent agents, and scalable AI solutions.",
+  "tags": ["GenAI Solutions Architect", "Generative AI", "GenAI", "LLM", "LLM Integration", "RAG", "RAG Pipelines", "AI Agents", "Agentic AI", "AI Architecture", "Cloud Architecture", "Python", "Prompt Engineering", "MLOps", "LLMOps", "AI Solutions", "Remote Work"],
+  "location": "Remote · Work From Home",
+  "duration": "Full-Time",
+  "highlight": "0–2 Years Experience",
+  "email": "recruitment@polluxa.com",
+  "whatsapp": "",
+  "link": ""
+}
+  {
   "company": "Company: Raglic",
   "title": "AI Engineer (LLM Agents & RAG)",
   "description": "Design, build, and deploy production-ready AI agents that answer customer support questions using client documents, qualify leads, screen candidates, and escalate conversations to human agents when necessary. Integrate LLM agents with client systems such as help desks, CRMs, and WhatsApp. Create test datasets from real conversations, measure response quality, monitor live agents, review conversations, and continuously improve performance. Explain technical trade-offs to clients in clear language and deliver working software in weekly development cycles. Candidates should have experience deploying LLM-based features to production and be comfortable with TypeScript or Python, APIs, queues, and databases. Experience with retrieval, embeddings, vector or hybrid search, Zendesk, Intercom, or the WhatsApp Business Platform is an advantage.",
