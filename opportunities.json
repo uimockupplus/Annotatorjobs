@@ -1,5 +1,17 @@
 [
   {
+  "company": "Company: Company: Credang",
+  "title": "AI / ML Engineer",
+  "description": "Support the development and deployment of AI and Machine Learning solutions. Collect, clean, and structure raw data; assist with model training, testing, evaluation, and optimization; deploy AI models as REST APIs using FastAPI or Flask; integrate Generative AI APIs such as OpenAI, Gemini, and Hugging Face; develop prompt pipelines; debug model code; improve execution speed and accuracy; document experiments; and manage code repositories using Git and GitHub. Candidates should have a degree in Computer Science, AI/Data Science, IT, or a related field, with a strong foundation in Python, data structures, and OOP. Familiarity with Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, or OpenCV is required. Freshers and recent graduates are welcome. Applicants must be residents of Tamil Nadu and have strong analytical, problem-solving, communication, and independent working skills.",
+  "tags": ["AI/ML Engineer", "Artificial Intelligence", "Machine Learning", "Python", "Data Preprocessing", "Data Cleaning", "Model Training", "Model Evaluation", "FastAPI", "Flask", "REST APIs", "Generative AI", "LLM", "Prompt Engineering", "OpenAI", "Gemini", "Hugging Face", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "OpenCV", "Git", "GitHub", "Freshers", "Remote Work"],
+  "location": "Remote · Work From Home · Tamil Nadu Residents Only",
+  "duration": "Full-Time",
+  "highlight": "Freshers Welcome · ₹10,000/Month · Fully Remote · Tamil Nadu Residents Only · Python · AI/ML · Generative AI · Prompt Engineering · FastAPI/Flask",
+  "email": "rubashree_moorthi@credang.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: Polluxa",
   "title": "GenAI Solutions Architect",
   "description": "Design and build next-generation AI-powered solutions using Generative AI, LLM integration, RAG pipelines, and AI agent development. Work on scalable AI architectures, cloud infrastructure, Python development, prompt engineering, MLOps, and LLMOps to develop and deploy intelligent AI applications. Candidates should have a strong interest in Generative AI, LLMs, intelligent agents, and scalable AI solutions.",
