@@ -1,5 +1,32 @@
 [
   {
+  "company": "Company: Unknown",
+  "title": "AI Engineer",
+  "description": "Hiring AI Engineers for remote opportunities involving real-world production systems. Candidates should have hands-on experience building and deploying agentic AI solutions, large language model (LLM) systems, retrieval-augmented generation (RAG) pipelines, and multi-agent workflows. Applicants with proven experience shipping AI systems to production are encouraged to share their resumes. Applications are accepted by email, and referrals are welcome. Recruitment contact: Tom Calvin.",
+  "tags": [
+    "AI Engineer",
+    "Artificial Intelligence",
+    "Agentic AI",
+    "AI Agents",
+    "LLM",
+    "Large Language Models",
+    "RAG",
+    "Retrieval-Augmented Generation",
+    "Multi-Agent Systems",
+    "AI Workflows",
+    "Production AI",
+    "AI Development",
+    "Remote",
+    "Experienced Professionals"
+  ],
+  "location": "Remote",
+  "duration": "Not Specified",
+  "highlight": "Remote · Production AI Systems · Agentic AI · LLMs · RAG · Multi-Agent Workflows · Hands-On Deployment Experience Preferred",
+  "email": "tomcalvin92@gmail.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Company: Periskope",
   "title": "AI Engineer",
   "description": "Build and deploy AI-native systems that power reliable AI agents. Own the engineering lifecycle, from solution design and coding to testing, deployment, and production debugging. Improve agent workflows, tool integrations, evaluation, observability, and failure recovery while balancing performance, cost, and speed. Requirements: 2–4 years of software engineering experience, hands-on AI agent development, strong knowledge of APIs, databases, system design, and production debugging, with experience owning production systems at a product startup or scale-up. Interview Process: Founder conversation via WhatsApp, a 2-hour technical session, and a 30-minute culture-fit round. Recruitment Partner: ClanX | Hiring Company: Periskope",
