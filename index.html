@@ -13,10 +13,11 @@
   gtag('js', new Date());
   gtag('config', 'G-CWMRL2H5C7');
 </script>
-<link rel="icon" type="image/png" href="/public/assets/evalloop-logo.png">
+<link rel="icon" type="image/png" href="/favicon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="chatbot.css">
 <style>
 :root{
   --bg:#0b1224;
@@ -1886,71 +1887,28 @@ h1 em,
   }
 }
 </style>
-<script>
-(() => {
-  try {
-    const saved = localStorage.getItem('evalloop-theme');
-    const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-    const theme = saved === 'dark' || saved === 'light' ? saved : (systemDark ? 'dark' : 'light');
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-  } catch {
-    document.documentElement.dataset.theme = 'light';
-    document.documentElement.style.colorScheme = 'light';
-  }
-})();
-</script>
-  <link rel="stylesheet" href="redesign.css">
 </head>
 <body>
-<a class="skip-link" href="#top">Skip to content</a>
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 <div class="shell">
 <header class="header">
 <a href="#top" class="logo">
-<span class="logo-mark"><img src="/public/assets/evalloop-logo.png" alt=""></span>
+<span class="logo-mark">◉</span>
 <span>EvalLoop Jobs</span>
 </a>
-<nav class="nav" id="primary-nav" aria-label="Primary navigation">
+<nav class="nav">
 <a href="opportunities.html">Opportunities</a>
 <a href="about.html">About</a>
 <a href="interview-prep.html">Interview Prep</a>
 </nav>
-<button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-<span></span><span></span><span class="sr-only">Menu</span>
-</button>
-<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">☾</span></button>
 <a href="opportunities.html" class="top-cta">
 Explore roles ↗
 </a>
 </header>
 <main id="top">
-<div class="announcement">A curated index for people building better AI. <a href="#directory">Explore the directory →</a></div>
-<!-- JOB STREAM -->
-<section class="job-stream" aria-label="Live job signal stream">
-<div class="stream-line"></div>
-<div class="stream-track">
-<div class="stream-set">
-<span>LLM TRAINER</span>
-<span>MODEL EVALUATOR</span>
-<span>DATA ANNOTATION</span>
-<span>AI RED TEAMER</span>
-<span>VOICE DATA</span>
-<span>EXPERT REVIEW</span>
-</div>
-<div class="stream-set" aria-hidden="true">
-<span>LLM TRAINER</span>
-<span>MODEL EVALUATOR</span>
-<span>DATA ANNOTATION</span>
-<span>AI RED TEAMER</span>
-<span>VOICE DATA</span>
-<span>EXPERT REVIEW</span>
-</div>
-</div>
-</section>
 <section class="hero wrap">
-<div class="hero-copy">
+<div>
 <div class="eyebrow">
 REFERRAL INDEX / 01
 </div>
@@ -1973,38 +1931,79 @@ See what's coming ›
 Links are shared for easy access; always check each platform's current terms.
 </div>
 </div>
-<div class="visual" aria-label="Preview of the EvalLoop Jobs opportunity directory">
-<div class="orb one"></div><div class="orb two"></div>
-<div class="demo-window">
-  <div class="demo-head">
-    <div class="demo-brand"><img src="/public/assets/evalloop-logo.png" alt=""><span>EVALLOOP / OPPORTUNITY DESK</span></div>
-    <span class="demo-live"><i></i> LIVE INDEX</span>
-  </div>
-  <div class="demo-main">
-    <aside class="demo-sidebar" aria-label="Opportunity categories">
-      <p class="demo-label">EXPLORE THE INDEX</p>
-      <a class="demo-side-link active" href="#directory">All opportunities <span>11</span></a>
-      <a class="demo-side-link" href="#directory">AI training <span>06</span></a>
-      <a class="demo-side-link" href="#directory">Expert work <span>03</span></a>
-      <a class="demo-side-link" href="#directory">Voice &amp; data <span>02</span></a>
-      <div class="demo-sidebar-note"><b>Curated for humans.</b>Useful starting points for the work behind better AI.</div>
-    </aside>
-    <div class="demo-chat">
-      <div class="demo-chat-top"><span>YOUR NEXT SIGNAL</span><span>DIRECTORY PREVIEW</span></div>
-      <div class="demo-question">Where can I start with AI evaluation and training work?</div>
-      <div class="demo-answer">Explore contributor networks, expert marketplaces, and data projects. Compare the work type and requirements before you apply.</div>
-      <div class="demo-role">
-        <div><small>FEATURED REFERRAL · TURING</small><strong>LLM Trainer</strong><p>AI training · Contributor opportunity</p></div>
-        <a href="https://work.turing.com/r/y2DgoDEu7y" target="_blank" rel="noreferrer">View role ↗</a>
-      </div>
-      <div class="demo-input"><span>Search the opportunity index…</span><b aria-hidden="true">⌕</b></div>
-    </div>
-  </div>
+<div class="visual">
+<div class="orb one"></div>
+<div class="orb two"></div>
+<div class="board back-board back-one">
+<span>EVAL RUN #1284</span>
+<b>Data + AI</b>
 </div>
-<div class="caption"><span>01</span><span>PEOPLE POWERING THE<br>MACHINE</span></div>
+<div class="board back-board back-two">
+<span>MODEL CHECK</span>
+<b>Expert work</b>
+</div>
+<div class="board main-board">
+<div class="board-top">
+<span class="live"></span>
+LIVE DIRECTORY
+<span class="board-num">01 / 10</span>
+</div>
+<div class="board-title">
+<span class="spark">✦</span>
+<div>
+<small>CURATED FOR HUMANS</small>
+<h2>
+Opportunities<br>
+<em>worth your time.</em>
+</h2>
+</div>
+</div>
+<div class="rule"></div>
+<div class="label">FEATURED ROLE</div>
+<div class="feature-name">
+LLM Trainer <span>— Agent function call</span>
+</div>
+<div class="meta">
+<span>▣ &nbsp; Turing</span>
+<span class="reward">$150 reward</span>
+</div>
+<a
+class="board-link"
+href="https://work.turing.com/r/y2DgoDEu7y"
+target="_blank"
+rel="noreferrer"
+>
+View featured role ↗
+</a>
+</div>
+<div class="caption">
+<span>01</span>
+<span>PEOPLE POWERING THE<br>MACHINE</span>
+</div>
 </div>
 </section>
-
+<!-- JOB STREAM -->
+<section class="job-stream" aria-label="Live job signal stream">
+<div class="stream-line"></div>
+<div class="stream-track">
+<div class="stream-set">
+<span>LLM TRAINER</span>
+<span>MODEL EVALUATOR</span>
+<span>DATA ANNOTATION</span>
+<span>AI RED TEAMER</span>
+<span>VOICE DATA</span>
+<span>EXPERT REVIEW</span>
+</div>
+<div class="stream-set" aria-hidden="true">
+<span>LLM TRAINER</span>
+<span>MODEL EVALUATOR</span>
+<span>DATA ANNOTATION</span>
+<span>AI RED TEAMER</span>
+<span>VOICE DATA</span>
+<span>EXPERT REVIEW</span>
+</div>
+</div>
+</section>
 <section id="directory" class="directory wrap">
 <div class="section-head">
 <div>
@@ -2016,25 +2015,18 @@ Explore trusted starting points across the AI training ecosystem. Each card take
 </p>
 </div>
 <div class="toolbar">
-<div class="tabs" role="group" aria-label="Filter referral platforms">
-<button type="button" class="tab active" aria-pressed="true" data-filter="All">All</button>
-<button type="button" class="tab" aria-pressed="false" data-filter="AI training">AI training</button>
-<button type="button" class="tab" aria-pressed="false" data-filter="Expert work">Expert work</button>
-<button type="button" class="tab" aria-pressed="false" data-filter="Voice & data">Voice & data</button>
+<div class="tabs">
+<button class="tab active" data-filter="All">All</button>
+<button class="tab" data-filter="AI training">AI training</button>
+<button class="tab" data-filter="Expert work">Expert work</button>
+<button class="tab" data-filter="Voice & data">Voice & data</button>
 </div>
 <label class="search">
 ⌕
-<input id="search" type="search" aria-label="Search referral platforms" placeholder="Search the index" />
+<input id="search" placeholder="Search the index" />
 </label>
 </div>
-<div class="cards-rail-head">
-  <span id="cards-hint">Swipe or scroll to explore</span>
-  <div class="cards-controls" role="group" aria-label="Referral card controls">
-    <button id="cards-prev" type="button" aria-label="Show previous referral cards" disabled>←</button>
-    <button id="cards-next" type="button" aria-label="Show next referral cards">→</button>
-  </div>
-</div>
-<div id="cards" class="cards" role="region" aria-label="Referral platforms" aria-roledescription="carousel" tabindex="0"></div>
+<div id="cards" class="cards"></div>
 </section>
 <section id="opportunities" class="opps">
 <div class="wrap">
@@ -2310,7 +2302,7 @@ Follow on LinkedIn ↗
 </main>
 <footer class="footer wrap">
 <a href="#top" class="logo">
-<span class="logo-mark"><img src="/public/assets/evalloop-logo.png" alt=""></span>
+<span class="logo-mark">◉</span>
 <span>EvalLoop Jobs</span>
 </a>
 <span>Curated pathways into the work behind better AI.</span>
@@ -2336,17 +2328,6 @@ LinkedIn ↗
 </nav>
 </footer>
 </div>
-<div class="directory-guide" id="directory-guide" hidden>
-  <div class="guide-head"><div><small>EVALLOOP GUIDE</small><strong>Find your starting point.</strong></div><button type="button" class="guide-close" aria-label="Close guide">×</button></div>
-  <p>Choose the kind of AI work you want to explore and we’ll filter the referral index for you.</p>
-  <div class="guide-options">
-    <button type="button" data-guide-filter="AI training">AI training <span>→</span></button>
-    <button type="button" data-guide-filter="Expert work">Expert work <span>→</span></button>
-    <button type="button" data-guide-filter="Voice & data">Voice &amp; data <span>→</span></button>
-  </div>
-  <a class="guide-all" href="#directory">Browse all opportunities ↗</a>
-</div>
-<button class="guide-toggle" id="guide-toggle" type="button" aria-expanded="false" aria-controls="directory-guide"><span aria-hidden="true">✳</span> Find a role</button>
 <script>
 const referrals=[
 [
@@ -2452,31 +2433,15 @@ const referrals=[
 const cards=document.getElementById('cards');
 const search=document.getElementById('search');
 const tabs=[...document.querySelectorAll('.tab')];
-const cardsPrev=document.getElementById('cards-prev');
-const cardsNext=document.getElementById('cards-next');
-const cardsHint=document.getElementById('cards-hint');
-function updateCardControls(){
-  const maxScroll=Math.max(0,cards.scrollWidth-cards.clientWidth);
-  if(cardsPrev) cardsPrev.disabled=maxScroll<=2||cards.scrollLeft<=2;
-  if(cardsNext) cardsNext.disabled=maxScroll<=2||cards.scrollLeft>=maxScroll-2;
-}
-function scrollCards(direction){
-  const behavior=matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
-  cards.scrollBy({left:direction*Math.max(240,Math.round(cards.clientWidth*.76)),behavior});
-}
-cardsPrev?.addEventListener('click',()=>scrollCards(-1));
-cardsNext?.addEventListener('click',()=>scrollCards(1));
-cards.addEventListener('scroll',()=>requestAnimationFrame(updateCardControls),{passive:true});
-addEventListener('resize',()=>requestAnimationFrame(updateCardControls));
 let filter='All';
 function render(){
   let q=search.value.toLowerCase().trim();
-  const matches=referrals
+  cards.innerHTML=referrals
   .filter(r=>
     (filter==='All'||r[2]===filter)&&
     (!q||r.join(' ').toLowerCase().includes(q))
-  );
-  cards.innerHTML=matches.map((r,i)=>`
+  )
+  .map((r,i)=>`
   <article class="card">
     <div class="card-top">
       <span class="mark ${r[6]}">
@@ -2511,16 +2476,12 @@ function render(){
   </article>
   `)
   .join('')
-  ||'<p class="empty-state" role="status">No platforms match that search yet.</p>';
-  cards.scrollLeft=0;
-  if(cardsHint) cardsHint.textContent=matches.length>1?'Swipe or scroll to explore '+matches.length+' platforms':(matches.length?'1 platform':'No matching platforms');
-  requestAnimationFrame(updateCardControls);
+  ||'<p style="color:#8fa0bb">No platforms match that search yet.</p>';
 }
 tabs.forEach(t=>
   t.addEventListener('click',()=>{
-    tabs.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false')});
+    tabs.forEach(x=>x.classList.remove('active'));
     t.classList.add('active');
-    t.setAttribute('aria-pressed','true');
     filter=t.dataset.filter;
     render();
   })
@@ -2593,7 +2554,6 @@ The home page shows the first MAX_HOME jobs; the rest live on opportunities.html
   const MAX_HOME=10;
   const list=document.getElementById('opList');
   if(!list)return;
-  list.innerHTML='<p class="feed-state" role="status">Loading current opportunities…</p>';
   const esc=s=>String(s??'').replace(
     /[&<>"']/g,
     c=>({
@@ -2615,7 +2575,7 @@ The home page shows the first MAX_HOME jobs; the rest live on opportunities.html
     const jobs=await res.json();
     if(!Array.isArray(jobs)||!jobs.length){
       list.innerHTML=
-        '<p class="feed-state" role="status">New opportunities are coming soon.</p>';
+        '<p style="color:#8fa0bb">New opportunities are coming soon.</p>';
       return;
     }
     const shown=jobs.slice(0,MAX_HOME);
@@ -2704,62 +2664,10 @@ The home page shows the first MAX_HOME jobs; the rest live on opportunities.html
     list.querySelectorAll('a').forEach(attachCursor);
   }catch(e){
     list.innerHTML=
-      '<p class="feed-state" role="status">Opportunities will be back shortly.</p>';
+      '<p style="color:#8fa0bb">Opportunities will be back shortly.</p>';
   }
 })();
 </script>
-
-
-<script>
-(() => {
-  const root=document.documentElement;
-  const themeButton=document.getElementById('theme-toggle');
-  const themeIcon=themeButton?.querySelector('span');
-  const setTheme=(theme,persist=false)=>{
-    const isDark=theme==='dark';
-    root.dataset.theme=isDark?'dark':'light';
-    root.style.colorScheme=isDark?'dark':'light';
-    themeButton?.setAttribute('aria-label',isDark?'Switch to light mode':'Switch to dark mode');
-    themeButton?.setAttribute('title',isDark?'Switch to light mode':'Switch to dark mode');
-    themeButton?.setAttribute('aria-pressed',String(isDark));
-    if(themeIcon) themeIcon.textContent=isDark?'☀':'☾';
-    if(persist){try{localStorage.setItem('evalloop-theme',isDark?'dark':'light')}catch{}}
-  };
-  setTheme(root.dataset.theme||'light');
-  themeButton?.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark',true));
-  const menuButton = document.getElementById('menu-toggle');
-  const nav = document.getElementById('primary-nav');
-  if (menuButton && nav) {
-    const closeMenu = () => { nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded','false'); menuButton.setAttribute('aria-label','Open navigation menu'); };
-    menuButton.addEventListener('click', () => {
-      const open = menuButton.getAttribute('aria-expanded') !== 'true';
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-      nav.classList.toggle('is-open', open);
-    });
-    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-  }
-  const toggle = document.getElementById('guide-toggle');
-  const panel = document.getElementById('directory-guide');
-  const close = panel && panel.querySelector('.guide-close');
-  const setGuide = open => {
-    if (!toggle || !panel) return;
-    panel.hidden = !open;
-    toggle.setAttribute('aria-expanded', String(open));
-    if (open) close?.focus(); else toggle.focus();
-  };
-  toggle?.addEventListener('click', () => setGuide(toggle.getAttribute('aria-expanded') !== 'true'));
-  close?.addEventListener('click', () => setGuide(false));
-  panel?.querySelectorAll('[data-guide-filter]').forEach(button => button.addEventListener('click', () => {
-    const filterTab = [...document.querySelectorAll('.tab')].find(tab => tab.dataset.filter === button.dataset.guideFilter);
-    filterTab?.click();
-    setGuide(false);
-    document.getElementById('directory')?.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
-  }));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && panel && !panel.hidden) setGuide(false); });
-})();
-</script>
-
+<script src="chatbot.js"></script>
 </body>
 </html>
