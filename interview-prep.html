@@ -1,1075 +1,1764 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Prepare for AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer interviews with questions and transparent source labels.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://annotatorjobs.vercel.app/interview-prep.html">
-
-<title>AI Interview Prep — EvalLoop Jobs</title>
-
-<link rel="icon" type="image/png" href="/favicon.png?v=2">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="pages.css">
-<link rel="stylesheet" href="chatbot.css">
-
-<style>
-/* Interview Prep — follows the existing EvalLoop Jobs design */
-
-.interview-roles {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 28px 0 48px;
-}
-
-.interview-role {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,.02);
-  color: var(--ink);
-  text-decoration: none;
-  transition: border-color .2s, background .2s;
-}
-
-.interview-role:hover,
-.interview-role.active {
-  border-color: var(--blue);
-  background: rgba(37,136,255,.06);
-}
-
-.interview-role h3 {
-  margin: 0;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.interview-role p {
-  margin: 7px 0 0;
-  color: var(--muted);
-  font-size: .85rem;
-  line-height: 1.5;
-}
-
-.interview-role .arrow {
-  flex-shrink: 0;
-  color: var(--cyan);
-}
-
-.interview-section {
-  margin-top: 48px;
-}
-
-.interview-section > h2 {
-  margin-bottom: 8px;
-}
-
-.interview-section-intro {
-  margin-top: 0;
-  margin-bottom: 22px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.interview-toolbar {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px 220px;
-  gap: 12px;
-  margin: 24px 0 18px;
-}
-
-.interview-toolbar input,
-.interview-toolbar select {
-  width: 100%;
-  min-width: 0;
-  padding: 13px 14px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-size: .9rem;
-}
-
-.interview-toolbar input::placeholder {
-  color: var(--muted);
-}
-
-.interview-toolbar input:focus,
-.interview-toolbar select:focus {
-  outline: none;
-  border-color: var(--blue);
-}
-
-.interview-toolbar option {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.interview-results-count {
-  margin: 0 0 14px;
-  color: var(--muted);
-  font-size: .84rem;
-}
-
-.interview-question-list {
-  display: grid;
-  gap: 12px;
-}
-
-.interview-question {
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,.02);
-}
-
-.interview-question summary {
-  padding: 21px 22px;
-  cursor: pointer;
-  list-style: none;
-}
-
-.interview-question summary::-webkit-details-marker {
-  display: none;
-}
-
-.interview-question summary::marker {
-  content: "";
-}
-
-.interview-question summary:hover {
-  background: rgba(255,255,255,.025);
-}
-
-.interview-question-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.interview-question h3 {
-  margin: 0;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-.interview-question-arrow {
-  flex-shrink: 0;
-  color: var(--cyan);
-  transition: transform .2s;
-}
-
-.interview-question[open] .interview-question-arrow {
-  transform: rotate(180deg);
-}
-
-.interview-question-labels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.interview-label {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 9px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--body);
-  font-size: .74rem;
-  line-height: 1.4;
-}
-
-.interview-label.source-candidate {
-  color: #d8b8ff;
-  border-color: rgba(183,130,255,.3);
-  background: rgba(183,130,255,.06);
-}
-
-.interview-label.source-verified {
-  color: #8de4b8;
-  border-color: rgba(62,207,142,.3);
-  background: rgba(62,207,142,.06);
-}
-
-.interview-label.source-practice {
-  color: #a9d1ff;
-  border-color: rgba(37,136,255,.3);
-  background: rgba(37,136,255,.06);
-}
-
-.interview-question-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: .8rem;
-}
-
-.interview-answer {
-  padding: 20px 22px 24px;
-  border-top: 1px solid var(--border);
-  color: var(--body);
-  font-size: .93rem;
-  line-height: 1.85;
-  overflow-wrap: anywhere;
-}
-
-.interview-answer-heading {
-  margin: 0 0 10px;
-  color: var(--cyan);
-  font-size: .77rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.interview-answer p {
-  margin: 0 0 12px;
-}
-
-.interview-answer ul,
-.interview-answer ol {
-  padding-left: 22px;
-}
-
-.interview-answer li {
-  margin-bottom: 7px;
-}
-
-.interview-answer pre {
-  overflow-x: auto;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: rgba(0,0,0,.18);
-  white-space: pre-wrap;
-}
-
-.interview-source-link {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--cyan);
-  text-decoration: none;
-}
-
-.interview-source-link:hover {
-  text-decoration: underline;
-}
-
-.interview-empty {
-  padding: 28px 22px;
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-.interview-empty strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--ink);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
-}
-
-.interview-companies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.interview-company {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: rgba(255,255,255,.02);
-  color: var(--ink);
-  font: inherit;
-  font-size: .88rem;
-  cursor: pointer;
-  transition: border-color .2s, background .2s;
-}
-
-.interview-company:hover,
-.interview-company.active {
-  border-color: var(--blue);
-  background: rgba(37,136,255,.06);
-}
-
-.interview-sources {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.interview-source-panel {
-  padding: 19px;
-}
-
-.interview-source-panel h3 {
-  margin: 0 0 9px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: .96rem;
-}
-
-.interview-source-panel p {
-  margin: 0;
-  color: var(--body);
-  font-size: .86rem;
-  line-height: 1.7;
-}
-
-.interview-small-note {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: .83rem;
-  line-height: 1.7;
-}
-
-@media (max-width: 850px) {
-  .interview-toolbar {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .interview-toolbar input {
-    grid-column: 1 / -1;
-  }
-
-  .interview-sources {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .interview-roles {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 36px;
-  }
-
-  .interview-section {
-    margin-top: 38px;
-  }
-
-  .interview-toolbar {
-    grid-template-columns: 1fr;
-  }
-
-  .interview-toolbar input {
-    grid-column: auto;
-  }
-
-  .interview-question summary {
-    padding: 18px;
-  }
-
-  .interview-answer {
-    padding: 18px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Preparation | EvalLoop Jobs</title>
+  <meta
+    name="description"
+    content="Explore AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer interview experiences, questions and detailed preparation answers."
+  >
+  <meta name="theme-color" content="#0b1224">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="chatbot.css">
+  <style>
+    :root {
+      --interview-bg: #0b1224;
+      --interview-panel: #111b30;
+      --interview-panel-light: #15223a;
+      --interview-border: rgba(148, 163, 184, 0.18);
+      --interview-blue: #2588ff;
+      --interview-cyan: #4db3ff;
+      --interview-text: #f4f7ff;
+      --interview-muted: #a7b3c9;
+      --interview-green: #4ade80;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .interview-page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 54px 0 80px;
+    }
+    .interview-hero {
+      max-width: 800px;
+      margin-bottom: 38px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--interview-cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .interview-hero h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+    .interview-hero p {
+      max-width: 720px;
+      margin: 20px 0 0;
+      color: var(--interview-muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .interview-hero strong {
+      color: var(--interview-text);
+    }
+    .interview-section {
+      margin-top: 42px;
+    }
+    .section-heading {
+      margin-bottom: 20px;
+    }
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -0.025em;
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--interview-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .role-card {
+      display: flex;
+      min-height: 130px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 19px;
+      border: 1px solid var(--interview-border);
+      border-radius: 15px;
+      background: var(--interview-panel);
+      color: var(--interview-text);
+      text-align: left;
+      cursor: pointer;
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+    .role-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--interview-blue);
+    }
+    .role-card.active {
+      border-color: var(--interview-blue);
+      background: var(--interview-panel-light);
+    }
+    .role-card h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .role-count {
+      margin-top: 18px;
+      color: var(--interview-cyan);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .filter-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+      padding: 18px;
+      border: 1px solid var(--interview-border);
+      border-radius: 15px;
+      background: var(--interview-panel);
+    }
+    .filter-panel input,
+    .filter-panel select {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 13px;
+      border: 1px solid var(--interview-border);
+      border-radius: 9px;
+      outline: none;
+      background: var(--interview-bg);
+      color: var(--interview-text);
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .filter-panel input::placeholder {
+      color: #8492aa;
+    }
+    .filter-panel input:focus,
+    .filter-panel select:focus {
+      border-color: var(--interview-blue);
+    }
+    .filter-panel option {
+      background: var(--interview-bg);
+      color: var(--interview-text);
+    }
+    .results-summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin: 20px 0;
+      color: var(--interview-muted);
+      font-size: 13px;
+    }
+    .results-summary strong {
+      color: var(--interview-text);
+    }
+    .interview-experience {
+      overflow: hidden;
+      margin-bottom: 30px;
+      border: 1px solid var(--interview-border);
+      border-radius: 18px;
+      background: var(--interview-panel);
+    }
+    .interview-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px;
+      border-bottom: 1px solid var(--interview-border);
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(37, 136, 255, 0.12),
+          transparent 45%
+        ),
+        var(--interview-panel);
+    }
+    .interview-company {
+      margin: 8px 0;
+      font-size: 29px;
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+    .interview-role-name {
+      margin: 0 0 9px;
+      color: var(--interview-text);
+      font-size: 15px;
+    }
+    .interview-meta {
+      margin: 0;
+      color: var(--interview-muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .source-badge {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      padding: 8px 11px;
+      border: 1px solid var(--interview-border);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .source-badge.candidate-reported {
+      border-color: rgba(77, 179, 255, 0.3);
+      background: rgba(77, 179, 255, 0.09);
+      color: var(--interview-cyan);
+    }
+    .source-badge.verified {
+      border-color: rgba(74, 222, 128, 0.3);
+      background: rgba(74, 222, 128, 0.08);
+      color: var(--interview-green);
+    }
+    .source-badge.practice {
+      color: #c4b5fd;
+      background: rgba(196, 181, 253, 0.08);
+    }
+    .interview-disclaimer {
+      margin: 22px 28px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--interview-border);
+      border-radius: 10px;
+      color: var(--interview-muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .interview-disclaimer strong {
+      color: var(--interview-text);
+    }
+    .interview-content {
+      padding: 0 28px 28px;
+    }
+    .interview-question {
+      padding: 29px 0;
+      border-bottom: 1px solid var(--interview-border);
+    }
+    .interview-question:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .question-topline {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .question-number {
+      color: var(--interview-cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .question-topic {
+      padding: 5px 9px;
+      border: 1px solid var(--interview-border);
+      border-radius: 999px;
+      color: var(--interview-muted);
+      font-size: 11px;
+    }
+    .question-title {
+      margin: 0 0 17px;
+      color: var(--interview-text);
+      font-size: 19px;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
+    }
+    .answer-label {
+      margin: 0 0 10px;
+      color: var(--interview-cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .answer-content {
+      color: var(--interview-muted);
+      font-size: 14px;
+      line-height: 1.95;
+      overflow-wrap: anywhere;
+    }
+    .answer-content p {
+      margin: 0 0 13px;
+    }
+    .answer-content p:last-child {
+      margin-bottom: 0;
+    }
+    .answer-content strong {
+      color: var(--interview-text);
+      font-weight: 600;
+    }
+    .answer-content ul,
+    .answer-content ol {
+      margin: 10px 0 16px;
+      padding-left: 22px;
+    }
+    .answer-content li {
+      margin-bottom: 8px;
+      padding-left: 3px;
+    }
+    .answer-content code {
+      padding: 2px 5px;
+      border: 1px solid var(--interview-border);
+      border-radius: 5px;
+      background: var(--interview-bg);
+      color: var(--interview-cyan);
+      font-family: monospace;
+      font-size: 12px;
+    }
+    .answer-content pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--interview-border);
+      border-radius: 10px;
+      background: var(--interview-bg);
+      color: var(--interview-text);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .interview-source {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--interview-border);
+    }
+    .interview-source a {
+      color: var(--interview-cyan);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .interview-source a:hover {
+      text-decoration: underline;
+    }
+    .empty-state,
+    .loading-state,
+    .error-state {
+      padding: 30px;
+      border: 1px solid var(--interview-border);
+      border-radius: 15px;
+      background: var(--interview-panel);
+    }
+    .empty-state h3,
+    .error-state h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+    .empty-state p,
+    .loading-state,
+    .error-state p {
+      color: var(--interview-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .company-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .company-chip {
+      padding: 9px 13px;
+      border: 1px solid var(--interview-border);
+      border-radius: 999px;
+      background: var(--interview-panel);
+      color: var(--interview-text);
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+    .company-chip:hover {
+      border-color: var(--interview-blue);
+    }
+    .source-guide {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .source-guide-card {
+      padding: 20px;
+      border: 1px solid var(--interview-border);
+      border-radius: 14px;
+      background: var(--interview-panel);
+    }
+    .source-guide-card h3 {
+      margin: 0 0 9px;
+      font-size: 15px;
+    }
+    .source-guide-card p {
+      margin: 0;
+      color: var(--interview-muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .source-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: var(--interview-cyan);
+    }
+    .source-dot.green {
+      background: var(--interview-green);
+    }
+    .source-dot.purple {
+      background: #c4b5fd;
+    }
+    .interview-cta {
+      margin-top: 48px;
+      padding: 30px;
+      border: 1px solid var(--interview-border);
+      border-radius: 18px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(37, 136, 255, 0.12),
+          transparent 45%
+        ),
+        var(--interview-panel);
+    }
+    .interview-cta h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+    .interview-cta p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--interview-muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .interview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .interview-btn {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 17px;
+      border: 1px solid var(--interview-border);
+      border-radius: 9px;
+      color: var(--interview-text);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .interview-btn:hover {
+      transform: translateY(-2px);
+    }
+    .interview-btn.primary {
+      border-color: var(--interview-blue);
+      background: var(--interview-blue);
+      color: white;
+    }
+    @media (max-width: 900px) {
+      .role-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .source-guide {
+        grid-template-columns: 1fr;
+      }
+      .filter-panel {
+        grid-template-columns: 1fr 1fr;
+      }
+      .filter-panel input {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 600px) {
+      .interview-page {
+        width: min(100% - 28px, 1120px);
+        padding-top: 36px;
+      }
+      .role-grid {
+        gap: 10px;
+      }
+      .role-card {
+        min-height: 115px;
+        padding: 14px;
+      }
+      .role-card h3 {
+        font-size: 13px;
+      }
+      .filter-panel {
+        grid-template-columns: 1fr;
+        padding: 12px;
+      }
+      .filter-panel input {
+        grid-column: auto;
+      }
+      .interview-header {
+        flex-direction: column;
+        padding: 21px;
+      }
+      .interview-company {
+        font-size: 25px;
+      }
+      .interview-disclaimer {
+        margin: 17px 18px 0;
+      }
+      .interview-content {
+        padding: 0 19px 22px;
+      }
+      .interview-question {
+        padding: 24px 0;
+      }
+      .question-title {
+        font-size: 17px;
+      }
+      .interview-cta {
+        padding: 22px;
+      }
+      .results-summary {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<div class="shell">
-
-<header class="header">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="interview-prep.html" aria-current="page">Interview Prep</a>
-<a href="about.html">About</a>
-<a href="index.html#how">How it works</a>
-</nav>
-
-<a href="opportunities.html" class="top-cta">
-Explore roles ↗
-</a>
-
-</header>
-
-<main class="page wrap">
-
-<div class="eyebrow">
-INTERVIEW PREP / 07
-</div>
-
-<h1 class="page-title">
-Prepare for your next AI interview with <em>confidence.</em>
-</h1>
-
-<p class="page-intro">
-Explore interview questions for AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer roles. New questions will appear as we add them to our question library.
-</p>
-
-<section class="interview-section">
-
-<h2>Explore by role.</h2>
-
-<p class="interview-section-intro">
-Choose a role to find relevant interview questions.
-</p>
-
-<div class="interview-roles">
-
-<a href="#questions" class="interview-role" data-role="AI/ML Engineer">
-<div>
-<h3>AI/ML Engineer</h3>
-<p><span data-role-count="AI/ML Engineer">0</span> questions</p>
-</div>
-<span class="arrow">↗</span>
-</a>
-
-<a href="#questions" class="interview-role" data-role="AI Engineer">
-<div>
-<h3>AI Engineer</h3>
-<p><span data-role-count="AI Engineer">0</span> questions</p>
-</div>
-<span class="arrow">↗</span>
-</a>
-
-<a href="#questions" class="interview-role" data-role="Generative AI Engineer">
-<div>
-<h3>Generative AI Engineer</h3>
-<p><span data-role-count="Generative AI Engineer">0</span> questions</p>
-</div>
-<span class="arrow">↗</span>
-</a>
-
-<a href="#questions" class="interview-role" data-role="Agentic AI Engineer">
-<div>
-<h3>Agentic AI Engineer</h3>
-<p><span data-role-count="Agentic AI Engineer">0</span> questions</p>
-</div>
-<span class="arrow">↗</span>
-</a>
-
-</div>
-</section>
-
-<section class="interview-section" id="questions">
-
-<h2>Recently added interview questions.</h2>
-
-<p class="interview-section-intro">
-Browse the latest additions. Select a question to view its answer and source information.
-</p>
-
-<div class="interview-toolbar">
-
-<input
-type="search"
-id="questionSearch"
-placeholder="Search questions…"
-aria-label="Search interview questions"
->
-
-<select id="roleFilter" aria-label="Filter by role">
-<option value="">All roles</option>
-<option>AI/ML Engineer</option>
-<option>AI Engineer</option>
-<option>Generative AI Engineer</option>
-<option>Agentic AI Engineer</option>
-</select>
-
-<select id="companyFilter" aria-label="Filter by company">
-<option value="">All companies</option>
-</select>
-
-</div>
-
-<p class="interview-results-count" id="resultsCount" aria-live="polite">
-Loading questions…
-</p>
-
-<div class="interview-question-list" id="questionList" aria-live="polite">
-<div class="interview-empty">
-Loading interview questions…
-</div>
-</div>
-
-<p class="interview-small-note">
-Candidate-reported questions reflect individual experiences and do not guarantee what will be asked in a future interview.
-</p>
-
-</section>
-
-<section class="interview-section" id="companies">
-
-<h2>Companies.</h2>
-
-<p class="interview-section-intro">
-Companies will appear here as questions are added to the library.
-</p>
-
-<div class="interview-companies" id="companyList">
-<div class="interview-empty">
-Company names will appear when company-specific questions are available.
-</div>
-</div>
-
-</section>
-
-<section class="interview-section" id="sources">
-
-<h2>Question sources.</h2>
-
-<p class="interview-section-intro">
-Source labels help you understand how each question is presented.
-</p>
-
-<div class="content-grid interview-sources">
-
-<section class="panel interview-source-panel">
-<h3>Candidate-reported</h3>
-<p>Reported by a candidate as a question encountered during an interview.</p>
-</section>
-
-<section class="panel interview-source-panel">
-<h3>Verified source</h3>
-<p>Linked to a source that has been checked and recorded.</p>
-</section>
-
-<section class="panel interview-source-panel">
-<h3>Practice question</h3>
-<p>Provided for preparation and not claimed to have been asked by a specific company.</p>
-</section>
-
-</div>
-</section>
-
-<div class="cta">
-
-<h2>Looking for AI opportunities?</h2>
-
-<p>
-Explore AI training, evaluation, annotation, GenAI and other opportunities across the AI ecosystem.
-</p>
-
-<div class="actions">
-
-<a href="opportunities.html" class="btn primary">
-Browse opportunities ↗
-</a>
-
-<a href="contact.html" class="btn secondary">
-Contact EvalLoop →
-</a>
-
-</div>
-</div>
-
-</main>
-
-<footer class="footer wrap">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<span>
-Independent opportunity discovery for the work behind better AI.
-</span>
-
-<nav class="footer-links">
-
-<a href="about.html">About</a>
-<a href="opportunities.html">Opportunities</a>
-<a href="submit-opportunity.html">Submit Opportunity</a>
-<a href="join-network.html">Join Network</a>
-<a href="contact.html">Contact</a>
-<a href="disclaimer.html">Disclaimer</a>
-<a href="terms.html">Terms</a>
-<a href="privacy.html">Privacy</a>
-
-<a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">
-LinkedIn ↗
-</a>
-
-</nav>
-</footer>
-</div>
-
-<script>
-(() => {
-"use strict";
-
-const DATA_URL = "./interview.json";
-
-const ROLES = [
-  "AI/ML Engineer",
-  "AI Engineer",
-  "Generative AI Engineer",
-  "Agentic AI Engineer"
-];
-
-const questionList = document.getElementById("questionList");
-const questionSearch = document.getElementById("questionSearch");
-const roleFilter = document.getElementById("roleFilter");
-const companyFilter = document.getElementById("companyFilter");
-const resultsCount = document.getElementById("resultsCount");
-const companyList = document.getElementById("companyList");
-
-let questions = [];
-
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[character]);
-}
-
-function safeURL(value) {
-  try {
-    const url = new URL(String(value ?? ""));
-
-    return ["https:", "http:"].includes(url.protocol)
-      ? url.href
-      : "";
-  } catch {
-    return "";
-  }
-}
-
-function normalize(value) {
-  return String(value ?? "").trim().toLowerCase();
-}
-
-function getSource(question) {
-  const type = normalize(question.source_type);
-
-  if (question.verified === true || type.includes("verified")) {
-    return {
-      label: "Verified source",
-      className: "source-verified"
-    };
-  }
-
-  if (type.includes("candidate") || type.includes("reported")) {
-    return {
-      label: "Candidate-reported",
-      className: "source-candidate"
-    };
-  }
-
-  return {
-    label: "Practice question",
-    className: "source-practice"
-  };
-}
-
-function formatDate(value) {
-  if (!value) return "";
-
-  const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) return "";
-
-  return date.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric"
-  });
-}
-
-function answerHTML(answer) {
-  if (Array.isArray(answer)) {
-    return "<ul>" + answer.map(item =>
-      `<li>${escapeHTML(item)}</li>`
-    ).join("") + "</ul>";
-  }
-
-  return String(answer ?? "")
-    .split(/\n{2,}/)
-    .map(paragraph =>
-      `<p>${escapeHTML(paragraph).replace(/\n/g, "<br>")}</p>`
-    )
-    .join("");
-}
-
-function getSearchText(question) {
-  const tags = Array.isArray(question.tags) ? question.tags : [];
-
-  return [
-    question.question,
-    question.answer,
-    question.company,
-    question.role,
-    question.topic,
-    ...tags
-  ].join(" ").toLowerCase();
-}
-
-function updateRoleCounts() {
-  document.querySelectorAll("[data-role-count]").forEach(element => {
-    const role = element.dataset.roleCount;
-
-    element.textContent = questions.filter(question =>
-      normalize(question.role) === normalize(role)
-    ).length;
-  });
-}
-
-function updateCompanies() {
-  const currentCompany = companyFilter.value;
-
-  const companies = [...new Set(
-    questions
-      .map(question => String(question.company ?? "").trim())
-      .filter(Boolean)
-  )].sort((a, b) => a.localeCompare(b));
-
-  companyFilter.innerHTML =
-    '<option value="">All companies</option>' +
-    companies.map(company =>
-      `<option value="${escapeHTML(company)}">${escapeHTML(company)}</option>`
-    ).join("");
-
-  if (companies.some(company => normalize(company) === normalize(currentCompany))) {
-    companyFilter.value = companies.find(company =>
-      normalize(company) === normalize(currentCompany)
-    );
-  }
-
-  if (!companies.length) {
-    companyList.innerHTML = `
-      <div class="interview-empty">
-        Company names will appear here when company-specific questions are added.
+  <!-- Cursor effects retained from the existing site -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <!-- Existing site navigation -->
+  <header class="shell">
+    <a class="brand" href="index.html" aria-label="EvalLoop Jobs home">
+      ◉ EvalLoop Jobs
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Opportunities</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="interview-prep.html" aria-current="page">Interview Prep</a>
+    </nav>
+    <a class="btn primary" href="index.html">Explore roles</a>
+  </header>
+  <main class="interview-page">
+    <!-- Page introduction -->
+    <section class="interview-hero">
+      <span class="eyebrow">EvalLoop Jobs · Interview Preparation</span>
+      <h1>Prepare for your next AI interview.</h1>
+      <p>
+        Explore interview experiences for
+        <strong>AI/ML Engineer, AI Engineer, Generative AI Engineer</strong>
+        and <strong>Agentic AI Engineer</strong> roles.
+        Study complete interview experiences with questions, detailed answers,
+        practical examples and important concepts.
+      </p>
+      <p>
+        Our goal is to help you understand the concepts behind interview
+        questions instead of memorising short answers.
+      </p>
+    </section>
+    <!-- Explore by role -->
+    <section class="interview-section" id="roles">
+      <div class="section-heading">
+        <h2>Explore by role</h2>
+        <p>Select a role to filter the available interview experiences.</p>
       </div>
-    `;
-    return;
-  }
-
-  companyList.innerHTML = companies.map(company => `
-    <button
-      type="button"
-      class="interview-company"
-      data-company="${escapeHTML(company)}"
-    >${escapeHTML(company)}</button>
-  `).join("");
-
-  companyList.querySelectorAll("[data-company]").forEach(button => {
-    button.addEventListener("click", () => {
-      companyFilter.value = button.dataset.company;
-      renderQuestions();
-
-      document.getElementById("questions").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+      <div class="role-grid" id="roleGrid">
+        <button class="role-card" type="button" data-role="AI/ML Engineer">
+          <h3>AI/ML Engineer</h3>
+          <span class="role-count" data-role-count="AI/ML Engineer">
+            Loading questions...
+          </span>
+        </button>
+        <button class="role-card" type="button" data-role="AI Engineer">
+          <h3>AI Engineer</h3>
+          <span class="role-count" data-role-count="AI Engineer">
+            Loading questions...
+          </span>
+        </button>
+        <button class="role-card" type="button" data-role="Generative AI Engineer">
+          <h3>Generative AI Engineer</h3>
+          <span class="role-count" data-role-count="Generative AI Engineer">
+            Loading questions...
+          </span>
+        </button>
+        <button class="role-card" type="button" data-role="Agentic AI Engineer">
+          <h3>Agentic AI Engineer</h3>
+          <span class="role-count" data-role-count="Agentic AI Engineer">
+            Loading questions...
+          </span>
+        </button>
+      </div>
+    </section>
+    <!-- Interview experiences -->
+    <section class="interview-section" id="experiences">
+      <div class="section-heading">
+        <h2>Interview experiences</h2>
+        <p>
+          Each company's questions are grouped into one interview experience
+          whenever the company, role and date match.
+        </p>
+      </div>
+      <div class="filter-panel">
+        <input
+          type="search"
+          id="questionSearch"
+          placeholder="Search questions, topics or answers..."
+          aria-label="Search interview questions"
+        >
+        <select id="roleFilter" aria-label="Filter by role">
+          <option value="">All roles</option>
+          <option value="AI/ML Engineer">AI/ML Engineer</option>
+          <option value="AI Engineer">AI Engineer</option>
+          <option value="Generative AI Engineer">Generative AI Engineer</option>
+          <option value="Agentic AI Engineer">Agentic AI Engineer</option>
+        </select>
+        <select id="companyFilter" aria-label="Filter by company">
+          <option value="">All companies</option>
+        </select>
+      </div>
+      <div class="results-summary">
+        <span id="resultsCount">Loading interview experiences...</span>
+        <span>Questions and answers are loaded from the JSON file.</span>
+      </div>
+      <div id="questionList" aria-live="polite">
+        <div class="loading-state">
+          Loading interview experiences...
+        </div>
+      </div>
+    </section>
+    <!-- Companies from the JSON file -->
+    <section class="interview-section" id="companies">
+      <div class="section-heading">
+        <h2>Companies</h2>
+        <p>
+          Browse companies represented in the available interview data.
+          A company appears here only when it exists in the JSON file.
+        </p>
+      </div>
+      <div class="company-list" id="companyList">
+        <span class="loading-state">Loading companies...</span>
+      </div>
+    </section>
+    <!-- Source transparency -->
+    <section class="interview-section" id="sources">
+      <div class="section-heading">
+        <h2>Understand our question sources</h2>
+        <p>
+          We distinguish reported interview experiences from verified sources
+          and practice questions.
+        </p>
+      </div>
+      <div class="source-guide">
+        <article class="source-guide-card">
+          <h3>
+            <span class="source-dot"></span>
+            Candidate-reported
+          </h3>
+          <p>
+            Questions reported as part of a candidate's interview experience.
+            This label does not mean EvalLoop Jobs has independently verified
+            the interview or obtained confirmation from the company.
+          </p>
+        </article>
+        <article class="source-guide-card">
+          <h3>
+            <span class="source-dot green"></span>
+            Verified source
+          </h3>
+          <p>
+            Used when the entry has a qualifying verification status or
+            verified source classification in the data. Check the original
+            source, when available, for context.
+          </p>
+        </article>
+        <article class="source-guide-card">
+          <h3>
+            <span class="source-dot purple"></span>
+            Practice question
+          </h3>
+          <p>
+            Questions intended to help candidates practise relevant concepts.
+            They should not be interpreted as actual questions asked by
+            a specific company.
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- CTA -->
+    <section class="interview-cta">
+      <h2>Ready for your next opportunity?</h2>
+      <p>
+        Prepare your technical skills, practise explaining your reasoning
+        and explore opportunities across AI, machine learning, GenAI,
+        evaluation and agentic systems.
+      </p>
+      <div class="interview-actions">
+        <a class="interview-btn primary" href="index.html">
+          Explore AI opportunities
+        </a>
+        <a class="interview-btn" href="contact.html">
+          Contact EvalLoop Jobs
+        </a>
+      </div>
+    </section>
+  </main>
+  <!-- Existing site footer -->
+  <footer class="shell">
+    <div>
+      <a class="brand" href="index.html">◉ EvalLoop Jobs</a>
+      <p>Discover opportunities across the AI ecosystem.</p>
+    </div>
+    <div>
+      <a href="index.html">Opportunities</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="interview-prep.html">Interview Prep</a>
+      <a
+        href="https://www.linkedin.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >LinkedIn</a>
+    </div>
+  </footer>
+  <script src="chatbot.js"></script>
+  <script>
+    "use strict";
+    const DATA_URL = "./interview.json";
+    const ROLES = [
+      "AI/ML Engineer",
+      "AI Engineer",
+      "Generative AI Engineer",
+      "Agentic AI Engineer"
+    ];
+    let questions = [];
+    let activeRole = "";
+    const questionList = document.getElementById("questionList");
+    const searchInput = document.getElementById("questionSearch");
+    const roleFilter = document.getElementById("roleFilter");
+    const companyFilter = document.getElementById("companyFilter");
+    const resultsCount = document.getElementById("resultsCount");
+    const companyList = document.getElementById("companyList");
+    /*
+     * Detailed preparation answers for the six supplied Zomato topics.
+     *
+     * These are educational answers written to help candidates prepare.
+     * They are not claimed to be official answers from Zomato.
+     *
+     * If an item already contains an answer in interview.json, that answer
+     * takes priority over the preparation answer below.
+     */
+    const DETAILED_ANSWERS = {
+      "zomato-aiml-001": `
+        <p>
+          <strong>RAG (Retrieval-Augmented Generation)</strong> is a
+          technique that combines information retrieval with a language
+          model. Instead of relying only on knowledge stored in its
+          parameters, the model retrieves relevant information from an
+          external knowledge source and uses that information to construct
+          its response.
+        </p>
+        <p><strong>A typical RAG pipeline works as follows:</strong></p>
+        <ol>
+          <li>
+            <strong>Document ingestion:</strong> Collect documents such as
+            product documentation, FAQs, policies or knowledge-base articles.
+          </li>
+          <li>
+            <strong>Chunking:</strong> Split large documents into smaller
+            sections while preserving useful context. Chunk size and overlap
+            should be selected based on the document structure and task.
+          </li>
+          <li>
+            <strong>Embedding generation:</strong> Convert each chunk into
+            a numerical vector using an embedding model.
+          </li>
+          <li>
+            <strong>Indexing:</strong> Store the vectors and associated
+            document metadata in a vector database or search index.
+          </li>
+          <li>
+            <strong>Retrieval:</strong> Convert the user's query into a
+            searchable representation and retrieve relevant chunks.
+          </li>
+          <li>
+            <strong>Context construction:</strong> Put the retrieved
+            evidence into a carefully designed prompt, respecting the
+            model's context window.
+          </li>
+          <li>
+            <strong>Generation:</strong> Ask the language model to answer
+            using the retrieved evidence, ideally identifying when the
+            evidence is insufficient.
+          </li>
+          <li>
+            <strong>Evaluation:</strong> Measure retrieval relevance,
+            answer correctness, faithfulness to the retrieved context,
+            latency and cost.
+          </li>
+        </ol>
+        <p>
+          <strong>Where does LangChain fit?</strong> LangChain is a
+          framework for connecting components used in LLM applications.
+          It can help developers build document loaders, text splitters,
+          embedding integrations, retrievers, prompt templates and
+          generation chains. It can also integrate with model providers
+          and vector stores.
+        </p>
+        <p>
+          LangChain is not RAG itself. RAG is the overall architectural
+          approach, while LangChain is one possible framework for
+          implementing parts of that approach. A RAG system can also
+          be built directly using provider APIs and other libraries.
+        </p>
+        <p><strong>Example:</strong> Imagine a food-delivery support
+        assistant that answers questions about refund policies. When a
+        customer asks whether a delayed order qualifies for a refund,
+        the system retrieves the relevant policy passages and uses them
+        to formulate an answer. This can be more reliable than asking a
+        model to answer from its general training alone.</p>
+        <p><strong>Common challenges:</strong></p>
+        <ul>
+          <li>
+            Poor chunking can separate important facts from their context.
+          </li>
+          <li>
+            Weak embeddings or retrieval settings can return irrelevant
+            documents.
+          </li>
+          <li>
+            A correct retrieval result does not guarantee a correct answer.
+          </li>
+          <li>
+            Outdated documents can lead to outdated answers.
+          </li>
+          <li>
+            Retrieved content may contain malicious instructions, so the
+            system must treat documents as evidence rather than automatically
+            trusted instructions.
+          </li>
+        </ul>
+        <p>
+          <strong>How I would evaluate it:</strong> I would test whether
+          the retriever returns relevant evidence, whether the generated
+          answer is supported by that evidence, whether it answers the
+          question completely and whether it appropriately abstains when
+          the necessary information is unavailable. I would also measure
+          latency, token usage and cost.
+        </p>
+      `,
+      "zomato-aiml-002": `
+        <p>
+          <strong>Word2Vec</strong> and <strong>BERT embeddings</strong>
+          both represent text numerically, but they differ significantly
+          in how they model meaning.
+        </p>
+        <p>
+          Word2Vec is a word-embedding approach that learns vector
+          representations from word co-occurrence patterns. Its common
+          training approaches are Continuous Bag of Words (CBOW) and
+          Skip-gram. After training, a word generally has one static
+          vector regardless of the sentence in which it appears.
+        </p>
+        <p>
+          BERT is a Transformer-based language model trained to learn
+          contextual representations. Its representations depend on the
+          surrounding text, allowing the same word to have different
+          representations in different contexts.
+        </p>
+        <p><strong>Example:</strong> Consider the word
+        <em>bank</em> in these sentences:</p>
+        <ul>
+          <li>"I deposited money at the bank."</li>
+          <li>"We sat beside the river bank."</li>
+        </ul>
+        <p>
+          A traditional Word2Vec embedding assigns the word
+          <em>bank</em> the same learned vector in both sentences.
+          A contextual BERT representation can reflect the financial
+          meaning in the first sentence and the river-related meaning
+          in the second.
+        </p>
+        <p><strong>Key differences:</strong></p>
+        <ul>
+          <li>
+            <strong>Context:</strong> Word2Vec normally provides static
+            word vectors; BERT produces context-dependent representations.
+          </li>
+          <li>
+            <strong>Architecture:</strong> Word2Vec learns from local
+            word-prediction objectives; BERT uses a bidirectional
+            Transformer encoder.
+          </li>
+          <li>
+            <strong>Tokenisation:</strong> Word2Vec usually represents
+            vocabulary words, while BERT commonly uses subword
+            tokenisation to handle uncommon words and word pieces.
+          </li>
+          <li>
+            <strong>Resources:</strong> Word2Vec is relatively lightweight.
+            BERT models usually require more memory and computation.
+          </li>
+          <li>
+            <strong>Use cases:</strong> Word2Vec can be useful for
+            lightweight similarity tasks and legacy pipelines. BERT-based
+            representations are useful for contextual classification,
+            semantic matching and many language-understanding tasks.
+          </li>
+        </ul>
+        <p>
+          <strong>Which would I choose?</strong> I would select the
+          representation based on the task, latency requirements, available
+          resources and evaluation results. For a context-sensitive task
+          such as understanding customer complaints, I would generally
+          evaluate a suitable contextual model. For a lightweight system
+          with strict resource limits, a static embedding might be worth
+          testing.
+        </p>
+        <p>
+          I would not assume that BERT is automatically better for every
+          application. I would compare both approaches on representative
+          data using task-specific metrics such as classification F1,
+          retrieval quality or semantic similarity performance.
+        </p>
+      `,
+      "zomato-aiml-003": `
+        <p>
+          Tokenisation converts text into smaller units called tokens.
+          Depending on the model, these units can be words, subwords,
+          characters or other token pieces. Tokenisation affects what
+          information a model receives and how it represents that
+          information internally.
+        </p>
+        <p><strong>Impact on sentiment analysis:</strong></p>
+        <p>
+          Sentiment models must identify words and phrases that express
+          positive, negative or neutral meaning. Poor handling of negation,
+          contractions, spelling variations, emojis or domain-specific
+          vocabulary can change the interpretation of a sentence.
+        </p>
+        <p>
+          For example, "The food was not good" expresses a different
+          sentiment from "The food was good." A system that handles
+          negation poorly might focus on the word "good" and miss the
+          negative meaning created by "not."
+        </p>
+        <p>
+          Customer reviews can also contain informal spellings, mixed
+          languages, abbreviations and emojis. A suitable tokenizer and
+          training dataset should represent these patterns reasonably well.
+        </p>
+        <p><strong>Impact on named entity recognition (NER):</strong></p>
+        <p>
+          NER identifies spans such as people, organisations, locations
+          and product names. A tokenizer may split a name into multiple
+          subword pieces. The model must still identify the correct entity
+          boundaries and map predictions back to the original text.
+        </p>
+        <p>
+          For example, a restaurant name that is rare or unfamiliar may
+          be split into several subword tokens. The model needs sufficient
+          contextual information to recognise that the pieces form one
+          organisation or location.
+        </p>
+        <p><strong>Important considerations:</strong></p>
+        <ul>
+          <li>
+            <strong>Subword fragmentation:</strong> Rare words can become
+            many pieces, increasing sequence length and sometimes making
+            entity boundaries harder to predict.
+          </li>
+          <li>
+            <strong>Negation and punctuation:</strong> Sentiment can depend
+            on how phrases and punctuation are represented.
+          </li>
+          <li>
+            <strong>Multilingual text:</strong> Mixed-language content
+            may be tokenised differently across scripts and languages.
+          </li>
+          <li>
+            <strong>Domain vocabulary:</strong> Restaurant names, slang
+            and product terms may be underrepresented in a general-purpose
+            tokenizer's training distribution.
+          </li>
+          <li>
+            <strong>Label alignment:</strong> In token-level NER training,
+            labels must be aligned correctly when a word becomes multiple
+            subword tokens.
+          </li>
+        </ul>
+        <p><strong>How I would investigate a problem:</strong></p>
+        <ol>
+          <li>Inspect the tokenizer output for representative examples.</li>
+          <li>Check whether important words are fragmented unexpectedly.</li>
+          <li>Review errors involving negation, unusual names and multilingual text.</li>
+          <li>Evaluate sentiment with appropriate classification metrics.</li>
+          <li>
+            Evaluate NER using entity-level precision, recall and F1,
+            including exact span matching where appropriate.
+          </li>
+          <li>
+            Compare alternative tokenizers or domain-adapted models
+            using the same evaluation dataset.
+          </li>
+        </ol>
+        <p>
+          <strong>Interview takeaway:</strong> Tokenisation is not merely
+          text preprocessing. It influences sequence length, information
+          representation, model behaviour and downstream evaluation.
+          The best choice depends on the language, domain, model architecture
+          and task.
+        </p>
+      `,
+      "zomato-aiml-004": `
+        <p>
+          Positional embeddings or positional representations help
+          Transformer models represent the order of tokens in a sequence.
+          This is important because self-attention, by itself, does not
+          inherently encode the sequential order of the input tokens.
+        </p>
+        <p>
+          Consider "The dog chased the cat" and "The cat chased the dog."
+          The same words appear in both sentences, but changing their
+          positions changes the meaning. A language model needs information
+          about token order to distinguish these sentences.
+        </p>
+        <p><strong>How positional information is added:</strong></p>
+        <p>
+          A common approach is to combine token embeddings with positional
+          embeddings before passing them into the Transformer layers.
+          Each token therefore carries information about both its identity
+          and its position.
+        </p>
+        <p>
+          Some Transformer architectures use learned absolute positional
+          embeddings. Others use sinusoidal encodings or relative-position
+          methods. Modern architectures may use rotary positional embeddings
+          (RoPE), which incorporate positional information into attention
+          calculations.
+        </p>
+        <p><strong>Why is it important?</strong></p>
+        <ul>
+          <li>
+            <strong>Word order:</strong> Helps distinguish sentences in
+            which the same words appear in different orders.
+          </li>
+          <li>
+            <strong>Syntax:</strong> Provides useful signals about
+            relationships between words.
+          </li>
+          <li>
+            <strong>Long-range relationships:</strong> Helps the model
+            reason about where tokens occur relative to one another.
+          </li>
+          <li>
+            <strong>Sequence tasks:</strong> Supports language understanding,
+            summarisation, translation and other tasks where order matters.
+          </li>
+        </ul>
+        <p>
+          <strong>Absolute versus relative position:</strong> Absolute
+          methods represent a token's position in a sequence. Relative
+          methods encode or use relationships between token positions.
+          Relative-position approaches can be useful when relationships
+          between tokens matter more than a token's absolute index.
+        </p>
+        <p>
+          <strong>What about long contexts?</strong> A model's positional
+          method and training setup can affect how well it handles sequences
+          longer than those seen during training. Extending the context
+          window may require specific training, scaling or configuration
+          techniques; simply increasing a sequence-length setting does not
+          guarantee reliable performance.
+        </p>
+        <p>
+          <strong>How I would test it:</strong> I would use examples where
+          word order changes the answer, examine performance at different
+          sequence lengths, and test whether the model correctly uses
+          information near the beginning and end of long inputs.
+        </p>
+      `,
+      "zomato-aiml-005": `
+        <p>
+          Model quantization reduces the numerical precision used to
+          represent model weights and, in some approaches, activations.
+          For example, a model may use 16-bit floating-point weights
+          instead of 32-bit floating-point weights, or use 8-bit or
+          4-bit representations where supported.
+        </p>
+        <p>
+          The main goals are to reduce memory requirements and potentially
+          improve inference speed and deployment efficiency.
+        </p>
+        <p><strong>Why quantization is useful:</strong></p>
+        <ul>
+          <li>
+            <strong>Lower memory use:</strong> Smaller representations
+            can allow a model to fit on hardware with less memory.
+          </li>
+          <li>
+            <strong>Deployment efficiency:</strong> Quantized models may
+            run on more affordable or resource-constrained hardware.
+          </li>
+          <li>
+            <strong>Potentially faster inference:</strong> Speed can improve
+            when the hardware and software efficiently support the selected
+            quantization format.
+          </li>
+          <li>
+            <strong>Lower operating cost:</strong> Better hardware
+            utilisation may reduce the cost of serving some workloads.
+          </li>
+        </ul>
+        <p><strong>Common quantization approaches:</strong></p>
+        <ul>
+          <li>
+            <strong>Post-training quantization (PTQ):</strong> Quantize
+            a trained model without conducting a full additional training
+            process. Some methods use calibration data to estimate
+            activation ranges.
+          </li>
+          <li>
+            <strong>Quantization-aware training (QAT):</strong> Simulate
+            quantization effects during training so the model can adapt
+            to the reduced precision.
+          </li>
+          <li>
+            <strong>Weight-only quantization:</strong> Reduce weight
+            precision while retaining higher precision for other
+            computations, depending on the implementation.
+          </li>
+        </ul>
+        <p><strong>What are the trade-offs?</strong></p>
+        <p>
+          Quantization introduces approximation error. Depending on the
+          model, precision, data and implementation, it may reduce accuracy,
+          change generation quality or affect difficult reasoning tasks.
+          Lower bit precision is not guaranteed to produce faster inference
+          on every device.
+        </p>
+        <p>
+          <strong>Example:</strong> Suppose a language model is too large
+          to fit comfortably on the available inference hardware. I could
+          test an appropriate 8-bit or 4-bit version and compare it with
+          the original model. I would measure memory consumption, latency,
+          throughput and task quality before selecting a deployment option.
+        </p>
+        <p><strong>My evaluation process would be:</strong></p>
+        <ol>
+          <li>Record baseline quality and inference performance.</li>
+          <li>Quantize the model using a supported method.</li>
+          <li>Run the same representative evaluation dataset on both models.</li>
+          <li>
+            Compare task accuracy, factuality, instruction-following
+            and other relevant quality measures.
+          </li>
+          <li>
+            Measure peak memory use, latency and throughput under realistic
+            workload conditions.
+          </li>
+          <li>
+            Choose the quantization configuration that meets the required
+            quality and performance thresholds.
+          </li>
+        </ol>
+        <p>
+          <strong>Interview takeaway:</strong> Quantization is a practical
+          optimisation technique, but the decision should be based on
+          measured quality and deployment performance rather than model
+          size alone.
+        </p>
+      `,
+      "zomato-aiml-006": `
+        <p>
+          I would improve an existing Agentic AI pipeline systematically
+          rather than immediately changing the language model. An agentic
+          system may plan tasks, call tools, observe results and take
+          additional actions. Failures can occur in any of these stages.
+        </p>
+        <p><strong>Step 1: Establish a baseline.</strong></p>
+        <p>
+          I would collect representative tasks and measure end-to-end
+          success rate, factuality, tool-call accuracy, task completion,
+          latency, token usage, cost and failure rate. I would also record
+          common failure categories, such as incorrect planning, invalid
+          tool arguments, repeated actions or incomplete responses.
+        </p>
+        <p><strong>Step 2: Inspect the pipeline architecture.</strong></p>
+        <p>
+          I would trace how the system receives the user request, creates
+          a plan, selects a tool, validates its arguments, executes the
+          action, processes the result and decides whether another step
+          is necessary. Structured logs and traces make it easier to
+          locate the stage responsible for a failure.
+        </p>
+        <p><strong>Step 3: Improve tool selection and execution.</strong></p>
+        <ul>
+          <li>
+            Provide clear tool descriptions and explicit input schemas.
+          </li>
+          <li>
+            Validate tool arguments before execution.
+          </li>
+          <li>
+            Return structured tool results and meaningful error messages.
+          </li>
+          <li>
+            Add timeouts, bounded retries and appropriate error handling.
+          </li>
+          <li>
+            Use idempotency controls for actions that should not be
+            accidentally repeated.
+          </li>
+        </ul>
+        <p><strong>Step 4: Improve planning and control flow.</strong></p>
+        <p>
+          I would break complicated tasks into manageable steps and define
+          clear completion conditions. I would prevent unbounded loops by
+          using maximum step limits, execution budgets and stopping rules.
+          For simple tasks, I would prefer a direct workflow over an
+          unnecessary multi-step agent.
+        </p>
+        <p><strong>Step 5: Strengthen context and memory.</strong></p>
+        <p>
+          I would ensure that the agent receives relevant prior actions,
+          tool outputs and task constraints without overwhelming the
+          context window. If memory or retrieval is used, I would evaluate
+          whether the retrieved information is relevant and current.
+          Sensitive information should be handled according to appropriate
+          access and retention rules.
+        </p>
+        <p><strong>Step 6: Add safety and permissions.</strong></p>
+        <p>
+          Tools should have only the permissions they need. Read-only
+          operations should be preferred where possible. High-impact
+          actions, such as deleting data, transferring money or sending
+          external communications, may require human confirmation.
+          Tool outputs and retrieved documents should be treated as
+          untrusted input because they can contain misleading instructions.
+        </p>
+        <p><strong>Step 7: Evaluate every change.</strong></p>
+        <p>
+          I would create a regression dataset containing successful cases,
+          edge cases, ambiguous requests, tool failures and adversarial
+          inputs. Each change would be tested against the same dataset
+          so that improvements in one area do not silently damage another.
+        </p>
+        <p>
+          Depending on the pipeline, I would measure task success rate,
+          tool-selection accuracy, argument validity, number of steps,
+          unnecessary tool calls, factuality, latency, cost and safety
+          violations. I would use human review for failures that automated
+          metrics cannot reliably judge.
+        </p>
+        <p><strong>Step 8: Optimise cost and latency.</strong></p>
+        <p>
+          I would consider caching stable results, using smaller models
+          for simpler subtasks, parallelising independent operations and
+          eliminating unnecessary agent loops. I would only make these
+          changes after measuring their effects on output quality.
+        </p>
+        <p><strong>Example:</strong> Imagine an agent that searches a
+        knowledge base, calls an API and generates a final report.
+        If it repeatedly calls the API because it fails to recognise
+        a successful response, I would inspect its state transitions,
+        define an explicit success condition and add a limit on repeated
+        calls. I would then test whether task completion improves while
+        latency and cost decrease.</p>
+        <p>
+          <strong>Final approach:</strong> Measure the baseline, identify
+          the biggest failure source, make a targeted change, run regression
+          tests and compare the results. The best pipeline is not necessarily
+          the one with the most sophisticated agent; it is the one that
+          completes tasks reliably, safely and efficiently.
+        </p>
+      `
+    };
+    function escapeHTML(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+    function normalize(value) {
+      return String(value ?? "")
+        .trim()
+        .toLowerCase();
+    }
+    function getSource(item) {
+      const sourceType = normalize(item.source_type);
+      if (
+        item.verified === true ||
+        sourceType.includes("verified")
+      ) {
+        return {
+          label: "Verified source",
+          className: "verified"
+        };
+      }
+      if (
+        sourceType.includes("candidate") ||
+        sourceType.includes("reported")
+      ) {
+        return {
+          label: "Candidate-reported",
+          className: "candidate-reported"
+        };
+      }
+      return {
+        label: "Practice question",
+        className: "practice"
+      };
+    }
+    function getAnswer(item) {
+      /*
+       * Prefer the answer saved in interview.json.
+       * Use the detailed preparation answer for the six known Zomato
+       * records when the JSON does not contain an answer.
+       */
+      if (
+        typeof item.answer === "string" &&
+        item.answer.trim()
+      ) {
+        return item.answer;
+      }
+      if (
+        item.id &&
+        DETAILED_ANSWERS[item.id]
+      ) {
+        return DETAILED_ANSWERS[item.id];
+      }
+      return `
+        <p>
+          A detailed answer has not been added to this question yet.
+          Review the question's core concepts, explain your reasoning,
+          provide a practical example and discuss the relevant trade-offs.
+        </p>
+      `;
+    }
+    /*
+     * Answer content from the JSON is rendered as text for safety.
+     * The built-in preparation answers above contain trusted HTML markup.
+     */
+    function renderAnswer(item) {
+      if (
+        typeof item.answer === "string" &&
+        item.answer.trim()
+      ) {
+        return `
+          <div class="answer-content">
+            <p>${escapeHTML(item.answer).replace(/\n/g, "<br>")}</p>
+          </div>
+        `;
+      }
+      if (
+        item.id &&
+        DETAILED_ANSWERS[item.id]
+      ) {
+        return `
+          <div class="answer-content">
+            ${DETAILED_ANSWERS[item.id]}
+          </div>
+        `;
+      }
+      return `
+        <div class="answer-content">
+          ${getAnswer(item)}
+        </div>
+      `;
+    }
+    function getQuestionTopic(item) {
+      if (item.topic) {
+        return item.topic;
+      }
+      const question = normalize(item.question);
+      if (question.includes("rag") || question.includes("langchain")) {
+        return "RAG and LangChain";
+      }
+      if (question.includes("bert") || question.includes("word2vec")) {
+        return "Text embeddings";
+      }
+      if (question.includes("tokenization") || question.includes("tokenisation")) {
+        return "Tokenisation";
+      }
+      if (question.includes("positional")) {
+        return "Transformers";
+      }
+      if (question.includes("quantization") || question.includes("quantisation")) {
+        return "Model optimisation";
+      }
+      if (question.includes("agentic")) {
+        return "Agentic AI";
+      }
+      return "Technical interview";
+    }
+    function updateRoleCounts() {
+      ROLES.forEach((role) => {
+        const element = document.querySelector(
+          `[data-role-count="${role}"]`
+        );
+        if (!element) {
+          return;
+        }
+        const count = questions.filter(
+          (item) => normalize(item.role) === normalize(role)
+        ).length;
+        element.textContent =
+          `${count} question${count === 1 ? "" : "s"}`;
       });
-    });
-  });
-}
-
-function renderQuestions() {
-  const search = normalize(questionSearch.value);
-  const selectedRole = roleFilter.value;
-  const selectedCompany = companyFilter.value;
-
-  const filtered = questions
-    .filter(question => {
-      const matchesSearch =
-        !search || getSearchText(question).includes(search);
-
-      const matchesRole =
-        !selectedRole ||
-        normalize(question.role) === normalize(selectedRole);
-
-      const matchesCompany =
-        !selectedCompany ||
-        normalize(question.company) === normalize(selectedCompany);
-
-      return matchesSearch && matchesRole && matchesCompany;
-    })
-    .sort((a, b) => {
-      const dateA = new Date(a.date_added || 0).getTime() || 0;
-      const dateB = new Date(b.date_added || 0).getTime() || 0;
-
-      return dateB - dateA;
-    });
-
-  if (!questions.length) {
-    resultsCount.textContent = "0 questions";
-
-    questionList.innerHTML = `
-      <div class="interview-empty">
-        <strong>No interview questions published yet.</strong>
-        New questions will appear here as they are collected and added to the JSON file.
-      </div>
-    `;
-    return;
-  }
-
-  resultsCount.textContent =
-    `Showing ${filtered.length} of ${questions.length} questions`;
-
-  if (!filtered.length) {
-    questionList.innerHTML = `
-      <div class="interview-empty">
-        <strong>No matching questions.</strong>
-        Try a different search or change your filters.
-      </div>
-    `;
-    return;
-  }
-
-  questionList.innerHTML = filtered.map(question => {
-    const source = getSource(question);
-    const role = String(question.role ?? "").trim();
-    const company = String(question.company ?? "").trim();
-    const topic = String(question.topic ?? "").trim();
-    const difficulty = String(question.difficulty ?? "").trim();
-    const date = formatDate(question.date_added);
-    const sourceURL = safeURL(question.source_url);
-    const tags = Array.isArray(question.tags) ? question.tags : [];
-
-    return `
-      <details class="interview-question">
-        <summary>
-          <div class="interview-question-labels">
-            ${role ? `<span class="interview-label">${escapeHTML(role)}</span>` : ""}
-            ${company ? `<span class="interview-label">${escapeHTML(company)}</span>` : ""}
-            <span class="interview-label ${source.className}">${source.label}</span>
+    }
+    function updateCompanies() {
+      const previousSelection = companyFilter.value;
+      const companies = [
+        ...new Set(
+          questions
+            .map((item) => String(item.company || "").trim())
+            .filter(Boolean)
+        )
+      ].sort((a, b) => a.localeCompare(b));
+      companyFilter.innerHTML = `
+        <option value="">All companies</option>
+        ${companies.map((company) => `
+          <option value="${escapeHTML(company)}">
+            ${escapeHTML(company)}
+          </option>
+        `).join("")}
+      `;
+      if (companies.includes(previousSelection)) {
+        companyFilter.value = previousSelection;
+      }
+      if (!companies.length) {
+        companyList.innerHTML = `
+          <p class="empty-state">
+            No companies are currently listed.
+          </p>
+        `;
+        return;
+      }
+      companyList.innerHTML = companies.map((company) => `
+        <button
+          class="company-chip"
+          type="button"
+          data-company="${escapeHTML(company)}"
+        >
+          ${escapeHTML(company)}
+        </button>
+      `).join("");
+    }
+    /*
+     * Group all questions from the same company, role and interview date.
+     * This presents the six Zomato questions as one interview experience.
+     */
+    function getInterviewGroups(items) {
+      const groups = new Map();
+      items.forEach((item) => {
+        const company = normalize(item.company) || "unspecified-company";
+        const role = normalize(item.role) || "unspecified-role";
+        const date = String(item.date_added || "").trim();
+        const key = [
+          company,
+          role,
+          date
+        ].join("::");
+        if (!groups.has(key)) {
+          groups.set(key, []);
+        }
+        groups.get(key).push(item);
+      });
+      return [...groups.values()];
+    }
+    function renderQuestion(item, index) {
+      const question = escapeHTML(
+        item.question || "Question text unavailable."
+      );
+      const topic = escapeHTML(getQuestionTopic(item));
+      return `
+        <section class="interview-question">
+          <div class="question-topline">
+            <span class="question-number">
+              Question ${index + 1}
+            </span>
+            <span class="question-topic">
+              ${topic}
+            </span>
           </div>
-
-          <div class="interview-question-title-row">
-            <h3>${escapeHTML(question.question || "Untitled question")}</h3>
-            <span class="interview-question-arrow" aria-hidden="true">⌄</span>
-          </div>
-
-          <div class="interview-question-meta">
-            ${topic ? `<span>Topic: ${escapeHTML(topic)}</span>` : ""}
-            ${difficulty ? `<span>Difficulty: ${escapeHTML(difficulty)}</span>` : ""}
-            ${date ? `<span>Added ${escapeHTML(date)}</span>` : ""}
-          </div>
-        </summary>
-
-        <div class="interview-answer">
-          <h4 class="interview-answer-heading">Answer</h4>
-
-          ${question.answer
-            ? answerHTML(question.answer)
-            : "<p>Answer not added yet.</p>"}
-
-          ${tags.length ? `
-            <div class="interview-question-meta">
-              ${tags.map(tag => `<span>#${escapeHTML(tag)}</span>`).join("")}
-            </div>
-          ` : ""}
-
-          ${sourceURL ? `
+          <h3 class="question-title">
+            ${question}
+          </h3>
+          <p class="answer-label">
+            Detailed preparation answer
+          </p>
+          ${renderAnswer(item)}
+        </section>
+      `;
+    }
+    function renderInterviewGroup(items) {
+      const first = items[0];
+      const source = getSource(first);
+      const company = String(
+        first.company || "Company not specified"
+      );
+      const role = String(
+        first.role || "Role not specified"
+      );
+      const date = String(first.date_added || "").trim();
+      const sourceTypes = items.map(getSource);
+      const allSameSource = sourceTypes.every(
+        (entry) => entry.label === source.label
+      );
+      const groupSource = allSameSource
+        ? source
+        : {
+            label: "Mixed sources",
+            className: "practice"
+          };
+      const questionsHTML = items
+        .map((item, index) => renderQuestion(item, index))
+        .join("");
+      const sourceURL = String(first.source_url || "").trim();
+      const safeSourceLink = /^https?:\/\//i.test(sourceURL)
+        ? `
+          <div class="interview-source">
             <a
-              class="interview-source-link"
               href="${escapeHTML(sourceURL)}"
               target="_blank"
               rel="noopener noreferrer"
-            >View question source ↗</a>
-          ` : ""}
+            >
+              View original source ↗
+            </a>
+          </div>
+        `
+        : "";
+      return `
+        <article class="interview-experience">
+          <header class="interview-header">
+            <div>
+              <span class="eyebrow">Complete interview experience</span>
+              <h2 class="interview-company">
+                ${escapeHTML(company)}
+              </h2>
+              <p class="interview-role-name">
+                ${escapeHTML(role)}
+              </p>
+              <p class="interview-meta">
+                ${items.length} question${items.length === 1 ? "" : "s"}
+                ${date ? ` · Added ${escapeHTML(date)}` : ""}
+              </p>
+            </div>
+            <span class="source-badge ${groupSource.className}">
+              ${escapeHTML(groupSource.label)}
+            </span>
+          </header>
+          <div class="interview-disclaimer">
+            <strong>About this experience:</strong>
+            The questions below are grouped into one interview experience
+            based on the available data. Candidate-reported means the
+            questions were reported as interview questions; it does not
+            mean EvalLoop Jobs has independently verified them with the
+            company. The detailed answers are educational preparation
+            answers, not official company answers.
+          </div>
+          <div class="interview-content">
+            ${questionsHTML}
+            ${safeSourceLink}
+          </div>
+        </article>
+      `;
+    }
+    function renderQuestions() {
+      const searchTerm = normalize(searchInput.value);
+      const selectedRole = roleFilter.value || activeRole;
+      const selectedCompany = companyFilter.value;
+      const filteredQuestions = questions.filter((item) => {
+        const searchableText = normalize([
+          item.company,
+          item.role,
+          item.question,
+          item.answer,
+          item.topic,
+          item.source_type,
+          item.id
+        ].filter(Boolean).join(" "));
+        const matchesSearch =
+          !searchTerm || searchableText.includes(searchTerm);
+        const matchesRole =
+          !selectedRole ||
+          normalize(item.role) === normalize(selectedRole);
+        const matchesCompany =
+          !selectedCompany ||
+          normalize(item.company) === normalize(selectedCompany);
+        return (
+          matchesSearch &&
+          matchesRole &&
+          matchesCompany
+        );
+      });
+      const groups = getInterviewGroups(filteredQuestions);
+      resultsCount.innerHTML = `
+        <strong>${groups.length}</strong>
+        interview experience${groups.length === 1 ? "" : "s"}
+        ·
+        <strong>${filteredQuestions.length}</strong>
+        question${filteredQuestions.length === 1 ? "" : "s"}
+      `;
+      if (!filteredQuestions.length) {
+        questionList.innerHTML = `
+          <div class="empty-state">
+            <h3>No matching interview experiences</h3>
+            <p>
+              Try another search term or clear the role and company filters.
+            </p>
+          </div>
+        `;
+        return;
+      }
+      questionList.innerHTML = groups
+        .map((group) => renderInterviewGroup(group))
+        .join("");
+    }
+    async function loadQuestions() {
+      questionList.innerHTML = `
+        <div class="loading-state">
+          Loading interview experiences...
         </div>
-      </details>
-    `;
-  }).join("");
-}
-
-async function loadQuestions() {
-  try {
-    const response = await fetch(DATA_URL, {
-      cache: "no-store"
-    });
-
-    if (!response.ok) {
-      throw new Error(
-        `Could not load interview.json (HTTP ${response.status}).`
-      );
-    }
-
-    const data = await response.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error(
-        "interview.json must contain a JSON array."
-      );
-    }
-
-    console.log("Interview JSON records received:", data.length);
-
-    const invalidQuestions = data.filter(question =>
-      !question ||
-      typeof question !== "object" ||
-      typeof question.question !== "string" ||
-      !ROLES.includes(String(question.role || "").trim())
-    );
-
-    if (invalidQuestions.length) {
-      console.warn(
-        "Some interview records were skipped because their question or role is invalid:",
-        invalidQuestions
-      );
-    }
-
-    questions = data.filter(question =>
-      question &&
-      typeof question === "object" &&
-      typeof question.question === "string" &&
-      ROLES.includes(String(question.role || "").trim())
-    );
-
-    console.log("Interview questions accepted:", questions.length);
-
-    updateRoleCounts();
-    updateCompanies();
-
-    const params = new URLSearchParams(window.location.search);
-    const requestedRole = params.get("role");
-    const requestedCompany = params.get("company");
-
-    if (requestedRole && ROLES.includes(requestedRole)) {
-      roleFilter.value = requestedRole;
-    }
-
-    if (requestedCompany) {
-      const matchingCompany = [...companyFilter.options].find(option =>
-        normalize(option.value) === normalize(requestedCompany)
-      );
-
-      if (matchingCompany) {
-        companyFilter.value = matchingCompany.value;
+      `;
+      try {
+        const response = await fetch(DATA_URL, {
+          cache: "no-store"
+        });
+        if (!response.ok) {
+          throw new Error(
+            `Could not load interview.json. HTTP ${response.status}`
+          );
+        }
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          throw new Error(
+            "interview.json must contain a JSON array."
+          );
+        }
+        questions = data.filter((item) => {
+          return (
+            item &&
+            typeof item.question === "string" &&
+            item.question.trim() &&
+            typeof item.role === "string" &&
+            ROLES.some(
+              (role) => normalize(role) === normalize(item.role)
+            )
+          );
+        });
+        console.info(
+          "Interview JSON records received:",
+          data.length
+        );
+        console.info(
+          "Interview questions accepted:",
+          questions.length
+        );
+        updateRoleCounts();
+        updateCompanies();
+        renderQuestions();
+      } catch (error) {
+        console.error("Interview page loading error:", error);
+        resultsCount.textContent =
+          "Unable to load interview experiences.";
+        questionList.innerHTML = `
+          <div class="error-state">
+            <h3>Interview experiences could not be loaded</h3>
+            <p>
+              Check that interview.json exists in the same published
+              directory as this page and contains a valid JSON array.
+            </p>
+            <p>
+              <strong>Error:</strong>
+              ${escapeHTML(error.message)}
+            </p>
+          </div>
+        `;
+        companyList.innerHTML = "";
       }
     }
-
-    renderQuestions();
-
-    if (requestedRole || requestedCompany) {
-      document.getElementById("questions").scrollIntoView({
+    // Search questions, topics and answers.
+    searchInput.addEventListener("input", renderQuestions);
+    // Filter by role.
+    roleFilter.addEventListener("change", () => {
+      activeRole = "";
+      document.querySelectorAll(".role-card").forEach((card) => {
+        card.classList.remove("active");
+      });
+      renderQuestions();
+    });
+    // Filter by company.
+    companyFilter.addEventListener("change", renderQuestions);
+    // Role cards apply the corresponding role filter.
+    document.querySelectorAll(".role-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const role = card.dataset.role || "";
+        activeRole = roleFilter.value === role ? "" : role;
+        roleFilter.value = activeRole;
+        document.querySelectorAll(".role-card").forEach((otherCard) => {
+          otherCard.classList.toggle(
+            "active",
+            Boolean(activeRole) &&
+              otherCard.dataset.role === activeRole
+          );
+        });
+        renderQuestions();
+        document.getElementById("experiences").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+    // Company chips filter the interview list.
+    companyList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-company]");
+      if (!button) {
+        return;
+      }
+      companyFilter.value = button.dataset.company || "";
+      renderQuestions();
+      document.getElementById("experiences").scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-    }
-
-  } catch (error) {
-    console.error("Interview Prep loading error:", error);
-
-    resultsCount.textContent = "Unable to load interview questions.";
-
-    questionList.innerHTML = `
-      <div class="interview-empty">
-        <strong>Questions could not be loaded.</strong>
-        <p>${escapeHTML(error.message)}</p>
-        <p>Check that interview.json exists beside this HTML file and contains valid JSON.</p>
-      </div>
-    `;
-
-    updateRoleCounts();
-
-    companyList.innerHTML = `
-      <div class="interview-empty">
-        Company information is temporarily unavailable.
-      </div>
-    `;
-  }
-}
-
-questionSearch.addEventListener("input", renderQuestions);
-roleFilter.addEventListener("change", renderQuestions);
-companyFilter.addEventListener("change", renderQuestions);
-
-document.querySelectorAll("[data-role]").forEach(card => {
-  card.addEventListener("click", () => {
-    roleFilter.value = card.dataset.role;
-
-    document.querySelectorAll("[data-role]").forEach(item => {
-      item.classList.toggle("active", item === card);
     });
-
-    renderQuestions();
-  });
-});
-
-loadQuestions();
-
-})();
-</script>
-
-<script src="chatbot.js"></script>
-
-<script>
-const dot = document.querySelector(".cursor-dot");
-const ring = document.querySelector(".cursor-ring");
-
-if (dot && ring) {
-  let mx = innerWidth / 2;
-  let my = innerHeight / 2;
-
-  let rx = mx;
-  let ry = my;
-
-  addEventListener("pointermove", event => {
-    mx = event.clientX;
-    my = event.clientY;
-
-    dot.style.left = mx + "px";
-    dot.style.top = my + "px";
-  });
-
-  (function tick() {
-    rx += (mx - rx) * .16;
-    ry += (my - ry) * .16;
-
-    ring.style.left = rx + "px";
-    ring.style.top = ry + "px";
-
-    requestAnimationFrame(tick);
-  })();
-
-  document.querySelectorAll("a,button,input,textarea,select").forEach(element => {
-    element.onmouseenter = () => {
-      ring.classList.add("active");
-      dot.classList.add("hot");
-    };
-
-    element.onmouseleave = () => {
-      ring.classList.remove("active");
-      dot.classList.remove("hot");
-    };
-  });
-}
-</script>
-
+    // Load the JSON data when the page opens.
+    loadQuestions();
+  </script>
 </body>
 </html>
