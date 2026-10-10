@@ -3,34 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Zomato AI/ML Engineer Interview Questions | EvalLoop Jobs</title>
-
   <meta
     name="description"
     content="Prepare for Zomato AI/ML Engineer interviews with questions covering RAG, LangChain, BERT, Word2Vec, tokenization, RoPE, quantization, and Agentic AI."
   >
-
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0b1224">
-
   <link
     rel="canonical"
     href="https://annotatorjobs.vercel.app/interviews/zomato-ai-ml.html"
   >
-
   <link rel="icon" href="../favicon.png?v=2">
   <link rel="stylesheet" href="../pages.css">
   <link rel="stylesheet" href="../chatbot.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   >
-
   <style>
     :root {
       --interview-bg: #0b1224;
@@ -39,34 +31,29 @@
       --interview-border: rgba(148, 163, 184, 0.18);
       --interview-text: #f3f6ff;
       --interview-muted: #a6b3ca;
-      --interview-blue: #4da3ff;
-      --interview-blue-soft: rgba(77, 163, 255, 0.11);
+      --interview-blue: #4db3ff;
+      --interview-blue-soft: rgba(77, 179, 255, 0.11);
       --interview-green: #65dfb2;
     }
-
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 100px;
     }
-
     body {
       margin: 0;
       background: var(--interview-bg);
       color: var(--interview-text);
       font-family: "DM Sans", sans-serif;
     }
-
     .interview-page,
     .interview-page * {
       box-sizing: border-box;
     }
-
     .interview-page {
       width: min(100% - 40px, 1000px);
       margin: 0 auto;
       padding: 24px 0 80px;
     }
-
     .interview-breadcrumb {
       display: flex;
       align-items: center;
@@ -76,21 +63,17 @@
       color: var(--interview-muted);
       font-size: 13px;
     }
-
     .interview-breadcrumb a {
       color: var(--interview-muted);
       text-decoration: none;
       transition: color 0.2s ease;
     }
-
     .interview-breadcrumb a:hover {
       color: var(--interview-blue);
     }
-
     .breadcrumb-separator {
       opacity: 0.55;
     }
-
     .interview-hero {
       position: relative;
       overflow: hidden;
@@ -105,7 +88,6 @@
         ),
         linear-gradient(145deg, #101b32 0%, #0e172a 100%);
     }
-
     .interview-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -117,7 +99,6 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
     }
-
     .interview-eyebrow::before {
       width: 7px;
       height: 7px;
@@ -125,7 +106,6 @@
       background: var(--interview-blue);
       content: "";
     }
-
     .interview-hero h1 {
       max-width: 760px;
       margin: 0;
@@ -135,11 +115,9 @@
       letter-spacing: -1.8px;
       line-height: 1.12;
     }
-
     .interview-hero h1 span {
       color: var(--interview-blue);
     }
-
     .interview-intro {
       max-width: 760px;
       margin: 16px 0 0;
@@ -147,7 +125,6 @@
       font-size: 16px;
       line-height: 1.8;
     }
-
     .interview-company {
       display: flex;
       align-items: center;
@@ -156,7 +133,6 @@
       padding-top: 24px;
       border-top: 1px solid var(--interview-border);
     }
-
     .company-logo-wrap {
       display: grid;
       width: 62px;
@@ -168,7 +144,6 @@
       border-radius: 16px;
       background: #ffffff;
     }
-
     .company-logo {
       display: block;
       width: 100%;
@@ -176,7 +151,6 @@
       padding: 7px;
       object-fit: contain;
     }
-
     .company-logo-fallback {
       display: none;
       color: #e23744;
@@ -184,7 +158,6 @@
       font-size: 25px;
       font-weight: 700;
     }
-
     .company-heading {
       margin: 0 0 5px;
       color: var(--interview-muted);
@@ -193,66 +166,49 @@
       letter-spacing: 0.8px;
       text-transform: uppercase;
     }
-
     .company-name {
       margin: 0;
       font-family: "Space Grotesk", sans-serif;
       font-size: 22px;
       font-weight: 700;
     }
-
     .interview-meta {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 22px;
     }
-
     .meta-card {
       padding: 16px 18px;
       border: 1px solid var(--interview-border);
       border-radius: 13px;
       background: rgba(10, 18, 36, 0.5);
     }
-
     .meta-label {
       display: block;
       margin-bottom: 7px;
       color: var(--interview-muted);
       font-size: 12px;
     }
-
     .meta-value {
       color: var(--interview-text);
       font-size: 15px;
       font-weight: 700;
       line-height: 1.5;
     }
-
     .interview-disclaimer {
       margin-top: 18px;
       padding: 16px 18px;
-      border: 1px solid rgba(77, 163, 255, 0.25);
+      border: 1px solid rgba(77, 179, 255, 0.25);
       border-radius: 13px;
       background: var(--interview-blue-soft);
       color: #c4d2e7;
       font-size: 13px;
       line-height: 1.8;
     }
-
     .interview-disclaimer strong {
       color: var(--interview-text);
     }
-
-    .interview-disclaimer a {
-      color: var(--interview-blue);
-      text-decoration: none;
-    }
-
-    .interview-disclaimer a:hover {
-      text-decoration: underline;
-    }
-
     .interview-layout {
       display: grid;
       grid-template-columns: 235px minmax(0, 1fr);
@@ -260,7 +216,6 @@
       gap: 24px;
       margin-top: 30px;
     }
-
     .interview-sidebar {
       position: sticky;
       top: 100px;
@@ -269,13 +224,11 @@
       border-radius: 16px;
       background: var(--interview-panel);
     }
-
     .interview-sidebar h2 {
       margin: 0 0 15px;
       font-family: "Space Grotesk", sans-serif;
       font-size: 16px;
     }
-
     .toc-list {
       display: grid;
       gap: 6px;
@@ -283,7 +236,6 @@
       padding: 0;
       list-style: none;
     }
-
     .toc-list a {
       display: block;
       padding: 10px 11px;
@@ -292,27 +244,21 @@
       font-size: 13px;
       line-height: 1.5;
       text-decoration: none;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
     }
-
     .toc-list a:hover {
       background: var(--interview-blue-soft);
       color: var(--interview-blue);
     }
-
     .toc-number {
       display: inline-block;
       min-width: 22px;
       color: var(--interview-blue);
       font-weight: 700;
     }
-
     .question-content {
       min-width: 0;
     }
-
     .section-heading {
       margin: 0 0 10px;
       font-family: "Space Grotesk", sans-serif;
@@ -320,14 +266,12 @@
       font-weight: 700;
       letter-spacing: -0.6px;
     }
-
     .section-description {
       margin: 0 0 22px;
       color: var(--interview-muted);
       font-size: 14px;
       line-height: 1.8;
     }
-
     .question-card {
       scroll-margin-top: 100px;
       margin-bottom: 20px;
@@ -336,7 +280,6 @@
       border-radius: 17px;
       background: var(--interview-panel);
     }
-
     .question-number {
       display: inline-flex;
       align-items: center;
@@ -345,7 +288,7 @@
       height: 35px;
       margin-bottom: 14px;
       padding: 0 10px;
-      border: 1px solid rgba(77, 163, 255, 0.25);
+      border: 1px solid rgba(77, 179, 255, 0.25);
       border-radius: 10px;
       background: var(--interview-blue-soft);
       color: var(--interview-blue);
@@ -353,7 +296,6 @@
       font-size: 13px;
       font-weight: 700;
     }
-
     .question-card h3 {
       margin: 0 0 14px;
       color: var(--interview-text);
@@ -363,14 +305,12 @@
       letter-spacing: -0.5px;
       line-height: 1.4;
     }
-
     .question-card p {
       margin: 0 0 14px;
       color: #c0ccdf;
       font-size: 14px;
       line-height: 1.85;
     }
-
     .question-card h4 {
       margin: 23px 0 10px;
       color: var(--interview-text);
@@ -378,7 +318,6 @@
       font-size: 16px;
       font-weight: 700;
     }
-
     .question-card ul,
     .question-card ol {
       display: grid;
@@ -389,11 +328,9 @@
       font-size: 14px;
       line-height: 1.8;
     }
-
     .question-card li::marker {
       color: var(--interview-blue);
     }
-
     .concept-box {
       margin-top: 17px;
       padding: 16px 18px;
@@ -401,20 +338,17 @@
       border-radius: 0 10px 10px 0;
       background: var(--interview-blue-soft);
     }
-
     .concept-box strong {
       display: block;
       margin-bottom: 6px;
       color: var(--interview-blue);
       font-size: 13px;
     }
-
     .concept-box p {
       margin: 0;
       color: #d1dced;
       font-size: 13px;
     }
-
     .code-example {
       overflow-x: auto;
       margin: 14px 0 18px;
@@ -429,21 +363,18 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
-
     .comparison-table-wrap {
       overflow-x: auto;
       margin: 14px 0 18px;
       border: 1px solid var(--interview-border);
       border-radius: 10px;
     }
-
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
       line-height: 1.7;
     }
-
     .comparison-table th,
     .comparison-table td {
       padding: 12px;
@@ -451,20 +382,16 @@
       text-align: left;
       vertical-align: top;
     }
-
     .comparison-table th {
       background: var(--interview-panel-soft);
       color: var(--interview-text);
     }
-
     .comparison-table td {
       color: #c0ccdf;
     }
-
     .comparison-table tr:last-child td {
       border-bottom: 0;
     }
-
     .preparation-box {
       margin-top: 30px;
       padding: 25px;
@@ -472,30 +399,25 @@
       border-radius: 17px;
       background: rgba(101, 223, 178, 0.055);
     }
-
     .preparation-box h2 {
       margin: 0 0 12px;
       font-family: "Space Grotesk", sans-serif;
       font-size: 22px;
     }
-
     .preparation-box p,
     .preparation-box li {
       color: #c0ccdf;
       font-size: 14px;
       line-height: 1.8;
     }
-
     .preparation-box ul {
       display: grid;
       gap: 8px;
       padding-left: 21px;
     }
-
     .preparation-box li::marker {
       color: var(--interview-green);
     }
-
     .interview-back {
       display: inline-flex;
       align-items: center;
@@ -506,85 +428,124 @@
       font-weight: 700;
       text-decoration: none;
     }
-
     .interview-back:hover {
       text-decoration: underline;
     }
-
+    /* =========================================
+       EvalLoop Jobs — Iconic Custom Cursor
+    ========================================= */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none !important;
+      z-index: 999999;
+      opacity: 0;
+      visibility: hidden;
+      will-change: transform;
+      transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        width 0.2s ease,
+        height 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: #4db3ff;
+      box-shadow: 0 0 8px rgba(77, 179, 255, 0.5);
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(77, 179, 255, 0.9);
+      background: rgba(77, 179, 255, 0.035);
+      transform: translate(-50%, -50%);
+    }
+    .cursor-dot.visible,
+    .cursor-ring.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .cursor-ring.active {
+      width: 44px;
+      height: 44px;
+      border-color: #2588ff;
+      background: rgba(77, 179, 255, 0.12);
+      box-shadow: 0 0 22px rgba(37, 136, 255, 0.15);
+    }
+    .cursor-dot.hot {
+      width: 7px;
+      height: 7px;
+      background: #ffffff;
+      box-shadow: 0 0 12px rgba(77, 179, 255, 0.9);
+    }
+    /* Restore the normal browser cursor on touch devices. */
+    @media (hover: none), (pointer: coarse) {
+      .cursor-dot,
+      .cursor-ring {
+        display: none !important;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cursor-dot,
+      .cursor-ring {
+        transition: none;
+      }
+    }
     @media (max-width: 760px) {
       .interview-page {
         width: min(100% - 28px, 1000px);
         padding-top: 18px;
         padding-bottom: 55px;
       }
-
       .interview-hero {
         padding: 24px 20px;
         border-radius: 17px;
       }
-
       .interview-hero h1 {
         letter-spacing: -1px;
       }
-
       .interview-intro {
         font-size: 14px;
       }
-
       .interview-meta {
         grid-template-columns: 1fr;
         gap: 9px;
       }
-
       .meta-card {
         padding: 13px 15px;
       }
-
       .interview-layout {
         grid-template-columns: 1fr;
         gap: 24px;
         margin-top: 24px;
       }
-
       .interview-sidebar {
         position: static;
       }
-
       .toc-list {
         grid-template-columns: 1fr;
       }
-
       .question-card {
         padding: 20px;
       }
-
       .section-heading {
         font-size: 24px;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-    }
   </style>
 </head>
-
 <body>
-
   <!-- Shared site navigation -->
   <div id="site-nav"></div>
-
   <main class="interview-page">
-
     <nav class="interview-breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Home</a>
       <span class="breadcrumb-separator">/</span>
@@ -592,27 +553,21 @@
       <span class="breadcrumb-separator">/</span>
       <span aria-current="page">Zomato AI/ML Engineer</span>
     </nav>
-
     <!-- Interview introduction -->
     <section class="interview-hero">
-
       <div class="interview-eyebrow">
         AI/ML Interview Preparation
       </div>
-
       <h1>
         Understand the <span>thinking.</span>
       </h1>
-
       <p class="interview-intro">
         Prepare for AI/ML engineering interviews with structured
         explanations, practical examples, implementation steps, and key
         concepts covering retrieval-augmented generation, NLP, embeddings,
         model optimization, and Agentic AI.
       </p>
-
       <div class="interview-company">
-
         <div class="company-logo-wrap">
           <img
             class="company-logo"
@@ -622,40 +577,31 @@
             loading="lazy"
             onerror="this.style.display='none';document.getElementById('zomato-logo-fallback').style.display='block';"
           >
-
           <span
             class="company-logo-fallback"
             id="zomato-logo-fallback"
             aria-hidden="true"
           >Z</span>
         </div>
-
         <div>
           <p class="company-heading">Company</p>
           <p class="company-name">Zomato</p>
         </div>
-
       </div>
-
       <div class="interview-meta">
-
         <div class="meta-card">
           <span class="meta-label">Role</span>
           <div class="meta-value">AI/ML Engineer</div>
         </div>
-
         <div class="meta-card">
           <span class="meta-label">Questions</span>
           <div class="meta-value">6</div>
         </div>
-
         <div class="meta-card">
           <span class="meta-label">Level</span>
           <div class="meta-value">Intermediate–Advanced</div>
         </div>
-
       </div>
-
       <div class="interview-disclaimer">
         <strong>About these interview questions:</strong>
         These six questions are presented as questions reported to have
@@ -666,15 +612,11 @@
         is not affiliated with Zomato. We do not claim that the questions
         have been independently verified by Zomato.
       </div>
-
     </section>
-
     <div class="interview-layout">
-
       <!-- Table of contents -->
       <aside class="interview-sidebar">
         <h2>Interview questions</h2>
-
         <ol class="toc-list">
           <li>
             <a href="#question-1">
@@ -682,35 +624,30 @@
               RAG and LangChain
             </a>
           </li>
-
           <li>
             <a href="#question-2">
               <span class="toc-number">02</span>
               BERT vs Word2Vec
             </a>
           </li>
-
           <li>
             <a href="#question-3">
               <span class="toc-number">03</span>
               Tokenization in NLP
             </a>
           </li>
-
           <li>
             <a href="#question-4">
               <span class="toc-number">04</span>
               Positional Embeddings and RoPE
             </a>
           </li>
-
           <li>
             <a href="#question-5">
               <span class="toc-number">05</span>
               Model Quantization
             </a>
           </li>
-
           <li>
             <a href="#question-6">
               <span class="toc-number">06</span>
@@ -719,28 +656,21 @@
           </li>
         </ol>
       </aside>
-
       <!-- Questions and answers -->
       <section class="question-content">
-
         <h2 class="section-heading">Questions and explanations</h2>
-
         <p class="section-description">
           Review each question, understand the key concepts, and practise
           explaining the implementation decisions you would make in a
           real-world AI/ML system.
         </p>
-
         <!-- Question 1 -->
         <article class="question-card" id="question-1">
-
           <span class="question-number">Q1</span>
-
           <h3>
             How would you build an end-to-end Retrieval-Augmented Generation
             (RAG) pipeline using LangChain?
           </h3>
-
           <p>
             A RAG system combines information retrieval with a language
             model. Instead of relying only on knowledge learned during
@@ -748,57 +678,45 @@
             external knowledge source and supplies it to the model when
             generating an answer.
           </p>
-
           <h4>Step 1: Prepare the documents</h4>
-
           <p>
             Collect the information the application needs to answer
             questions about. Documents might include PDFs, product
             documentation, knowledge-base articles, or structured records.
           </p>
-
           <ul>
             <li>Load documents from their original sources.</li>
             <li>Clean irrelevant text, duplicated content, and formatting noise.</li>
             <li>Split longer documents into smaller, overlapping chunks.</li>
             <li>Preserve useful metadata, such as document title and source.</li>
           </ul>
-
           <h4>Step 2: Generate embeddings</h4>
-
           <p>
             An embedding model converts each text chunk into a numerical
             vector. These vectors represent semantic information, allowing
             the retrieval system to identify chunks related to a user's
             question even when the wording differs.
           </p>
-
           <h4>Step 3: Store vectors in a database</h4>
-
           <p>
             Save the embeddings alongside their text and metadata in a
             vector database or another suitable vector index. Depending on
             the application, the system may use cosine similarity, dot
             product, or another retrieval strategy.
           </p>
-
           <h4>Step 4: Retrieve relevant information</h4>
-
           <p>
             When a user asks a question, convert the query into an embedding
             and search for relevant chunks. Improve retrieval quality with
             metadata filters, hybrid keyword-and-vector search, or a
             reranking model when necessary.
           </p>
-
           <h4>Step 5: Generate the answer</h4>
-
           <p>
             Pass the question and retrieved context to the language model.
             Instruct it to answer using the supplied evidence and to say
             when the available information is insufficient.
           </p>
-
           <div class="code-example">User question
       ↓
 Query embedding
@@ -814,9 +732,7 @@ Prompt + retrieved context
 Language model
       ↓
 Answer with supporting sources</div>
-
           <h4>Step 6: Evaluate the pipeline</h4>
-
           <ul>
             <li>
               <strong>Retrieval quality:</strong> Does the system retrieve
@@ -835,7 +751,6 @@ Answer with supporting sources</div>
               take, and how many resources does it consume?
             </li>
           </ul>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -845,25 +760,19 @@ Answer with supporting sources</div>
               its reliability.
             </p>
           </div>
-
         </article>
-
         <!-- Question 2 -->
         <article class="question-card" id="question-2">
-
           <span class="question-number">Q2</span>
-
           <h3>
             What is the difference between BERT embeddings and Word2Vec
             embeddings?
           </h3>
-
           <p>
             Word2Vec and BERT both produce vector representations of text,
             but they differ in how they learn those representations and
             how they capture context.
           </p>
-
           <div class="comparison-table-wrap">
             <table class="comparison-table">
               <thead>
@@ -873,38 +782,32 @@ Answer with supporting sources</div>
                   <th>BERT</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td>Architecture</td>
                   <td>Shallow neural-network architecture</td>
                   <td>Transformer encoder</td>
                 </tr>
-
                 <tr>
                   <td>Context</td>
                   <td>Generally uses a fixed vector for each word</td>
                   <td>Produces context-dependent token representations</td>
                 </tr>
-
                 <tr>
                   <td>Ambiguous words</td>
                   <td>Typically has the same vector for a word regardless of context</td>
                   <td>Can represent a word differently depending on surrounding text</td>
                 </tr>
-
                 <tr>
                   <td>Training approach</td>
                   <td>Commonly trained using CBOW or Skip-gram</td>
                   <td>Original BERT uses masked language modelling and, in its original setup, next-sentence prediction</td>
                 </tr>
-
                 <tr>
                   <td>Typical uses</td>
                   <td>Word similarity and lightweight NLP features</td>
                   <td>Contextual NLP features, classification, and fine-tuning</td>
                 </tr>
-
                 <tr>
                   <td>Compute requirements</td>
                   <td>Usually lower</td>
@@ -913,29 +816,22 @@ Answer with supporting sources</div>
               </tbody>
             </table>
           </div>
-
           <h4>Example: Understanding context</h4>
-
           <p>Consider these two sentences:</p>
-
           <ul>
             <li>"I deposited money at the bank."</li>
             <li>"We sat on the bank of the river."</li>
           </ul>
-
           <p>
             A conventional Word2Vec model assigns the word "bank" one
             learned word vector. It does not automatically create separate
             vectors for its financial and geographical meanings.
           </p>
-
           <p>
             BERT processes the surrounding words and can produce different
             contextual representations for "bank" in these two sentences.
           </p>
-
           <h4>How does Word2Vec work?</h4>
-
           <ul>
             <li>
               <strong>CBOW:</strong> Predicts a target word using surrounding
@@ -946,16 +842,13 @@ Answer with supporting sources</div>
               from a target word.
             </li>
           </ul>
-
           <h4>How does BERT work?</h4>
-
           <p>
             BERT uses a bidirectional Transformer encoder. Self-attention
             allows a token's representation to incorporate information from
             other tokens in the input, including tokens appearing before
             and after it.
           </p>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -967,34 +860,26 @@ Answer with supporting sources</div>
               outputs directly.
             </p>
           </div>
-
         </article>
-
         <!-- Question 3 -->
         <article class="question-card" id="question-3">
-
           <span class="question-number">Q3</span>
-
           <h3>
             How does tokenization affect sentiment analysis and Named Entity
             Recognition (NER)?
           </h3>
-
           <p>
             Tokenization divides text into smaller units that a model can
             process. Depending on the tokenizer, those units may be words,
             subwords, characters, or other tokens.
           </p>
-
           <p>
             Tokenization affects how the model represents words, handles
             unfamiliar terms, preserves entities, and interprets sentiment.
             Poor tokenization choices can introduce errors before the model
             even starts making predictions.
           </p>
-
           <h4>Impact on sentiment analysis</h4>
-
           <ul>
             <li>
               <strong>Negation:</strong> The phrase "not good" conveys a
@@ -1016,23 +901,18 @@ Answer with supporting sources</div>
               multiple subword tokens.
             </li>
           </ul>
-
           <h4>Impact on Named Entity Recognition</h4>
-
           <p>
             NER identifies entities such as people, organizations,
             locations, products, and dates. Subword tokenization can split
             a single entity across multiple tokens.
           </p>
-
           <p>
             For example, a company name may be divided into several
             subword pieces. The training and inference pipelines must map
             token-level predictions back to the correct entity span.
           </p>
-
           <h4>How can tokenization-related errors be reduced?</h4>
-
           <ol>
             <li>
               Choose a tokenizer compatible with the model architecture
@@ -1055,9 +935,7 @@ Answer with supporting sources</div>
               misspellings, rare names, and multilingual text.
             </li>
           </ol>
-
           <h4>How would you measure the impact?</h4>
-
           <ul>
             <li>
               For sentiment analysis, compare accuracy, precision, recall,
@@ -1071,7 +949,6 @@ Answer with supporting sources</div>
               from tokenization, model predictions, or label alignment.
             </li>
           </ul>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -1081,57 +958,44 @@ Answer with supporting sources</div>
               domain-specific text.
             </p>
           </div>
-
         </article>
-
         <!-- Question 4 -->
         <article class="question-card" id="question-4">
-
           <span class="question-number">Q4</span>
-
           <h3>
             What are positional embeddings, and how does Rotary Positional
             Embedding (RoPE) work?
           </h3>
-
           <p>
             Transformer attention mechanisms need information about token
             positions to reason about word order. Without positional
             information, self-attention alone does not distinguish all
             different arrangements of the same tokens.
           </p>
-
           <h4>What are positional embeddings?</h4>
-
           <p>
             Positional embeddings or encodings introduce information about
             where tokens occur in a sequence. In a common approach, a
             positional representation is combined with the token embedding
             before the Transformer processes the sequence.
           </p>
-
           <p>
             Different Transformer architectures use different positional
             methods, including learned absolute positional embeddings,
             sinusoidal encodings, and relative-position approaches.
           </p>
-
           <h4>What is RoPE?</h4>
-
           <p>
             Rotary Positional Embedding incorporates position information
             by applying position-dependent rotations to pairs of dimensions
             in query and key vectors used by attention.
           </p>
-
           <p>
             Rather than simply adding a positional vector to a token
             embedding, RoPE modifies the query and key representations
             before their attention scores are calculated.
           </p>
-
           <h4>Why is RoPE useful?</h4>
-
           <ul>
             <li>
               It incorporates positional information into the attention
@@ -1150,22 +1014,18 @@ Answer with supporting sources</div>
               additional techniques.
             </li>
           </ul>
-
           <h4>What happens when context length increases?</h4>
-
           <p>
             A model trained with one context length may not perform equally
             well at much longer lengths. Positional behaviour, attention
             patterns, memory consumption, and the model's training
             distribution can all affect performance.
           </p>
-
           <p>
             Techniques such as RoPE scaling can help adapt certain models
             to longer contexts, but the results should be evaluated rather
             than assumed.
           </p>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -1175,34 +1035,26 @@ Answer with supporting sources</div>
               scores through their interactions.
             </p>
           </div>
-
         </article>
-
         <!-- Question 5 -->
         <article class="question-card" id="question-5">
-
           <span class="question-number">Q5</span>
-
           <h3>
             What is model quantization, and how does it affect inference
             performance and accuracy?
           </h3>
-
           <p>
             Model quantization reduces the numerical precision used to
             represent model weights and, in some approaches, activations.
             For example, a model may use lower-precision representations
             instead of storing all weights in 32-bit floating-point format.
           </p>
-
           <p>
             The objective is to reduce memory requirements and potentially
             improve inference speed, energy efficiency, and deployment
             cost.
           </p>
-
           <h4>Common quantization formats</h4>
-
           <ul>
             <li>
               <strong>FP32:</strong> 32-bit floating-point representation,
@@ -1228,25 +1080,20 @@ Answer with supporting sources</div>
               though quality and speed depend on the method and hardware.
             </li>
           </ul>
-
           <h4>How does quantization affect memory?</h4>
-
           <p>
             As a rough illustration, storing one billion parameters at
             four bits each requires approximately 0.5 GB of raw parameter
             storage in decimal units, compared with approximately 4 GB
             at 32 bits per parameter.
           </p>
-
           <p>
             These figures represent weight storage only. Actual deployment
             memory also includes quantization metadata, temporary tensors,
             runtime overhead, and the key-value cache used by many
             language models.
           </p>
-
           <h4>What is the trade-off?</h4>
-
           <ul>
             <li>
               <strong>Memory:</strong> Lower-bit representations usually
@@ -1267,9 +1114,7 @@ Answer with supporting sources</div>
               engine supports every quantization method efficiently.
             </li>
           </ul>
-
           <h4>How would you evaluate a quantized model?</h4>
-
           <ol>
             <li>Establish a baseline using the original model.</li>
             <li>Apply a suitable quantization method.</li>
@@ -1287,7 +1132,6 @@ Answer with supporting sources</div>
               quality and performance requirements.
             </li>
           </ol>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -1297,18 +1141,13 @@ Answer with supporting sources</div>
               latency, memory usage, and cost for the target workload.
             </p>
           </div>
-
         </article>
-
         <!-- Question 6 -->
         <article class="question-card" id="question-6">
-
           <span class="question-number">Q6</span>
-
           <h3>
             How would you analyse and improve an Agentic AI pipeline?
           </h3>
-
           <p>
             An Agentic AI system uses a model to decide what to do next
             and may interact with tools, external services, or other
@@ -1317,9 +1156,7 @@ Answer with supporting sources</div>
             results, and repeat steps until it reaches a stopping
             condition.
           </p>
-
           <h4>What does an agent pipeline look like?</h4>
-
           <div class="code-example">User request
       ↓
 Understand the task
@@ -1335,23 +1172,18 @@ Inspect the result
 Continue, recover, or finish
       ↓
 Return the final response</div>
-
           <h4>Step 1: Define the task and success criteria</h4>
-
           <p>
             Before improving an agent, identify what a successful result
             means. A research agent, coding agent, and customer-support
             agent need different evaluation criteria.
           </p>
-
           <p>
             Useful measures may include task-completion rate, factual
             correctness, successful tool execution, latency, cost, and
             adherence to safety requirements.
           </p>
-
           <h4>Step 2: Identify where failures occur</h4>
-
           <ul>
             <li>
               <strong>Planning errors:</strong> The agent chooses an
@@ -1378,9 +1210,7 @@ Return the final response</div>
               lost or ignored during multi-step tasks.
             </li>
           </ul>
-
           <h4>Step 3: Improve reliability</h4>
-
           <ul>
             <li>
               Give tools clear descriptions and strict input schemas.
@@ -1406,30 +1236,24 @@ Return the final response</div>
               untrusted input where appropriate.
             </li>
           </ul>
-
           <h4>Step 4: Evaluate changes systematically</h4>
-
           <p>
             Build a test set containing common tasks, edge cases,
             ambiguous instructions, tool failures, and adversarial inputs.
             Run the baseline and improved versions on the same tasks.
           </p>
-
           <p>
             Compare success rates, tool-call accuracy, unsupported claims,
             recovery from errors, response quality, average latency, and
             cost per completed task.
           </p>
-
           <h4>Step 5: Choose the simplest effective architecture</h4>
-
           <p>
             Not every workflow requires a fully autonomous agent. A
             deterministic sequence of steps may be faster, cheaper, and
             easier to test. Use agentic decision-making where adapting
             actions to changing information provides a measurable benefit.
           </p>
-
           <div class="concept-box">
             <strong>Key takeaway</strong>
             <p>
@@ -1440,18 +1264,14 @@ Return the final response</div>
               automatically mean better performance.
             </p>
           </div>
-
         </article>
-
         <!-- Preparation tips -->
         <section class="preparation-box">
           <h2>How to prepare for this interview</h2>
-
           <p>
             Use these questions to practise explaining both the theory
             and the engineering decisions behind an AI/ML solution.
           </p>
-
           <ul>
             <li>
               Explain each concept in your own words before memorising
@@ -1478,23 +1298,126 @@ Return the final response</div>
             </li>
           </ul>
         </section>
-
         <a class="interview-back" href="../interview-prep.html">
           <span aria-hidden="true">←</span>
           Back to all interview preparation guides
         </a>
-
       </section>
-
     </div>
-
   </main>
-
   <!-- Shared site footer -->
   <div id="site-footer"></div>
-
+  <!-- EvalLoop Jobs Iconic Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <!-- Shared site scripts -->
   <script src="../site.js"></script>
   <script src="../chatbot.js"></script>
-
+  <!-- EvalLoop Jobs Custom Cursor Animation -->
+  <script>
+    (() => {
+      const dot = document.querySelector(".cursor-dot");
+      const ring = document.querySelector(".cursor-ring");
+      if (!dot || !ring) return;
+      const pointerQuery = window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      );
+      if (!pointerQuery.matches) return;
+      const interactiveElements = [
+        "a",
+        "button",
+        "input",
+        "textarea",
+        "select",
+        "label",
+        "[role='button']",
+        "[tabindex]:not([tabindex='-1'])"
+      ].join(",");
+      let mouseX = -100;
+      let mouseY = -100;
+      let ringX = -100;
+      let ringY = -100;
+      let animationFrame = null;
+      let pointerInside = false;
+      function positionDot() {
+        dot.style.transform =
+          `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      }
+      function animateRing() {
+        const ease = 0.18;
+        ringX += (mouseX - ringX) * ease;
+        ringY += (mouseY - ringY) * ease;
+        ring.style.transform =
+          `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        const distance = Math.hypot(mouseX - ringX, mouseY - ringY);
+        if (distance > 0.15 && pointerInside) {
+          animationFrame = requestAnimationFrame(animateRing);
+        } else {
+          ringX = mouseX;
+          ringY = mouseY;
+          ring.style.transform =
+            `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+          animationFrame = null;
+        }
+      }
+      function startAnimation() {
+        if (animationFrame === null) {
+          animationFrame = requestAnimationFrame(animateRing);
+        }
+      }
+      document.addEventListener("pointerenter", event => {
+        if (event.pointerType !== "mouse") return;
+        pointerInside = true;
+        dot.classList.add("visible");
+        ring.classList.add("visible");
+      });
+      document.addEventListener("pointermove", event => {
+        if (event.pointerType !== "mouse") return;
+        pointerInside = true;
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        positionDot();
+        dot.classList.add("visible");
+        ring.classList.add("visible");
+        startAnimation();
+      }, { passive: true });
+      document.addEventListener("pointerleave", event => {
+        if (event.pointerType !== "mouse") return;
+        pointerInside = false;
+        dot.classList.remove("visible", "hot");
+        ring.classList.remove("visible", "active");
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      });
+      document.addEventListener("pointerover", event => {
+        if (event.pointerType !== "mouse") return;
+        const target = event.target instanceof Element
+          ? event.target.closest(interactiveElements)
+          : null;
+        if (target) {
+          ring.classList.add("active");
+          dot.classList.add("hot");
+        }
+      });
+      document.addEventListener("pointerout", event => {
+        if (event.pointerType !== "mouse") return;
+        const target = event.target instanceof Element
+          ? event.target.closest(interactiveElements)
+          : null;
+        if (target && !target.contains(event.relatedTarget)) {
+          ring.classList.remove("active");
+          dot.classList.remove("hot");
+        }
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          dot.classList.remove("visible");
+          ring.classList.remove("visible");
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
