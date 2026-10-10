@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta
+  name="description"
+  content="Prepare for AI and machine learning interviews with technical explanations covering RAG, NLP embeddings, tokenization, RoPE, model quantization, and Agentic AI."
+>
+<meta name="robots" content="index,follow">
+<link
+  rel="canonical"
+  href="https://annotatorjobs.vercel.app/interviews/zomato-ai-ml.html"
+>
+<title>Zomato AI/ML Engineer Interview Prep — EvalLoop Jobs</title>
+<link rel="icon" type="image/png" href="/favicon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+<link rel="stylesheet" href="../pages.css">
+<link rel="stylesheet" href="../chatbot.css">
+<style>
+/* =========================================
+   INTERVIEW DETAIL PAGE
+   EvalLoop Jobs reference design
+========================================= */
+.interview-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 28px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: .72;
+  transition: color .2s ease, opacity .2s ease;
+}
+.interview-back:hover {
+  color: #65b4ff;
+  opacity: 1;
+}
+.role-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 24px 0 18px;
+}
+.role-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 66px;
+  width: 66px;
+  height: 66px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 9px;
+  background: #fff;
+}
+.role-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  object-fit: contain;
+}
+.role-heading-text {
+  min-width: 0;
+}
+.role-heading-text h2 {
+  margin: 0 0 5px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.role-heading-text p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: .7;
+}
+.role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+}
+.role-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 5px;
+  font-size: 11px;
+  line-height: 1.4;
+  opacity: .82;
+}
+.interview-disclaimer {
+  margin: 25px 0 35px;
+  padding: 17px 19px;
+  border-left: 2px solid #4da3ff;
+  background: rgba(77,163,255,.045);
+}
+.interview-disclaimer strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+.interview-disclaimer p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: .75;
+}
+.question-index-heading {
+  margin: 0 0 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.question-index {
+  display: grid;
+  gap: 0;
+  margin-bottom: 42px;
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+.question-index a {
+  display: grid;
+  grid-template-columns: 34px minmax(0,1fr) 20px;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 3px;
+  border-bottom: 1px solid rgba(255,255,255,.11);
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.6;
+  transition: color .2s ease, padding .2s ease;
+}
+.question-index a:hover {
+  padding-left: 8px;
+  color: #65b4ff;
+}
+.index-number {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  opacity: .6;
+}
+.index-arrow {
+  text-align: right;
+  opacity: .6;
+}
+.questions-heading {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.questions-intro {
+  margin: 0 0 25px;
+  max-width: 690px;
+  font-size: 13px;
+  line-height: 1.9;
+  opacity: .72;
+}
+.question-card {
+  padding: 27px 0 30px;
+  border-top: 1px solid rgba(255,255,255,.13);
+  scroll-margin-top: 30px;
+}
+.question-topline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+.question-number {
+  color: #65b4ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+}
+.difficulty {
+  padding: 4px 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 4px;
+  font-size: 10px;
+  opacity: .75;
+}
+.question-topic {
+  font-size: 11px;
+  opacity: .65;
+}
+.question-title {
+  margin: 0 0 17px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.answer-label {
+  margin: 0 0 9px;
+  color: #65b4ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.answer-copy {
+  font-size: 13px;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+.answer-copy p {
+  margin: 0 0 14px;
+}
+.answer-copy p:last-child {
+  margin-bottom: 0;
+}
+.answer-copy ul,
+.answer-copy ol {
+  padding-left: 22px;
+  margin: 10px 0 16px;
+}
+.answer-copy li {
+  padding-left: 3px;
+  margin-bottom: 8px;
+}
+.answer-copy strong {
+  font-weight: 600;
+}
+.answer-copy code {
+  padding: 2px 5px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 4px;
+  background: rgba(255,255,255,.05);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.answer-copy pre {
+  margin: 15px 0;
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 7px;
+  background: rgba(0,0,0,.18);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.answer-copy pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.takeaway {
+  margin-top: 20px;
+  padding: 15px 17px;
+  border-left: 2px solid #4da3ff;
+  background: rgba(77,163,255,.045);
+}
+.takeaway strong {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+.takeaway p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: .8;
+}
+.preparation-note {
+  margin-top: 24px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 9px;
+  background: rgba(255,255,255,.025);
+}
+.preparation-note h2 {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+.preparation-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.9;
+  opacity: .75;
+}
+.preparation-note a {
+  color: #65b4ff;
+  text-decoration: none;
+}
+.preparation-note a:hover {
+  text-decoration: underline;
+}
+.page-end-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+.page-end-links a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 12px;
+  opacity: .75;
+}
+.page-end-links a:hover {
+  color: #65b4ff;
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .role-logo {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+  .role-heading {
+    gap: 13px;
+  }
+  .role-heading-text h2 {
+    font-size: 18px;
+  }
+  .question-title {
+    font-size: 19px;
+  }
+  .questions-heading {
+    font-size: 23px;
+  }
+  .question-card {
+    padding-top: 23px;
+    padding-bottom: 25px;
+  }
+  .preparation-note {
+    padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interview-back,
+  .question-index a {
+    transition: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<div class="shell">
+<header class="header">
+<a href="../index.html" class="logo">
+  <span class="logo-mark">◉</span>
+  <span>EvalLoop Jobs</span>
+</a>
+<nav class="nav">
+  <a href="../opportunities.html">Opportunities</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#how">How it works</a>
+</nav>
+<a href="../opportunities.html" class="top-cta">
+  Explore roles ↗
+</a>
+</header>
+<main class="page wrap">
+<a class="interview-back" href="../interview-prep.html">
+  ← All interview experiences
+</a>
+<div class="eyebrow">
+  INTERVIEWS / AI &amp; MACHINE LEARNING
+</div>
+<h1 class="page-title">
+  Understand the <em>thinking.</em>
+</h1>
+<p class="page-intro">
+  Six technical questions covering retrieval-augmented generation, natural language processing, Transformer architectures, model optimization, and Agentic AI. Use these explanations to build your understanding and practise communicating your technical decisions.
+</p>
+<div class="role-heading">
+  <div class="role-logo">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png"
+      alt="Zomato logo"
+      onerror="this.style.display='none'"
+    >
+  </div>
+  <div class="role-heading-text">
+    <h2>Zomato</h2>
+    <p>AI/ML Engineer · Interview preparation</p>
+    <div class="role-meta">
+      <span>6 questions</span>
+      <span>Intermediate–Advanced</span>
+      <span>Technical concepts</span>
+    </div>
+  </div>
+</div>
+<div class="interview-disclaimer">
+  <strong>About this collection</strong>
+  <p>
+    This page is an independent interview-preparation resource. The questions are presented for technical practice and are not represented as an official Zomato interview script. Individual questions have not been independently verified as questions asked by Zomato. EvalLoop Jobs is not affiliated with or endorsed by Zomato.
+  </p>
+</div>
+<section aria-labelledby="contentsHeading">
+  <h2 class="question-index-heading" id="contentsHeading">
+    In this collection.
+  </h2>
+  <nav class="question-index" aria-label="Interview question contents">
+    <a href="#question-1">
+      <span class="index-number">01</span>
+      <span>Designing an end-to-end RAG pipeline with LangChain</span>
+      <span class="index-arrow">↘</span>
+    </a>
+    <a href="#question-2">
+      <span class="index-number">02</span>
+      <span>BERT embeddings vs. Word2Vec</span>
+      <span class="index-arrow">↘</span>
+    </a>
+    <a href="#question-3">
+      <span class="index-number">03</span>
+      <span>Tokenization and its impact on sentiment analysis and NER</span>
+      <span class="index-arrow">↘</span>
+    </a>
+    <a href="#question-4">
+      <span class="index-number">04</span>
+      <span>Positional embeddings and Rotary Position Embeddings (RoPE)</span>
+      <span class="index-arrow">↘</span>
+    </a>
+    <a href="#question-5">
+      <span class="index-number">05</span>
+      <span>Model quantization and its effect on inference</span>
+      <span class="index-arrow">↘</span>
+    </a>
+    <a href="#question-6">
+      <span class="index-number">06</span>
+      <span>Analysing and improving an Agentic AI pipeline</span>
+      <span class="index-arrow">↘</span>
+    </a>
+  </nav>
+</section>
+<section aria-labelledby="answersHeading">
+  <h2 class="questions-heading" id="answersHeading">
+    Questions &amp; explanations.
+  </h2>
+  <p class="questions-intro">
+    Start with the interview-ready answer, then use the technical explanation and key takeaway to strengthen your understanding. Adapt each answer to your actual experience rather than memorizing it word for word.
+  </p>
+  <!-- QUESTION 1 -->
+  <article class="question-card" id="question-1">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 01</span>
+      <span class="difficulty">Advanced</span>
+      <span class="question-topic">RAG · LangChain</span>
+    </div>
+    <h3 class="question-title">
+      How would you build an end-to-end Retrieval-Augmented Generation (RAG) pipeline using LangChain?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        I would design a RAG system with two main workflows: an indexing pipeline that prepares knowledge for retrieval, and a query pipeline that retrieves relevant information and uses it to generate a grounded answer.
+      </p>
+      <p>
+        During indexing, I would collect documents from approved sources, extract their text, clean the content, split it into meaningful chunks, generate embeddings, and store those embeddings alongside the text and metadata in a vector database.
+      </p>
+      <p>
+        At query time, the user's question is converted into an embedding and used to retrieve relevant chunks. I would consider metadata filtering, hybrid search, and a reranker when semantic search alone does not provide sufficiently relevant results. The selected context is passed to the language model through a carefully designed prompt. The model generates an answer grounded in that context, ideally with citations or source references.
+      </p>
+      <p>
+        Finally, I would evaluate retrieval quality, answer relevance, factual grounding, latency, and cost. I would also handle empty retrieval results, conflicting documents, and questions that the available sources cannot answer.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>1. Document ingestion</strong></p>
+      <p>
+        Connect to the relevant data sources, extract text, preserve useful metadata, remove duplicate or corrupted content, and apply access-control rules. For example, a support knowledge base might include article IDs, product versions, and publication dates.
+      </p>
+      <p><strong>2. Chunking and embedding</strong></p>
+      <p>
+        Split documents into chunks that preserve meaning. Chunk size and overlap should be tested against the data rather than selected arbitrarily. An embedding model converts each chunk into a numerical vector that represents its semantic content.
+      </p>
+      <p><strong>3. Indexing and retrieval</strong></p>
+      <p>
+        Store vectors, chunk text, and metadata in a vector store. At query time, retrieve candidate chunks using semantic similarity. Hybrid retrieval combines semantic search with keyword-based methods, which can be useful for product names, IDs, and exact terminology.
+      </p>
+      <p><strong>4. Reranking and generation</strong></p>
+      <p>
+        A reranker can reorder retrieved candidates according to their relevance to the question. The final context is passed to the LLM with instructions to use the provided evidence, distinguish uncertainty, and avoid inventing unsupported facts.
+      </p>
+      <p><strong>5. Evaluation and monitoring</strong></p>
+      <ul>
+        <li><strong>Retrieval:</strong> Recall@k, Precision@k, and ranking measures such as MRR or NDCG.</li>
+        <li><strong>Generation:</strong> Answer correctness, relevance, groundedness, and citation accuracy.</li>
+        <li><strong>Operations:</strong> Latency, token usage, cost, failures, and retrieval coverage.</li>
+      </ul>
+      <p>
+        LangChain can connect document loaders, text splitters, embedding models, retrievers, vector stores, and chat models. I would keep these components modular so that they can be changed and evaluated independently.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        RAG quality depends on both retrieval and generation. A powerful LLM cannot reliably compensate for missing, irrelevant, or incorrect retrieved context.
+      </p>
+    </div>
+  </article>
+  <!-- QUESTION 2 -->
+  <article class="question-card" id="question-2">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 02</span>
+      <span class="difficulty">Intermediate</span>
+      <span class="question-topic">NLP · Embeddings</span>
+    </div>
+    <h3 class="question-title">
+      What is the difference between BERT embeddings and Word2Vec embeddings?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        Word2Vec is a method for learning word representations from surrounding words. In its standard form, each word has a fixed vector, so the word has the same representation regardless of the sentence in which it appears.
+      </p>
+      <p>
+        BERT is a Transformer-based language model that generates contextual representations. Its representation of a word depends on the surrounding tokens, allowing it to distinguish different meanings of the same word in different sentences.
+      </p>
+      <p>
+        For example, Word2Vec typically gives the word "bank" one learned vector, whether the sentence discusses a financial institution or a riverbank. BERT can generate different contextual representations for "bank" in "I deposited money at the bank" and "We sat beside the river bank."
+      </p>
+      <p>
+        Word2Vec is comparatively lightweight and useful for simpler embedding tasks. BERT is generally more computationally expensive but is well suited to contextual NLP tasks such as classification, named entity recognition, and question answering.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>Word2Vec</strong></p>
+      <ul>
+        <li>Learns dense word vectors using objectives such as Continuous Bag of Words (CBOW) and Skip-gram.</li>
+        <li>Uses local word-context relationships during training.</li>
+        <li>Standard word vectors are static after training.</li>
+        <li>Does not naturally produce a different word vector for each sentence context.</li>
+        <li>Can be relatively efficient for applications that need simple word representations.</li>
+      </ul>
+      <p><strong>BERT</strong></p>
+      <ul>
+        <li>Uses a Transformer encoder with self-attention.</li>
+        <li>Was originally pretrained using objectives including masked language modelling.</li>
+        <li>Produces contextual token representations based on surrounding text.</li>
+        <li>Uses subword tokenization, so a word may correspond to multiple tokens.</li>
+        <li>Can be fine-tuned for specific tasks or used to create embeddings, depending on the model and pooling strategy.</li>
+      </ul>
+      <p><strong>Important practical distinction</strong></p>
+      <p>
+        BERT's contextual token representations are not automatically the best sentence embeddings for every similarity-search task. For semantic search, a model trained specifically for sentence or text embeddings may perform better. The correct choice should be based on the task, domain, evaluation data, compute budget, and latency requirements.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        Word2Vec generally provides static word vectors; BERT provides context-dependent token representations. For production retrieval, compare models on your actual search and relevance benchmarks.
+      </p>
+    </div>
+  </article>
+  <!-- QUESTION 3 -->
+  <article class="question-card" id="question-3">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 03</span>
+      <span class="difficulty">Advanced</span>
+      <span class="question-topic">Tokenization · NLP evaluation</span>
+    </div>
+    <h3 class="question-title">
+      How can excessive tokenization affect sentiment analysis and Named Entity Recognition (NER)?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        Excessive tokenization occurs when a tokenizer splits words or entities into many small subword pieces. Subword tokenization is useful for handling rare and unseen words, but excessive fragmentation can make important information harder to process.
+      </p>
+      <p>
+        In sentiment analysis, splitting slang, product names, abbreviations, or domain-specific expressions into unfamiliar pieces may make sentiment-bearing phrases harder to represent correctly. In NER, a person, company, or product name may span several subword tokens, which can complicate the mapping between token-level predictions and the original entity span.
+      </p>
+      <p>
+        I would inspect tokenization on representative examples, measure fragmentation rates, and evaluate performance by category. Possible improvements include using a suitable tokenizer-model combination, aligning subword labels correctly, normalizing noisy text carefully, and fine-tuning on representative domain data.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>Impact on sentiment analysis</strong></p>
+      <p>
+        Consider a review containing an unfamiliar product name, slang, elongated words, or an expression such as "not at all good." If tokenization fragments these expressions unusually, the model may struggle to learn reliable associations. However, fragmentation alone does not prove that a prediction will be wrong; model training and context also matter.
+      </p>
+      <p><strong>Impact on NER</strong></p>
+      <p>
+        Suppose the text contains a company name represented by three subword tokens. A token-classification model may predict labels for each subword, while the desired output is one entity span in the original text. Incorrect label alignment or span reconstruction can cause entities to be split, truncated, or assigned incorrect boundaries.
+      </p>
+      <p><strong>How I would investigate the problem</strong></p>
+      <ol>
+        <li>Collect examples where sentiment or entity predictions are incorrect.</li>
+        <li>Inspect the tokenized output for rare names, slang, abbreviations, multilingual text, and misspellings.</li>
+        <li>Measure average tokens per word and the fragmentation rate for relevant categories.</li>
+        <li>For NER, check whether training labels align correctly with subword tokens and whether predicted spans map back to the original text.</li>
+        <li>Compare model performance across examples with low and high fragmentation.</li>
+        <li>Test alternative tokenizers or models and fine-tune on representative examples.</li>
+      </ol>
+      <p><strong>Metrics to consider</strong></p>
+      <ul>
+        <li><strong>Sentiment analysis:</strong> Macro-F1, per-class precision and recall, and confusion matrices.</li>
+        <li><strong>NER:</strong> Entity-level precision, recall, and F1, with the evaluation matching the intended span-level output.</li>
+        <li><strong>Operational checks:</strong> Sequence length, truncation rate, inference latency, and memory usage.</li>
+      </ul>
+      <p>
+        I would not automatically modify a pretrained model's tokenizer because its vocabulary and token IDs are coupled to the model's learned parameters. Changing the tokenizer may require additional embedding training and careful model adaptation.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        Diagnose tokenization issues using real failure examples and task-level metrics. More tokens do not automatically mean worse predictions; incorrect alignment, insufficient domain coverage, and sequence truncation are important factors to investigate.
+      </p>
+    </div>
+  </article>
+  <!-- QUESTION 4 -->
+  <article class="question-card" id="question-4">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 04</span>
+      <span class="difficulty">Advanced</span>
+      <span class="question-topic">Transformers · RoPE</span>
+    </div>
+    <h3 class="question-title">
+      What are positional embeddings, and how does Rotary Position Embedding (RoPE) work?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        A Transformer needs information about token order because self-attention does not inherently understand that one token comes before another. Positional information helps the model distinguish sequences that contain similar words in different orders.
+      </p>
+      <p>
+        Positional encoding approaches include learned absolute embeddings, sinusoidal encodings, and relative-position methods. RoPE, or Rotary Position Embedding, incorporates position information by rotating pairs of dimensions in the query and key representations according to each token's position.
+      </p>
+      <p>
+        This rotation makes the attention calculation sensitive to relative positions between tokens. RoPE is used in several modern decoder-only language models because it provides a useful way to encode sequence position within the attention mechanism.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>Why positional information matters</strong></p>
+      <p>
+        The sentences "The model evaluated the response" and "The response evaluated the model" contain similar words but express different relationships. Position information helps the attention mechanism interpret word order.
+      </p>
+      <p><strong>Common approaches</strong></p>
+      <ul>
+        <li><strong>Learned absolute embeddings:</strong> Learn a position-specific vector for each supported position.</li>
+        <li><strong>Sinusoidal encodings:</strong> Use fixed sine and cosine functions at different frequencies.</li>
+        <li><strong>Relative-position methods:</strong> Represent relationships between token positions in attention or related components.</li>
+        <li><strong>RoPE:</strong> Apply position-dependent rotations to query and key vectors.</li>
+      </ul>
+      <p><strong>How RoPE works conceptually</strong></p>
+      <p>
+        RoPE divides parts of a query or key vector into pairs of dimensions and rotates each pair by an angle determined by token position and frequency. When the rotated query and key interact through a dot product, their interaction encodes information about the relative separation between their positions.
+      </p>
+      <p>
+        This is particularly useful in autoregressive language models, where the model must attend to earlier tokens while generating the next token.
+      </p>
+      <p><strong>Does RoPE automatically solve long-context problems?</strong></p>
+      <p>
+        No. A model's context length also depends on its training, attention implementation, positional scaling, memory requirements, and inference configuration. Extending RoPE to longer contexts may require methods such as position interpolation or frequency-scaling approaches, followed by suitable evaluation.
+      </p>
+      <p>
+        For a production system, I would test quality across different sequence lengths, including long-context retrieval, positional sensitivity, and degradation near the context limit.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        RoPE injects positional information by rotating query and key representations. Its usefulness for long-context models depends on how the model is trained and how its positional behaviour is extended and evaluated.
+      </p>
+    </div>
+  </article>
+  <!-- QUESTION 5 -->
+  <article class="question-card" id="question-5">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 05</span>
+      <span class="difficulty">Advanced</span>
+      <span class="question-topic">Inference · Optimization</span>
+    </div>
+    <h3 class="question-title">
+      How does model quantization affect inference performance and output quality?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        Model quantization represents model parameters, and sometimes activations, using lower-precision numerical formats. For example, a model may use 8-bit or 4-bit representations instead of 16-bit or 32-bit floating-point values.
+      </p>
+      <p>
+        Quantization can reduce model memory requirements and sometimes improve inference speed, throughput, or energy efficiency. However, lower precision introduces approximation error that can reduce output quality, especially for sensitive tasks or aggressive quantization settings.
+      </p>
+      <p>
+        I would compare quantized and baseline models using representative prompts, task-specific accuracy metrics, latency, throughput, memory consumption, and cost. I would then select the quantization configuration that meets the quality and operational requirements of the application.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>Types of quantization</strong></p>
+      <ul>
+        <li><strong>Post-training quantization:</strong> Converts a trained model to a lower-precision representation without full retraining. Some approaches use calibration data.</li>
+        <li><strong>Quantization-aware training:</strong> Simulates quantization effects during training so the model can adapt to them.</li>
+        <li><strong>Weight-only quantization:</strong> Reduces the precision of model weights while leaving some computations at higher precision.</li>
+        <li><strong>Weight-and-activation quantization:</strong> Reduces precision for both weights and activations, potentially offering further efficiency benefits.</li>
+      </ul>
+      <p><strong>Benefits</strong></p>
+      <ul>
+        <li>Smaller model weights and reduced memory pressure.</li>
+        <li>Potentially larger batch sizes or the ability to serve models on less expensive hardware.</li>
+        <li>Possible improvements in latency, throughput, and energy use when supported by the hardware and inference software.</li>
+      </ul>
+      <p><strong>Risks and trade-offs</strong></p>
+      <ul>
+        <li>Reduced accuracy or reasoning quality for some tasks.</li>
+        <li>Potentially greater degradation with very low-bit quantization.</li>
+        <li>Hardware-dependent speed improvements; a smaller model is not always faster.</li>
+        <li>Additional engineering work to choose formats, calibration data, and kernels.</li>
+      </ul>
+      <p><strong>How I would evaluate it</strong></p>
+      <ol>
+        <li>Establish a baseline using the original model and a representative evaluation dataset.</li>
+        <li>Quantize the model using candidate formats such as 8-bit or 4-bit.</li>
+        <li>Run the same evaluation set against each configuration.</li>
+        <li>Measure quality, peak memory usage, time to first token, generation speed, and throughput.</li>
+        <li>Inspect failures by task category rather than relying only on an overall average.</li>
+        <li>Deploy only after validating the trade-off under realistic production load.</li>
+      </ol>
+      <p>
+        For an LLM application, I would also test instruction following, factuality, structured output, and tool-call reliability if those capabilities matter to the product.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        Quantization is a quality-efficiency trade-off, not a guaranteed speed improvement. Choose the configuration using measured results on the intended hardware and workload.
+      </p>
+    </div>
+  </article>
+  <!-- QUESTION 6 -->
+  <article class="question-card" id="question-6">
+    <div class="question-topline">
+      <span class="question-number">QUESTION 06</span>
+      <span class="difficulty">Advanced</span>
+      <span class="question-topic">Agentic AI · Evaluation</span>
+    </div>
+    <h3 class="question-title">
+      How would you analyse and improve an Agentic AI pipeline that frequently produces incorrect results or fails to complete tasks?
+    </h3>
+    <p class="answer-label">Interview-ready answer</p>
+    <div class="answer-copy">
+      <p>
+        I would treat an Agentic AI system as a multi-stage workflow rather than assuming that every failure originates in the language model. An agent may need to understand a goal, plan actions, select tools, execute those tools, interpret results, maintain state, and decide when the task is complete.
+      </p>
+      <p>
+        I would first collect representative failure cases and trace each run through its individual stages. I would classify failures into categories such as incorrect planning, tool-selection errors, invalid arguments, tool execution failures, context loss, unsupported claims, looping, and premature termination.
+      </p>
+      <p>
+        Next, I would define task-specific success criteria and build an evaluation set. I would apply targeted improvements, such as stronger tool descriptions, schema validation, explicit stopping conditions, state tracking, retrieval improvements, bounded retries, or human approval for high-impact actions.
+      </p>
+      <p>
+        Finally, I would compare the revised pipeline against the baseline using task-completion rate, tool-call accuracy, factuality, failure rate, latency, and cost. I would release the change only if it improves the required outcomes without introducing unacceptable regressions.
+      </p>
+    </div>
+    <p class="answer-label" style="margin-top:23px">Technical explanation</p>
+    <div class="answer-copy">
+      <p><strong>1. Instrument the workflow</strong></p>
+      <p>
+        Log the user goal, model outputs, selected tools, tool arguments, tool results, state transitions, retry counts, and final response. Redact sensitive information and enforce access controls. Without stage-level traces, it is difficult to distinguish model reasoning failures from application or infrastructure failures.
+      </p>
+      <p><strong>2. Classify failures</strong></p>
+      <ul>
+        <li><strong>Planning:</strong> The agent misunderstands the goal or creates an incomplete plan.</li>
+        <li><strong>Tool selection:</strong> It chooses an unsuitable tool or fails to recognize that a tool is required.</li>
+        <li><strong>Tool arguments:</strong> It supplies missing, malformed, or incorrect parameters.</li>
+        <li><strong>Execution:</strong> An API times out, returns an error, or produces unexpected output.</li>
+        <li><strong>State and memory:</strong> The agent loses relevant information or fails to preserve results between steps.</li>
+        <li><strong>Grounding:</strong> The final response contradicts tool results or introduces unsupported information.</li>
+        <li><strong>Termination:</strong> It loops indefinitely, stops too early, or exceeds its step budget.</li>
+      </ul>
+      <p><strong>3. Build a repeatable evaluation set</strong></p>
+      <p>
+        Include normal requests, ambiguous instructions, missing information, API failures, invalid tool results, adversarial inputs, and tasks requiring multiple steps. Define expected outcomes and acceptable alternatives for each test.
+      </p>
+      <p><strong>4. Apply targeted improvements</strong></p>
+      <ul>
+        <li>Improve system instructions and tool descriptions.</li>
+        <li>Validate tool arguments against explicit schemas.</li>
+        <li>Add timeouts, bounded retries, backoff, and error handling.</li>
+        <li>Track task state and preserve relevant observations.</li>
+        <li>Use retrieval or external evidence when tasks require factual grounding.</li>
+        <li>Introduce step budgets, loop detection, and clear stopping criteria.</li>
+        <li>Require human approval for consequential or irreversible actions.</li>
+      </ul>
+      <p><strong>5. Evaluate the whole system</strong></p>
+      <p>
+        I would measure task success, partial completion, tool-call correctness, recovery from errors, unsupported claims, average number of steps, latency, and cost per successful task. I would also run regression tests because improving one stage can affect the behaviour of the complete workflow.
+      </p>
+      <p>
+        Agentic systems can be nondeterministic, so I would repeat tests where appropriate and report variability. For risky actions, I would test permission boundaries and confirm that untrusted tool outputs cannot override system-level instructions.
+      </p>
+    </div>
+    <div class="takeaway">
+      <strong>Key takeaway</strong>
+      <p>
+        Debug agents stage by stage, measure end-to-end task success, and fix the actual failure source. Better prompting alone will not solve broken tools, poor state management, or missing safeguards.
+      </p>
+    </div>
+  </article>
+</section>
+<section class="preparation-note">
+  <h2>How to use these answers.</h2>
+  <p>
+    Use each answer as a framework, not a script. Practise explaining the concept in your own words, describing a practical example, discussing trade-offs, and identifying how you would evaluate the result. If asked about work experience, distinguish what you have implemented personally from what you understand conceptually.
+  </p>
+</section>
+<div class="page-end-links">
+  <a href="../interview-prep.html">
+    ← All interview experiences
+  </a>
+  <a href="../opportunities.html">
+    Explore opportunities ↗
+  </a>
+  <a href="../contact.html">
+    Contact EvalLoop ↗
+  </a>
+</div>
+</main>
+<footer class="footer wrap">
+<a href="../index.html" class="logo">
+  <span class="logo-mark">◉</span>
+  <span>EvalLoop Jobs</span>
+</a>
+<span>
+  Independent opportunity discovery for the work behind better AI.
+</span>
+<nav class="footer-links">
+  <a href="../about.html">About</a>
+  <a href="../opportunities.html">Opportunities</a>
+  <a href="../submit-opportunity.html">Submit Opportunity</a>
+  <a href="../join-network.html">Join Network</a>
+  <a href="../interview-prep.html" class="footer-current">
+    Interview Prep
+  </a>
+  <a href="../contact.html">Contact</a>
+  <a href="../disclaimer.html">Disclaimer</a>
+  <a href="../terms.html">Terms</a>
+  <a href="../privacy.html">Privacy</a>
+  <a
+    href="https://www.linkedin.com/company/evalloopjobs/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    LinkedIn ↗
+  </a>
+</nav>
+</footer>
+</div>
+<script src="../chatbot.js"></script>
+<script>
+/* =========================================
+   CURSOR ANIMATION
+   Matches the Contact reference page
+========================================= */
+const dot = document.querySelector(".cursor-dot");
+const ring = document.querySelector(".cursor-ring");
+if (dot && ring) {
+  let mx = innerWidth / 2;
+  let my = innerHeight / 2;
+  let rx = mx;
+  let ry = my;
+  addEventListener("pointermove", event => {
+    mx = event.clientX;
+    my = event.clientY;
+    dot.style.left = mx + "px";
+    dot.style.top = my + "px";
+  });
+  (function tick() {
+    rx += (mx - rx) * .16;
+    ry += (my - ry) * .16;
+    ring.style.left = rx + "px";
+    ring.style.top = ry + "px";
+    requestAnimationFrame(tick);
+  })();
+  document
+    .querySelectorAll("a,button,input,textarea,select")
+    .forEach(element => {
+      element.addEventListener("mouseenter", () => {
+        ring.classList.add("active");
+        dot.classList.add("hot");
+      });
+      element.addEventListener("mouseleave", () => {
+        ring.classList.remove("active");
+        dot.classList.remove("hot");
+      });
+    });
+}
+</script>
+</body>
+</html>
