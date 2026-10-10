@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="description" content="Prepare for AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer interviews with questions and transparent source labels.">
-
 <meta name="robots" content="index,follow">
-
 <link rel="canonical" href="https://annotatorjobs.vercel.app/interview-prep.html">
 
 <title>AI Interview Prep — EvalLoop Jobs</title>
@@ -314,7 +312,8 @@
   transition: border-color .2s, background .2s;
 }
 
-.interview-company:hover {
+.interview-company:hover,
+.interview-company.active {
   border-color: var(--blue);
   background: rgba(37,136,255,.06);
 }
@@ -421,7 +420,6 @@ Explore roles ↗
 
 </header>
 
-
 <main class="page wrap">
 
 <div class="eyebrow">
@@ -435,9 +433,6 @@ Prepare for your next AI interview with <em>confidence.</em>
 <p class="page-intro">
 Explore interview questions for AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer roles. New questions will appear as we add them to our question library.
 </p>
-
-
-<!-- Explore by role -->
 
 <section class="interview-section">
 
@@ -482,11 +477,7 @@ Choose a role to find relevant interview questions.
 </a>
 
 </div>
-
 </section>
-
-
-<!-- Recently added questions -->
 
 <section class="interview-section" id="questions">
 
@@ -535,9 +526,6 @@ Candidate-reported questions reflect individual experiences and do not guarantee
 
 </section>
 
-
-<!-- Companies -->
-
 <section class="interview-section" id="companies">
 
 <h2>Companies.</h2>
@@ -553,9 +541,6 @@ Company names will appear when company-specific questions are available.
 </div>
 
 </section>
-
-
-<!-- Question sources -->
 
 <section class="interview-section" id="sources">
 
@@ -583,9 +568,7 @@ Source labels help you understand how each question is presented.
 </section>
 
 </div>
-
 </section>
-
 
 <div class="cta">
 
@@ -606,11 +589,9 @@ Contact EvalLoop →
 </a>
 
 </div>
-
 </div>
 
 </main>
-
 
 <footer class="footer wrap">
 
@@ -626,19 +607,12 @@ Independent opportunity discovery for the work behind better AI.
 <nav class="footer-links">
 
 <a href="about.html">About</a>
-
 <a href="opportunities.html">Opportunities</a>
-
 <a href="submit-opportunity.html">Submit Opportunity</a>
-
 <a href="join-network.html">Join Network</a>
-
 <a href="contact.html">Contact</a>
-
 <a href="disclaimer.html">Disclaimer</a>
-
 <a href="terms.html">Terms</a>
-
 <a href="privacy.html">Privacy</a>
 
 <a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">
@@ -646,17 +620,14 @@ LinkedIn ↗
 </a>
 
 </nav>
-
 </footer>
-
 </div>
-
 
 <script>
 (() => {
 "use strict";
 
-const DATA_URL = "interview.json";
+const DATA_URL = "./interview.json";
 
 const ROLES = [
   "AI/ML Engineer",
@@ -687,7 +658,10 @@ function escapeHTML(value) {
 function safeURL(value) {
   try {
     const url = new URL(String(value ?? ""));
-    return ["https:", "http:"].includes(url.protocol) ? url.href : "";
+
+    return ["https:", "http:"].includes(url.protocol)
+      ? url.href
+      : "";
   } catch {
     return "";
   }
@@ -765,13 +739,16 @@ function getSearchText(question) {
 function updateRoleCounts() {
   document.querySelectorAll("[data-role-count]").forEach(element => {
     const role = element.dataset.roleCount;
-    const count = questions.filter(question => question.role === role).length;
 
-    element.textContent = count;
+    element.textContent = questions.filter(question =>
+      normalize(question.role) === normalize(role)
+    ).length;
   });
 }
 
 function updateCompanies() {
+  const currentCompany = companyFilter.value;
+
   const companies = [...new Set(
     questions
       .map(question => String(question.company ?? "").trim())
@@ -783,6 +760,12 @@ function updateCompanies() {
     companies.map(company =>
       `<option value="${escapeHTML(company)}">${escapeHTML(company)}</option>`
     ).join("");
+
+  if (companies.some(company => normalize(company) === normalize(currentCompany))) {
+    companyFilter.value = companies.find(company =>
+      normalize(company) === normalize(currentCompany)
+    );
+  }
 
   if (!companies.length) {
     companyList.innerHTML = `
@@ -825,10 +808,12 @@ function renderQuestions() {
         !search || getSearchText(question).includes(search);
 
       const matchesRole =
-        !selectedRole || question.role === selectedRole;
+        !selectedRole ||
+        normalize(question.role) === normalize(selectedRole);
 
       const matchesCompany =
-        !selectedCompany || question.company === selectedCompany;
+        !selectedCompany ||
+        normalize(question.company) === normalize(selectedCompany);
 
       return matchesSearch && matchesRole && matchesCompany;
     })
@@ -848,7 +833,6 @@ function renderQuestions() {
         New questions will appear here as they are collected and added to the JSON file.
       </div>
     `;
-
     return;
   }
 
@@ -862,7 +846,6 @@ function renderQuestions() {
         Try a different search or change your filters.
       </div>
     `;
-
     return;
   }
 
@@ -926,24 +909,48 @@ function renderQuestions() {
 
 async function loadQuestions() {
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
+    const response = await fetch(DATA_URL, {
+      cache: "no-store"
+    });
 
     if (!response.ok) {
-      throw new Error("interview.json could not be loaded.");
+      throw new Error(
+        `Could not load interview.json (HTTP ${response.status}).`
+      );
     }
 
     const data = await response.json();
 
     if (!Array.isArray(data)) {
-      throw new Error("interview.json must contain an array.");
+      throw new Error(
+        "interview.json must contain a JSON array."
+      );
+    }
+
+    console.log("Interview JSON records received:", data.length);
+
+    const invalidQuestions = data.filter(question =>
+      !question ||
+      typeof question !== "object" ||
+      typeof question.question !== "string" ||
+      !ROLES.includes(String(question.role || "").trim())
+    );
+
+    if (invalidQuestions.length) {
+      console.warn(
+        "Some interview records were skipped because their question or role is invalid:",
+        invalidQuestions
+      );
     }
 
     questions = data.filter(question =>
       question &&
       typeof question === "object" &&
       typeof question.question === "string" &&
-      ROLES.includes(question.role)
+      ROLES.includes(String(question.role || "").trim())
     );
+
+    console.log("Interview questions accepted:", questions.length);
 
     updateRoleCounts();
     updateCompanies();
@@ -978,12 +985,21 @@ async function loadQuestions() {
   } catch (error) {
     console.error("Interview Prep loading error:", error);
 
-    resultsCount.textContent = "";
+    resultsCount.textContent = "Unable to load interview questions.";
 
     questionList.innerHTML = `
       <div class="interview-empty">
         <strong>Questions could not be loaded.</strong>
-        Check that interview.json exists beside this HTML file and contains valid JSON.
+        <p>${escapeHTML(error.message)}</p>
+        <p>Check that interview.json exists beside this HTML file and contains valid JSON.</p>
+      </div>
+    `;
+
+    updateRoleCounts();
+
+    companyList.innerHTML = `
+      <div class="interview-empty">
+        Company information is temporarily unavailable.
       </div>
     `;
   }
@@ -1013,8 +1029,8 @@ loadQuestions();
 <script src="chatbot.js"></script>
 
 <script>
-const dot = document.querySelector('.cursor-dot');
-const ring = document.querySelector('.cursor-ring');
+const dot = document.querySelector(".cursor-dot");
+const ring = document.querySelector(".cursor-ring");
 
 if (dot && ring) {
   let mx = innerWidth / 2;
@@ -1023,33 +1039,33 @@ if (dot && ring) {
   let rx = mx;
   let ry = my;
 
-  addEventListener('pointermove', e => {
-    mx = e.clientX;
-    my = e.clientY;
+  addEventListener("pointermove", event => {
+    mx = event.clientX;
+    my = event.clientY;
 
-    dot.style.left = mx + 'px';
-    dot.style.top = my + 'px';
+    dot.style.left = mx + "px";
+    dot.style.top = my + "px";
   });
 
   (function tick() {
     rx += (mx - rx) * .16;
     ry += (my - ry) * .16;
 
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
+    ring.style.left = rx + "px";
+    ring.style.top = ry + "px";
 
     requestAnimationFrame(tick);
   })();
 
-  document.querySelectorAll('a,button,input,textarea,select').forEach(el => {
-    el.onmouseenter = () => {
-      ring.classList.add('active');
-      dot.classList.add('hot');
+  document.querySelectorAll("a,button,input,textarea,select").forEach(element => {
+    element.onmouseenter = () => {
+      ring.classList.add("active");
+      dot.classList.add("hot");
     };
 
-    el.onmouseleave = () => {
-      ring.classList.remove('active');
-      dot.classList.remove('hot');
+    element.onmouseleave = () => {
+      ring.classList.remove("active");
+      dot.classList.remove("hot");
     };
   });
 }
