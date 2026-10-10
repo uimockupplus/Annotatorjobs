@@ -16,7 +16,7 @@
   href="https://annotatorjobs.vercel.app/interview-prep.html"
 >
 
-<title>Interview Prep — EvalLoop Jobs | AI & ML Interviews</title>
+<title>Interview Prep — EvalLoop Jobs | AI &amp; ML Interviews</title>
 
 <link rel="icon" type="image/png" href="/favicon.png?v=2">
 
@@ -32,9 +32,9 @@
 <link rel="stylesheet" href="chatbot.css">
 
 <style>
-
 /* ========================================
-   INTERVIEW PREP — EV A L L O O P  J O B S
+   INTERVIEW DIRECTORY
+   EvalLoop Jobs design system
 ======================================== */
 
 :root {
@@ -75,9 +75,22 @@ select {
   font: inherit;
 }
 
+button {
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 .shell {
   min-height: 100vh;
   overflow: hidden;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 44px));
+  margin-inline: auto;
 }
 
 /* HEADER */
@@ -116,7 +129,7 @@ select {
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
 }
 
 .nav a,
@@ -131,6 +144,10 @@ select {
   color: var(--interview-text);
 }
 
+.nav a[aria-current="page"] {
+  color: var(--interview-cyan);
+}
+
 .top-cta {
   display: inline-flex;
   align-items: center;
@@ -142,21 +159,15 @@ select {
   color: var(--interview-cyan);
   font-size: 13px;
   font-weight: 600;
-  transition: background .2s ease, border-color .2s ease;
   white-space: nowrap;
+  transition: background .2s ease;
 }
 
 .top-cta:hover {
-  background: rgba(37,136,255,.16);
-  border-color: var(--interview-cyan);
+  background: rgba(37,136,255,.17);
 }
 
-/* PAGE */
-
-.wrap {
-  width: min(1120px, calc(100% - 44px));
-  margin-inline: auto;
-}
+/* HERO */
 
 .page {
   padding-top: 76px;
@@ -217,13 +228,13 @@ select {
   background: rgba(37,136,255,.055);
   color: #bdcce1;
   font-size: 12px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .hero-note-icon {
+  flex-shrink: 0;
   color: var(--interview-cyan);
   font-size: 17px;
-  flex-shrink: 0;
 }
 
 /* STATS */
@@ -266,7 +277,7 @@ select {
 }
 
 .section-heading h2 {
-  margin: 0;
+  margin: 12px 0 0;
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(24px, 3vw, 34px);
   font-weight: 600;
@@ -280,13 +291,13 @@ select {
   line-height: 1.7;
 }
 
-/* SEARCH */
+/* SEARCH AND FILTERS */
 
 .directory-tools {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 230px;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .search-box,
@@ -315,8 +326,6 @@ select {
   background: var(--interview-panel);
   color: var(--interview-text);
 }
-
-/* FILTERS */
 
 .filter-row {
   display: flex;
@@ -347,6 +356,43 @@ select {
   color: var(--interview-cyan);
 }
 
+/* DIRECTORY STATUS */
+
+.directory-status {
+  margin: 0 0 16px;
+  color: var(--interview-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.directory-message {
+  padding: 40px 22px;
+  border: 1px solid var(--interview-border);
+  border-radius: 14px;
+  background: var(--interview-panel);
+  text-align: center;
+}
+
+.directory-message h3 {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+}
+
+.directory-message p {
+  max-width: 530px;
+  margin: 0 auto;
+  color: var(--interview-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.directory-message a {
+  color: var(--interview-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* INTERVIEW CARDS */
 
 .interview-list {
@@ -356,13 +402,15 @@ select {
 }
 
 .interview-card {
-  position: relative;
   padding: 27px;
   overflow: hidden;
   border: 1px solid var(--interview-border);
   border-radius: 16px;
   background: var(--interview-panel);
-  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
 }
 
 .interview-card:hover {
@@ -389,15 +437,29 @@ select {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border: 1px solid rgba(255,255,255,.1);
+  width: 58px;
+  height: 58px;
+  padding: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
   border-radius: 13px;
-  background: #192640;
-  color: var(--interview-cyan);
+  background: #fff;
+  color: #14213a;
   font-family: "Space Grotesk", sans-serif;
   font-size: 20px;
   font-weight: 700;
+}
+
+.company-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.company-mark.logo-fallback {
+  background: #192640;
+  color: var(--interview-cyan);
 }
 
 .company-name {
@@ -406,6 +468,7 @@ select {
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -.5px;
+  overflow-wrap: anywhere;
 }
 
 .role-name {
@@ -435,7 +498,7 @@ select {
 }
 
 .card-description {
-  max-width: 760px;
+  max-width: 790px;
   margin: 23px 0;
   color: #bdc9dc;
   font-size: 13px;
@@ -482,7 +545,7 @@ select {
 .card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 15px;
   color: var(--interview-muted);
   font-size: 11px;
 }
@@ -516,35 +579,12 @@ select {
 
 .view-button:hover {
   background: var(--interview-blue);
-  color: white;
+  color: #fff;
   border-color: var(--interview-blue);
 }
 
 .view-button span {
   font-size: 15px;
-}
-
-/* EMPTY SEARCH STATE */
-
-.empty-state {
-  display: none;
-  padding: 46px 20px;
-  border: 1px dashed var(--interview-border);
-  border-radius: 14px;
-  text-align: center;
-}
-
-.empty-state h3 {
-  margin: 0 0 9px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 20px;
-}
-
-.empty-state p {
-  margin: 0;
-  color: var(--interview-muted);
-  font-size: 13px;
-  line-height: 1.7;
 }
 
 /* SUBMISSION CTA */
@@ -672,7 +712,7 @@ select {
   height: 30px;
   margin: -15px 0 0 -15px;
   border: 1px solid rgba(77,179,255,.65);
-  transition: width .2s ease, height .2s ease, border-color .2s ease;
+  transition: width .2s ease, height .2s ease;
 }
 
 .cursor-dot.visible,
@@ -700,7 +740,6 @@ select:focus-visible {
 /* RESPONSIVE */
 
 @media (max-width: 760px) {
-
   .header {
     flex-wrap: wrap;
   }
@@ -765,7 +804,6 @@ select:focus-visible {
 }
 
 @media (max-width: 520px) {
-
   .wrap {
     width: calc(100% - 30px);
   }
@@ -826,8 +864,8 @@ select:focus-visible {
   }
 
   .company-mark {
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
   }
 
   .card-meta {
@@ -848,15 +886,12 @@ select:focus-visible {
   }
 }
 
-/* Do not display a custom cursor on touch-first devices. */
-
 @media (hover: none), (pointer: coarse) {
   .cursor-dot,
   .cursor-ring {
     display: none;
   }
 }
-
 </style>
 </head>
 
@@ -911,33 +946,35 @@ select:focus-visible {
 
     <div class="hero-note">
       <span class="hero-note-icon" aria-hidden="true">ⓘ</span>
+
       <span>
-        Interview questions are presented for educational preparation.
-        Candidate-reported experiences are not official company interview
-        materials, and the questions may vary between candidates and hiring rounds.
+        Interview questions may be candidate-reported and are not
+        necessarily official company interview materials. Use these
+        resources to prepare, understand technical concepts, and
+        practise explaining your approach.
       </span>
     </div>
 
   </section>
 
 
-  <!-- SUMMARY -->
+  <!-- DYNAMIC STATISTICS -->
 
   <section class="stats-grid" aria-label="Interview directory overview">
 
     <div class="stat-card">
-      <div class="stat-value" id="company-count">1</div>
-      <div class="stat-label">Company currently listed</div>
+      <div class="stat-value" id="company-count">—</div>
+      <div class="stat-label">Companies listed</div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-value" id="role-count">1</div>
-      <div class="stat-label">Job role covered</div>
+      <div class="stat-value" id="role-count">—</div>
+      <div class="stat-label">Company and role guides</div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-value" id="question-count">6</div>
-      <div class="stat-label">Questions available</div>
+      <div class="stat-value" id="question-count">—</div>
+      <div class="stat-label">Interview questions</div>
     </div>
 
   </section>
@@ -952,12 +989,12 @@ select:focus-visible {
       <div>
         <div class="eyebrow">THE DIRECTORY</div>
 
-        <h2 id="directory-title" style="margin-top:12px">
+        <h2 id="directory-title">
           Find your interview.
         </h2>
 
         <p>
-          Browse by company, role, or technical topic.
+          Browse interview preparation guides by company, role, or topic.
         </p>
       </div>
 
@@ -980,10 +1017,6 @@ select:focus-visible {
         aria-label="Filter interviews by role"
       >
         <option value="all">All roles</option>
-        <option value="ai/ml engineer">AI/ML Engineer</option>
-        <option value="llm evaluator">LLM Evaluator</option>
-        <option value="data annotator">Data Annotator</option>
-        <option value="software engineer">Software Engineer</option>
       </select>
 
     </div>
@@ -1021,131 +1054,30 @@ select:focus-visible {
     </div>
 
 
-    <!--
-      Add future company-and-role listings as additional
-      article.interview-card elements using this structure.
-    -->
-
-    <div class="interview-list" id="interview-list">
-
-      <!-- ZOMATO AI/ML ENGINEER -->
-
-      <article
-        class="interview-card"
-        data-company="zomato"
-        data-role="ai/ml engineer"
-        data-difficulty="Intermediate Advanced"
-        data-search="zomato ai ml engineer artificial intelligence machine learning rag langchain bert word2vec embeddings tokenization nlp positional embeddings rope quantization inference optimization agentic ai system design"
-      >
-
-        <div class="card-top">
-
-          <div class="company-identity">
-
-            <div class="company-mark" aria-hidden="true">
-              Z
-            </div>
-
-            <div>
-
-              <h3 class="company-name">
-                Zomato
-              </h3>
-
-              <div class="role-name">
-                AI/ML Engineer
-              </div>
-
-            </div>
-
-          </div>
-
-          <span class="status-badge">
-            <span class="status-dot"></span>
-            Interview experience
-          </span>
-
-        </div>
+    <p
+      class="directory-status"
+      id="directory-status"
+      role="status"
+      aria-live="polite"
+    >
+      Loading interview guides…
+    </p>
 
 
-        <p class="card-description">
-          Prepare for technical discussions covering Retrieval-Augmented
-          Generation (RAG), text embeddings, NLP tokenization, Transformer
-          architectures, model optimization, and Agentic AI system design.
-          This preparation guide brings six reported questions together
-          with structured answers and suggested follow-up topics.
-        </p>
+    <div class="interview-list" id="interview-list"></div>
 
 
-        <div class="topic-label">
-          Topics covered
-        </div>
+    <div
+      class="directory-message"
+      id="directory-message"
+      role="status"
+      hidden
+    >
+      <h3 id="directory-message-title">No interviews found.</h3>
 
-        <div class="topic-list">
-
-          <span class="topic-tag">RAG &amp; LangChain</span>
-
-          <span class="topic-tag">BERT vs Word2Vec</span>
-
-          <span class="topic-tag">Tokenization &amp; NLP</span>
-
-          <span class="topic-tag">Positional Embeddings</span>
-
-          <span class="topic-tag">Model Quantization</span>
-
-          <span class="topic-tag">Agentic AI</span>
-
-        </div>
-
-
-        <div class="card-divider"></div>
-
-
-        <div class="card-bottom">
-
-          <div class="card-meta">
-
-            <span>
-              <span aria-hidden="true">▤</span>
-              6 questions
-            </span>
-
-            <span>
-              <span aria-hidden="true">◈</span>
-              Intermediate–Advanced
-            </span>
-
-            <span>
-              <span aria-hidden="true">◷</span>
-              Updated Oct 10, 2026
-            </span>
-
-          </div>
-
-          <a
-            class="view-button"
-            href="interviews/zomato-ai-ml.html"
-            aria-label="View Zomato AI/ML Engineer interview questions and answers"
-          >
-            View interview questions
-            <span aria-hidden="true">↗</span>
-          </a>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <div class="empty-state" id="empty-state" aria-live="polite">
-
-      <h3>No interviews found.</h3>
-
-      <p>
-        Try a different company name, topic, role, or difficulty.
+      <p id="directory-message-text">
+        Try a different search term or filter.
       </p>
-
     </div>
 
   </section>
@@ -1182,11 +1114,11 @@ select:focus-visible {
     <strong>Important:</strong>
     EvalLoop Jobs is an independent opportunity discovery platform
     and interview-preparation resource. It is not affiliated with or
-    endorsed by Zomato or any other employer featured on this website.
-    Interview experiences may be candidate-reported and have not
-    necessarily been independently verified. Answers are educational
-    examples, not official company answers. Page update dates do not
-    necessarily indicate when the interview took place.
+    endorsed by companies featured on this website. Interview
+    experiences may be candidate-reported and may not have been
+    independently verified. Answers are educational examples, not
+    official company answers. A page's update date does not necessarily
+    indicate when the interview took place.
   </div>
 
 </main>
@@ -1247,30 +1179,407 @@ select:focus-visible {
   "use strict";
 
   /* ========================================
-     DIRECTORY SEARCH AND FILTERS
+     CONFIGURATION
   ======================================== */
 
+  const DATA_URL = "./interviews.json";
+
+  const list = document.getElementById("interview-list");
   const searchInput = document.getElementById("interview-search");
   const roleFilter = document.getElementById("role-filter");
-  const difficultyButtons = document.querySelectorAll("[data-difficulty]");
-  const cards = Array.from(
-    document.querySelectorAll(".interview-card")
-  );
-  const emptyState = document.getElementById("empty-state");
+  const status = document.getElementById("directory-status");
 
+  const message = document.getElementById("directory-message");
+  const messageTitle = document.getElementById("directory-message-title");
+  const messageText = document.getElementById("directory-message-text");
+
+  const companyCount = document.getElementById("company-count");
+  const roleCount = document.getElementById("role-count");
+  const questionCount = document.getElementById("question-count");
+
+  const difficultyButtons = Array.from(
+    document.querySelectorAll("[data-difficulty]")
+  );
+
+  let interviews = [];
   let selectedDifficulty = "all";
 
-  function filterInterviews() {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const selectedRole = roleFilter.value.toLowerCase();
+
+  /* ========================================
+     HELPERS
+  ======================================== */
+
+  function normalize(value) {
+    return String(value ?? "").trim().toLowerCase();
+  }
+
+  function formatDate(value) {
+    if (!value) {
+      return "Date not specified";
+    }
+
+    const date = new Date(value + "T00:00:00");
+
+    if (Number.isNaN(date.getTime())) {
+      return String(value);
+    }
+
+    return new Intl.DateTimeFormat("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    }).format(date);
+  }
+
+  function unique(values) {
+    return [...new Set(values.filter(Boolean))];
+  }
+
+  function getTopics(item) {
+    if (Array.isArray(item.topics)) {
+      return item.topics.filter(Boolean);
+    }
+
+    if (Array.isArray(item.tags)) {
+      return item.tags.filter(Boolean);
+    }
+
+    return [];
+  }
+
+  function getDifficulty(item) {
+    return item.difficulty || "Not specified";
+  }
+
+  function getQuestionCount(item) {
+    const value = Number(item.question_count);
+
+    return Number.isFinite(value) && value >= 0
+      ? value
+      : 0;
+  }
+
+  function getVerificationLabel(item) {
+    if (item.verified === true) {
+      return "Verified";
+    }
+
+    if (item.source_type === "candidate_reported") {
+      return "Candidate-reported";
+    }
+
+    return "Interview guide";
+  }
+
+  function getSearchText(item) {
+    return [
+      item.company,
+      item.role,
+      item.description,
+      item.difficulty,
+      item.source_type,
+      ...getTopics(item)
+    ].join(" ").toLowerCase();
+  }
+
+  function createElement(tag, className, text) {
+    const element = document.createElement(tag);
+
+    if (className) {
+      element.className = className;
+    }
+
+    if (text !== undefined && text !== null) {
+      element.textContent = String(text);
+    }
+
+    return element;
+  }
+
+
+  /* ========================================
+     BUILD A COMPANY CARD
+  ======================================== */
+
+  function createInterviewCard(item) {
+    const article = createElement("article", "interview-card");
+
+    article.dataset.company = normalize(item.company);
+    article.dataset.role = normalize(item.role);
+    article.dataset.difficulty = normalize(getDifficulty(item));
+    article.dataset.search = getSearchText(item);
+
+    const cardTop = createElement("div", "card-top");
+
+    const identity = createElement("div", "company-identity");
+
+    const logo = createElement("div", "company-mark");
+
+    const fallbackLetter =
+      String(item.company || "?").trim().charAt(0).toUpperCase() || "?";
+
+    const logoPath = String(item.logo || "").trim();
+
+    if (logoPath) {
+      const image = document.createElement("img");
+
+      image.src = logoPath;
+      image.alt = item.company ? item.company + " logo" : "Company logo";
+      image.loading = "lazy";
+      image.decoding = "async";
+
+      image.addEventListener("error", function () {
+        logo.replaceChildren();
+        logo.classList.add("logo-fallback");
+        logo.textContent = fallbackLetter;
+      }, { once: true });
+
+      logo.appendChild(image);
+    } else {
+      logo.classList.add("logo-fallback");
+      logo.textContent = fallbackLetter;
+    }
+
+    const identityText = createElement("div");
+
+    const companyName = createElement(
+      "h3",
+      "company-name",
+      item.company || "Company not specified"
+    );
+
+    const roleName = createElement(
+      "div",
+      "role-name",
+      item.role || "Role not specified"
+    );
+
+    identityText.append(companyName, roleName);
+    identity.append(logo, identityText);
+
+    const badge = createElement("span", "status-badge");
+
+    const badgeDot = createElement("span", "status-dot");
+    badgeDot.setAttribute("aria-hidden", "true");
+
+    badge.append(
+      badgeDot,
+      document.createTextNode(getVerificationLabel(item))
+    );
+
+    cardTop.append(identity, badge);
+
+
+    /* DESCRIPTION */
+
+    const description = createElement(
+      "p",
+      "card-description",
+      item.description ||
+      "Explore interview questions and preparation topics for this company and role."
+    );
+
+
+    /* TOPICS */
+
+    const topicLabel = createElement("div", "topic-label", "Topics covered");
+
+    const topicList = createElement("div", "topic-list");
+    const topics = getTopics(item);
+
+    if (topics.length) {
+      topics.forEach(function (topic) {
+        topicList.appendChild(
+          createElement("span", "topic-tag", topic)
+        );
+      });
+    } else {
+      topicList.appendChild(
+        createElement("span", "topic-tag", "Interview preparation")
+      );
+    }
+
+
+    /* DIVIDER */
+
+    const divider = createElement("div", "card-divider");
+
+
+    /* METADATA */
+
+    const cardBottom = createElement("div", "card-bottom");
+    const meta = createElement("div", "card-meta");
+
+    const count = getQuestionCount(item);
+
+    const questionMeta = createElement(
+      "span",
+      "",
+      "▤  " + count + (count === 1 ? " question" : " questions")
+    );
+
+    const difficultyMeta = createElement(
+      "span",
+      "difficulty",
+      "◈  " + getDifficulty(item)
+    );
+
+    const updatedMeta = createElement(
+      "span",
+      "",
+      "◷  Updated " + formatDate(item.updated_at)
+    );
+
+    meta.append(questionMeta, difficultyMeta, updatedMeta);
+
+
+    /* VIEW BUTTON */
+
+    const button = createElement("a", "view-button");
+
+    const pagePath = String(item.page || "").trim();
+
+    if (
+      !pagePath ||
+      pagePath.startsWith("javascript:") ||
+      pagePath.startsWith("//") ||
+      /^https?:\/\//i.test(pagePath)
+    ) {
+      button.href = "#";
+      button.setAttribute("aria-disabled", "true");
+
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+      });
+
+      button.style.opacity = ".55";
+      button.style.cursor = "not-allowed";
+      button.append(
+        document.createTextNode("Interview page coming soon")
+      );
+    } else {
+      button.href = pagePath;
+
+      button.setAttribute(
+        "aria-label",
+        "View " + (item.company || "company") +
+        " " + (item.role || "") +
+        " interview questions and answers"
+      );
+
+      button.append(
+        document.createTextNode("View interview questions ")
+      );
+
+      button.appendChild(
+        createElement("span", "", "↗")
+      );
+    }
+
+    cardBottom.append(meta, button);
+
+    article.append(
+      cardTop,
+      description,
+      topicLabel,
+      topicList,
+      divider,
+      cardBottom
+    );
+
+    return article;
+  }
+
+
+  /* ========================================
+     ROLE FILTER OPTIONS
+  ======================================== */
+
+  function buildRoleOptions() {
+    const currentValue = roleFilter.value || "all";
+
+    roleFilter.replaceChildren();
+
+    const allOption = document.createElement("option");
+    allOption.value = "all";
+    allOption.textContent = "All roles";
+
+    roleFilter.appendChild(allOption);
+
+    const roles = unique(
+      interviews.map(function (item) {
+        return String(item.role || "").trim();
+      })
+    ).sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+
+    roles.forEach(function (role) {
+      const option = document.createElement("option");
+
+      option.value = normalize(role);
+      option.textContent = role;
+
+      roleFilter.appendChild(option);
+    });
+
+    const matchingOption = Array.from(roleFilter.options).find(
+      function (option) {
+        return option.value === currentValue;
+      }
+    );
+
+    roleFilter.value = matchingOption ? currentValue : "all";
+  }
+
+
+  /* ========================================
+     DIRECTORY STATISTICS
+  ======================================== */
+
+  function updateStatistics() {
+    const companies = unique(
+      interviews.map(function (item) {
+        return normalize(item.company);
+      })
+    );
+
+    const roles = interviews.map(function (item) {
+      return normalize(item.company) + "|" + normalize(item.role);
+    });
+
+    const totalQuestions = interviews.reduce(
+      function (total, item) {
+        return total + getQuestionCount(item);
+      },
+      0
+    );
+
+    companyCount.textContent = companies.length;
+    roleCount.textContent = unique(roles).length;
+    questionCount.textContent = totalQuestions;
+  }
+
+
+  /* ========================================
+     SEARCH AND FILTERS
+  ======================================== */
+
+  function applyFilters() {
+    const searchTerm = normalize(searchInput.value);
+    const selectedRole = normalize(roleFilter.value);
 
     let visibleCount = 0;
 
+    const cards = Array.from(
+      list.querySelectorAll(".interview-card")
+    );
+
     cards.forEach(function (card) {
-      const company = (card.dataset.company || "").toLowerCase();
-      const role = (card.dataset.role || "").toLowerCase();
-      const difficulty = (card.dataset.difficulty || "").toLowerCase();
-      const searchableText = (card.dataset.search || "").toLowerCase();
+      const company = card.dataset.company || "";
+      const role = card.dataset.role || "";
+      const difficulty = card.dataset.difficulty || "";
+      const searchableText = card.dataset.search || "";
 
       const matchesSearch =
         !searchTerm ||
@@ -1284,7 +1593,7 @@ select:focus-visible {
 
       const matchesDifficulty =
         selectedDifficulty === "all" ||
-        difficulty.includes(selectedDifficulty.toLowerCase());
+        difficulty.includes(normalize(selectedDifficulty));
 
       const visible =
         matchesSearch &&
@@ -1298,25 +1607,147 @@ select:focus-visible {
       }
     });
 
-    emptyState.style.display =
-      visibleCount === 0 ? "block" : "none";
+    if (interviews.length === 0) {
+      message.hidden = false;
+      messageTitle.textContent = "No interview guides available yet.";
+      messageText.textContent =
+        "Interview guides will appear here when they are added to the interview directory data.";
+      status.textContent = "No interview guides loaded.";
+      return;
+    }
+
+    if (visibleCount === 0) {
+      message.hidden = false;
+      messageTitle.textContent = "No interviews found.";
+      messageText.textContent =
+        "Try a different search term, job role, or difficulty filter.";
+
+      status.textContent = "No matching interview guides.";
+    } else {
+      message.hidden = true;
+
+      status.textContent =
+        "Showing " + visibleCount +
+        (visibleCount === 1
+          ? " interview guide."
+          : " interview guides.");
+    }
   }
 
-  searchInput.addEventListener("input", filterInterviews);
-  roleFilter.addEventListener("change", filterInterviews);
+
+  /* ========================================
+     LOAD INTERVIEWS.JSON
+  ======================================== */
+
+  async function loadInterviews() {
+    status.textContent = "Loading interview guides…";
+
+    try {
+      const response = await fetch(DATA_URL, {
+        cache: "no-cache"
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          "Could not load interviews.json (HTTP " +
+          response.status + ")."
+        );
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error(
+          "The interview data must be a JSON array."
+        );
+      }
+
+      interviews = data.filter(function (item) {
+        return (
+          item &&
+          typeof item === "object" &&
+          typeof item.company === "string" &&
+          item.company.trim() !== ""
+        );
+      });
+
+      list.replaceChildren();
+
+      if (interviews.length === 0) {
+        updateStatistics();
+        buildRoleOptions();
+        applyFilters();
+        return;
+      }
+
+      /* Sort by update date, newest first. */
+
+      interviews.sort(function (a, b) {
+        return String(b.updated_at || "")
+          .localeCompare(String(a.updated_at || ""));
+      });
+
+      interviews.forEach(function (item) {
+        list.appendChild(createInterviewCard(item));
+      });
+
+      updateStatistics();
+      buildRoleOptions();
+      applyFilters();
+
+    } catch (error) {
+      console.error("Interview directory error:", error);
+
+      interviews = [];
+      list.replaceChildren();
+
+      companyCount.textContent = "—";
+      roleCount.textContent = "—";
+      questionCount.textContent = "—";
+
+      status.textContent = "Unable to load interview guides.";
+
+      message.hidden = false;
+      messageTitle.textContent = "We couldn't load the interview directory.";
+
+      messageText.textContent =
+        "Please check that interviews.json exists in the website root, " +
+        "contains valid JSON, and is available on the deployed website. " +
+        "Then refresh this page.";
+
+      roleFilter.replaceChildren();
+
+      const option = document.createElement("option");
+      option.value = "all";
+      option.textContent = "All roles";
+
+      roleFilter.appendChild(option);
+    }
+  }
+
+
+  /* ========================================
+     EVENT LISTENERS
+  ======================================== */
+
+  searchInput.addEventListener("input", applyFilters);
+  roleFilter.addEventListener("change", applyFilters);
 
   difficultyButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      selectedDifficulty = button.dataset.difficulty;
+      selectedDifficulty = button.dataset.difficulty || "all";
 
-      difficultyButtons.forEach(function (item) {
-        const active = item === button;
+      difficultyButtons.forEach(function (otherButton) {
+        const active = otherButton === button;
 
-        item.classList.toggle("active", active);
-        item.setAttribute("aria-pressed", String(active));
+        otherButton.classList.toggle("active", active);
+        otherButton.setAttribute(
+          "aria-pressed",
+          String(active)
+        );
       });
 
-      filterInterviews();
+      applyFilters();
     });
   });
 
@@ -1329,7 +1760,9 @@ select:focus-visible {
   const ring = document.querySelector(".cursor-ring");
 
   const supportsFinePointer =
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
 
   if (dot && ring && supportsFinePointer) {
     let mouseX = window.innerWidth / 2;
@@ -1350,8 +1783,8 @@ select:focus-visible {
     });
 
     function animateCursor() {
-      ringX += (mouseX - ringX) * 0.16;
-      ringY += (mouseY - ringY) * 0.16;
+      ringX += (mouseX - ringX) * .16;
+      ringY += (mouseY - ringY) * .16;
 
       ring.style.left = ringX + "px";
       ring.style.top = ringY + "px";
@@ -1361,18 +1794,31 @@ select:focus-visible {
 
     animateCursor();
 
-    document.querySelectorAll(
-      "a, button, input, textarea, select"
-    ).forEach(function (element) {
-      element.addEventListener("pointerenter", function () {
+    document.addEventListener("pointerover", function (event) {
+      if (
+        event.target &&
+        event.target.closest("a, button, input, select")
+      ) {
         ring.classList.add("active");
-      });
+      }
+    });
 
-      element.addEventListener("pointerleave", function () {
+    document.addEventListener("pointerout", function (event) {
+      if (
+        event.target &&
+        event.target.closest("a, button, input, select")
+      ) {
         ring.classList.remove("active");
-      });
+      }
     });
   }
+
+
+  /* ========================================
+     START
+  ======================================== */
+
+  loadInterviews();
 
 })();
 </script>
