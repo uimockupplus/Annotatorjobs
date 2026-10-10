@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zomato AI/ML Engineer Interview Questions | EvalLoop Jobs</title>
-  <meta
-    name="description"
-    content="Prepare for Zomato AI/ML Engineer interviews with questions covering RAG, LangChain, BERT, Word2Vec, tokenization, RoPE, quantization, and Agentic AI."
-  >
+
+<meta
+name=“description”
+content=“Prepare for Zomato AI/ML Engineer interviews with questions covering RAG, LangChain, BERT, Word2Vec, tokenization, RoPE, quantization, and Agentic AI.”
+
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0b1224">
   <link
@@ -36,12 +37,15 @@
       --interview-blue-soft: rgba(77, 179, 255, 0.11);
       --interview-green: #65dfb2;
     }
+    /* Base layout */
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 100px;
+      -webkit-text-size-adjust: 100%;
     }
     body {
       margin: 0;
+      min-width: 0;
       background: var(--interview-bg);
       color: var(--interview-text);
       font-family: "DM Sans", sans-serif;
@@ -51,10 +55,29 @@
       box-sizing: border-box;
     }
     .interview-page {
-      width: min(100% - 40px, 1000px);
+      width: calc(100% - 40px);
+      max-width: 1100px;
+      min-width: 0;
       margin: 0 auto;
       padding: 24px 0 80px;
     }
+    .interview-page img {
+      max-width: 100%;
+    }
+    .interview-page p,
+    .interview-page li,
+    .interview-page h1,
+    .interview-page h2,
+    .interview-page h3,
+    .interview-page h4,
+    .interview-page a,
+    .interview-page span,
+    .interview-page div {
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    /* Breadcrumb */
     .interview-breadcrumb {
       display: flex;
       align-items: center;
@@ -63,6 +86,7 @@
       margin: 0 0 18px;
       color: var(--interview-muted);
       font-size: 13px;
+      line-height: 1.6;
     }
     .interview-breadcrumb a {
       color: var(--interview-muted);
@@ -75,9 +99,10 @@
     .breadcrumb-separator {
       opacity: 0.55;
     }
+    /* Hero */
     .interview-hero {
       position: relative;
-      overflow: hidden;
+      min-width: 0;
       padding: 34px;
       border: 1px solid var(--interview-border);
       border-radius: 22px;
@@ -103,6 +128,7 @@
     .interview-eyebrow::before {
       width: 7px;
       height: 7px;
+      flex: 0 0 7px;
       border-radius: 50%;
       background: var(--interview-blue);
       content: "";
@@ -126,6 +152,7 @@
       font-size: 16px;
       line-height: 1.8;
     }
+    /* Company */
     .interview-company {
       display: flex;
       align-items: center;
@@ -173,6 +200,7 @@
       font-size: 22px;
       font-weight: 700;
     }
+    /* Metadata cards */
     .interview-meta {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -180,6 +208,7 @@
       margin-top: 22px;
     }
     .meta-card {
+      min-width: 0;
       padding: 16px 18px;
       border: 1px solid var(--interview-border);
       border-radius: 13px;
@@ -210,6 +239,7 @@
     .interview-disclaimer strong {
       color: var(--interview-text);
     }
+    /* Main two-column layout */
     .interview-layout {
       display: grid;
       grid-template-columns: 235px minmax(0, 1fr);
@@ -220,6 +250,7 @@
     .interview-sidebar {
       position: sticky;
       top: 100px;
+      min-width: 0;
       padding: 20px;
       border: 1px solid var(--interview-border);
       border-radius: 16px;
@@ -229,6 +260,7 @@
       margin: 0 0 15px;
       font-family: "Space Grotesk", sans-serif;
       font-size: 16px;
+      line-height: 1.4;
     }
     .toc-list {
       display: grid;
@@ -236,6 +268,9 @@
       margin: 0;
       padding: 0;
       list-style: none;
+    }
+    .toc-list li {
+      min-width: 0;
     }
     .toc-list a {
       display: block;
@@ -257,15 +292,18 @@
       color: var(--interview-blue);
       font-weight: 700;
     }
+    /* Question content */
     .question-content {
       min-width: 0;
+      width: 100%;
     }
     .section-heading {
       margin: 0 0 10px;
       font-family: "Space Grotesk", sans-serif;
-      font-size: 27px;
+      font-size: clamp(23px, 3vw, 27px);
       font-weight: 700;
       letter-spacing: -0.6px;
+      line-height: 1.35;
     }
     .section-description {
       margin: 0 0 22px;
@@ -274,8 +312,10 @@
       line-height: 1.8;
     }
     .question-card {
+      width: 100%;
+      min-width: 0;
       scroll-margin-top: 100px;
-      margin-bottom: 20px;
+      margin: 0 0 20px;
       padding: 25px;
       border: 1px solid var(--interview-border);
       border-radius: 17px;
@@ -318,6 +358,7 @@
       font-family: "Space Grotesk", sans-serif;
       font-size: 16px;
       font-weight: 700;
+      line-height: 1.5;
     }
     .question-card ul,
     .question-card ol {
@@ -329,9 +370,13 @@
       font-size: 14px;
       line-height: 1.8;
     }
+    .question-card li {
+      padding-left: 2px;
+    }
     .question-card li::marker {
       color: var(--interview-blue);
     }
+    /* Highlight boxes */
     .concept-box {
       margin-top: 17px;
       padding: 16px 18px;
@@ -350,7 +395,12 @@
       color: #d1dced;
       font-size: 13px;
     }
+    /* Code examples */
     .code-example {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
       margin: 14px 0 18px;
       padding: 17px;
@@ -363,12 +413,19 @@
       line-height: 1.8;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
+      word-break: normal;
+      tab-size: 2;
     }
+    /* Comparison table */
     .comparison-table-wrap {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
       margin: 14px 0 18px;
       border: 1px solid var(--interview-border);
       border-radius: 10px;
+      -webkit-overflow-scrolling: touch;
     }
     .comparison-table {
       width: 100%;
@@ -382,6 +439,7 @@
       border-bottom: 1px solid var(--interview-border);
       text-align: left;
       vertical-align: top;
+      overflow-wrap: break-word;
     }
     .comparison-table th {
       background: var(--interview-panel-soft);
@@ -393,6 +451,7 @@
     .comparison-table tr:last-child td {
       border-bottom: 0;
     }
+    /* Preparation box */
     .preparation-box {
       margin-top: 30px;
       padding: 25px;
@@ -404,6 +463,7 @@
       margin: 0 0 12px;
       font-family: "Space Grotesk", sans-serif;
       font-size: 22px;
+      line-height: 1.4;
     }
     .preparation-box p,
     .preparation-box li {
@@ -423,18 +483,18 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      max-width: 100%;
       margin-top: 26px;
       color: var(--interview-blue);
       font-size: 14px;
       font-weight: 700;
+      line-height: 1.7;
       text-decoration: none;
     }
     .interview-back:hover {
       text-decoration: underline;
     }
-    /* =========================================
-       EvalLoop Jobs — Iconic Custom Cursor
-    ========================================= */
+    /* Custom cursor */
     .cursor-dot,
     .cursor-ring {
       position: fixed;
@@ -487,7 +547,6 @@
       background: #ffffff;
       box-shadow: 0 0 12px rgba(77, 179, 255, 0.9);
     }
-    /* Restore the normal browser cursor on touch devices. */
     @media (hover: none), (pointer: coarse) {
       .cursor-dot,
       .cursor-ring {
@@ -495,50 +554,184 @@
       }
     }
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
       .cursor-dot,
       .cursor-ring {
         transition: none;
       }
     }
+    /* Tablet */
+    @media (max-width: 900px) {
+      .interview-layout {
+        grid-template-columns: 205px minmax(0, 1fr);
+        gap: 18px;
+      }
+      .interview-sidebar {
+        padding: 15px;
+      }
+      .question-card {
+        padding: 22px;
+      }
+    }
+    /* Mobile */
     @media (max-width: 760px) {
       .interview-page {
-        width: min(100% - 28px, 1000px);
+        width: calc(100% - 32px);
+        max-width: 100%;
         padding-top: 18px;
-        padding-bottom: 55px;
+        padding-bottom: 48px;
       }
       .interview-hero {
         padding: 24px 20px;
         border-radius: 17px;
       }
       .interview-hero h1 {
+        font-size: clamp(30px, 7vw, 42px);
         letter-spacing: -1px;
+        line-height: 1.2;
       }
       .interview-intro {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      .interview-company {
+        gap: 13px;
+        margin-top: 23px;
+        padding-top: 20px;
+      }
+      .company-logo-wrap {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+        border-radius: 13px;
+      }
+      .company-name {
+        font-size: 20px;
       }
       .interview-meta {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 9px;
       }
       .meta-card {
         padding: 13px 15px;
       }
+      .interview-disclaimer {
+        padding: 14px;
+        font-size: 13px;
+        line-height: 1.75;
+      }
       .interview-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 24px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        margin-top: 23px;
       }
       .interview-sidebar {
         position: static;
+        width: 100%;
+        padding: 17px;
       }
       .toc-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
       }
-      .question-card {
-        padding: 20px;
+      .toc-list a {
+        height: 100%;
+        padding: 11px 9px;
+        background: rgba(255, 255, 255, 0.025);
+        font-size: 12px;
+      }
+      .question-content {
+        width: 100%;
       }
       .section-heading {
         font-size: 24px;
+        line-height: 1.35;
+      }
+      .section-description {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+      .question-card {
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 20px 18px;
+        border-radius: 15px;
+      }
+      .question-card h3 {
+        font-size: 21px;
+        letter-spacing: -0.3px;
+        line-height: 1.45;
+      }
+      .question-card h4 {
+        font-size: 16px;
+      }
+      .question-card p,
+      .question-card ul,
+      .question-card ol {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .question-card ul,
+      .question-card ol {
+        padding-left: 21px;
+      }
+      .code-example {
+        padding: 13px;
+        font-size: 11px;
+        line-height: 1.75;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .comparison-table {
+        min-width: 540px;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 10px;
+      }
+      .concept-box {
+        padding: 14px;
+      }
+      .preparation-box {
+        margin-top: 22px;
+        padding: 20px 18px;
+      }
+      .preparation-box h2 {
+        font-size: 21px;
+      }
+      .interview-back {
+        align-items: flex-start;
+      }
+    }
+    /* Small phones */
+    @media (max-width: 380px) {
+      .interview-page {
+        width: calc(100% - 24px);
+      }
+      .interview-hero {
+        padding: 21px 16px;
+      }
+      .interview-hero h1 {
+        font-size: 29px;
+      }
+      .interview-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.1px;
+      }
+      .toc-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .question-card {
+        padding: 17px 14px;
+      }
+      .question-card h3 {
+        font-size: 19px;
+      }
+      .code-example {
+        padding: 11px;
+        font-size: 10px;
       }
     }
   </style>
@@ -718,9 +911,9 @@
         Instruct it to answer using the supplied evidence and to say
         when the available information is insufficient.
       </p>
-      <div class="code-example">User question
-  ↓
+      <pre class="code-example">User question
 
+↓
 Query embedding
 ↓
 Vector / hybrid retrieval
@@ -734,20 +927,36 @@ Prompt + retrieved context
 Language model
 ↓
 Answer with supporting sources
-Step 6: Evaluate the pipeline
-Retrieval quality: Does the system retrieve
-the documents needed to answer the question?
-Faithfulness: Is the generated answer
-supported by the retrieved context?
-Relevance: Does the answer address the
-user’s actual question?
-Latency and cost: How long does each request
-take, and how many resources does it consume?
-Key takeaway
-A good RAG pipeline is more than a vector database connected
-to an LLM. Document quality, chunking, retrieval, reranking,
-prompt design, grounded generation, and evaluation all affect
-its reliability.
+
+      <h4>Step 6: Evaluate the pipeline</h4>
+      <ul>
+        <li>
+          <strong>Retrieval quality:</strong>
+          Does the system retrieve the documents needed to answer the question?
+        </li>
+        <li>
+          <strong>Faithfulness:</strong>
+          Is the generated answer supported by the retrieved context?
+        </li>
+        <li>
+          <strong>Relevance:</strong>
+          Does the answer address the user's actual question?
+        </li>
+        <li>
+          <strong>Latency and cost:</strong>
+          How long does each request take, and how many resources does it consume?
+        </li>
+      </ul>
+      <div class="concept-box">
+        <strong>Key takeaway</strong>
+        <p>
+          A good RAG pipeline is more than a vector database connected
+          to an LLM. Document quality, chunking, retrieval, reranking,
+          prompt design, grounded generation, and evaluation all affect
+          its reliability.
+        </p>
+      </div>
+    </article>
     <!-- Question 2 -->
     <article class="question-card" id="question-2">
       <span class="question-number">Q2</span>
@@ -821,12 +1030,12 @@ its reliability.
       <h4>How does Word2Vec work?</h4>
       <ul>
         <li>
-          <strong>CBOW:</strong> Predicts a target word using surrounding
-          context words.
+          <strong>CBOW:</strong>
+          Predicts a target word using surrounding context words.
         </li>
         <li>
-          <strong>Skip-gram:</strong> Predicts surrounding context words
-          from a target word.
+          <strong>Skip-gram:</strong>
+          Predicts surrounding context words from a target word.
         </li>
       </ul>
       <h4>How does BERT work?</h4>
@@ -869,23 +1078,24 @@ its reliability.
       <h4>Impact on sentiment analysis</h4>
       <ul>
         <li>
-          <strong>Negation:</strong> The phrase "not good" conveys a
-          different sentiment from "good." A model must preserve and
-          interpret the relationship between these tokens.
+          <strong>Negation:</strong>
+          The phrase "not good" conveys a different sentiment from
+          "good." A model must preserve and interpret the relationship
+          between these tokens.
         </li>
         <li>
-          <strong>Contractions:</strong> Words such as "isn't" and
-          "don't" may be split into multiple tokens.
+          <strong>Contractions:</strong>
+          Words such as "isn't" and "don't" may be split into multiple tokens.
         </li>
         <li>
-          <strong>Emojis and informal language:</strong> Customer
-          reviews often contain emojis, abbreviations, misspellings,
-          and slang that influence sentiment.
+          <strong>Emojis and informal language:</strong>
+          Customer reviews often contain emojis, abbreviations,
+          misspellings, and slang that influence sentiment.
         </li>
         <li>
-          <strong>Domain-specific terms:</strong> Product names,
-          abbreviations, and new expressions may be divided into
-          multiple subword tokens.
+          <strong>Domain-specific terms:</strong>
+          Product names, abbreviations, and new expressions may be
+          divided into multiple subword tokens.
         </li>
       </ul>
       <h4>Impact on Named Entity Recognition</h4>
@@ -985,12 +1195,10 @@ its reliability.
       <h4>Why is RoPE useful?</h4>
       <ul>
         <li>
-          It incorporates positional information into the attention
-          calculation.
+          It incorporates positional information into the attention calculation.
         </li>
         <li>
-          Its attention relationships naturally depend on relative
-          position differences.
+          Its attention relationships naturally depend on relative position differences.
         </li>
         <li>
           It is used in many modern decoder-only Transformer models.
@@ -1044,27 +1252,30 @@ its reliability.
       <h4>Common quantization formats</h4>
       <ul>
         <li>
-          <strong>FP32:</strong> 32-bit floating-point representation,
-          commonly used as a full-precision baseline.
+          <strong>FP32:</strong>
+          32-bit floating-point representation, commonly used as a
+          full-precision baseline.
         </li>
         <li>
-          <strong>FP16:</strong> 16-bit floating-point representation,
-          often used for faster, lower-memory inference on supported
-          hardware.
+          <strong>FP16:</strong>
+          16-bit floating-point representation, often used for faster,
+          lower-memory inference on supported hardware.
         </li>
         <li>
-          <strong>BF16:</strong> 16-bit floating-point representation
-          with a wider exponent range than FP16.
+          <strong>BF16:</strong>
+          16-bit floating-point representation with a wider exponent
+          range than FP16.
         </li>
         <li>
-          <strong>INT8:</strong> 8-bit integer quantization, often
-          useful for reducing memory and accelerating supported
-          workloads.
+          <strong>INT8:</strong>
+          8-bit integer quantization, often useful for reducing memory
+          and accelerating supported workloads.
         </li>
         <li>
-          <strong>4-bit quantization:</strong> Uses fewer bits per
-          quantized value and can substantially reduce weight memory,
-          though quality and speed depend on the method and hardware.
+          <strong>4-bit quantization:</strong>
+          Uses fewer bits per quantized value and can substantially
+          reduce weight memory, though quality and speed depend on
+          the method and hardware.
         </li>
       </ul>
       <h4>How does quantization affect memory?</h4>
@@ -1083,37 +1294,32 @@ its reliability.
       <h4>What is the trade-off?</h4>
       <ul>
         <li>
-          <strong>Memory:</strong> Lower-bit representations usually
-          reduce weight storage.
+          <strong>Memory:</strong>
+          Lower-bit representations usually reduce weight storage.
         </li>
         <li>
-          <strong>Speed:</strong> Inference may become faster if the
-          hardware and software efficiently support the selected
-          quantization format.
+          <strong>Speed:</strong>
+          Inference may become faster if the hardware and software
+          efficiently support the selected quantization format.
         </li>
         <li>
-          <strong>Accuracy:</strong> Quantization can change model
-          outputs and reduce quality, especially with aggressive
-          quantization or sensitive tasks.
+          <strong>Accuracy:</strong>
+          Quantization can change model outputs and reduce quality,
+          especially with aggressive quantization or sensitive tasks.
         </li>
         <li>
-          <strong>Compatibility:</strong> Not every device or inference
-          engine supports every quantization method efficiently.
+          <strong>Compatibility:</strong>
+          Not every device or inference engine supports every
+          quantization method efficiently.
         </li>
       </ul>
       <h4>How would you evaluate a quantized model?</h4>
       <ol>
         <li>Establish a baseline using the original model.</li>
         <li>Apply a suitable quantization method.</li>
-        <li>
-          Test both versions on representative real-world inputs.
-        </li>
-        <li>
-          Compare task quality, factuality, and failure cases.
-        </li>
-        <li>
-          Measure latency, throughput, peak memory, and hardware usage.
-        </li>
+        <li>Test both versions on representative real-world inputs.</li>
+        <li>Compare task quality, factuality, and failure cases.</li>
+        <li>Measure latency, throughput, peak memory, and hardware usage.</li>
         <li>
           Select the configuration that meets the application's
           quality and performance requirements.
@@ -1144,9 +1350,9 @@ its reliability.
         condition.
       </p>
       <h4>What does an agent pipeline look like?</h4>
-      <div class="code-example">User request
-  ↓
+      <pre class="code-example">User request
 
+↓
 Understand the task
 ↓
 Plan the next action
@@ -1160,54 +1366,87 @@ Inspect the result
 Continue, recover, or finish
 ↓
 Return the final response
-Step 1: Define the task and success criteria
-Before improving an agent, identify what a successful result
-means. A research agent, coding agent, and customer-support
-agent need different evaluation criteria.
-Useful measures may include task-completion rate, factual
-correctness, successful tool execution, latency, cost, and
-adherence to safety requirements.
-Step 2: Identify where failures occur
-Planning errors: The agent chooses an
-unsuitable sequence of actions.
-Tool-selection errors: It calls the wrong
-tool or supplies invalid arguments.
-Execution errors: A tool fails, times out,
-or returns unexpected data.
-Reasoning errors: The agent misinterprets
-evidence or draws an unsupported conclusion.
-Looping: It repeats actions without making
-useful progress.
-Context problems: Important information is
-lost or ignored during multi-step tasks.
-Step 3: Improve reliability
-Give tools clear descriptions and strict input schemas.
-Validate tool arguments before execution.
-Add timeouts, bounded retries, and explicit error handling.
-Set maximum step counts and meaningful stopping conditions.
-Keep structured logs of decisions, tool calls, outputs,
-and errors.
-Require confirmation for sensitive or irreversible actions.
-Treat retrieved documents and external tool outputs as
-untrusted input where appropriate.
-Step 4: Evaluate changes systematically
-Build a test set containing common tasks, edge cases,
-ambiguous instructions, tool failures, and adversarial inputs.
-Run the baseline and improved versions on the same tasks.
-Compare success rates, tool-call accuracy, unsupported claims,
-recovery from errors, response quality, average latency, and
-cost per completed task.
-Step 5: Choose the simplest effective architecture
-Not every workflow requires a fully autonomous agent. A
-deterministic sequence of steps may be faster, cheaper, and
-easier to test. Use agentic decision-making where adapting
-actions to changing information provides a measurable benefit.
-Key takeaway
-Improving an agent means measuring the complete task
-outcome, locating failure points, strengthening tool
-execution and control flow, and testing changes against
-a representative evaluation set. More autonomy does not
-automatically mean better performance.
+
+      <h4>Step 1: Define the task and success criteria</h4>
+      <p>
+        Before improving an agent, identify what a successful result
+        means. A research agent, coding agent, and customer-support
+        agent need different evaluation criteria.
+      </p>
+      <p>
+        Useful measures may include task-completion rate, factual
+        correctness, successful tool execution, latency, cost, and
+        adherence to safety requirements.
+      </p>
+      <h4>Step 2: Identify where failures occur</h4>
+      <ul>
+        <li>
+          <strong>Planning errors:</strong>
+          The agent chooses an unsuitable sequence of actions.
+        </li>
+        <li>
+          <strong>Tool-selection errors:</strong>
+          It calls the wrong tool or supplies invalid arguments.
+        </li>
+        <li>
+          <strong>Execution errors:</strong>
+          A tool fails, times out, or returns unexpected data.
+        </li>
+        <li>
+          <strong>Reasoning errors:</strong>
+          The agent misinterprets evidence or draws an unsupported conclusion.
+        </li>
+        <li>
+          <strong>Looping:</strong>
+          It repeats actions without making useful progress.
+        </li>
+        <li>
+          <strong>Context problems:</strong>
+          Important information is lost or ignored during multi-step tasks.
+        </li>
+      </ul>
+      <h4>Step 3: Improve reliability</h4>
+      <ul>
+        <li>Give tools clear descriptions and strict input schemas.</li>
+        <li>Validate tool arguments before execution.</li>
+        <li>Add timeouts, bounded retries, and explicit error handling.</li>
+        <li>Set maximum step counts and meaningful stopping conditions.</li>
+        <li>Keep structured logs of decisions, tool calls, outputs, and errors.</li>
+        <li>Require confirmation for sensitive or irreversible actions.</li>
+        <li>
+          Treat retrieved documents and external tool outputs as
+          untrusted input where appropriate.
+        </li>
+      </ul>
+      <h4>Step 4: Evaluate changes systematically</h4>
+      <p>
+        Build a test set containing common tasks, edge cases,
+        ambiguous instructions, tool failures, and adversarial inputs.
+        Run the baseline and improved versions on the same tasks.
+      </p>
+      <p>
+        Compare success rates, tool-call accuracy, unsupported claims,
+        recovery from errors, response quality, average latency, and
+        cost per completed task.
+      </p>
+      <h4>Step 5: Choose the simplest effective architecture</h4>
+      <p>
+        Not every workflow requires a fully autonomous agent. A
+        deterministic sequence of steps may be faster, cheaper, and
+        easier to test. Use agentic decision-making where adapting
+        actions to changing information provides a measurable benefit.
+      </p>
+      <div class="concept-box">
+        <strong>Key takeaway</strong>
+        <p>
+          Improving an agent means measuring the complete task
+          outcome, locating failure points, strengthening tool
+          execution and control flow, and testing changes against
+          a representative evaluation set. More autonomy does not
+          automatically mean better performance.
+        </p>
+      </div>
+    </article>
     <!-- Preparation tips -->
     <section class="preparation-box">
       <h2>How to prepare for this interview</h2>
@@ -1217,12 +1456,10 @@ automatically mean better performance.
       </p>
       <ul>
         <li>
-          Explain each concept in your own words before memorising
-          definitions.
+          Explain each concept in your own words before memorising definitions.
         </li>
         <li>
-          Practise drawing the system architecture for RAG and
-          Agentic AI.
+          Practise drawing the system architecture for RAG and Agentic AI.
         </li>
         <li>
           Compare alternative approaches and explain their trade-offs.
@@ -1250,13 +1487,13 @@ automatically mean better performance.
   </main>
   <!-- Shared site footer -->
   <div id="site-footer"></div>
-  <!-- EvalLoop Jobs Iconic Cursor -->
+  <!-- EvalLoop Jobs custom cursor -->
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
   <!-- Shared site scripts -->
   <script src="../site.js"></script>
   <script src="../chatbot.js"></script>
-  <!-- EvalLoop Jobs Custom Cursor Animation -->
+  <!-- Custom cursor animation -->
   <script>
     (() => {
       const dot = document.querySelector(".cursor-dot");
@@ -1292,7 +1529,10 @@ automatically mean better performance.
         ringY += (mouseY - ringY) * ease;
         ring.style.transform =
           `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-        const distance = Math.hypot(mouseX - ringX, mouseY - ringY);
+        const distance = Math.hypot(
+          mouseX - ringX,
+          mouseY - ringY
+        );
         if (distance > 0.15 && pointerInside) {
           animationFrame = requestAnimationFrame(animateRing);
         } else {
