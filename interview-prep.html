@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta
-name="description"
-content="Prepare for AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer interviews with technical questions, sample answers and company-focused preparation guides."
+  name="description"
+  content="Explore recently reported AI/ML Engineer, AI Engineer, Generative AI Engineer and Agentic AI Engineer interview experiences, source-linked questions and sample answers."
 >
 
 <meta name="robots" content="index,follow">
 
 <link
-rel="canonical"
-href="https://annotatorjobs.vercel.app/interview-prep.html"
+  rel="canonical"
+  href="https://annotatorjobs.vercel.app/interview-prep.html"
 >
 
 <title>AI Interview Preparation — EvalLoop Jobs</title>
@@ -24,8 +24,8 @@ href="https://annotatorjobs.vercel.app/interview-prep.html"
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
 >
 
 <link rel="stylesheet" href="pages.css">
@@ -40,7 +40,7 @@ rel="stylesheet"
 }
 
 .interview-hero em {
-  color: var(--cyan);
+  color: var(--blue);
   font-style: italic;
 }
 
@@ -267,9 +267,26 @@ rel="stylesheet"
   color: var(--cyan);
 }
 
+.interview-badge.reported {
+  border-color: rgba(255,190,92,.4);
+  color: #ffcf83;
+}
+
 .interview-badge.verified {
   border-color: rgba(73,201,145,.35);
   color: #76e0b1;
+}
+
+.interview-badge.company {
+  color: var(--ink);
+}
+
+.interview-date {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 .interview-loading,
@@ -283,22 +300,20 @@ rel="stylesheet"
   line-height: 1.8;
 }
 
-.interview-company-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+.interview-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
-.interview-company-card h3 {
-  margin: 0 0 12px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 19px;
-}
-
-.interview-company-card p {
-  color: var(--body);
-  font-size: 13px;
-  line-height: 1.85;
+.interview-source-link:hover {
+  color: var(--ink);
 }
 
 .interview-process-grid {
@@ -338,6 +353,10 @@ rel="stylesheet"
   color: var(--ink);
 }
 
+.interview-source-note p + p {
+  margin-top: 18px;
+}
+
 .interview-final {
   margin-top: 54px;
 }
@@ -356,8 +375,22 @@ rel="stylesheet"
   line-height: 1.85;
 }
 
+.interview-update-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  background: rgba(37,136,255,.07);
+  color: var(--body);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.interview-update-note strong {
+  color: var(--ink);
+}
+
 @media (max-width: 900px) {
-  .interview-company-grid,
   .interview-process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -366,7 +399,6 @@ rel="stylesheet"
 @media (max-width: 640px) {
   .interview-role-grid,
   .interview-question-grid,
-  .interview-company-grid,
   .interview-process-grid,
   .interview-search-grid {
     grid-template-columns: 1fr;
@@ -398,19 +430,19 @@ rel="stylesheet"
 <header class="header">
 
 <a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
+  <span class="logo-mark">◉</span>
+  <span>EvalLoop Jobs</span>
 </a>
 
 <nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="interview-prep.html" aria-current="page">Interview Prep</a>
-<a href="about.html">About</a>
-<a href="index.html#how">How it works</a>
+  <a href="opportunities.html">Opportunities</a>
+  <a href="interview-prep.html" aria-current="page">Interview Prep</a>
+  <a href="about.html">About</a>
+  <a href="index.html#how">How it works</a>
 </nav>
 
 <a href="opportunities.html" class="top-cta">
-Explore roles ↗
+  Explore roles ↗
 </a>
 
 </header>
@@ -422,35 +454,36 @@ Explore roles ↗
 
 <div class="interview-hero">
 
-<div class="eyebrow">
-INTERVIEW PREP / 07
-</div>
+  <div class="eyebrow">
+    INTERVIEW PREP / 07
+  </div>
 
-<h1 class="page-title">
-Your next AI role starts with <em>preparation.</em>
-</h1>
+  <h1 class="page-title">
+    Your next AI role starts with <em>preparation.</em>
+  </h1>
 
-<p class="page-intro">
-Prepare for AI/ML, AI Engineer, Generative AI, and Agentic AI interviews
-with technical questions, practical answers, and company-focused
-preparation guides.
-</p>
+  <p class="page-intro">
+    Explore publicly reported interview experiences for AI/ML Engineer,
+    AI Engineer, Generative AI Engineer, and Agentic AI Engineer roles.
+    Learn from reported questions, source-linked material, and clearly
+    labelled practice questions.
+  </p>
 
-<div class="interview-actions">
-<a href="#latest-questions" class="btn primary">
-Explore questions ↗
-</a>
+  <div class="interview-actions">
+    <a href="#latest-questions" class="btn primary">
+      Explore questions ↗
+    </a>
 
-<a href="#role-guides" class="btn secondary">
-Browse role guides
-</a>
-</div>
+    <a href="#role-guides" class="btn secondary">
+      Browse role guides
+    </a>
+  </div>
 
-<p class="interview-note">
-Learn the concepts, practise explaining your decisions, and prepare for
-technical follow-up questions. Question sources are labelled so you can
-distinguish practice material from reported interview experiences.
-</p>
+  <p class="interview-note">
+    We add interview experiences as relevant public sources are found.
+    A reported question reflects an individual account, not a guarantee
+    that another candidate will receive the same question.
+  </p>
 
 </div>
 
@@ -459,421 +492,351 @@ distinguish practice material from reported interview experiences.
 
 <section class="interview-section" id="role-guides">
 
-<div class="interview-section-heading">
+  <div class="interview-section-heading">
 
-<div class="eyebrow">
-CHOOSE YOUR PATH / 01
-</div>
+    <div class="eyebrow">
+      EXPLORE BY ROLE / 01
+    </div>
 
-<h2>Prepare by role.</h2>
+    <h2>Choose your target role.</h2>
 
-<p>
-Choose your target role to explore relevant technical concepts,
-interview questions, sample answers, and follow-up topics.
-</p>
+    <p>
+      Browse interview experiences and preparation material for your
+      target role. Available reports depend on the questions collected
+      and published in the library.
+    </p>
 
-</div>
+  </div>
 
-<div class="interview-role-grid">
+  <div class="interview-role-grid">
 
-<article class="panel interview-role-card">
+    <article class="panel interview-role-card">
 
-<span class="role-index">ROLE / 01</span>
+      <span class="role-index">ROLE / 01</span>
 
-<h3>AI/ML Engineer</h3>
+      <h3>AI/ML Engineer</h3>
 
-<p>
-Machine learning fundamentals, Python, data preprocessing, feature
-engineering, model training, evaluation metrics, deployment, and
-model optimization.
-</p>
+      <p>
+        Explore reports relating to machine learning, model evaluation,
+        data preparation, algorithms, deployment, and ML system design.
+      </p>
 
-<a
-class="interview-link"
-href="interview-questions.html?role=AI%2FML%20Engineer"
->
-Explore questions ↗
-</a>
+      <a
+        class="interview-link"
+        href="interview-questions.html?role=AI%2FML%20Engineer"
+      >
+        View available questions ↗
+      </a>
 
-</article>
-
-
-<article class="panel panel-blue interview-role-card">
-
-<span class="role-index">ROLE / 02</span>
-
-<h3>AI Engineer</h3>
-
-<p>
-AI application development, model integration, APIs, inference
-pipelines, Python, testing, deployment, monitoring, and AI system design.
-</p>
-
-<a
-class="interview-link"
-href="interview-questions.html?role=AI%20Engineer"
->
-Explore questions ↗
-</a>
-
-</article>
+    </article>
 
 
-<article class="panel panel-blue interview-role-card">
+    <article class="panel panel-blue interview-role-card">
 
-<span class="role-index">ROLE / 03</span>
+      <span class="role-index">ROLE / 02</span>
 
-<h3>Generative AI Engineer</h3>
+      <h3>AI Engineer</h3>
 
-<p>
-Large language models, prompt design, embeddings, vector databases,
-retrieval-augmented generation, LLM evaluation, and hallucination
-reduction.
-</p>
+      <p>
+        Explore reports relating to AI applications, APIs, model
+        integration, inference workflows, testing, and deployment.
+      </p>
 
-<a
-class="interview-link"
-href="interview-questions.html?role=Generative%20AI%20Engineer"
->
-Explore questions ↗
-</a>
+      <a
+        class="interview-link"
+        href="interview-questions.html?role=AI%20Engineer"
+      >
+        View available questions ↗
+      </a>
 
-</article>
+    </article>
 
 
-<article class="panel interview-role-card">
+    <article class="panel panel-blue interview-role-card">
 
-<span class="role-index">ROLE / 04</span>
+      <span class="role-index">ROLE / 03</span>
 
-<h3>Agentic AI Engineer</h3>
+      <h3>Generative AI Engineer</h3>
 
-<p>
-AI agents, tool calling, planning, memory, workflow orchestration,
-multi-agent systems, guardrails, observability, and agent evaluation.
-</p>
+      <p>
+        Explore reports relating to LLMs, prompting, embeddings, RAG,
+        vector search, evaluation, and reducing hallucinations.
+      </p>
 
-<a
-class="interview-link"
-href="interview-questions.html?role=Agentic%20AI%20Engineer"
->
-Explore questions ↗
-</a>
+      <a
+        class="interview-link"
+        href="interview-questions.html?role=Generative%20AI%20Engineer"
+      >
+        View available questions ↗
+      </a>
 
-</article>
+    </article>
 
-</div>
+
+    <article class="panel interview-role-card">
+
+      <span class="role-index">ROLE / 04</span>
+
+      <h3>Agentic AI Engineer</h3>
+
+      <p>
+        Explore reports relating to AI agents, tool calling, planning,
+        memory, orchestration, reliability, and agent evaluation.
+      </p>
+
+      <a
+        class="interview-link"
+        href="interview-questions.html?role=Agentic%20AI%20Engineer"
+      >
+        View available questions ↗
+      </a>
+
+    </article>
+
+  </div>
 
 </section>
 
 
-<!-- Searchable questions -->
+<!-- Recent interview experiences -->
 
 <section class="interview-section" id="latest-questions">
 
-<div class="interview-section-heading">
+  <div class="interview-section-heading">
 
-<div class="eyebrow">
-QUESTION LIBRARY / 02
-</div>
+    <div class="eyebrow">
+      INTERVIEW LIBRARY / 02
+    </div>
 
-<h2>Explore interview questions.</h2>
+    <h2>Recently added questions.</h2>
 
-<p>
-Search the question library by technical topic, target role, or company.
-Open a question to review its answer and follow-up topics.
-</p>
+    <p>
+      Explore the latest entries added to our library. Candidate-reported
+      questions include source information where available. Practice
+      questions are clearly distinguished from real-world reports.
+    </p>
 
-</div>
-
-
-<div class="interview-search">
-
-<div class="interview-search-grid">
-
-<div>
-<label for="question-search">Search questions</label>
-
-<input
-id="question-search"
-type="search"
-placeholder="Search Python, RAG, LLMs, AI agents..."
-autocomplete="off"
->
-</div>
-
-<div>
-<label for="role-filter">Filter by role</label>
-
-<select id="role-filter">
-<option value="">All roles</option>
-<option value="AI/ML Engineer">AI/ML Engineer</option>
-<option value="AI Engineer">AI Engineer</option>
-<option value="Generative AI Engineer">Generative AI Engineer</option>
-<option value="Agentic AI Engineer">Agentic AI Engineer</option>
-</select>
-</div>
-
-</div>
-
-<div class="interview-search-meta">
-
-<span id="question-count" aria-live="polite">
-Loading questions...
-</span>
-
-<button
-type="button"
-class="interview-clear"
-id="clear-filters"
->
-Clear filters
-</button>
-
-</div>
-
-</div>
+  </div>
 
 
-<div
-class="interview-question-grid"
-id="question-list"
-aria-live="polite"
->
-<div class="interview-loading">
-Loading interview questions...
-</div>
-</div>
+  <div class="interview-search">
+
+    <div class="interview-search-grid">
+
+      <div>
+        <label for="question-search">Search questions or companies</label>
+
+        <input
+          id="question-search"
+          type="search"
+          placeholder="Search a company, Python, RAG, AI agents..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div>
+        <label for="role-filter">Filter by role</label>
+
+        <select id="role-filter">
+          <option value="">All roles</option>
+          <option value="AI/ML Engineer">AI/ML Engineer</option>
+          <option value="AI Engineer">AI Engineer</option>
+          <option value="Generative AI Engineer">Generative AI Engineer</option>
+          <option value="Agentic AI Engineer">Agentic AI Engineer</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="source-filter">Filter by source</label>
+
+        <select id="source-filter">
+          <option value="">All source types</option>
+          <option value="candidate-reported">Candidate-reported</option>
+          <option value="verified">Verified source</option>
+          <option value="practice">Practice question</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="interview-search-meta">
+
+      <span id="question-count" aria-live="polite">
+        Loading questions...
+      </span>
+
+      <button
+        type="button"
+        class="interview-clear"
+        id="clear-filters"
+      >
+        Clear filters
+      </button>
+
+    </div>
+
+  </div>
 
 
-<a
-class="interview-link"
-href="interview-questions.html"
-style="margin-top:24px"
->
-Browse the complete question library ↗
-</a>
-
-</section>
-
-
-<!-- Company guides -->
-
-<section class="interview-section" id="company-guides">
-
-<div class="interview-section-heading">
-
-<div class="eyebrow">
-COMPANY PREPARATION / 03
-</div>
-
-<h2>Prepare for your target company.</h2>
-
-<p>
-Explore company-focused preparation as the library grows. Topics should
-be tailored to the specific job description rather than treated as a
-guaranteed interview syllabus.
-</p>
-
-</div>
+  <div
+    class="interview-question-grid"
+    id="question-list"
+    aria-live="polite"
+  >
+    <div class="interview-loading">
+      Loading interview experiences...
+    </div>
+  </div>
 
 
-<div class="interview-company-grid">
-
-<article class="panel interview-company-card">
-<h3>Google</h3>
-<p>
-Prepare for machine learning fundamentals, coding, model evaluation,
-and system design topics relevant to your target position.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html?company=Google"
->
-Explore preparation ↗
-</a>
-</article>
+  <div class="interview-update-note">
+    <strong>Library updates:</strong>
+    New entries appear here after they are added to the question
+    database. The publication date and original interview date are
+    different fields when both are available.
+  </div>
 
 
-<article class="panel interview-company-card">
-<h3>Microsoft</h3>
-<p>
-Review software engineering, AI application design, machine learning,
-and generative AI concepts relevant to the role.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html?company=Microsoft"
->
-Explore preparation ↗
-</a>
-</article>
-
-
-<article class="panel interview-company-card">
-<h3>Amazon</h3>
-<p>
-Practise coding, problem-solving, machine learning fundamentals,
-and system design where relevant to the position.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html?company=Amazon"
->
-Explore preparation ↗
-</a>
-</article>
-
-
-<article class="panel panel-blue interview-company-card">
-<h3>NVIDIA</h3>
-<p>
-Explore AI, deep learning, model performance, accelerated computing,
-and role-specific technical preparation.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html?company=NVIDIA"
->
-Explore preparation ↗
-</a>
-</article>
-
-
-<article class="panel interview-company-card">
-<h3>OpenAI</h3>
-<p>
-Review LLM concepts, AI application design, model evaluation,
-reliability, and safety-related topics relevant to the position.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html?company=OpenAI"
->
-Explore preparation ↗
-</a>
-</article>
-
-
-<article class="panel interview-company-card">
-<h3>More AI companies</h3>
-<p>
-Discover preparation resources for AI startups, enterprise AI teams,
-and technology companies as additional material is published.
-</p>
-<a
-class="interview-link"
-href="interview-questions.html"
->
-Browse all questions ↗
-</a>
-</article>
-
-</div>
+  <a
+    class="interview-link"
+    href="interview-questions.html"
+    style="margin-top:24px"
+  >
+    Browse the complete question library ↗
+  </a>
 
 </section>
 
 
-<!-- Preparation approach -->
+<!-- How the library works -->
 
 <section class="interview-section" id="how-to-prepare">
 
-<div class="interview-section-heading">
+  <div class="interview-section-heading">
 
-<div class="eyebrow">
-PREPARATION METHOD / 04
-</div>
+    <div class="eyebrow">
+      HOW TO USE THIS LIBRARY / 03
+    </div>
 
-<h2>Practise beyond memorisation.</h2>
+    <h2>Learn from real experiences.</h2>
 
-<p>
-Strong interview preparation means understanding the reasoning behind
-an answer and explaining how you would apply it to a real problem.
-</p>
+    <p>
+      Use interview reports as preparation guidance, not as a promise
+      of the questions you will receive in your own interview.
+    </p>
 
-</div>
-
-
-<div class="interview-process-grid">
-
-<article class="panel interview-process-card">
-<span class="interview-process-number">STEP / 01</span>
-<h3>Understand the concept.</h3>
-<p>
-Learn how a method works, when to use it, its limitations, and how it
-compares with alternative approaches.
-</p>
-</article>
+  </div>
 
 
-<article class="panel panel-blue interview-process-card">
-<span class="interview-process-number">STEP / 02</span>
-<h3>Explain your approach.</h3>
-<p>
-Describe your assumptions, implementation steps, evaluation criteria,
-trade-offs, and practical examples.
-</p>
-</article>
+  <div class="interview-process-grid">
+
+    <article class="panel interview-process-card">
+
+      <span class="interview-process-number">STEP / 01</span>
+
+      <h3>Find a relevant report.</h3>
+
+      <p>
+        Filter by role, search for a company, and review the source
+        details to understand where the interview information came from.
+      </p>
+
+    </article>
 
 
-<article class="panel interview-process-card">
-<span class="interview-process-number">STEP / 03</span>
-<h3>Prepare for follow-ups.</h3>
-<p>
-Practise explaining why you chose a solution, how you would test it,
-what could fail, and how you would improve it.
-</p>
-</article>
+    <article class="panel panel-blue interview-process-card">
 
-</div>
+      <span class="interview-process-number">STEP / 02</span>
+
+      <h3>Understand the answer.</h3>
+
+      <p>
+        Study the underlying concept, reasoning, practical application,
+        limitations, and possible trade-offs behind a question.
+      </p>
+
+    </article>
+
+
+    <article class="panel interview-process-card">
+
+      <span class="interview-process-number">STEP / 03</span>
+
+      <h3>Practise follow-ups.</h3>
+
+      <p>
+        Prepare to explain why an approach works, how you would test it,
+        what could fail, and how you would improve the solution.
+      </p>
+
+    </article>
+
+  </div>
 
 </section>
 
 
-<!-- Transparency -->
+<!-- Source transparency -->
 
 <section class="interview-section" id="question-sources">
 
-<div class="interview-section-heading">
+  <div class="interview-section-heading">
 
-<div class="eyebrow">
-SOURCE TRANSPARENCY / 05
-</div>
+    <div class="eyebrow">
+      SOURCE TRANSPARENCY / 04
+    </div>
 
-<h2>Know the source behind a question.</h2>
+    <h2>Understand where questions come from.</h2>
 
-</div>
+    <p>
+      We distinguish publicly reported interview experiences from
+      preparation material created to help candidates learn.
+    </p>
+
+  </div>
 
 
-<div class="panel interview-source-note">
+  <div class="panel interview-source-note">
 
-<p>
-<strong>Practice Question</strong><br>
-An illustrative question created to help candidates prepare. It is
-not a claim that a particular employer has asked that exact question.
-</p>
+    <p>
+      <strong>Candidate-reported</strong><br>
+      A question or interview experience shared publicly by a candidate
+      or an identifiable reporting source. The original source should
+      be linked when available. Reports represent individual experiences
+      and may not reflect every interview for that position.
+    </p>
 
-<p>
-<strong>Candidate-Reported</strong><br>
-A question reported by a candidate or an identifiable source. Where
-available, the original source and relevant context should be linked.
-A report does not establish that every interview at that company uses
-the same question.
-</p>
+    <p>
+      <strong>Verified source</strong><br>
+      A question supported by an identifiable source that has been
+      checked against the available evidence. The label does not mean
+      that the employer officially endorses the question or that it
+      appears in every interview.
+    </p>
 
-<p>
-<strong>Verified Source</strong><br>
-A question supported by an identifiable source. Source links and
-verification details should be included where available. A source
-should never be represented as proving more than it actually does.
-</p>
+    <p>
+      <strong>Practice question</strong><br>
+      An illustrative question created for learning and preparation.
+      It is not represented as a question actually asked by a candidate's
+      interviewer or a specific company.
+    </p>
 
-<p>
-EvalLoop Jobs is an independent opportunity discovery and interview
-preparation platform. It is not affiliated with the employers mentioned
-on this page. Company names are used to organize preparation resources.
-</p>
+    <p>
+      <strong>Dates and updates</strong><br>
+      When available, entries include the date the interview reportedly
+      took place and the date the information was published or added.
+      These dates should not be treated as interchangeable.
+    </p>
 
-</div>
+    <p>
+      EvalLoop Jobs is an independent opportunity discovery and interview
+      preparation platform. It is not affiliated with or endorsed by
+      employers mentioned in user-submitted or publicly sourced reports.
+      Company names are shown only when relevant information is available
+      in the library.
+    </p>
+
+  </div>
 
 </section>
 
@@ -882,24 +845,25 @@ on this page. Company names are used to organize preparation resources.
 
 <section class="interview-final">
 
-<div class="eyebrow">
-YOUR NEXT STEP / 06
-</div>
+  <div class="eyebrow">
+    YOUR NEXT STEP / 05
+  </div>
 
-<h2>Build your confidence, one question at a time.</h2>
+  <h2>Prepare with context, not assumptions.</h2>
 
-<p>
-Explore technical questions, understand sample answers, and prepare
-systematically for your next opportunity in AI engineering.
-</p>
+  <p>
+    Explore the available interview experiences, check their sources,
+    and build a stronger understanding of the concepts relevant to
+    your target AI engineering role.
+  </p>
 
-<a
-href="interview-questions.html"
-class="btn primary"
-style="display:inline-flex;margin-top:14px"
->
-Start practising ↗
-</a>
+  <a
+    href="interview-questions.html"
+    class="btn primary"
+    style="display:inline-flex;margin-top:14px"
+  >
+    Explore the question library ↗
+  </a>
 
 </section>
 
@@ -910,41 +874,41 @@ Start practising ↗
 <footer class="footer wrap">
 
 <a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
+  <span class="logo-mark">◉</span>
+  <span>EvalLoop Jobs</span>
 </a>
 
 <span>
-Independent opportunity discovery for the work behind better AI.
+  Independent opportunity discovery for the work behind better AI.
 </span>
 
 <nav class="footer-links">
 
-<a href="about.html">About</a>
+  <a href="about.html">About</a>
 
-<a href="opportunities.html">Opportunities</a>
+  <a href="opportunities.html">Opportunities</a>
 
-<a href="interview-prep.html">Interview Prep</a>
+  <a href="interview-prep.html">Interview Prep</a>
 
-<a href="submit-opportunity.html">Submit Opportunity</a>
+  <a href="submit-opportunity.html">Submit Opportunity</a>
 
-<a href="join-network.html">Join Network</a>
+  <a href="join-network.html">Join Network</a>
 
-<a href="contact.html">Contact</a>
+  <a href="contact.html">Contact</a>
 
-<a href="disclaimer.html">Disclaimer</a>
+  <a href="disclaimer.html">Disclaimer</a>
 
-<a href="terms.html">Terms</a>
+  <a href="terms.html">Terms</a>
 
-<a href="privacy.html">Privacy</a>
+  <a href="privacy.html">Privacy</a>
 
-<a
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn ↗
-</a>
+  <a
+    href="https://www.linkedin.com/company/evalloopjobs/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    LinkedIn ↗
+  </a>
 
 </nav>
 
@@ -1009,11 +973,14 @@ if (dot && ring) {
 const questionList = document.getElementById('question-list');
 const questionSearch = document.getElementById('question-search');
 const roleFilter = document.getElementById('role-filter');
+const sourceFilter = document.getElementById('source-filter');
 const questionCount = document.getElementById('question-count');
 const clearFilters = document.getElementById('clear-filters');
 
 let allQuestions = [];
 
+
+/* Escape content before inserting it into HTML. */
 
 function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g, character => ({
@@ -1026,52 +993,94 @@ function escapeHTML(value) {
 }
 
 
+/* Normalize source labels from questions.json. */
+
 function getSource(question) {
-  const sourceType = String(question.source_type || '').toLowerCase();
+  const sourceType = String(question.source_type || '')
+    .trim()
+    .toLowerCase()
+    .replace(/_/g, '-');
 
   if (
     question.verified === true ||
-    sourceType.includes('verified')
+    sourceType === 'verified' ||
+    sourceType === 'verified-source'
   ) {
     return {
       label: 'Verified source',
+      value: 'verified',
       className: 'verified'
     };
   }
 
   if (
-    sourceType.includes('candidate') ||
-    sourceType.includes('reported')
+    sourceType === 'candidate-reported' ||
+    sourceType === 'candidate-reported-interview' ||
+    sourceType === 'reported' ||
+    sourceType === 'candidate'
   ) {
     return {
       label: 'Candidate-reported',
-      className: 'practice'
+      value: 'candidate-reported',
+      className: 'reported'
     };
   }
 
   return {
     label: 'Practice question',
+    value: 'practice',
     className: 'practice'
   };
 }
 
 
+/* Only accept valid HTTP(S) source links. */
+
+function getSafeSourceURL(value) {
+  if (!value) {
+    return '';
+  }
+
+  try {
+    const url = new URL(String(value));
+
+    if (url.protocol === 'https:' || url.protocol === 'http:') {
+      return url.href;
+    }
+
+  } catch (error) {
+    return '';
+  }
+
+  return '';
+}
+
+
+/* Link each card to its corresponding question page. */
+
 function getQuestionLink(question) {
   const params = new URLSearchParams();
 
-  if (question.id) {
-    params.set('id', question.id);
+  if (question.id !== undefined && question.id !== null) {
+    params.set('id', String(question.id));
   }
 
   return 'interview-questions.html?' + params.toString();
 }
 
 
+/* Filter and display the question library. */
+
 function renderQuestions() {
   const searchTerm = questionSearch.value.trim().toLowerCase();
   const selectedRole = roleFilter.value;
+  const selectedSource = sourceFilter.value;
 
   const filtered = allQuestions.filter(question => {
+    const tags = Array.isArray(question.tags)
+      ? question.tags
+      : [];
+
     const searchableText = [
       question.company,
       question.role,
@@ -1079,7 +1088,11 @@ function renderQuestions() {
       question.question,
       question.answer,
       question.difficulty,
-      ...(Array.isArray(question.tags) ? question.tags : [])
+      question.source_name,
+      question.source_type,
+      question.interview_date,
+      question.date_added,
+      ...tags
     ].join(' ').toLowerCase();
 
     const matchesSearch =
@@ -1088,37 +1101,53 @@ function renderQuestions() {
     const matchesRole =
       !selectedRole || question.role === selectedRole;
 
-    return matchesSearch && matchesRole;
+    const source = getSource(question);
+
+    const matchesSource =
+      !selectedSource || source.value === selectedSource;
+
+    return matchesSearch && matchesRole && matchesSource;
   });
 
-  questionCount.textContent =
-    `${filtered.length} question${filtered.length === 1 ? '' : 's'} found`;
 
-  if (filtered.length === 0) {
+  /* Sort newest additions first. */
+
+  const sorted = filtered.slice().sort((a, b) => {
+    const dateA = Date.parse(a.date_added || '') || 0;
+    const dateB = Date.parse(b.date_added || '') || 0;
+
+    return dateB - dateA;
+  });
+
+
+  questionCount.textContent =
+    `${sorted.length} question${sorted.length === 1 ? '' : 's'} found`;
+
+
+  if (sorted.length === 0) {
     questionList.innerHTML = `
       <div class="interview-empty">
         <strong>No matching questions found.</strong><br>
-        Try another keyword or clear your filters.
+        Try another search or clear your filters.
+        New interview reports will appear here as they are added
+        to the question database.
       </div>
     `;
+
     return;
   }
 
-  const sorted = filtered
-    .slice()
-    .sort((a, b) => {
-      const dateA = Date.parse(a.date_added || '') || 0;
-      const dateB = Date.parse(b.date_added || '') || 0;
 
-      return dateB - dateA;
-    })
-    .slice(0, 8);
+  /* Show the eight most recently added matching questions. */
 
-  questionList.innerHTML = sorted.map(question => {
+  const displayedQuestions = sorted.slice(0, 8);
+
+  questionList.innerHTML = displayedQuestions.map(question => {
     const source = getSource(question);
-    const company = question.company || 'General preparation';
-    const role = question.role || 'AI Engineering';
-    const topic = question.topic || 'Technical interview';
+
+    const company = String(question.company || '').trim();
+    const role = String(question.role || 'AI Engineering').trim();
+    const topic = String(question.topic || 'Interview question').trim();
 
     const answer = String(question.answer || '')
       .replace(/\s+/g, ' ')
@@ -1128,17 +1157,67 @@ function renderQuestions() {
       ? answer.slice(0, 160).trimEnd() + '…'
       : answer;
 
+    const interviewDate = String(question.interview_date || '').trim();
+    const addedDate = String(question.date_added || '').trim();
+
+    const sourceURL = getSafeSourceURL(
+      question.source_url || question.source_link || ''
+    );
+
+    const sourceName = String(
+      question.source_name || 'Original source'
+    ).trim();
+
+    const safeQuestionLink = getQuestionLink(question);
+
+    const companyBadge = company
+      ? `
+        <span class="interview-badge company">
+          ${escapeHTML(company)}
+        </span>
+      `
+      : '';
+
+    const interviewDateText = interviewDate
+      ? `
+        <span class="interview-date">
+          Reported interview date: ${escapeHTML(interviewDate)}
+        </span>
+      `
+      : '';
+
+    const addedDateText = addedDate
+      ? `
+        <span class="interview-date">
+          Added to library: ${escapeHTML(addedDate)}
+        </span>
+      `
+      : '';
+
+    const sourceLink = sourceURL
+      ? `
+        <a
+          class="interview-source-link"
+          href="${escapeHTML(sourceURL)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View original source: ${escapeHTML(sourceName)} ↗
+        </a>
+      `
+      : '';
+
     return `
       <article class="panel interview-question-card">
 
         <div class="interview-badges">
+
           <span class="interview-badge ${source.className}">
             ${escapeHTML(source.label)}
           </span>
 
-          <span class="interview-badge">
-            ${escapeHTML(company)}
-          </span>
+          ${companyBadge}
+
         </div>
 
         <h3>${escapeHTML(question.question)}</h3>
@@ -1146,11 +1225,12 @@ function renderQuestions() {
         <p>
           ${escapeHTML(
             preview ||
-            'Open this question to explore its answer and follow-up topics.'
+            'Open this entry to review the available answer and preparation notes.'
           )}
         </p>
 
         <div class="interview-badges">
+
           <span class="interview-badge">
             ${escapeHTML(role)}
           </span>
@@ -1158,13 +1238,19 @@ function renderQuestions() {
           <span class="interview-badge">
             ${escapeHTML(topic)}
           </span>
+
         </div>
+
+        ${interviewDateText}
+        ${addedDateText}
+
+        ${sourceLink}
 
         <a
           class="interview-link"
-          href="${escapeHTML(getQuestionLink(question))}"
+          href="${escapeHTML(safeQuestionLink)}"
         >
-          Read answer ↗
+          Read answer and details ↗
         </a>
 
       </article>
@@ -1172,6 +1258,8 @@ function renderQuestions() {
   }).join('');
 }
 
+
+/* Load questions.json from the website root. */
 
 async function loadQuestions() {
   try {
@@ -1192,7 +1280,8 @@ async function loadQuestions() {
     allQuestions = data.filter(question =>
       question &&
       typeof question === 'object' &&
-      typeof question.question === 'string'
+      typeof question.question === 'string' &&
+      question.question.trim().length > 0
     );
 
     renderQuestions();
@@ -1206,22 +1295,31 @@ async function loadQuestions() {
       <div class="interview-empty">
         <strong>Questions could not be loaded.</strong><br>
         Check that <code>questions.json</code> exists in the website's
-        root directory and contains valid JSON.
+        root directory and contains a valid JSON array.
       </div>
     `;
   }
 }
 
 
+/* Search and filter events. */
+
 questionSearch.addEventListener('input', renderQuestions);
+
 roleFilter.addEventListener('change', renderQuestions);
+
+sourceFilter.addEventListener('change', renderQuestions);
 
 clearFilters.addEventListener('click', () => {
   questionSearch.value = '';
   roleFilter.value = '';
+  sourceFilter.value = '';
+
   renderQuestions();
 });
 
+
+/* Initialize the library. */
 
 loadQuestions();
 </script>
