@@ -1,23 +1,23 @@
 [
-{
-“id”: “zomato-ai-ml”,
-“company”: “Zomato”,
-“role”: “AI/ML Engineer”,
-“logo”: “assets/zomato.png”,
-“description”: “Explore technical interview questions covering RAG, NLP, embeddings, Transformers, quantization, and Agentic AI.”,
-“topics”: [
-“RAG & LangChain”,
-“BERT vs Word2Vec”,
-“Tokenization & NLP”,
-“Positional Embeddings & RoPE”,
-“Model Quantization”,
-“Agentic AI”
-],
-“question_count”: 6,
-“difficulty”: “Intermediate-Advanced”,
-“updated_at”: “2026-10-10”,
-“source_type”: “candidate_reported”,
-“verified”: false,
-“page”: “interviews/zomato-ai-ml.html”
-}
+  {
+    "id": "zomato-ai-ml",
+    "company": "Zomato",
+    "role": "AI/ML Engineer",
+    "logo": "/assets/zomato.png",
+    "description": "Explore technical interview questions covering RAG, NLP, embeddings, Transformers, quantization, and Agentic AI.",
+    "topics": [
+      "RAG & LangChain",
+      "BERT vs Word2Vec",
+      "Tokenization & NLP",
+      "Positional Embeddings & RoPE",
+      "Model Quantization",
+      "Agentic AI"
+    ],
+    "question_count": 6,
+    "difficulty": "Intermediate-Advanced",
+    "updated_at": "2026-10-10",
+    "source_type": "candidate_reported",
+    "verified": false,
+    "page": "interviews/zomato-ai-ml.html"
+  }
 ]
