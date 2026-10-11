@@ -4,30 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI & LLM Opportunities | EvalLoop Jobs</title>
+  <title>AI &amp; LLM Opportunities | EvalLoop Jobs</title>
 
   <meta
     name="description"
     content="Explore AI, LLM evaluation, data annotation, AI training, GenAI, agentic AI, and multimodal opportunities curated by EvalLoop Jobs."
   >
-
   <meta name="theme-color" content="#0b1224">
   <meta name="robots" content="index,follow">
 
-  <link rel="canonical" href="https://annotatorjobs.vercel.app/opportunities.html">
-  <link rel="icon" type="image/png" href="/assets/evalloop-logo.png">
+  <link
+    rel="canonical"
+    href="https://annotatorjobs.vercel.app/opportunities.html"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    href="/assets/evalloop-logo.png"
+  >
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI & LLM Opportunities | EvalLoop Jobs">
+  <meta
+    property="og:title"
+    content="AI &amp; LLM Opportunities | EvalLoop Jobs"
+  >
   <meta
     property="og:description"
     content="Discover AI evaluation, annotation, GenAI, and other AI ecosystem opportunities."
   >
-  <meta property="og:url" content="https://annotatorjobs.vercel.app/opportunities.html">
-  <meta property="og:image" content="https://annotatorjobs.vercel.app/assets/evalloop-logo.png">
+  <meta
+    property="og:url"
+    content="https://annotatorjobs.vercel.app/opportunities.html"
+  >
+  <meta
+    property="og:image"
+    content="https://annotatorjobs.vercel.app/assets/evalloop-logo.png"
+  >
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="AI & LLM Opportunities | EvalLoop Jobs">
+  <meta
+    name="twitter:title"
+    content="AI &amp; LLM Opportunities | EvalLoop Jobs"
+  >
   <meta
     name="twitter:description"
     content="Discover AI evaluation, annotation, GenAI, and other AI ecosystem opportunities."
@@ -37,12 +55,16 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWMRL2H5C7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-CWMRL2H5C7');
   </script>
 
-  <!-- Fonts -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -50,10 +72,11 @@
     rel="stylesheet"
   >
 
-  <!-- Existing shared styles and chatbot -->
+  <!-- Existing shared site and chatbot styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chatbot.css">
 
+  <!-- Apply the saved theme before the page renders -->
   <script>
     (() => {
       try {
@@ -63,17 +86,24 @@
           window.matchMedia &&
           window.matchMedia('(prefers-color-scheme: light)').matches;
 
-        const theme = savedTheme || (systemPrefersLight ? 'light' : 'dark');
+        const theme =
+          savedTheme || (systemPrefersLight ? 'light' : 'dark');
 
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
-      } catch (error) {
+      } catch {
         document.documentElement.dataset.theme = 'dark';
+        document.documentElement.style.colorScheme = 'dark';
       }
     })();
   </script>
 
   <style>
+    /* =========================================================
+       EVALLOOP JOBS — OPPORTUNITIES PAGE
+       Matches the homepage navy / blue / cyan design.
+    ========================================================= */
+
     :root {
       --bg: #0b1224;
       --ink: #f5f8ff;
@@ -87,20 +117,32 @@
       --white: #f5f8ff;
       --red: #ff4d61;
 
-      --page-width: 1180px;
-      --page-padding: 28px;
-      --radius: 18px;
-
-      font-family: "DM Sans", sans-serif;
+      --page-width: 1176px;
+      --page-padding: 32px;
+      --radius: 16px;
     }
 
-    * {
+    html[data-theme="light"] {
+      color-scheme: light;
+
+      --bg: #f5f8ff;
+      --ink: #14213a;
+      --muted: #62728b;
+      --paper: #ffffff;
+      --dark: #f5f8ff;
+      --border: #d9e3f2;
+      --white: #14213a;
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
@@ -111,7 +153,9 @@
       font-family: "DM Sans", sans-serif;
       font-size: 15px;
       line-height: 1.65;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
     }
 
     body,
@@ -142,6 +186,18 @@
       outline-offset: 4px;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .skip-link {
       position: fixed;
       z-index: 9999;
@@ -151,6 +207,7 @@
       border-radius: 8px;
       background: var(--blue);
       color: #fff;
+      text-decoration: none;
       transform: translateY(-150%);
     }
 
@@ -158,98 +215,136 @@
       transform: translateY(0);
     }
 
-    .shell {
-      width: min(var(--page-width), calc(100% - 2 * var(--page-padding)));
+    .shell,
+    .wrap {
+      width: min(
+        var(--page-width),
+        calc(100% - 2 * var(--page-padding))
+      );
       margin-inline: auto;
     }
 
-    /* Navigation */
+    .shell {
+      position: relative;
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(
+          rgba(77, 179, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(77, 179, 255, 0.025) 1px,
+          transparent 1px
+        );
+      background-size: 54px 54px;
+    }
 
-    .site-header {
+    /* =========================================================
+       HEADER — MATCHES index.html
+    ========================================================= */
+
+    .header {
       position: sticky;
       z-index: 1000;
       top: 0;
+
+      display: flex;
+      width: min(1176px, calc(100% - 64px));
+      min-height: 88px;
+      align-items: center;
+      gap: 22px;
+
+      margin-inline: auto;
       border-bottom: 1px solid var(--border);
+
       background: var(--bg);
-      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      background: color-mix(
+        in srgb,
+        var(--bg) 94%,
+        transparent
+      );
+
       backdrop-filter: blur(18px);
     }
 
-    .nav-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
+    .logo {
       display: inline-flex;
       flex: 0 0 auto;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
+
+      color: var(--ink);
       text-decoration: none;
     }
 
-    .brand img {
+    .logo-mark {
+      display: inline-flex;
       width: 38px;
       height: 38px;
-      object-fit: contain;
-      border-radius: 10px;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      border: 1px solid rgb(37 136 255 / 35%);
+      border-radius: 50%;
+      background: rgb(37 136 255 / 10%);
     }
 
-    .brand-name {
+    .logo-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo > span:last-child {
       color: var(--ink);
       font-family: "Space Grotesk", sans-serif;
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.7px;
       white-space: nowrap;
     }
 
-    .brand-name span {
-      color: var(--blue);
-    }
-
-    .main-nav {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 30px;
+      gap: 28px;
+
       margin-left: auto;
     }
 
-    .main-nav a {
+    .nav a {
       position: relative;
       padding-block: 9px;
+
       color: var(--muted);
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
+
       transition: color 0.2s ease;
     }
 
-    .main-nav a:hover,
-    .main-nav a.active {
+    .nav a:hover,
+    .nav a[aria-current="page"] {
       color: var(--cyan);
     }
 
-    .main-nav a.active::after {
+    .nav a[aria-current="page"]::after {
       position: absolute;
       right: 0;
       bottom: 1px;
       left: 0;
+
       height: 2px;
       border-radius: 2px;
       background: var(--blue);
       content: "";
-    }
-
-    .nav-actions {
-      display: flex;
-      flex: 0 0 auto;
-      align-items: center;
-      gap: 12px;
     }
 
     .theme-toggle,
@@ -257,14 +352,21 @@
       display: inline-flex;
       width: 40px;
       height: 40px;
+      flex: 0 0 auto;
       align-items: center;
       justify-content: center;
+
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--paper);
       color: var(--ink);
+
       cursor: pointer;
-      transition: border-color 0.2s ease, color 0.2s ease;
+
+      transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease;
     }
 
     .theme-toggle:hover,
@@ -273,48 +375,69 @@
       color: var(--cyan);
     }
 
-    .theme-toggle svg,
-    .menu-toggle svg {
-      width: 19px;
-      height: 19px;
+    .theme-toggle {
+      font-size: 18px;
+      line-height: 1;
     }
 
     .menu-toggle {
       display: none;
+      flex-direction: column;
+      gap: 5px;
     }
 
-    .nav-cta {
+    .menu-toggle > span:not(.sr-only) {
+      display: block;
+      width: 17px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    .top-cta {
       display: inline-flex;
       min-height: 42px;
+      flex: 0 0 auto;
       align-items: center;
       justify-content: center;
+      gap: 7px;
+
       padding: 0 17px;
       border: 1px solid var(--blue);
-      border-radius: 11px;
+      border-radius: 999px;
+
       background: var(--blue);
       color: #fff;
-      font-size: 13px;
+
+      font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
     }
 
-    .nav-cta:hover {
-      background: var(--cyan);
+    .top-cta:hover {
       border-color: var(--cyan);
+      background: var(--cyan);
       color: #061226;
       transform: translateY(-1px);
     }
 
-    /* Announcement */
+    /* =========================================================
+       ANNOUNCEMENT
+    ========================================================= */
 
     .announcement {
       padding: 10px 16px;
       border-bottom: 1px solid var(--border);
       background: var(--paper);
-      text-align: center;
+
       color: var(--muted);
       font-size: 12px;
+      text-align: center;
     }
 
     .announcement a {
@@ -328,19 +451,23 @@
       text-decoration: underline;
     }
 
-    /* Page heading */
+    /* =========================================================
+       PAGE INTRODUCTION
+    ========================================================= */
 
     .page-main {
       min-height: 70vh;
-      padding: 64px 0 90px;
+      padding: 66px 0 84px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
+
       margin-bottom: 18px;
       color: var(--cyan);
+
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.8px;
@@ -358,8 +485,9 @@
     .page-title {
       max-width: 800px;
       margin: 0;
+
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(36px, 5.2vw, 62px);
+      font-size: clamp(38px, 5.2vw, 62px);
       font-weight: 600;
       letter-spacing: -2.5px;
       line-height: 1.08;
@@ -372,6 +500,7 @@
     .page-description {
       max-width: 690px;
       margin: 20px 0 0;
+
       color: var(--muted);
       font-size: 16px;
       line-height: 1.8;
@@ -381,14 +510,18 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
+
       max-width: 850px;
       margin-top: 28px;
       padding: 16px 18px;
+
       border: 1px solid var(--border);
       border-left: 3px solid var(--blue);
       border-radius: 12px;
+
       background: var(--paper);
       color: var(--muted);
+
       font-size: 12px;
       line-height: 1.8;
     }
@@ -403,10 +536,13 @@
       font-size: 18px;
     }
 
-    /* Search */
+    /* =========================================================
+       DIRECTORY HEADING
+    ========================================================= */
 
     .directory {
-      margin-top: 46px;
+      margin-top: 48px;
+      scroll-margin-top: 112px;
     }
 
     .directory-top {
@@ -414,6 +550,7 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 20px;
+
       margin-bottom: 20px;
     }
 
@@ -434,13 +571,20 @@
     .result-count {
       flex: 0 0 auto;
       padding: 7px 12px;
+
       border: 1px solid var(--border);
       border-radius: 999px;
+
       background: var(--paper);
       color: var(--cyan);
+
       font-size: 12px;
       font-weight: 700;
     }
+
+    /* =========================================================
+       SEARCH
+    ========================================================= */
 
     .search-wrap {
       position: relative;
@@ -451,10 +595,13 @@
       position: absolute;
       top: 50%;
       left: 18px;
+
       width: 19px;
       height: 19px;
+
       color: var(--muted);
       pointer-events: none;
+
       transform: translateY(-50%);
     }
 
@@ -462,13 +609,20 @@
       display: block;
       width: 100%;
       min-height: 58px;
+
       padding: 14px 18px 14px 50px;
+
       border: 1px solid var(--border);
       border-radius: 14px;
+
       background: var(--paper);
       color: var(--ink);
+
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .search-input::placeholder {
@@ -481,26 +635,32 @@
       box-shadow: 0 0 0 3px rgb(37 136 255 / 12%);
     }
 
-    /* Filters */
+    /* =========================================================
+       FILTERS
+    ========================================================= */
 
     .filters {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
+
       margin-bottom: 30px;
     }
 
     .filter-group {
       min-width: 0;
       padding: 15px;
+
       border: 1px solid var(--border);
       border-radius: 14px;
+
       background: var(--paper);
     }
 
     .filter-label {
       display: block;
       margin-bottom: 12px;
+
       color: var(--muted);
       font-size: 10px;
       font-weight: 700;
@@ -517,14 +677,22 @@
     .filter-btn {
       min-height: 32px;
       padding: 6px 10px;
+
       border: 1px solid var(--border);
       border-radius: 8px;
+
       background: transparent;
       color: var(--muted);
+
       cursor: pointer;
+
       font-size: 11px;
       font-weight: 600;
-      transition: all 0.18s ease;
+
+      transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease;
     }
 
     .filter-btn:hover {
@@ -538,24 +706,32 @@
       color: var(--cyan);
     }
 
-    /* Opportunity cards */
+    /* =========================================================
+       OPPORTUNITY CARDS
+    ========================================================= */
 
     .op-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
       gap: 18px;
     }
 
     .job-card {
       position: relative;
+
       display: flex;
       min-width: 0;
       flex-direction: column;
+
       padding: 24px;
       overflow: hidden;
+
       border: 1px solid var(--border);
       border-radius: var(--radius);
+
       background: var(--paper);
+
       transition:
         border-color 0.2s ease,
         transform 0.2s ease,
@@ -567,10 +743,18 @@
       top: 0;
       right: 0;
       left: 0;
+
       height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
+
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+      );
+
       content: "";
       opacity: 0;
+
       transition: opacity 0.2s ease;
     }
 
@@ -593,39 +777,52 @@
 
     .company-name {
       margin: 0 0 7px;
+
       color: var(--cyan);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
+
       overflow-wrap: anywhere;
     }
 
     .job-title {
       margin: 0;
+
       color: var(--ink);
       font-family: "Space Grotesk", sans-serif;
       font-size: 21px;
       font-weight: 600;
       letter-spacing: -0.5px;
       line-height: 1.35;
+
       overflow-wrap: anywhere;
     }
 
     .highlight-badge {
       flex: 0 0 auto;
+      max-width: 45%;
+
       padding: 5px 9px;
+
       border: 1px solid rgb(37 136 255 / 35%);
       border-radius: 7px;
+
       background: rgb(37 136 255 / 12%);
       color: var(--cyan);
+
       font-size: 10px;
       font-weight: 700;
+
+      overflow-wrap: anywhere;
     }
 
     .job-description {
       margin: 16px 0;
+
       color: var(--muted);
       font-size: 13px;
       line-height: 1.8;
+
       overflow-wrap: anywhere;
     }
 
@@ -633,6 +830,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+
       margin-bottom: 15px;
     }
 
@@ -640,16 +838,22 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+
       padding: 6px 9px;
+
       border: 1px solid var(--border);
       border-radius: 7px;
+
       color: var(--muted);
       font-size: 11px;
+
+      overflow-wrap: anywhere;
     }
 
     .meta-pill svg {
       width: 13px;
       height: 13px;
+      flex: 0 0 auto;
       color: var(--cyan);
     }
 
@@ -657,23 +861,30 @@
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
+
       margin-bottom: 22px;
     }
 
     .job-tag {
       padding: 5px 9px;
+
       border: 1px solid var(--border);
       border-radius: 6px;
+
       color: var(--muted);
       font-size: 10px;
+
+      overflow-wrap: anywhere;
     }
 
     .job-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
+
       margin-top: auto;
       padding-top: 16px;
+
       border-top: 1px solid var(--border);
     }
 
@@ -684,13 +895,20 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
+
       padding: 9px 13px;
+
       border: 1px solid var(--border);
       border-radius: 9px;
+
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s ease;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
     }
 
     .apply-btn {
@@ -715,13 +933,20 @@
       color: var(--cyan);
     }
 
+    /* =========================================================
+       LOADING, EMPTY AND ERROR STATES
+    ========================================================= */
+
     .empty-state,
     .loading-state,
     .error-state {
       grid-column: 1 / -1;
+
       padding: 54px 24px;
+
       border: 1px dashed var(--border);
       border-radius: var(--radius);
+
       background: var(--paper);
       text-align: center;
     }
@@ -734,6 +959,7 @@
 
     .state-title {
       margin: 0 0 8px;
+
       font-family: "Space Grotesk", sans-serif;
       font-size: 21px;
     }
@@ -741,6 +967,7 @@
     .state-description {
       max-width: 450px;
       margin: 0 auto;
+
       color: var(--muted);
       font-size: 13px;
     }
@@ -748,10 +975,13 @@
     .reset-btn {
       margin-top: 18px;
       padding: 9px 14px;
+
       border: 1px solid var(--blue);
       border-radius: 9px;
+
       background: transparent;
       color: var(--cyan);
+
       cursor: pointer;
       font-weight: 700;
     }
@@ -760,15 +990,23 @@
       background: rgb(37 136 255 / 12%);
     }
 
-    /* Submit opportunity section */
+    /* =========================================================
+       SUBMIT OPPORTUNITY
+    ========================================================= */
 
     .submit-section {
       margin-top: 72px;
       padding: 34px;
+
       border: 1px solid var(--border);
       border-radius: 20px;
+
       background:
-        radial-gradient(ellipse at top right, rgb(37 136 255 / 13%), transparent 55%),
+        radial-gradient(
+          ellipse at top right,
+          rgb(37 136 255 / 13%),
+          transparent 55%
+        ),
         var(--paper);
     }
 
@@ -781,6 +1019,7 @@
 
     .submit-kicker {
       margin: 0 0 10px;
+
       color: var(--cyan);
       font-size: 10px;
       font-weight: 700;
@@ -790,6 +1029,7 @@
 
     .submit-title {
       margin: 0;
+
       font-family: "Space Grotesk", sans-serif;
       font-size: clamp(24px, 3vw, 34px);
       font-weight: 600;
@@ -800,6 +1040,7 @@
     .submit-description {
       max-width: 570px;
       margin: 12px 0 0;
+
       color: var(--muted);
       font-size: 13px;
       line-height: 1.8;
@@ -807,19 +1048,27 @@
 
     .submit-link {
       display: inline-flex;
-      flex: 0 0 auto;
       min-height: 44px;
+      flex: 0 0 auto;
       align-items: center;
       justify-content: center;
+
       padding: 0 17px;
+
       border: 1px solid var(--blue);
       border-radius: 10px;
+
       background: var(--blue);
       color: #fff;
+
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s ease;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
     }
 
     .submit-link:hover {
@@ -828,46 +1077,63 @@
       color: #061226;
     }
 
-    /* Footer */
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
-    .site-footer {
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .footer-main {
+    .footer {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 40px;
-      padding-block: 42px;
+      gap: 30px;
+
+      padding-top: 34px;
+      padding-bottom: 34px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer .logo {
+      margin-bottom: 12px;
     }
 
     .footer-brand {
       max-width: 340px;
     }
 
-    .footer-brand .brand {
-      margin-bottom: 13px;
-    }
-
     .footer-description {
       margin: 0;
+
       color: var(--muted);
       font-size: 12px;
       line-height: 1.8;
     }
 
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .powered-by {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      justify-content: flex-end;
+      gap: 12px 20px;
     }
 
     .footer-links a {
       color: var(--muted);
       font-size: 12px;
       text-decoration: none;
+
+      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
@@ -876,11 +1142,13 @@
 
     .footer-bottom {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
+
       padding-block: 18px;
       border-top: 1px solid var(--border);
+
       color: var(--muted);
       font-size: 11px;
     }
@@ -889,21 +1157,11 @@
       max-width: 760px;
     }
 
-    /* Theme: light mode */
+    /* =========================================================
+       LIGHT THEME
+    ========================================================= */
 
-    html[data-theme="light"] {
-      color-scheme: light;
-
-      --bg: #f5f8ff;
-      --ink: #14213a;
-      --muted: #62728b;
-      --paper: #ffffff;
-      --dark: #f5f8ff;
-      --border: #d9e3f2;
-      --white: #14213a;
-    }
-
-    html[data-theme="light"] .site-header {
+    html[data-theme="light"] .header {
       background: rgb(245 248 255 / 94%);
     }
 
@@ -913,45 +1171,37 @@
 
     html[data-theme="light"] .submit-section {
       background:
-        radial-gradient(ellipse at top right, rgb(37 136 255 / 9%), transparent 55%),
+        radial-gradient(
+          ellipse at top right,
+          rgb(37 136 255 / 9%),
+          transparent 55%
+        ),
         var(--paper);
     }
 
-    /* Screen-reader utility */
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* Responsive */
+    /* =========================================================
+       RESPONSIVE LAYOUT
+    ========================================================= */
 
     @media (max-width: 980px) {
       :root {
         --page-padding: 22px;
       }
 
-      .nav-inner {
+      .header {
         gap: 16px;
       }
 
-      .main-nav {
+      .nav {
         gap: 18px;
       }
 
-      .nav-cta {
+      .top-cta {
         padding-inline: 12px;
       }
 
       .filters {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .filter-group:last-child {
@@ -964,16 +1214,22 @@
         --page-padding: 18px;
       }
 
-      .nav-inner {
-        min-height: 70px;
+      .header {
+        width: calc(100% - 36px);
+        min-height: 74px;
+        gap: 10px;
       }
 
-      .brand img {
+      .logo {
+        gap: 8px;
+      }
+
+      .logo-mark {
         width: 34px;
         height: 34px;
       }
 
-      .brand-name {
+      .logo > span:last-child {
         font-size: 17px;
       }
 
@@ -981,46 +1237,51 @@
         display: inline-flex;
       }
 
-      .nav-actions {
-        gap: 8px;
+      .theme-toggle,
+      .menu-toggle {
+        width: 38px;
+        height: 38px;
       }
 
-      .nav-cta {
-        min-height: 39px;
+      .top-cta {
+        min-height: 38px;
         padding-inline: 11px;
         font-size: 11px;
       }
 
-      .main-nav {
+      .nav {
         position: absolute;
         top: calc(100% + 1px);
         right: 0;
         left: 0;
+
         display: none;
         align-items: stretch;
+        flex-direction: column;
         gap: 0;
-        padding: 10px var(--page-padding) 18px;
+
+        padding: 10px 18px 18px;
+
         border-bottom: 1px solid var(--border);
         background: var(--bg);
       }
 
-      .main-nav.open {
+      .nav.is-open {
         display: flex;
-        flex-direction: column;
       }
 
-      .main-nav a {
+      .nav a {
         padding: 13px 4px;
         border-bottom: 1px solid var(--border);
       }
 
-      .main-nav a.active::after {
+      .nav a[aria-current="page"]::after {
         display: none;
       }
 
       .page-main {
-        padding-top: 45px;
-        padding-bottom: 65px;
+        padding-top: 46px;
+        padding-bottom: 64px;
       }
 
       .page-title {
@@ -1032,7 +1293,7 @@
       }
 
       .directory {
-        margin-top: 35px;
+        margin-top: 36px;
       }
 
       .op-list {
@@ -1044,13 +1305,20 @@
         flex-direction: column;
       }
 
-      .footer-main {
+      .footer {
         flex-direction: column;
-        gap: 26px;
+        gap: 24px;
+      }
+
+      .footer-right {
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
       }
 
       .footer-bottom {
-        align-items: flex-start;
         flex-direction: column;
       }
     }
@@ -1060,33 +1328,34 @@
         --page-padding: 15px;
       }
 
-      .brand {
+      .header {
+        width: calc(100% - 30px);
         gap: 7px;
       }
 
-      .brand img {
+      .logo {
+        gap: 7px;
+      }
+
+      .logo-mark {
         width: 30px;
         height: 30px;
       }
 
-      .brand-name {
+      .logo > span:last-child {
         font-size: 15px;
-      }
-
-      .nav-actions {
-        gap: 6px;
       }
 
       .theme-toggle,
       .menu-toggle {
-        width: 35px;
-        height: 35px;
+        width: 34px;
+        height: 34px;
         border-radius: 10px;
       }
 
-      .nav-cta {
-        min-height: 35px;
-        padding-inline: 9px;
+      .top-cta {
+        min-height: 34px;
+        padding-inline: 8px;
         font-size: 10px;
       }
 
@@ -1125,6 +1394,7 @@
       }
 
       .highlight-badge {
+        max-width: 100%;
         align-self: flex-start;
       }
 
@@ -1137,7 +1407,7 @@
       }
 
       .footer-links {
-        gap: 15px;
+        gap: 12px 15px;
       }
     }
 
@@ -1153,6 +1423,7 @@
     }
   </style>
 
+  <!-- SEO structured data -->
   <script type="application/ld+json" id="site-schema">
   {
     "@context": "https://schema.org",
@@ -1192,214 +1463,412 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Navigation -->
-  <header class="site-header">
-    <div class="shell nav-inner">
-      <a class="brand" href="index.html" aria-label="EvalLoop Jobs home">
-        <img
-          src="/assets/evalloop-logo.png"
-          alt=""
-          width="38"
-          height="38"
-        >
-        <span class="brand-name">EvalLoop <span>Jobs</span></span>
+  <div class="shell" id="top">
+
+    <!-- =======================================================
+         NAVIGATION — SAME STRUCTURE AS index.html
+    ======================================================== -->
+
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+        <span class="logo-mark">
+          <img src="/assets/evalloop-logo.png" alt="" width="38" height="38">
+        </span>
+        <span>EvalLoop Jobs</span>
       </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <a class="active" href="opportunities.html" aria-current="page">Opportunities</a>
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="opportunities.html" aria-current="page">Opportunities</a>
         <a href="about.html">About</a>
         <a href="interview-prep.html">Interview Prep</a>
       </nav>
 
-      <div class="nav-actions">
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          type="button"
-          aria-label="Switch colour theme"
-          title="Switch colour theme"
-        >
-          <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
-          </svg>
-        </button>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        title="Switch to light mode"
+        aria-pressed="false"
+      >
+        <span aria-hidden="true">☾</span>
+      </button>
 
-        <a class="nav-cta" href="#directory">Explore Roles <span aria-hidden="true">↗</span></a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
 
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </button>
-      </div>
+      <a href="#directory" class="top-cta">Explore roles ↗</a>
+    </header>
+
+    <div class="announcement">
+      A curated index for people building better AI.
+      <a href="#directory">Explore the directory →</a>
     </div>
-  </header>
 
-  <div class="announcement">
-    A curated index for people building better AI.
-    <a href="#directory">Explore the directory →</a>
-  </div>
+    <!-- =======================================================
+         MAIN CONTENT
+    ======================================================== -->
 
-  <main id="main-content" class="page-main">
-    <div class="shell">
-      <div class="eyebrow">The opportunity directory</div>
+    <main id="main-content" class="page-main">
+      <div class="wrap">
 
-      <h1 class="page-title">
-        Find your next<br>
-        <span class="accent">AI opportunity.</span>
-      </h1>
+        <div class="eyebrow">The opportunity directory</div>
 
-      <p class="page-description">
-        Explore opportunities across AI training, LLM evaluation, data annotation,
-        GenAI, agentic AI, language data, multimodal projects, and specialist AI work.
-      </p>
+        <h1 class="page-title">
+          Find your next<br>
+          <span class="accent">AI opportunity.</span>
+        </h1>
 
-      <div class="directory-note">
-        <span class="note-icon" aria-hidden="true">ⓘ</span>
-        <div>
-          <strong>Independent opportunity directory.</strong>
-          EvalLoop Jobs is a curated discovery platform, not an employer or recruitment
-          agency. Opportunities may come from companies, hiring platforms, project
-          providers, contributor networks, and public sources. The listed company or
-          provider manages the opportunity and application process. Always review the
-          original listing and verify the terms before applying.
+        <p class="page-description">
+          Explore opportunities across AI training, LLM evaluation,
+          data annotation, GenAI, agentic AI, language data, multimodal
+          projects, and specialist AI work.
+        </p>
+
+        <div class="directory-note">
+          <span class="note-icon" aria-hidden="true">ⓘ</span>
+          <div>
+            <strong>Independent opportunity directory.</strong>
+            EvalLoop Jobs is a curated discovery platform, not an employer
+            or recruitment agency. Opportunities may come from companies,
+            hiring platforms, project providers, contributor networks, and
+            public sources. The listed company or provider is responsible
+            for the opportunity and application process. Always review the
+            original listing and verify its details before applying.
+          </div>
         </div>
+
+        <!-- =====================================================
+             SEARCH AND FILTER DIRECTORY
+        ====================================================== -->
+
+        <section
+          class="directory"
+          id="directory"
+          aria-labelledby="directory-title"
+        >
+          <div class="directory-top">
+            <div>
+              <h2 class="section-title" id="directory-title">
+                All opportunities.
+              </h2>
+              <p class="section-subtitle">
+                Search the directory and narrow results to your interests.
+              </p>
+            </div>
+
+            <div
+              class="result-count"
+              id="count"
+              role="status"
+              aria-live="polite"
+            >
+              Loading opportunities…
+            </div>
+          </div>
+
+          <div class="search-wrap">
+            <svg
+              class="search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 4.5 4.5"></path>
+            </svg>
+
+            <label class="sr-only" for="search">
+              Search opportunities
+            </label>
+
+            <input
+              class="search-input"
+              id="search"
+              type="search"
+              placeholder="Search by company, role, skill, location, or keyword…"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </div>
+
+          <div class="filters" id="filters">
+
+            <div class="filter-group">
+              <span class="filter-label">Experience</span>
+
+              <div
+                class="filter-options"
+                data-filter-group="experience"
+              >
+                <button
+                  class="filter-btn active"
+                  type="button"
+                  data-filter="all"
+                  aria-pressed="true"
+                >
+                  All levels
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="freshers"
+                  aria-pressed="false"
+                >
+                  Freshers
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="0-1"
+                  aria-pressed="false"
+                >
+                  0–1 years
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="2+"
+                  aria-pressed="false"
+                >
+                  2+ years
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <span class="filter-label">Work mode</span>
+
+              <div
+                class="filter-options"
+                data-filter-group="workmode"
+              >
+                <button
+                  class="filter-btn active"
+                  type="button"
+                  data-filter="all"
+                  aria-pressed="true"
+                >
+                  All modes
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="remote"
+                  aria-pressed="false"
+                >
+                  Remote
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="office"
+                  aria-pressed="false"
+                >
+                  Office / Hybrid
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <span class="filter-label">Job role</span>
+
+              <div
+                class="filter-options"
+                data-filter-group="role"
+              >
+                <button
+                  class="filter-btn active"
+                  type="button"
+                  data-filter="all"
+                  aria-pressed="true"
+                >
+                  All roles
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="annotation"
+                  aria-pressed="false"
+                >
+                  Annotation
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="ai-engineer"
+                  aria-pressed="false"
+                >
+                  AI / ML
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="gen-ai"
+                  aria-pressed="false"
+                >
+                  GenAI / LLM
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="agentic"
+                  aria-pressed="false"
+                >
+                  Agentic AI
+                </button>
+
+                <button
+                  class="filter-btn"
+                  type="button"
+                  data-filter="others"
+                  aria-pressed="false"
+                >
+                  Other roles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="op-list"
+            id="opList"
+            aria-live="polite"
+            aria-busy="true"
+          >
+            <div class="loading-state">
+              <div class="state-icon" aria-hidden="true">↻</div>
+              <h3 class="state-title">Loading opportunities</h3>
+              <p class="state-description">
+                Finding current listings for you…
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             SUBMIT OPPORTUNITY
+        ====================================================== -->
+
+        <section
+          class="submit-section"
+          id="submit-opportunity"
+          aria-labelledby="submit-title"
+        >
+          <div class="submit-inner">
+            <div>
+              <p class="submit-kicker">Help the community</p>
+
+              <h2 class="submit-title" id="submit-title">
+                Know an AI opportunity<br>
+                worth sharing?
+              </h2>
+
+              <p class="submit-description">
+                Help more people discover relevant AI work. Share an AI
+                training, evaluation, annotation, expert, GenAI, or agentic
+                opportunity with the EvalLoop Jobs community. Submissions
+                may be reviewed before they appear in the directory.
+              </p>
+            </div>
+
+            <a
+              class="submit-link"
+              href="submit-opportunity.html"
+            >
+              Submit an opportunity ↗
+            </a>
+          </div>
+        </section>
+
       </div>
+    </main>
 
-      <section class="directory" id="directory" aria-labelledby="directory-title">
-        <div class="directory-top">
-          <div>
-            <h2 class="section-title" id="directory-title">Explore opportunities</h2>
-            <p class="section-subtitle">Search and filter to find relevant roles and projects.</p>
-          </div>
+    <!-- =======================================================
+         FOOTER
+    ======================================================== -->
 
-          <div class="result-count" id="count" aria-live="polite">Loading opportunities…</div>
-        </div>
-
-        <div class="search-wrap">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="10.8" cy="10.8" r="6.8"></circle>
-            <path d="m16 16 5 5"></path>
-          </svg>
-
-          <label class="sr-only" for="search">Search opportunities</label>
-          <input
-            class="search-input"
-            type="search"
-            id="search"
-            placeholder="Search roles, companies, skills, or keywords…"
-            autocomplete="off"
-          >
-        </div>
-
-        <div class="filters" id="filters">
-          <div class="filter-group">
-            <span class="filter-label">Experience</span>
-            <div class="filter-options" data-filter-group="experience">
-              <button class="filter-btn active" type="button" data-filter="all">All levels</button>
-              <button class="filter-btn" type="button" data-filter="freshers">Freshers</button>
-              <button class="filter-btn" type="button" data-filter="0-1">0–1 years</button>
-              <button class="filter-btn" type="button" data-filter="2+">2+ years</button>
-            </div>
-          </div>
-
-          <div class="filter-group">
-            <span class="filter-label">Work mode</span>
-            <div class="filter-options" data-filter-group="workmode">
-              <button class="filter-btn active" type="button" data-filter="all">All modes</button>
-              <button class="filter-btn" type="button" data-filter="remote">Remote</button>
-              <button class="filter-btn" type="button" data-filter="office">Office / Hybrid</button>
-            </div>
-          </div>
-
-          <div class="filter-group">
-            <span class="filter-label">Job role</span>
-            <div class="filter-options" data-filter-group="role">
-              <button class="filter-btn active" type="button" data-filter="all">All roles</button>
-              <button class="filter-btn" type="button" data-filter="annotation">Annotation</button>
-              <button class="filter-btn" type="button" data-filter="ai-engineer">AI / ML</button>
-              <button class="filter-btn" type="button" data-filter="gen-ai">GenAI / LLM</button>
-              <button class="filter-btn" type="button" data-filter="agentic">Agentic AI</button>
-              <button class="filter-btn" type="button" data-filter="others">Other roles</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="op-list" id="opList" aria-live="polite" aria-busy="true">
-          <div class="loading-state">
-            <div class="state-icon" aria-hidden="true">↻</div>
-            <h3 class="state-title">Loading opportunities</h3>
-            <p class="state-description">Finding current listings for you…</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="submit-section" aria-labelledby="submit-title">
-        <div class="submit-inner">
-          <div>
-            <p class="submit-kicker">Help the community</p>
-            <h2 class="submit-title" id="submit-title">Know an AI opportunity<br>worth sharing?</h2>
-            <p class="submit-description">
-              Help more people discover relevant AI work. Send us a public listing or
-              an official application link for consideration. Submissions may be reviewed
-              before they appear in the directory.
-            </p>
-          </div>
-
-          <a
-            class="submit-link"
-            href="mailto:evalloopjobs@gmail.com?subject=Opportunity%20Submission"
-          >
-            Submit an opportunity ↗
-          </a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="shell footer-main">
+    <footer class="footer">
       <div class="footer-brand">
-        <a class="brand" href="index.html" aria-label="EvalLoop Jobs home">
-          <img src="/assets/evalloop-logo.png" alt="" width="38" height="38">
-          <span class="brand-name">EvalLoop <span>Jobs</span></span>
+        <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+          <span class="logo-mark">
+            <img src="/assets/evalloop-logo.png" alt="" width="38" height="38">
+          </span>
+          <span>EvalLoop Jobs</span>
         </a>
 
         <p class="footer-description">
-          Discover opportunities across AI training, evaluation, annotation, and the
-          wider AI ecosystem.
+          Discover opportunities across AI training, evaluation, annotation,
+          and the wider AI ecosystem.
         </p>
       </div>
 
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="opportunities.html">Opportunities</a>
-        <a href="about.html">About</a>
-        <a href="interview-prep.html">Interview Prep</a>
-        <a href="mailto:evalloopjobs@gmail.com">Contact</a>
-      </nav>
-    </div>
+      <div class="footer-right">
+        <span class="powered-by">Powered by alphex ai.</span>
 
-    <div class="shell footer-bottom">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="about.html">About</a>
+          <a href="opportunities.html">Opportunities</a>
+          <a href="interview-prep.html">Interview Prep</a>
+          <a href="submit-opportunity.html">Submit opportunity</a>
+          <a href="join-network.html">Join network</a>
+          <a href="contact.html">Contact</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+
+          <a
+            href="https://www.linkedin.com/company/evalloopjobs/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+
+          <a href="#top">Back to top ↑</a>
+        </nav>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
       <span>© <span id="current-year"></span> EvalLoop Jobs</span>
+
       <span class="footer-disclaimer">
-        Independent opportunity discovery platform. Always verify opportunities through
-        the original provider before applying.
+        Independent opportunity discovery platform. Always verify
+        opportunities through the original provider before applying.
       </span>
     </div>
-  </footer>
+
+  </div>
 
   <!-- Existing chatbot -->
   <script src="chatbot.js" defer></script>
+
+  <!-- =========================================================
+       OPPORTUNITY DIRECTORY
+       Data source: opportunities.json
+  ========================================================== -->
 
   <script>
     (() => {
@@ -1420,25 +1889,34 @@
 
       let allJobs = [];
 
-      const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-      })[char]);
+      const escapeHTML = (value) =>
+        String(value ?? '').replace(/[&<>"']/g, (char) => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[char]);
 
-      const normalise = (value) => String(value ?? '')
-        .toLowerCase()
-        .replace(/[_-]+/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
+      const normalise = (value) =>
+        String(value ?? '')
+          .toLowerCase()
+          .replace(/[_-]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
 
       const toArray = (value) => {
-        if (Array.isArray(value)) return value.filter(Boolean).map(String);
-        if (typeof value === 'string' && value.trim()) {
-          return value.split(/[,|;]/).map(item => item.trim()).filter(Boolean);
+        if (Array.isArray(value)) {
+          return value.filter(Boolean).map(String);
         }
+
+        if (typeof value === 'string' && value.trim()) {
+          return value
+            .split(/[,|;]/)
+            .map(item => item.trim())
+            .filter(Boolean);
+        }
+
         return [];
       };
 
@@ -1446,9 +1924,14 @@
         if (!value) return '';
 
         try {
-          const url = new URL(String(value), window.location.href);
+          const url = new URL(
+            String(value),
+            window.location.href
+          );
 
-          if (['https:', 'http:', 'mailto:', 'https:'].includes(url.protocol)) {
+          if (
+            ['https:', 'http:', 'mailto:'].includes(url.protocol)
+          ) {
             return url.href;
           }
 
@@ -1484,31 +1967,47 @@
         return /\b(office|on site|onsite|hybrid|in person|in office)\b/.test(text);
       };
 
-      const getRoleText = (job) => normalise([
-        job.title,
-        job.company,
-        job.description,
-        job.tags,
-        job.category,
-        job.role,
-        job.highlight
-      ].flat().join(' '));
+      const getRoleText = (job) =>
+        normalise([
+          job.title,
+          job.company,
+          job.description,
+          job.tags,
+          job.category,
+          job.role,
+          job.highlight
+        ].flat().join(' '));
 
       const matchesRole = (job, role) => {
         const text = getRoleText(job);
 
         const rolePatterns = {
-          annotation: /\b(annotation|annotator|labeling|labelling|data label|image label|video label|data collection|data labeling)\b/,
-          'ai-engineer': /\b(ai engineer|ml engineer|machine learning engineer|artificial intelligence engineer|deep learning engineer|mlops|machine learning developer)\b/,
-          'gen-ai': /\b(genai|gen ai|generative ai|llm|large language model|prompt engineer|llm evaluator|llm evaluation|model evaluation|ai evaluator|ai evaluation|rag|language model)\b/,
-          agentic: /\b(agentic|ai agent|ai agents|agent workflow|agent evaluation|browser agent|computer use agent|gui agent)\b/
+          annotation:
+            /\b(annotation|annotator|labeling|labelling|data label|image label|video label|data collection|data labeling)\b/,
+
+          'ai-engineer':
+            /\b(ai engineer|ml engineer|machine learning engineer|artificial intelligence engineer|deep learning engineer|mlops|machine learning developer)\b/,
+
+          'gen-ai':
+            /\b(genai|gen ai|generative ai|llm|large language model|prompt engineer|llm evaluator|llm evaluation|model evaluation|ai evaluator|ai evaluation|rag|language model)\b/,
+
+          agentic:
+            /\b(agentic|ai agent|ai agents|agent workflow|agent evaluation|browser agent|computer use agent|gui agent)\b/
         };
 
-        if (role === 'others') {
-          return !Object.values(rolePatterns).some(pattern => pattern.test(text));
+        if (role === 'all') {
+          return true;
         }
 
-        return rolePatterns[role] ? rolePatterns[role].test(text) : true;
+        if (role === 'others') {
+          return !Object.values(rolePatterns).some(
+            pattern => pattern.test(text)
+          );
+        }
+
+        return rolePatterns[role]
+          ? rolePatterns[role].test(text)
+          : true;
       };
 
       const matchesExperience = (job, filter) => {
@@ -1542,6 +2041,7 @@
         if (filter === 'all') return true;
         if (filter === 'remote') return isRemote(job);
         if (filter === 'office') return isOffice(job);
+
         return true;
       };
 
@@ -1565,7 +2065,15 @@
 
       const getJobTags = (job) => {
         const tags = toArray(job.tags);
-        const unique = [...new Set(tags.map(tag => tag.trim()).filter(Boolean))];
+
+        const unique = [
+          ...new Set(
+            tags
+              .map(tag => tag.trim())
+              .filter(Boolean)
+          )
+        ];
+
         return unique.slice(0, 8);
       };
 
@@ -1581,23 +2089,39 @@
 
         for (const candidate of candidates) {
           const result = safeURL(candidate);
+
           if (result) return result;
         }
 
-        if (job.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(job.email).trim())) {
+        if (
+          job.email &&
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            String(job.email).trim()
+          )
+        ) {
           return 'mailto:' + String(job.email).trim();
         }
 
         return '';
       };
 
-      const getLocation = (job) => {
-        return job.location || job.work_mode || job.workMode || job.mode || 'See original listing';
-      };
+      const getLocation = (job) =>
+        job.location ||
+        job.work_mode ||
+        job.workMode ||
+        job.mode ||
+        'See original listing';
 
-      const getCompany = (job) => job.company || job.provider || job.platform || 'Opportunity provider';
+      const getCompany = (job) =>
+        job.company ||
+        job.provider ||
+        job.platform ||
+        'Opportunity provider';
 
-      const getTitle = (job) => job.title || job.role || 'AI opportunity';
+      const getTitle = (job) =>
+        job.title ||
+        job.role ||
+        'AI opportunity';
 
       const renderTags = (job) => {
         const tags = getJobTags(job);
@@ -1606,7 +2130,9 @@
 
         return `
           <div class="job-tags" aria-label="Opportunity tags">
-            ${tags.map(tag => `<span class="job-tag">${escapeHTML(tag)}</span>`).join('')}
+            ${tags.map(tag =>
+              `<span class="job-tag">${escapeHTML(tag)}</span>`
+            ).join('')}
           </div>
         `;
       };
@@ -1614,33 +2140,68 @@
       const renderJob = (job, index) => {
         const company = escapeHTML(getCompany(job));
         const title = escapeHTML(getTitle(job));
-        const description = escapeHTML(job.description || 'View the original listing for full details, requirements, and application instructions.');
+
+        const description = escapeHTML(
+          job.description ||
+          'View the original listing for full details, requirements, and application instructions.'
+        );
+
         const location = escapeHTML(getLocation(job));
         const duration = escapeHTML(job.duration || '');
-        const highlight = job.highlight ? escapeHTML(job.highlight) : '';
+        const highlight = job.highlight
+          ? escapeHTML(job.highlight)
+          : '';
+
         const applyURL = getApplicationURL(job);
 
         const email = String(job.email || '').trim();
-        const emailURL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-          ? 'mailto:' + email
-          : '';
+
+        const emailURL =
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            ? safeURL('mailto:' + email)
+            : '';
 
         const whatsappRaw = String(job.whatsapp || '').trim();
         const whatsappDigits = whatsappRaw.replace(/[^\d]/g, '');
+
         const whatsappURL = whatsappDigits
-          ? 'https://wa.me/' + whatsappDigits
+          ? safeURL('https://wa.me/' + whatsappDigits)
           : '';
 
         const applyButton = applyURL
-          ? `<a class="apply-btn" href="${escapeHTML(applyURL)}" target="${applyURL.startsWith('mailto:') ? '_self' : '_blank'}" ${applyURL.startsWith('mailto:') ? '' : 'rel="noopener noreferrer"'}>View opportunity <span aria-hidden="true">↗</span></a>`
+          ? `
+            <a
+              class="apply-btn"
+              href="${escapeHTML(applyURL)}"
+              ${applyURL.startsWith('mailto:')
+                ? ''
+                : 'target="_blank" rel="noopener noreferrer"'}
+            >
+              View opportunity <span aria-hidden="true">↗</span>
+            </a>
+          `
           : '';
 
-        const emailButton = emailURL && emailURL !== applyURL
-          ? `<a class="secondary-btn" href="${escapeHTML(emailURL)}">Email</a>`
-          : '';
+        const emailButton =
+          emailURL && emailURL !== applyURL
+            ? `
+              <a class="secondary-btn" href="${escapeHTML(emailURL)}">
+                Email
+              </a>
+            `
+            : '';
 
         const whatsappButton = whatsappURL
-          ? `<a class="secondary-btn" href="${escapeHTML(whatsappURL)}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>`
+          ? `
+            <a
+              class="secondary-btn"
+              href="${escapeHTML(whatsappURL)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp ↗
+            </a>
+          `
           : '';
 
         return `
@@ -1650,28 +2211,50 @@
                 <p class="company-name">${company}</p>
                 <h3 class="job-title">${title}</h3>
               </div>
-              ${highlight ? `<span class="highlight-badge">${highlight}</span>` : ''}
+
+              ${
+                highlight
+                  ? `<span class="highlight-badge">${highlight}</span>`
+                  : ''
+              }
             </div>
 
             <p class="job-description">${description}</p>
 
             <div class="job-meta">
               <span class="meta-pill">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
                   <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
                   <circle cx="12" cy="10" r="2.5"></circle>
                 </svg>
                 ${location}
               </span>
-              ${duration ? `
-                <span class="meta-pill">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>
-                  ${duration}
-                </span>
-              ` : ''}
+
+              ${
+                duration
+                  ? `
+                    <span class="meta-pill">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 7v5l3 2"></path>
+                      </svg>
+                      ${duration}
+                    </span>
+                  `
+                  : ''
+              }
             </div>
 
             ${renderTags(job)}
@@ -1680,7 +2263,12 @@
               ${applyButton}
               ${emailButton}
               ${whatsappButton}
-              ${!applyButton && !emailButton && !whatsappButton ? '<span class="meta-pill">Check the provider’s website for details</span>' : ''}
+
+              ${
+                !applyButton && !emailButton && !whatsappButton
+                  ? '<span class="meta-pill">Check the provider’s website for details</span>'
+                  : ''
+              }
             </div>
           </article>
         `;
@@ -1700,62 +2288,38 @@
       const updateStructuredData = (jobs) => {
         const schemaElement = document.getElementById('site-schema');
 
-        try {
-          const list = {
-            "@type": "ItemList",
-            "name": "AI & LLM Opportunities",
-            "numberOfItems": jobs.length,
-            "itemListElement": jobs.slice(0, 100).map((job, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "item": {
-                "@type": "JobPosting",
-                "title": getTitle(job),
-                "hiringOrganization": {
-                  "@type": "Organization",
-                  "name": getCompany(job)
-                },
-                "description": job.description || getTitle(job),
-                "url": getApplicationURL(job) || "https://annotatorjobs.vercel.app/opportunities.html"
-              }
-            }))
-          };
+        if (!schemaElement) return;
 
+        try {
           const existing = JSON.parse(schemaElement.textContent);
-          existing['@graph'] = existing['@graph'].filter(item => item['@type'] !== 'ItemList');
-          existing['@graph'].push(list);
+
+          existing['@graph'] = existing['@graph'].filter(
+            item => item['@type'] !== 'ItemList'
+          );
+
+          existing['@graph'].push({
+            '@type': 'ItemList',
+            '@id': 'https://annotatorjobs.vercel.app/opportunities.html#opportunities',
+            'name': 'AI and LLM opportunities',
+            'itemListElement': jobs.map((job, index) => {
+              const url = getApplicationURL(job);
+
+              return {
+                '@type': 'ListItem',
+                'position': index + 1,
+                'name': getTitle(job),
+                'item': url || undefined
+              };
+            })
+          });
+
           schemaElement.textContent = JSON.stringify(existing);
         } catch (error) {
-          console.warn('Could not update opportunity structured data.', error);
+          console.warn(
+            'Could not update opportunity structured data.',
+            error
+          );
         }
-      };
-
-      const render = () => {
-        const filteredJobs = getFilteredJobs();
-
-        countElement.textContent = `${filteredJobs.length} ${filteredJobs.length === 1 ? 'opportunity' : 'opportunities'}`;
-
-        listElement.setAttribute('aria-busy', 'false');
-
-        if (!filteredJobs.length) {
-          listElement.innerHTML = `
-            <div class="empty-state">
-              <div class="state-icon" aria-hidden="true">⌕</div>
-              <h3 class="state-title">No matching opportunities</h3>
-              <p class="state-description">
-                Try another keyword or clear your filters to explore more AI opportunities.
-              </p>
-              <button class="reset-btn" id="reset-filters" type="button">Clear search and filters</button>
-            </div>
-          `;
-
-          document.getElementById('reset-filters').addEventListener('click', resetFilters);
-          updateStructuredData([]);
-          return;
-        }
-
-        listElement.innerHTML = filteredJobs.map((job, index) => renderJob(job, index)).join('');
-        updateStructuredData(filteredJobs);
       };
 
       const resetFilters = () => {
@@ -1765,31 +2329,99 @@
           activeFilters[key] = 'all';
         });
 
-        filterContainer.querySelectorAll('.filter-options').forEach(group => {
-          group.querySelectorAll('.filter-btn').forEach(button => {
-            button.classList.toggle('active', button.dataset.filter === 'all');
+        filterContainer
+          .querySelectorAll('.filter-options')
+          .forEach(group => {
+            group.querySelectorAll('.filter-btn').forEach(button => {
+              const isActive = button.dataset.filter === 'all';
+
+              button.classList.toggle('active', isActive);
+              button.setAttribute('aria-pressed', String(isActive));
+            });
           });
-        });
 
         render();
       };
 
+      const render = () => {
+        const filteredJobs = getFilteredJobs();
+
+        countElement.textContent =
+          `${filteredJobs.length} ${
+            filteredJobs.length === 1
+              ? 'opportunity'
+              : 'opportunities'
+          }`;
+
+        listElement.setAttribute('aria-busy', 'false');
+
+        if (!filteredJobs.length) {
+          listElement.innerHTML = `
+            <div class="empty-state">
+              <div class="state-icon" aria-hidden="true">⌕</div>
+
+              <h3 class="state-title">
+                No matching opportunities
+              </h3>
+
+              <p class="state-description">
+                Try another keyword or clear your filters to explore
+                more AI opportunities.
+              </p>
+
+              <button
+                class="reset-btn"
+                id="reset-filters"
+                type="button"
+              >
+                Clear search and filters
+              </button>
+            </div>
+          `;
+
+          document
+            .getElementById('reset-filters')
+            .addEventListener('click', resetFilters);
+
+          updateStructuredData([]);
+          return;
+        }
+
+        listElement.innerHTML = filteredJobs
+          .map((job, index) => renderJob(job, index))
+          .join('');
+
+        updateStructuredData(filteredJobs);
+      };
+
       filterContainer.addEventListener('click', (event) => {
         const button = event.target.closest('.filter-btn');
+
         if (!button) return;
 
         const group = button.closest('[data-filter-group]');
+
         if (!group) return;
 
         const groupName = group.dataset.filterGroup;
         const filterValue = button.dataset.filter;
 
-        if (!Object.prototype.hasOwnProperty.call(activeFilters, groupName)) return;
+        if (
+          !Object.prototype.hasOwnProperty.call(
+            activeFilters,
+            groupName
+          )
+        ) {
+          return;
+        }
 
         activeFilters[groupName] = filterValue;
 
         group.querySelectorAll('.filter-btn').forEach(item => {
-          item.classList.toggle('active', item === button);
+          const isActive = item === button;
+
+          item.classList.toggle('active', isActive);
+          item.setAttribute('aria-pressed', String(isActive));
         });
 
         render();
@@ -1800,6 +2432,16 @@
       const loadJobs = async () => {
         listElement.setAttribute('aria-busy', 'true');
 
+        listElement.innerHTML = `
+          <div class="loading-state">
+            <div class="state-icon" aria-hidden="true">↻</div>
+            <h3 class="state-title">Loading opportunities</h3>
+            <p class="state-description">
+              Finding current listings for you…
+            </p>
+          </div>
+        `;
+
         try {
           const response = await fetch(DATA_URL, {
             cache: 'no-store',
@@ -1809,7 +2451,9 @@
           });
 
           if (!response.ok) {
-            throw new Error(`Unable to load opportunities (${response.status}).`);
+            throw new Error(
+              `Unable to load opportunities (${response.status}).`
+            );
           }
 
           const data = await response.json();
@@ -1824,7 +2468,11 @@
             listElement.innerHTML = `
               <div class="empty-state">
                 <div class="state-icon" aria-hidden="true">◎</div>
-                <h3 class="state-title">No opportunities available right now</h3>
+
+                <h3 class="state-title">
+                  No opportunities available right now
+                </h3>
+
                 <p class="state-description">
                   Please check back soon for new listings.
                 </p>
@@ -1833,6 +2481,8 @@
 
             countElement.textContent = '0 opportunities';
             listElement.setAttribute('aria-busy', 'false');
+
+            updateStructuredData([]);
             return;
           }
 
@@ -1843,95 +2493,162 @@
           listElement.innerHTML = `
             <div class="error-state">
               <div class="state-icon" aria-hidden="true">!</div>
-              <h3 class="state-title">We couldn't load the directory</h3>
+
+              <h3 class="state-title">
+                We couldn't load the directory
+              </h3>
+
               <p class="state-description">
-                Please check your connection and try again. If the problem continues,
-                verify that opportunities.json is available in the website's root directory.
+                Please check your connection and try again. If the
+                problem continues, verify that opportunities.json is
+                available in the website's root directory.
               </p>
-              <button class="reset-btn" id="retry-load" type="button">Try again</button>
+
+              <button
+                class="reset-btn"
+                id="retry-load"
+                type="button"
+              >
+                Try again
+              </button>
             </div>
           `;
 
           countElement.textContent = 'Unable to load';
           listElement.setAttribute('aria-busy', 'false');
 
-          document.getElementById('retry-load').addEventListener('click', loadJobs);
+          document
+            .getElementById('retry-load')
+            .addEventListener('click', loadJobs);
         }
       };
 
-      /* Mobile navigation */
-      const menuToggle = document.getElementById('menu-toggle');
-      const mainNav = document.getElementById('main-nav');
-
-      const closeMenu = () => {
-        mainNav.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation menu');
-      };
-
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('open');
-
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute(
-          'aria-label',
-          isOpen ? 'Close navigation menu' : 'Open navigation menu'
-        );
-      });
-
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
-          closeMenu();
-        }
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 760) closeMenu();
-      });
-
-      /* Theme toggle */
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeIcon = document.getElementById('theme-icon');
-
-      const updateThemeButton = () => {
-        const isLight = document.documentElement.dataset.theme === 'light';
-
-        themeToggle.setAttribute(
-          'aria-label',
-          isLight ? 'Switch to dark theme' : 'Switch to light theme'
-        );
-
-        themeToggle.title = isLight ? 'Switch to dark theme' : 'Switch to light theme';
-
-        themeIcon.innerHTML = isLight
-          ? '<path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path>'
-          : '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>';
-      };
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.dataset.theme || 'dark';
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.dataset.theme = nextTheme;
-        document.documentElement.style.colorScheme = nextTheme;
-
-        try {
-          localStorage.setItem('evalloop-theme', nextTheme);
-        } catch (error) {
-          // Theme still works for the current page if storage is unavailable.
-        }
-
-        updateThemeButton();
-      });
-
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-
-      updateThemeButton();
       loadJobs();
+    })();
+  </script>
+
+  <!-- =========================================================
+       THEME TOGGLE, MOBILE NAVIGATION AND FOOTER YEAR
+  ========================================================== -->
+
+  <script>
+    (() => {
+      'use strict';
+
+      const root = document.documentElement;
+
+      const themeButton = document.getElementById('theme-toggle');
+      const themeIcon = themeButton?.querySelector('span');
+
+      const setTheme = (theme, persist = false) => {
+        const isDark = theme === 'dark';
+
+        root.dataset.theme = isDark ? 'dark' : 'light';
+        root.style.colorScheme = isDark ? 'dark' : 'light';
+
+        if (themeButton) {
+          themeButton.setAttribute(
+            'aria-label',
+            isDark ? 'Switch to light mode' : 'Switch to dark mode'
+          );
+
+          themeButton.setAttribute(
+            'title',
+            isDark ? 'Switch to light mode' : 'Switch to dark mode'
+          );
+
+          themeButton.setAttribute(
+            'aria-pressed',
+            String(isDark)
+          );
+        }
+
+        if (themeIcon) {
+          themeIcon.textContent = isDark ? '☀' : '☾';
+        }
+
+        if (persist) {
+          try {
+            localStorage.setItem(
+              'evalloop-theme',
+              isDark ? 'dark' : 'light'
+            );
+          } catch {
+            /* Theme still works when storage is unavailable. */
+          }
+        }
+      };
+
+      setTheme(root.dataset.theme || 'dark');
+
+      themeButton?.addEventListener('click', () => {
+        setTheme(
+          root.dataset.theme === 'dark' ? 'light' : 'dark',
+          true
+        );
+      });
+
+      const menuButton = document.getElementById('menu-toggle');
+      const nav = document.getElementById('primary-nav');
+
+      if (menuButton && nav) {
+        const closeMenu = () => {
+          nav.classList.remove('is-open');
+
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute(
+            'aria-label',
+            'Open navigation menu'
+          );
+        };
+
+        menuButton.addEventListener('click', () => {
+          const open =
+            menuButton.getAttribute('aria-expanded') !== 'true';
+
+          menuButton.setAttribute('aria-expanded', String(open));
+
+          menuButton.setAttribute(
+            'aria-label',
+            open
+              ? 'Close navigation menu'
+              : 'Open navigation menu'
+          );
+
+          nav.classList.toggle('is-open', open);
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', event => {
+          if (
+            !nav.contains(event.target) &&
+            !menuButton.contains(event.target)
+          ) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape') {
+            closeMenu();
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 760) {
+            closeMenu();
+          }
+        });
+      }
+
+      const year = document.getElementById('current-year');
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
     })();
   </script>
 </body>
