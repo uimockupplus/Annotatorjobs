@@ -1915,165 +1915,359 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-  /* =========================================
-   EVALLOOP JOBS — RECENT OPPORTUNITIES FIX
-========================================= */
+/* ============================================
+   EVALLOOP JOBS — PREMIUM OPPORTUNITY CARDS
+   Naukri-inspired layout | Responsive | No overflow
+============================================ */
+#opList,
+#opList * {
+  box-sizing: border-box;
+}
 #opList {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  max-width: 100%;
   min-width: 0;
+  margin-top: 24px;
 }
+/* Main card */
 #opList .op {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
   width: 100%;
+  max-width: 100%;
   min-width: 0;
-  box-sizing: border-box;
-  padding: 24px;
+  padding: 25px 26px;
+  margin: 0;
   overflow: hidden;
+  border: 1px solid rgba(139, 166, 205, 0.17);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(38, 67, 105, 0.16),
+      rgba(17, 25, 42, 0.72) 65%
+    );
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.10);
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
+#opList .op::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: #4db3ff;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+#opList .op:hover {
+  border-color: rgba(77, 179, 255, 0.42);
+  background:
+    linear-gradient(
+      115deg,
+      rgba(38, 75, 119, 0.24),
+      rgba(17, 25, 42, 0.88) 70%
+    );
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+#opList .op:hover::before {
+  opacity: 1;
+}
+/* Left content */
 #opList .op-main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  min-width: 0;
   max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
-#opList .op-company,
-#opList .op h3,
-#opList .op p,
-#opList .op-meta,
-#opList .op-highlight {
+/* Company label */
+#opList .op-company {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 0 9px;
+  color: #8bc8ff;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: 0.045em;
+  overflow-wrap: anywhere;
+}
+/* Job title */
+#opList .op h3 {
+  display: block;
   width: 100%;
   max-width: 100%;
-  min-width: 0;
-  overflow-wrap: break-word;
+  margin: 0 0 11px;
+  color: #f4f7fc;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 650;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
   word-break: normal;
   white-space: normal;
 }
-#opList .op h3 {
-  margin: 8px 0 10px;
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.35;
-  letter-spacing: normal;
-}
+/* Description */
 #opList .op p {
-  margin: 0 0 14px;
-  font-size: 14px;
-  line-height: 1.7;
+  display: -webkit-box;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 16px;
+  overflow: hidden;
+  color: #aebbd0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
+/* Location and duration */
 #opList .op-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  font-size: 13px;
+  align-items: center;
+  gap: 8px 18px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1px;
+  color: #c0cada;
+  font-size: 12px;
+  line-height: 1.65;
 }
+#opList .op-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+/* Skill and category tags */
 #opList .op-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 7px;
   width: 100%;
-  margin-top: 14px;
+  max-width: 100%;
+  margin-top: 15px;
 }
 #opList .op-tag {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   padding: 6px 10px;
-  border-radius: 6px;
+  border: 1px solid rgba(125, 163, 209, 0.19);
+  border-radius: 7px;
+  background: rgba(108, 145, 195, 0.08);
+  color: #c8d7eb;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.45;
   white-space: normal;
   overflow-wrap: anywhere;
-  font-size: 12px;
 }
+/* Highlight */
+#opList .op-highlight {
+  display: -webkit-box;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 12px;
+  overflow: hidden;
+  color: #8de0b5;
+  font-size: 12px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+/* Right-side actions */
 #opList .op-action {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: max-content;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 9px;
+  width: 152px;
+  min-width: 0;
+  max-width: 100%;
 }
+/* All action buttons */
+#opList .op-contact,
 #opList .op-link,
 #opList .op-link-disabled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 7px;
+  width: 100%;
   max-width: 100%;
-  padding: 11px 16px;
-  border-radius: 8px;
-  white-space: nowrap;
-  text-decoration: none;
-}
-@media (max-width: 640px) {
-  #opList .op {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-    padding: 18px;
-  }
-  #opList .op-action {
-    justify-content: flex-start;
-    min-width: 0;
-  }
-  #opList .op-link,
-  #opList .op-link-disabled {
-    white-space: normal;
-  }
-}
-  /* Recent Opportunities — contact buttons */
-#opList .op-action {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 9px;
-  min-width: 0;
-  max-width: 100%;
-}
-#opList .op-contact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  min-height: 38px;
-  padding: 9px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
+  min-height: 41px;
+  padding: 10px 12px;
+  border: 1px solid rgba(141, 163, 194, 0.23);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #dbe7f7;
   font-size: 12px;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1.45;
   text-align: center;
   text-decoration: none;
+  white-space: normal;
   overflow-wrap: anywhere;
-  box-sizing: border-box;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  word-break: normal;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
-#opList .op-contact-view {
-  color: #b8dcff;
-  background: rgba(77, 179, 255, 0.10);
-  border-color: rgba(77, 179, 255, 0.35);
+#opList .op-contact:hover,
+#opList .op-link:hover {
+  transform: translateY(-1px);
 }
+/* Primary application button */
+#opList .op-contact-view,
+#opList .op-link {
+  border-color: rgba(77, 179, 255, 0.4);
+  background: #2588e8;
+  color: #ffffff;
+}
+#opList .op-contact-view:hover,
+#opList .op-link:hover {
+  border-color: #69bcff;
+  background: #1479d8;
+}
+/* Email button */
 #opList .op-contact-email {
-  color: #e2d7ff;
-  background: rgba(151, 111, 255, 0.10);
-  border-color: rgba(151, 111, 255, 0.30);
+  border-color: rgba(177, 150, 255, 0.24);
+  background: rgba(145, 105, 255, 0.08);
+  color: #d9caff;
 }
+#opList .op-contact-email:hover {
+  border-color: rgba(177, 150, 255, 0.5);
+  background: rgba(145, 105, 255, 0.15);
+}
+/* WhatsApp button */
 #opList .op-contact-whatsapp {
-  color: #9aefbd;
-  background: rgba(37, 211, 102, 0.09);
-  border-color: rgba(37, 211, 102, 0.30);
+  border-color: rgba(61, 210, 126, 0.25);
+  background: rgba(37, 211, 102, 0.07);
+  color: #9be9b8;
 }
-#opList .op-contact:hover {
-  border-color: currentColor;
-  background-color: rgba(255, 255, 255, 0.08);
+#opList .op-contact-whatsapp:hover {
+  border-color: rgba(61, 210, 126, 0.5);
+  background: rgba(37, 211, 102, 0.14);
 }
-@media (max-width: 640px) {
-  #opList .op-action {
-    justify-content: flex-start;
+/* Disabled link */
+#opList .op-link-disabled {
+  color: #8996aa;
+  cursor: not-allowed;
+}
+/* Loading and empty states */
+#opList .empty-state {
+  width: 100%;
+  max-width: 100%;
+  padding: 28px 20px;
+  border: 1px dashed rgba(139, 166, 205, 0.25);
+  border-radius: 14px;
+  color: #aebbd0;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+/* Tablet */
+@media (max-width: 820px) {
+  #opList .op {
+    gap: 18px;
+    padding: 21px;
   }
-  #opList .op-contact {
-    min-height: 40px;
+  #opList .op-action {
+    width: 132px;
+  }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  #opList {
+    gap: 12px;
+    margin-top: 18px;
+  }
+  #opList .op {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 19px;
+    padding: 19px;
+    border-radius: 13px;
+  }
+  #opList .op::before {
+    top: 14px;
+    bottom: 14px;
+  }
+  #opList .op h3 {
+    font-size: 19px;
+  }
+  #opList .op p {
+    font-size: 13px;
+    -webkit-line-clamp: 3;
+  }
+  #opList .op-action {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 9px;
+    width: 100%;
+  }
+  #opList .op-action > a:first-child:last-child {
+    grid-column: 1 / -1;
+  }
+  #opList .op-contact,
+  #opList .op-link,
+  #opList .op-link-disabled {
+    min-height: 42px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+/* Very narrow screens */
+@media (max-width: 360px) {
+  #opList .op {
+    padding: 15px;
+  }
+  #opList .op-action {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #opList .op-action > a {
+    grid-column: auto;
+  }
+}
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #opList .op,
+  #opList .op::before,
+  #opList .op-contact,
+  #opList .op-link {
+    transition: none;
+  }
+  #opList .op:hover,
+  #opList .op-contact:hover,
+  #opList .op-link:hover {
+    transform: none;
   }
 }
 </style>
