@@ -1018,6 +1018,32 @@
     .jobs-page .footer-links a:hover {
       color: var(--blue);
     }
+    /* Dark mode toggle removed */
+.theme-toggle {
+  display: none !important;
+}
+    /* Keep EvalLoop Jobs in the editorial light theme */
+:root {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: light;
+
+  --bg: #f8f8f6;
+  --ink: #191918;
+  --muted: #747370;
+  --paper: #f0efed;
+  --dark: #0B172A;
+  --border: #e7e6e2;
+  --blue: #1685FD;
+  --cyan: #8EC5FF;
+  --lime: #1685FD;
+  --white: #fff;
+  --blue-soft: #EEF6FF;
+  --surface: #fff;
+  --surface-soft: #F7FAFD;
+}
 
     /* Dark theme overrides */
 
