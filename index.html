@@ -1919,7 +1919,17 @@ h1 em,
 
    EVALLOOP JOBS — COMPACT OPPORTUNITY STRIPS
 
+   Stable header | Expandable details | Responsive
+
 ========================================= */
+
+#opList,
+
+#opList * {
+
+  box-sizing: border-box !important;
+
+}
 
 #opList {
 
@@ -1945,15 +1955,23 @@ h1 em,
 
 }
 
+/* =========================================
+
+   OPPORTUNITY STRIP
+
+========================================= */
+
 #opList article.op {
 
   display: grid !important;
 
   grid-template-columns: minmax(0, 1fr) auto !important;
 
-  align-items: center !important;
+  grid-template-rows: auto !important;
 
-  gap: 8px 16px !important;
+  align-items: start !important;
+
+  gap: 0 16px !important;
 
   width: 100% !important;
 
@@ -1989,11 +2007,25 @@ h1 em,
 
   background: #f8faff !important;
 
+  transform: none !important;
+
+  box-shadow: none !important;
+
 }
 
-/* Main content */
+/* =========================================
+
+   HEADER CONTENT
+
+   Company → Role → Location → Duration
+
+========================================= */
 
 #opList article.op .op-main {
+
+  grid-column: 1 !important;
+
+  grid-row: 1 !important;
 
   display: flex !important;
 
@@ -2007,17 +2039,21 @@ h1 em,
 
   width: 100% !important;
 
+  margin: 0 !important;
+
   padding: 0 !important;
 
 }
 
-/* Company name — accent blue */
+/* Company name */
 
 #opList article.op .op-company {
 
   order: 0 !important;
 
   margin: 0 0 2px !important;
+
+  padding: 0 !important;
 
   color: #2588ff !important;
 
@@ -2031,7 +2067,7 @@ h1 em,
 
 }
 
-/* Role — medium-large */
+/* Role */
 
 #opList article.op h3 {
 
@@ -2091,6 +2127,8 @@ h1 em,
 
   min-width: 0 !important;
 
+  margin: 0 !important;
+
   color: #667085 !important;
 
   font-size: 12.5px !important;
@@ -2103,7 +2141,57 @@ h1 em,
 
 }
 
-/* Hide extra information while collapsed */
+/* =========================================
+
+   EXPAND / COLLAPSE CONTROL
+
+========================================= */
+
+#opList article.op::after {
+
+  content: "Expand ＋" !important;
+
+  grid-column: 2 !important;
+
+  grid-row: 1 !important;
+
+  align-self: start !important;
+
+  justify-self: end !important;
+
+  margin: 2px 0 0 !important;
+
+  padding: 4px 0 4px 8px !important;
+
+  color: #2588ff !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.5 !important;
+
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+
+}
+
+#opList article.op.op-expanded::after {
+
+  content: "Collapse −" !important;
+
+  color: #475467 !important;
+
+}
+
+/* =========================================
+
+   COLLAPSED STATE
+
+   Hide additional content, retain header
+
+========================================= */
 
 #opList article.op:not(.op-expanded) .op-main > p,
 
@@ -2117,55 +2205,59 @@ h1 em,
 
 }
 
-/* Expand label */
+/* =========================================
 
-#opList article.op::after {
+   EXPANDED STATE
 
-  content: "Expand ＋" !important;
+   Header stays at the top.
 
-  grid-column: 2 !important;
+   Details appear below it.
 
-  grid-row: 1 !important;
-
-  align-self: center !important;
-
-  color: #2588ff !important;
-
-  font-size: 12px !important;
-
-  font-weight: 600 !important;
-
-  white-space: nowrap !important;
-
-  cursor: pointer !important;
-
-}
-
-#opList article.op.op-expanded::after {
-
-  content: "Collapse −" !important;
-
-}
-
-/* Expanded layout */
+========================================= */
 
 #opList article.op.op-expanded {
 
-  background: #fbfcff !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  grid-template-rows: auto auto !important;
+
+  align-items: start !important;
+
+  gap: 0 16px !important;
 
   padding: 20px !important;
 
+  background: #fbfcff !important;
+
 }
+
+/* Never move the header into another row */
+
+#opList article.op.op-expanded .op-main {
+
+  grid-column: 1 !important;
+
+  grid-row: 1 !important;
+
+  align-self: start !important;
+
+}
+
+/* Expanded description */
 
 #opList article.op.op-expanded .op-main > p {
 
   display: block !important;
 
-  margin: 9px 0 0 !important;
+  margin: 10px 0 0 !important;
+
+  padding: 0 !important;
 
   color: #596579 !important;
 
   font-size: 13px !important;
+
+  font-weight: 400 !important;
 
   line-height: 1.8 !important;
 
@@ -2173,21 +2265,39 @@ h1 em,
 
 }
 
+/* Skill tags */
+
 #opList article.op.op-expanded .op-tags {
+
+  grid-column: 1 / -1 !important;
 
   display: flex !important;
 
   flex-wrap: wrap !important;
 
+  align-items: center !important;
+
   gap: 6px !important;
 
-  margin-top: 7px !important;
+  width: 100% !important;
+
+  margin: 12px 0 0 !important;
+
+  padding: 0 !important;
 
 }
 
 #opList article.op.op-expanded .op-tag {
 
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  max-width: 100% !important;
+
   padding: 5px 9px !important;
+
+  border: 1px solid #e2ecfc !important;
 
   border-radius: 5px !important;
 
@@ -2197,17 +2307,29 @@ h1 em,
 
   font-size: 11px !important;
 
+  line-height: 1.5 !important;
+
+  overflow-wrap: anywhere !important;
+
 }
+
+/* Highlight */
 
 #opList article.op.op-expanded .op-highlight {
 
+  grid-column: 1 / -1 !important;
+
   display: block !important;
 
-  margin-top: 8px !important;
+  width: 100% !important;
+
+  margin: 12px 0 0 !important;
 
   padding: 10px 12px !important;
 
   border-left: 3px solid #2588ff !important;
+
+  border-radius: 4px !important;
 
   background: #f0f7ff !important;
 
@@ -2217,25 +2339,45 @@ h1 em,
 
   line-height: 1.7 !important;
 
+  overflow-wrap: anywhere !important;
+
 }
+
+/* Application actions appear below the header and details */
 
 #opList article.op.op-expanded .op-action {
 
   grid-column: 1 / -1 !important;
 
+  grid-row: 2 !important;
+
+  align-self: start !important;
+
   display: flex !important;
+
+  flex-direction: row !important;
 
   flex-wrap: wrap !important;
 
+  align-items: center !important;
+
   gap: 8px !important;
 
-  margin-top: 10px !important;
+  width: 100% !important;
 
-  padding-top: 14px !important;
+  min-width: 0 !important;
+
+  margin: 14px 0 0 !important;
+
+  padding: 14px 0 0 !important;
+
+  border: 0 !important;
 
   border-top: 1px solid #e5eaf2 !important;
 
 }
+
+/* Action buttons */
 
 #opList article.op .op-contact,
 
@@ -2249,21 +2391,37 @@ h1 em,
 
   justify-content: center !important;
 
-  min-height: 38px !important;
+  min-width: 100px !important;
+
+  min-height: 40px !important;
+
+  margin: 0 !important;
 
   padding: 9px 16px !important;
 
+  border: 1px solid transparent !important;
+
   border-radius: 6px !important;
+
+  font-family: inherit !important;
 
   font-size: 12px !important;
 
   font-weight: 600 !important;
 
+  line-height: 1.5 !important;
+
   text-align: center !important;
 
   text-decoration: none !important;
 
+  overflow-wrap: anywhere !important;
+
+  cursor: pointer !important;
+
 }
+
+/* Primary action */
 
 #opList article.op .op-contact-view,
 
@@ -2271,11 +2429,23 @@ h1 em,
 
   background: #2588ff !important;
 
-  border: 1px solid #2588ff !important;
+  border-color: #2588ff !important;
 
   color: #fff !important;
 
 }
+
+#opList article.op .op-contact-view:hover,
+
+#opList article.op .op-link:not(.op-link-disabled):hover {
+
+  background: #176bd6 !important;
+
+  border-color: #176bd6 !important;
+
+}
+
+/* Secondary actions */
 
 #opList article.op .op-contact-email,
 
@@ -2283,17 +2453,31 @@ h1 em,
 
   background: #fff !important;
 
-  border: 1px solid #dce3ed !important;
+  border-color: #dce3ed !important;
 
   color: #344054 !important;
 
 }
 
+#opList article.op .op-contact-email:hover,
+
+#opList article.op .op-contact-whatsapp:hover {
+
+  background: #f5f8fc !important;
+
+}
+
+/* Disabled action */
+
 #opList article.op .op-link-disabled {
 
   background: #f2f4f7 !important;
 
+  border-color: #eaecf0 !important;
+
   color: #98a2b3 !important;
+
+  cursor: not-allowed !important;
 
 }
 
@@ -2327,9 +2511,19 @@ h1 em,
 
     grid-template-columns: minmax(0, 1fr) auto !important;
 
-    gap: 7px 8px !important;
+    grid-template-rows: auto !important;
+
+    gap: 0 8px !important;
 
     padding: 15px 13px !important;
+
+  }
+
+  #opList article.op .op-main {
+
+    grid-column: 1 !important;
+
+    grid-row: 1 !important;
 
   }
 
@@ -2361,25 +2555,87 @@ h1 em,
 
   #opList article.op::after {
 
+    grid-column: 2 !important;
+
+    grid-row: 1 !important;
+
+    align-self: start !important;
+
+    margin-top: 0 !important;
+
+    padding-left: 4px !important;
+
     font-size: 11px !important;
 
   }
 
   #opList article.op.op-expanded {
 
+    grid-template-columns: minmax(0, 1fr) auto !important;
+
+    grid-template-rows: auto auto !important;
+
+    gap: 0 8px !important;
+
     padding: 16px 13px !important;
+
+  }
+
+  #opList article.op.op-expanded .op-main {
+
+    grid-column: 1 !important;
+
+    grid-row: 1 !important;
 
   }
 
   #opList article.op.op-expanded .op-action {
 
+    grid-column: 1 / -1 !important;
+
+    grid-row: 2 !important;
+
+    display: flex !important;
+
     flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    gap: 8px !important;
+
+    width: 100% !important;
+
+    margin-top: 13px !important;
+
+    padding-top: 13px !important;
 
   }
 
   #opList article.op.op-expanded .op-action > * {
 
     width: 100% !important;
+
+    min-width: 0 !important;
+
+  }
+
+  #opList article.op.op-expanded .op-tags,
+
+  #opList article.op.op-expanded .op-highlight {
+
+    grid-column: 1 / -1 !important;
+
+  }
+
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #opList article.op {
+
+    transition: none !important;
 
   }
 
