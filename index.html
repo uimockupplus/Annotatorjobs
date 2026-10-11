@@ -3385,49 +3385,22 @@ document.addEventListener("click", function (event) {
   }
 });
 </script>
-  <script>
-function setupOpportunityStrips() {
-  document.querySelectorAll("#opList article.op").forEach(function(card) {
-    if (card.dataset.stripReady) return;
-    card.dataset.stripReady = "true";
+<script>
+document.addEventListener("click", function (event) {
+  const card = event.target.closest("#opList article.op");
+  if (!card) return;
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "op-expand-toggle";
-    button.textContent = "Expand +";
-    button.setAttribute("aria-expanded", "false");
+  if (event.target.closest("a, button, input, select, textarea")) return;
 
-    button.style.cssText = [
-      "border:1px solid #dbe7f5",
-      "background:#fff",
-      "color:#2588ff",
-      "border-radius:7px",
-      "padding:9px 13px",
-      "font-size:12px",
-      "font-weight:600",
-      "cursor:pointer",
-      "white-space:nowrap"
-    ].join(";");
+  const expanded = card.classList.contains("op-expanded");
 
-    card.appendChild(button);
+  document.querySelectorAll("#opList article.op.op-expanded")
+    .forEach(item => item.classList.remove("op-expanded"));
 
-    button.addEventListener("click", function() {
-      const expanded = card.classList.toggle("op-expanded");
-
-      button.textContent = expanded ? "Collapse −" : "Expand +";
-      button.setAttribute("aria-expanded", String(expanded));
-    });
-  });
-}
-
-setupOpportunityStrips();
-
-const opportunityObserver = new MutationObserver(setupOpportunityStrips);
-const opportunityList = document.querySelector("#opList");
-
-if (opportunityList) {
-  opportunityObserver.observe(opportunityList, { childList: true });
-}
+  if (!expanded) {
+    card.classList.add("op-expanded");
+  }
+});
 </script>
 <script src="chatbot.js"></script>
 
