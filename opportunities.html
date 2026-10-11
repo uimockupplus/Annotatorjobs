@@ -752,100 +752,134 @@
       gap: 7px;
     }
 
-    .jobs-apply-button,
+   /* ========================================
+   JOB ACTION BUTTONS — EVALLOOP JOBS
+======================================== */
+
+.jobs-apply-button,
 .jobs-contact-button,
 .jobs-unavailable-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  min-height: 36px;
-  padding: 0 13px;
-  border: 1px solid var(--blue);
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 19px;
+  border: 1px solid transparent;
   border-radius: 999px;
-  color: #fff;
-  background: var(--blue);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
-/* Apply Now */
+
+/* APPLY NOW — PRIMARY BLUE */
+
 .jobs-apply-button {
-  color: #fff;
+  color: #ffffff;
   border-color: var(--blue);
   background: var(--blue);
+  box-shadow: 0 3px 8px rgba(37, 136, 255, 0.18);
 }
+
 .jobs-apply-button:hover {
-  color: #fff;
+  color: #ffffff;
   border-color: #0d6bd8;
   background: #0d6bd8;
+  box-shadow: 0 5px 12px rgba(37, 136, 255, 0.25);
+  transform: translateY(-1px);
 }
-/* General contact button */
-.jobs-contact-button {
-  color: var(--blue);
-  border-color: var(--blue);
-  background: transparent;
-}
-.jobs-contact-button:hover {
-  color: #fff;
-  border-color: var(--blue);
-  background: var(--blue);
-}
-/* WhatsApp */
+
+/* WHATSAPP — TRANSPARENT GREEN */
+
 .jobs-whatsapp-button {
-  color: #168044;
-  border-color: #b8e6c9;
-  background: #f0fbf4;
+  color: #16803d;
+  border: 1.5px solid #25a653;
+  background: rgba(37, 211, 102, 0.10);
+  box-shadow: 0 2px 7px rgba(37, 211, 102, 0.10);
 }
+
 .jobs-whatsapp-button:hover {
-  color: #126b38;
-  border-color: #8ed5a8;
-  background: #e1f7e9;
+  color: #116b32;
+  border-color: #1fa451;
+  background: rgba(37, 211, 102, 0.18);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.18);
+  transform: translateY(-1px);
 }
-/* Email */
+
+/* EMAIL — BLACK WITH WHITE TEXT */
+
 .jobs-email-button {
-  color: var(--ink);
-  border-color: var(--border);
-  background: var(--surface);
+  color: #ffffff;
+  border: 1px solid #000000;
+  background: #111111;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
 }
+
 .jobs-email-button:hover {
-  color: var(--ink);
-  border-color: var(--border);
-  background: var(--surface-soft);
+  color: #ffffff;
+  border-color: #333333;
+  background: #292929;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
 }
-/* No application/contact details */
+
+/* NO APPLICATION OR CONTACT DETAILS */
+
 .jobs-unavailable-button {
-  cursor: not-allowed;
-  border-color: var(--border);
   color: var(--muted);
+  border-color: var(--border);
   background: var(--surface-soft);
+  cursor: not-allowed;
+  opacity: 0.8;
 }
-/* Button layout */
+
+/* BUTTON CONTAINER */
+
 .jobs-card-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
+  margin-top: 14px;
 }
+
 .jobs-card-actions a {
   text-decoration: none;
 }
+
+/* KEYBOARD ACCESSIBILITY */
+
+.jobs-apply-button:focus-visible,
+.jobs-whatsapp-button:focus-visible,
+.jobs-email-button:focus-visible {
+  outline: 3px solid rgba(37, 136, 255, 0.35);
+  outline-offset: 3px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
 @media (max-width: 480px) {
   .jobs-card-actions {
-    gap: 6px;
+    gap: 8px;
   }
+
   .jobs-apply-button,
   .jobs-contact-button,
   .jobs-unavailable-button {
-    min-height: 34px;
-    padding: 0 11px;
-    font-size: 9px;
+    min-height: 42px;
+    padding: 0 15px;
+    font-size: 11px;
   }
 }
-
     /* Empty and loading states */
 
     .jobs-state {
