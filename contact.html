@@ -1,397 +1,1497 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Contact EvalLoop Jobs, an independent opportunity discovery platform, for questions, opportunity corrections, partnerships, submissions and general enquiries.">
-
-<meta name="robots" content="index,follow">
-
-<link rel="canonical" href="https://annotatorjobs.vercel.app/contact.html">
-
-<title>Contact — EvalLoop Jobs | Independent Opportunity Directory</title>
-
-<link rel="icon" type="image/png" href="/favicon.png?v=2">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="pages.css">
-<link rel="stylesheet" href="chatbot.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact EvalLoop Jobs for opportunity corrections, AI job submissions, partnerships, contributor network enquiries and general questions.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://annotatorjobs.vercel.app/contact.html">
+  <title>Contact EvalLoop Jobs — Get in Touch</title>
+  <link rel="icon" type="image/png" href="/assets/evalloop-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chatbot.css">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("evalloop-theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = saved === "dark" || saved === "light"
+          ? saved
+          : (systemDark ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch {
+        document.documentElement.dataset.theme = "light";
+        document.documentElement.style.colorScheme = "light";
+      }
+    })();
+  </script>
+  <style>
+    /* =========================================
+       EVALLOOP JOBS — CONTACT PAGE
+       Editorial design system
+    ========================================= */
+    * {
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #f8f8f6;
+      --ink: #191918;
+      --muted: #747370;
+      --paper: #f0efed;
+      --border: #e7e6e2;
+      --blue: #1685fd;
+      --cyan: #8ec5ff;
+      --blue-soft: #eef6ff;
+      --surface: #ffffff;
+      --surface-soft: #f7fafd;
+      --danger: #bb4353;
+      color-scheme: light;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font-family: "DM Sans", sans-serif;
+    }
+    button,
+    input,
+    select,
+    textarea {
+      font-size: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+    a:hover {
+      color: var(--blue);
+    }
+    :focus-visible {
+      outline: 3px solid rgba(22, 133, 253, .58);
+      outline-offset: 4px;
+      border-radius: 5px;
+    }
+    .shell {
+      min-height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .wrap {
+      width: min(1200px, calc(100% - 64px));
+      margin-inline: auto;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      background: #24212f;
+      transform: translateY(-150%);
+    }
+    .skip-link:focus {
+      color: #fff;
+      transform: translateY(0);
+    }
+    /* HEADER */
+    .header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      width: min(1240px, calc(100% - 64px));
+      min-height: 72px;
+      margin-inline: auto;
+      border-bottom: 1px solid var(--border);
+      gap: 22px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+    }
+    .logo:hover {
+      color: var(--ink);
+    }
+    .logo-mark {
+      display: block;
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      overflow: hidden;
+      background: transparent;
+    }
+    .logo-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .nav a {
+      white-space: nowrap;
+    }
+    .nav a[aria-current="page"] {
+      color: var(--blue);
+    }
+    .top-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 37px;
+      padding: 0 16px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .top-cta:hover {
+      border-color: #0d6bd8;
+      color: #fff;
+      background: #0d6bd8;
+    }
+    .menu-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--ink);
+      background: var(--surface);
+    }
+    .menu-toggle span:not(.sr-only) {
+      display: block;
+      width: 14px;
+      height: 1.5px;
+      background: currentColor;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    /* ANNOUNCEMENT */
+    .announcement {
+      min-height: 37px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+    .announcement a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    /* SHARED TYPOGRAPHY */
+    .eyebrow {
+      color: #176dc5;
+      font: 700 9px "Space Grotesk", sans-serif;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+    /* HERO */
+    .contact-hero {
+      padding-top: 87px;
+      padding-bottom: 67px;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      max-width: 920px;
+      margin: 22px auto 20px;
+      color: var(--ink);
+      font: 500 clamp(3.3rem, 7.2vw, 6rem)/.97 "Space Grotesk", sans-serif;
+      letter-spacing: -.085em;
+    }
+    .contact-hero h1 em,
+    .contact-page h2 em {
+      color: var(--blue);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .contact-lede {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .hero-proof {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .hero-proof span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-proof i {
+      width: 5px;
+      height: 5px;
+      flex: 0 0 5px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    /* CONTACT CONTENT */
+    .contact-content {
+      padding-top: 30px;
+      padding-bottom: 100px;
+      border-top: 1px solid var(--border);
+    }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+    .section-heading h2 {
+      max-width: 650px;
+      margin: 15px 0 0;
+      color: var(--ink);
+      font: 500 clamp(2.5rem, 4.8vw, 4rem)/1.02 "Space Grotesk", sans-serif;
+      letter-spacing: -.075em;
+    }
+    .section-heading > p {
+      max-width: 330px;
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      align-items: stretch;
+      gap: 17px;
+    }
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+      min-width: 0;
+    }
+    .contact-panel {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .contact-panel h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font: 500 23px/1.2 "Space Grotesk", sans-serif;
+      letter-spacing: -.05em;
+    }
+    .contact-panel > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .contact-methods {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--surface);
+    }
+    .method-icon {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      flex: 0 0 39px;
+      border: 1px solid #d4e8fc;
+      border-radius: 11px;
+      color: #176dc5;
+      background: var(--blue-soft);
+      font-size: 17px;
+    }
+    .method-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+    .method-label {
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .method-value {
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+    .contact-method:hover {
+      border-color: #bdddfb;
+      background: var(--surface-soft);
+    }
+    .contact-method:hover .method-value {
+      color: var(--blue);
+    }
+    /* REASONS TO CONTACT */
+    .reasons-panel {
+      flex: 1;
+      background:
+        radial-gradient(circle at 100% 0, rgba(22,133,253,.06), transparent 35%),
+        var(--surface);
+    }
+    .reason-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 18px;
+      margin: 19px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .reason-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .reason-list li::before {
+      content: "↗";
+      flex: 0 0 auto;
+      color: var(--blue);
+      font-size: 12px;
+    }
+    /* CONTACT FORM */
+    .form-panel {
+      min-width: 0;
+      padding: 33px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--surface);
+      box-shadow: 0 12px 36px rgba(31, 29, 25, .025);
+    }
+    .form-heading {
+      margin-bottom: 28px;
+    }
+    .form-heading h3 {
+      margin: 12px 0 9px;
+      color: var(--ink);
+      font: 500 30px/1.1 "Space Grotesk", sans-serif;
+      letter-spacing: -.065em;
+    }
+    .form-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 21px 15px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 9px;
+    }
+    .field.full {
+      grid-column: 1 / -1;
+    }
+    .field label {
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .required {
+      color: var(--blue);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      color: var(--ink);
+      background: var(--surface-soft);
+      font-size: 12px;
+      transition:
+        border-color .2s ease,
+        background-color .2s ease,
+        box-shadow .2s ease;
+    }
+    .field input,
+    .field select {
+      min-height: 46px;
+      padding: 0 13px;
+    }
+    .field textarea {
+      min-height: 160px;
+      padding: 13px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #96938e;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      background: var(--surface);
+      box-shadow: 0 0 0 3px rgba(22, 133, 253, .09);
+    }
+    .field select {
+      cursor: pointer;
+    }
+    .form-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 23px;
+    }
+    .form-note {
+      max-width: 230px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 43px;
+      padding: 0 19px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      transition:
+        background-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: #0d6bd8;
+      color: #fff;
+      background: #0d6bd8;
+      box-shadow: 0 8px 22px rgba(22, 133, 253, .16);
+    }
+    .btn:disabled {
+      cursor: wait;
+      opacity: .7;
+      transform: none;
+    }
+    .form-status {
+      display: none;
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      border: 1px solid #bdddfb;
+      border-radius: 9px;
+      color: var(--ink);
+      background: var(--blue-soft);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .form-status.visible {
+      display: block;
+    }
+    /* INDEPENDENCE NOTICE */
+    .contact-notice {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      align-items: start;
+      gap: 18px;
+      margin-top: 20px;
+      padding: 24px 26px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--surface);
+    }
+    .notice-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #d4e8fc;
+      border-radius: 12px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 18px;
+    }
+    .contact-notice h3 {
+      margin: 1px 0 8px;
+      color: var(--ink);
+      font: 500 17px "Space Grotesk", sans-serif;
+      letter-spacing: -.035em;
+    }
+    .contact-notice p {
+      max-width: 850px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+    /* CLOSING CTA */
+    .contact-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 78px;
+      padding: 35px 39px;
+      border: 1px solid #dceafa;
+      border-radius: 17px;
+      background: linear-gradient(110deg, #eef6ff, #f7fbff);
+    }
+    .contact-cta h2 {
+      margin: 13px 0 10px;
+      color: var(--ink);
+      font: 500 clamp(2rem, 3.7vw, 3rem)/1.04 "Space Grotesk", sans-serif;
+      letter-spacing: -.07em;
+    }
+    .contact-cta p {
+      max-width: 550px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .cta-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--surface);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .cta-secondary:hover {
+      border-color: #bdddfb;
+      color: var(--blue);
+    }
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 112px;
+      padding-top: 23px;
+      padding-bottom: 23px;
+      border-top: 1px solid var(--border);
+      gap: 22px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .powered-by {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+    .powered-by strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px 16px;
+    }
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+    }
+    .footer-links a[aria-current="page"] {
+      color: var(--blue);
+    }
+    /* DARK THEME */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #000000;
+      --ink: #eef5ff;
+      --muted: #a0a0a0;
+      --paper: #000000;
+      --border: #292929;
+      --blue: #1685fd;
+      --cyan: #8ec5ff;
+      --blue-soft: #14263a;
+      --surface: #111111;
+      --surface-soft: #191919;
+    }
+    [data-theme="dark"] body,
+    [data-theme="dark"] .shell {
+      color: var(--ink);
+      background: var(--bg);
+    }
+    [data-theme="dark"] .header,
+    [data-theme="dark"] .footer,
+    [data-theme="dark"] .contact-content {
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .contact-panel,
+    [data-theme="dark"] .form-panel,
+    [data-theme="dark"] .contact-notice {
+      border-color: var(--border);
+      background: var(--surface);
+      box-shadow: none;
+    }
+    [data-theme="dark"] .contact-method {
+      border-color: var(--border);
+      background: #151515;
+    }
+    [data-theme="dark"] .contact-method:hover {
+      border-color: #29496b;
+      background: #191919;
+    }
+    [data-theme="dark"] .method-icon,
+    [data-theme="dark"] .notice-icon {
+      border-color: #29496b;
+      color: var(--cyan);
+      background: #142b47;
+    }
+    [data-theme="dark"] .field input,
+    [data-theme="dark"] .field select,
+    [data-theme="dark"] .field textarea {
+      border-color: var(--border);
+      color: var(--ink);
+      background: #191919;
+    }
+    [data-theme="dark"] .field input:focus,
+    [data-theme="dark"] .field select:focus,
+    [data-theme="dark"] .field textarea:focus {
+      border-color: var(--blue);
+      background: #111111;
+    }
+    [data-theme="dark"] .field input::placeholder,
+    [data-theme="dark"] .field textarea::placeholder {
+      color: #828282;
+    }
+    [data-theme="dark"] .field select option {
+      color: var(--ink);
+      background: var(--surface);
+    }
+    [data-theme="dark"] .contact-cta {
+      border-color: var(--border);
+      background: linear-gradient(110deg, #070707, #131313);
+    }
+    [data-theme="dark"] .cta-secondary {
+      border-color: var(--border);
+      color: var(--ink);
+      background: var(--surface);
+    }
+    [data-theme="dark"] .form-status {
+      border-color: #29496b;
+      color: var(--ink);
+      background: #14263a;
+    }
+    [data-theme="dark"] .menu-toggle,
+    [data-theme="dark"] .theme-toggle {
+      border-color: var(--border);
+      color: var(--ink);
+      background: var(--surface);
+    }
+    [data-theme="dark"] .menu-toggle span:not(.sr-only) {
+      background: currentColor;
+    }
+    /* THEME TOGGLE */
+    .theme-toggle {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 37px;
+      height: 37px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--surface);
+      font-size: 18px;
+      line-height: 1;
+      transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+    }
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+    }
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .header {
+        gap: 14px;
+      }
+      .nav {
+        gap: 16px;
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      }
+      .contact-panel {
+        padding: 22px;
+      }
+      .form-panel {
+        padding: 26px;
+      }
+      .footer {
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        flex-basis: 100%;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 760px) {
+      .header {
+        min-height: 68px;
+        gap: 10px;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-left: auto;
+      }
+      .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 7px);
+        left: 0;
+        right: 0;
+        z-index: 20;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: 0 14px 32px rgba(24, 41, 62, .1);
+      }
+      .nav.is-open {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+      }
+      .nav a {
+        padding: 11px 12px;
+        border-radius: 8px;
+      }
+      .nav a:hover {
+        background: var(--surface-soft);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+      }
+      .contact-cta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .cta-actions > * {
+        flex: 1 1 auto;
+      }
+    }
+    @media (max-width: 640px) {
+      .wrap,
+      .header {
+        width: calc(100% - 40px);
+      }
+      .logo {
+        gap: 6px;
+        font-size: 12px;
+      }
+      .logo-mark {
+        width: 26px;
+        height: 26px;
+        flex-basis: 26px;
+      }
+      .theme-toggle {
+        width: 34px;
+        height: 34px;
+      }
+      .top-cta {
+        min-height: 35px;
+        padding: 0 11px;
+        font-size: 9px;
+      }
+      .announcement {
+        min-height: 40px;
+        font-size: 9px;
+      }
+      .contact-hero {
+        padding-top: 59px;
+        padding-bottom: 55px;
+      }
+      .contact-hero h1 {
+        margin: 18px auto;
+        font-size: clamp(3rem, 13vw, 4.4rem);
+      }
+      .contact-lede {
+        font-size: 12px;
+      }
+      .hero-proof {
+        gap: 11px 15px;
+        font-size: 9px;
+      }
+      .contact-content {
+        padding-top: 63px;
+        padding-bottom: 70px;
+      }
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        margin-bottom: 26px;
+      }
+      .section-heading h2 {
+        font-size: clamp(2.5rem, 10.5vw, 3.6rem);
+      }
+      .section-heading > p {
+        font-size: 11px;
+      }
+      .contact-sidebar {
+        grid-template-columns: 1fr;
+      }
+      .contact-panel {
+        padding: 23px 21px;
+      }
+      .contact-panel h3 {
+        font-size: 22px;
+      }
+      .reason-list {
+        grid-template-columns: 1fr;
+      }
+      .reason-list li {
+        padding: 10px 0;
+      }
+      .form-panel {
+        padding: 25px 20px;
+        border-radius: 14px;
+      }
+      .form-heading h3 {
+        font-size: 27px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 19px;
+      }
+      .field.full {
+        grid-column: auto;
+      }
+      .field input,
+      .field select {
+        min-height: 46px;
+      }
+      .field textarea {
+        min-height: 145px;
+      }
+      .form-bottom {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .form-note {
+        max-width: none;
+      }
+      .form-bottom .btn {
+        width: 100%;
+      }
+      .contact-notice {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        padding: 22px 20px;
+      }
+      .contact-cta {
+        width: calc(100% - 40px);
+        margin-bottom: 52px;
+        padding: 26px 21px;
+      }
+      .contact-cta h2 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+      .cta-actions {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+      }
+      .powered-by {
+        order: 2;
+      }
+      .footer-links {
+        gap: 4px 14px;
+      }
+    }
+    @media (max-width: 380px) {
+      .header {
+        gap: 6px;
+      }
+      .logo {
+        gap: 4px;
+        font-size: 11px;
+      }
+      .logo-mark {
+        width: 23px;
+        height: 23px;
+        flex-basis: 23px;
+      }
+      .menu-toggle,
+      .theme-toggle {
+        width: 31px;
+        height: 31px;
+      }
+      .top-cta {
+        padding-inline: 8px;
+        font-size: 8px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<div class="shell">
-
-<header class="header">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="about.html">About</a>
-<a href="interview-prep.html">Interview Prep</a>
-</nav>
-
-<a href="opportunities.html" class="top-cta">
-Explore roles ↗
-</a>
-
-</header>
-
-
-<main class="page wrap">
-
-<div class="eyebrow">
-CONNECT / 06
-</div>
-
-<h1 class="page-title">
-Let's keep the <em>loop</em> open.
-</h1>
-
-<p class="page-intro">
-Have a question, found an outdated opportunity, want to submit an opportunity, discuss a partnership, or need to reach the EvalLoop team? Send us a message.
-</p>
-
-
-<div class="content-grid">
-
-<section class="panel">
-
-<h2>Contact EvalLoop.</h2>
-
-<p>
-EvalLoop Jobs is an independent opportunity discovery platform. For the fastest response, email us directly. Please include enough context for us to understand what you need.
-</p>
-
-<div class="contact-list">
-
-<a class="contact-item" href="mailto:evalloopjobs@gmail.com">
-<span class="contact-label">General email</span>
-<span class="contact-value">evalloopjobs@gmail.com ↗</span>
-</a>
-
-<a
-class="contact-item"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-<span class="contact-label">LinkedIn</span>
-<span class="contact-value">EvalLoop Jobs ↗</span>
-</a>
-
-</div>
-
-</section>
-
-
-<section class="panel panel-blue">
-
-<h2>Good reasons to reach out.</h2>
-
-<ul>
-<li>Report an outdated opportunity</li>
-<li>Report incorrect employer attribution</li>
-<li>Submit an AI job or project</li>
-<li>Discuss partnerships</li>
-<li>Ask about the contributor network</li>
-<li>Suggest a correction</li>
-<li>Report a suspicious listing</li>
-<li>General website questions</li>
-</ul>
-
-</section>
-
-</div>
-
-
-<form
-class="form-card"
-action="https://formsubmit.co/evalloopjobs@gmail.com"
-method="POST"
->
-
-<input
-type="hidden"
-name="_subject"
-value="New Contact Message — EvalLoop Jobs"
->
-
-<input
-type="hidden"
-name="_captcha"
-value="true"
->
-
-<input
-type="hidden"
-name="_template"
-value="table"
->
-
-<input
-type="hidden"
-name="_next"
-value="https://annotatorjobs.vercel.app/contact.html"
->
-
-
-<div class="form-grid">
-
-<div class="field">
-
-<label for="name">
-Name *
-</label>
-
-<input
-id="name"
-name="Name"
-required
-placeholder="Your name"
->
-
-</div>
-
-
-<div class="field">
-
-<label for="email">
-Email *
-</label>
-
-<input
-id="email"
-name="Email"
-type="email"
-required
-placeholder="you@example.com"
->
-
-</div>
-
-
-<div class="field full">
-
-<label for="reason">
-Reason *
-</label>
-
-<select
-id="reason"
-name="Reason"
-required
->
-
-<option value="">
-Select a reason
-</option>
-
-<option>
-General question
-</option>
-
-<option>
-Opportunity correction
-</option>
-
-<option>
-Incorrect employer attribution
-</option>
-
-<option>
-Submit an opportunity
-</option>
-
-<option>
-Partnership
-</option>
-
-<option>
-Contributor network
-</option>
-
-<option>
-Report suspicious listing
-</option>
-
-<option>
-Other
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field full">
-
-<label for="message">
-Message *
-</label>
-
-<textarea
-id="message"
-name="Message"
-required
-placeholder="How can we help?"
-></textarea>
-
-</div>
-
-</div>
-
-
-<div class="form-submit">
-
-<button
-class="btn primary"
-type="submit"
->
-Send message ↗
-</button>
-
-</div>
-
-</form>
-
-
-</main>
-
-
-<footer class="footer wrap">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<span>
-Independent opportunity discovery for the work behind better AI.
-</span>
-
-<nav class="footer-links">
-
-<a href="about.html">
-About
-</a>
-
-<a href="opportunities.html">
-Opportunities
-</a>
-
-<a href="submit-opportunity.html">
-Submit Opportunity
-</a>
-
-<a href="join-network.html">
-Join Network
-</a>
-
-<a
-class="footer-current"
-href="contact.html"
->
-Contact
-</a>
-
-<a href="disclaimer.html">
-Disclaimer
-</a>
-
-<a href="terms.html">
-Terms
-</a>
-
-<a href="privacy.html">
-Privacy
-</a>
-
-<a
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn ↗
-</a>
-
-</nav>
-
-</footer>
-
-</div>
-
-
-<script src="chatbot.js"></script>
-
-
-<script>
-
-const dot=document.querySelector('.cursor-dot');
-const ring=document.querySelector('.cursor-ring');
-
-let mx=innerWidth/2;
-let my=innerHeight/2;
-
-let rx=mx;
-let ry=my;
-
-addEventListener('pointermove',e=>{
-
-mx=e.clientX;
-my=e.clientY;
-
-dot.style.left=mx+'px';
-dot.style.top=my+'px';
-
-});
-
-(function tick(){
-
-rx+=(mx-rx)*.16;
-ry+=(my-ry)*.16;
-
-ring.style.left=rx+'px';
-ring.style.top=ry+'px';
-
-requestAnimationFrame(tick);
-
-})();
-
-
-document
-.querySelectorAll('a,button,input,textarea,select')
-.forEach(el=>{
-
-el.onmouseenter=()=>{
-
-ring.classList.add('active');
-dot.classList.add('hot');
-
-};
-
-el.onmouseleave=()=>{
-
-ring.classList.remove('active');
-dot.classList.remove('hot');
-
-};
-
-});
-
-</script>
-
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+        <span class="logo-mark">
+          <img src="/assets/evalloop-logo.png" alt="">
+        </span>
+        <span>EvalLoop Jobs</span>
+      </a>
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="opportunities.html">Opportunities</a>
+        <a href="about.html">About</a>
+        <a href="interview-prep.html">Interview Prep</a>
+      </nav>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+        title="Switch theme"
+      >
+        <span aria-hidden="true">☾</span>
+      </button>
+      <a href="opportunities.html" class="top-cta">
+        Explore roles ↗
+      </a>
+    </header>
+    <main id="main" class="contact-page">
+      <div class="announcement">
+        An independent opportunity discovery platform.
+        <a href="index.html#directory">Explore the directory →</a>
+      </div>
+      <!-- HERO -->
+      <section class="contact-hero wrap" aria-labelledby="contact-title">
+        <div class="eyebrow">CONTACT EVALLOOP / 07</div>
+        <h1 id="contact-title">
+          Let's keep the <em>loop open.</em>
+        </h1>
+        <p class="contact-lede">
+          Questions, corrections, new opportunities or ideas for working
+          together? We'd like to hear from you. Choose a contact option
+          below or send us a message directly.
+        </p>
+        <div class="hero-proof" aria-label="Contact information">
+          <span><i></i> General enquiries</span>
+          <span><i></i> Opportunity submissions</span>
+          <span><i></i> Partnership discussions</span>
+        </div>
+      </section>
+      <!-- CONTACT AREA -->
+      <section class="contact-content wrap" aria-labelledby="contact-options-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">GET IN TOUCH / 01</div>
+            <h2 id="contact-options-title">
+              One message.<br>
+              <em>Many possibilities.</em>
+            </h2>
+          </div>
+          <p>
+            Whether you've spotted an error, found an interesting AI project
+            or want to explore a partnership, use the contact route that
+            works best for you.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <!-- LEFT COLUMN -->
+          <div class="contact-sidebar">
+            <section class="contact-panel">
+              <h3>Contact EvalLoop.</h3>
+              <p>
+                For the most direct route, email us. Include the opportunity
+                link or enough context to help us understand your message.
+              </p>
+              <div class="contact-methods">
+                <a
+                  class="contact-method"
+                  href="mailto:evalloopjobs@gmail.com"
+                >
+                  <span class="method-icon" aria-hidden="true">↗</span>
+                  <span class="method-copy">
+                    <span class="method-label">General email</span>
+                    <span class="method-value">evalloopjobs@gmail.com</span>
+                  </span>
+                </a>
+                <a
+                  class="contact-method"
+                  href="https://www.linkedin.com/company/evalloopjobs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="method-icon" aria-hidden="true">in</span>
+                  <span class="method-copy">
+                    <span class="method-label">Connect with us</span>
+                    <span class="method-value">EvalLoop Jobs on LinkedIn ↗</span>
+                  </span>
+                </a>
+              </div>
+            </section>
+            <section class="contact-panel reasons-panel">
+              <h3>What can we help with?</h3>
+              <p>
+                Send us a message about any of the following.
+              </p>
+              <ul class="reason-list">
+                <li>Outdated opportunities</li>
+                <li>Incorrect employer attribution</li>
+                <li>New AI job submissions</li>
+                <li>Partnership enquiries</li>
+                <li>Contributor network questions</li>
+                <li>Suspicious listings</li>
+                <li>Website corrections</li>
+                <li>General questions</li>
+              </ul>
+            </section>
+          </div>
+          <!-- RIGHT COLUMN: FORM -->
+          <section class="form-panel" aria-labelledby="form-title">
+            <div class="form-heading">
+              <div class="eyebrow">SEND A MESSAGE / 02</div>
+              <h3 id="form-title">Tell us what's on your mind.</h3>
+              <p>
+                Fill in the details below. Required fields are marked with
+                an asterisk.
+              </p>
+            </div>
+            <form
+              id="contact-form"
+              action="https://formsubmit.co/evalloopjobs@gmail.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Message — EvalLoop Jobs"
+              >
+              <input
+                type="hidden"
+                name="_captcha"
+                value="true"
+              >
+              <input
+                type="hidden"
+                name="_template"
+                value="table"
+              >
+              <input
+                type="hidden"
+                name="_next"
+                value="https://annotatorjobs.vercel.app/contact.html?sent=1"
+              >
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">
+                    Name <span class="required">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    name="Name"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                    placeholder="Your name"
+                  >
+                </div>
+                <div class="field">
+                  <label for="email">
+                    Email address <span class="required">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="Email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                    placeholder="you@example.com"
+                  >
+                </div>
+                <div class="field full">
+                  <label for="reason">
+                    What is this about? <span class="required">*</span>
+                  </label>
+                  <select id="reason" name="Reason" required>
+                    <option value="">Choose a reason</option>
+                    <option value="General question">
+                      General question
+                    </option>
+                    <option value="Opportunity correction">
+                      Opportunity correction
+                    </option>
+                    <option value="Incorrect employer attribution">
+                      Incorrect employer attribution
+                    </option>
+                    <option value="Submit an opportunity">
+                      Submit an opportunity
+                    </option>
+                    <option value="Partnership">
+                      Partnership
+                    </option>
+                    <option value="Contributor network">
+                      Contributor network
+                    </option>
+                    <option value="Report suspicious listing">
+                      Report suspicious listing
+                    </option>
+                    <option value="Other">
+                      Other
+                    </option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="message">
+                    Your message <span class="required">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="Message"
+                    minlength="5"
+                    maxlength="5000"
+                    required
+                    placeholder="Tell us how we can help. If you're reporting an opportunity, include its original link."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-bottom">
+                <p class="form-note">
+                  Please don't include passwords, financial details or
+                  other sensitive personal information.
+                </p>
+                <button class="btn" id="submit-button" type="submit">
+                  Send message <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </section>
+        </div>
+        <!-- INDEPENDENCE NOTICE -->
+        <aside class="contact-notice">
+          <div class="notice-icon" aria-hidden="true">ⓘ</div>
+          <div>
+            <h3>A quick note about EvalLoop Jobs.</h3>
+            <p>
+              EvalLoop Jobs is an independent opportunity discovery
+              platform, not an employer or recruitment agency for the
+              opportunities listed. Listings are sourced from companies,
+              project providers, hiring platforms, contributor networks
+              and other public sources. The associated employer or provider
+              manages its own application process. Contacting EvalLoop
+              does not constitute an application for a listed opportunity.
+            </p>
+          </div>
+        </aside>
+      </section>
+      <!-- CLOSING CTA -->
+      <section class="contact-cta wrap" aria-labelledby="cta-title">
+        <div>
+          <div class="eyebrow">KEEP DISCOVERING</div>
+          <h2 id="cta-title">
+            Your next opportunity<br>
+            could be <em>one click away.</em>
+          </h2>
+          <p>
+            Explore AI opportunities across evaluation, annotation,
+            GenAI, expert projects, language data and emerging AI fields.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn" href="opportunities.html">
+            Browse opportunities ↗
+          </a>
+          <a class="cta-secondary" href="join-network.html">
+            Join the network →
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer wrap">
+      <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+        <span class="logo-mark">
+          <img src="/assets/evalloop-logo.png" alt="">
+        </span>
+        <span>EvalLoop Jobs</span>
+      </a>
+      <a
+        class="powered-by"
+        href="https://alphex-ai.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by <strong>alphex ai.</strong>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="about.html">About</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="interview-prep.html">Interview Prep</a>
+        <a href="submit-opportunity.html">Submit opportunity</a>
+        <a href="join-network.html">Join network</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a
+          href="https://www.linkedin.com/company/evalloopjobs/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+      </nav>
+    </footer>
+  </div>
+  <!-- THEME + NAVIGATION -->
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.getElementById("theme-toggle");
+      const menuButton = document.getElementById("menu-toggle");
+      const primaryNav = document.getElementById("primary-nav");
+      function syncThemeControl() {
+        const dark = root.dataset.theme === "dark";
+        themeButton.innerHTML =
+          `<span aria-hidden="true">${dark ? "☀" : "☾"}</span>`;
+        themeButton.setAttribute(
+          "aria-label",
+          `Switch to ${dark ? "light" : "dark"} mode`
+        );
+        themeButton.setAttribute("aria-pressed", String(dark));
+        themeButton.title = `Switch to ${dark ? "light" : "dark"} mode`;
+      }
+      themeButton.addEventListener("click", () => {
+        const theme =
+          root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        try {
+          localStorage.setItem("evalloop-theme", theme);
+        } catch {}
+        syncThemeControl();
+      });
+      function closeMenu() {
+        primaryNav.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+      }
+      menuButton.addEventListener("click", () => {
+        const open =
+          menuButton.getAttribute("aria-expanded") !== "true";
+        primaryNav.classList.toggle("is-open", open);
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close navigation menu" : "Open navigation menu"
+        );
+      });
+      primaryNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
+      document.addEventListener("click", event => {
+        if (
+          !menuButton.contains(event.target) &&
+          !primaryNav.contains(event.target)
+        ) {
+          closeMenu();
+        }
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+      syncThemeControl();
+    })();
+  </script>
+  <!-- FORM STATUS -->
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const status = document.getElementById("form-status");
+      if (params.get("sent") === "1") {
+        status.textContent =
+          "Thank you for contacting EvalLoop Jobs. If your message was submitted successfully, we'll review it.";
+        status.classList.add("visible");
+        history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+      }
+    })();
+  </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
