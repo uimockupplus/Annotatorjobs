@@ -1915,121 +1915,120 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-/* =========================================================
-   EVALLOOP JOBS — PREMIUM OPPORTUNITY CARDS
-   Clean, modern job-board UI
-   Responsive • Accessible • No horizontal overflow
-========================================================= */
+/* ==========================================================
+   EVALLOOP JOBS — NAUKRI-INSPIRED OPPORTUNITY CARDS
+   Scope: Recent Opportunities only
+   Responsive • Professional • Clean white job cards
+========================================================== */
 
 #opList {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
-  margin-top: 24px;
+  margin: 26px 0 0;
 }
+
+/* Main job card */
 
 #opList .op {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
   align-items: stretch;
-  justify-content: space-between;
-  gap: 28px;
+  gap: 26px;
   width: 100%;
   min-width: 0;
-  padding: 26px 28px;
+  padding: 25px 26px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #e5eaf2;
-  border-radius: 18px;
-  box-shadow: 0 3px 14px rgba(15, 23, 42, 0.035);
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    border-color 0.22s ease;
-}
 
-#opList .op::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, #2588ff, #6d5dfc);
-  opacity: 0;
-  transition: opacity 0.22s ease;
+  background: #ffffff;
+  border: 1px solid #e4eaf2;
+  border-radius: 14px;
+
+  box-shadow: 0 2px 8px rgba(20, 40, 75, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 #opList .op:hover {
-  transform: translateY(-3px);
-  border-color: #c8dcff;
-  box-shadow: 0 12px 32px rgba(37, 136, 255, 0.09);
+  border-color: #b8d4ff;
+  box-shadow: 0 8px 26px rgba(31, 91, 170, 0.09);
+  transform: translateY(-2px);
 }
 
-#opList .op:hover::before {
-  opacity: 1;
-}
-
-/* Main content */
+/* Main information */
 
 #opList .op-main {
-  flex: 1 1 auto;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
 }
 
-/* Company name */
+/* Company */
 
 #opList .op-company {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 7px;
-  margin-bottom: 10px;
+  gap: 8px;
+
+  margin: 0 0 9px;
+
   color: #64748b;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.055em;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.5;
-  text-transform: uppercase;
+
   overflow-wrap: anywhere;
 }
 
 #opList .op-company::before {
   content: "";
-  width: 7px;
-  height: 7px;
-  flex: 0 0 7px;
-  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+
   background: #2588ff;
+  border-radius: 3px;
 }
 
 /* Job title */
 
 #opList .op h3 {
-  margin: 0 0 11px;
-  color: #172033;
-  font-size: 21px;
+  margin: 0 0 12px;
+
+  color: #1a2942;
+  font-size: 20px;
   font-weight: 650;
-  line-height: 1.4;
-  letter-spacing: -0.035em;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+
   overflow-wrap: anywhere;
-  word-break: normal;
 }
 
-/* Job description */
+#opList .op h3:hover {
+  color: #1769e8;
+}
+
+/* Description */
 
 #opList .op p {
   display: -webkit-box;
-  margin: 0 0 17px;
+
+  margin: 0 0 16px;
   overflow: hidden;
-  color: #647084;
-  font-size: 14px;
+
+  color: #58677d;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.8;
+
   overflow-wrap: anywhere;
+
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
@@ -2040,10 +2039,12 @@ h1 em,
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 9px 18px;
+  gap: 10px 22px;
+
   width: 100%;
-  margin: 0 0 16px;
-  color: #596579;
+  margin: 0 0 17px;
+
+  color: #536278;
   font-size: 12px;
   line-height: 1.6;
 }
@@ -2052,84 +2053,99 @@ h1 em,
   display: inline-flex;
   align-items: center;
   gap: 7px;
+
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
 #opList .op-meta span::before {
   content: "";
+  display: inline-block;
+
   width: 6px;
   height: 6px;
   flex: 0 0 6px;
+
+  background: #9aa9bc;
   border-radius: 50%;
-  background: #9aa8bd;
 }
 
-/* Tags */
+/* Skills and category tags */
 
 #opList .op-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
+
   width: 100%;
-  margin: 0 0 15px;
+  margin: 0 0 16px;
 }
 
 #opList .op-tag {
   display: inline-flex;
   align-items: center;
+
   max-width: 100%;
-  padding: 6px 10px;
-  color: #475569;
-  background: #f3f6fa;
-  border: 1px solid #e8edf4;
-  border-radius: 7px;
+  padding: 6px 11px;
+
+  color: #445875;
+  background: #f4f7fb;
+  border: 1px solid #e5ebf3;
+  border-radius: 5px;
+
   font-size: 11px;
-  font-weight: 550;
-  line-height: 1.4;
+  font-weight: 500;
+  line-height: 1.5;
+
   overflow-wrap: anywhere;
 }
 
-/* Highlight */
+/* Opportunity highlight */
 
 #opList .op-highlight {
   display: flex;
   align-items: flex-start;
   gap: 9px;
+
   width: 100%;
   margin-top: auto;
-  padding: 11px 13px;
-  color: #315b93;
-  background: #f2f7ff;
-  border: 1px solid #e0ecff;
-  border-radius: 9px;
+  padding: 12px 14px;
+
+  color: #3b5d8b;
+  background: #f3f7ff;
+  border: 1px solid #e2ebfc;
+  border-radius: 7px;
+
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.7;
+
   overflow-wrap: anywhere;
 }
 
 #opList .op-highlight::before {
   content: "✦";
   flex: 0 0 auto;
+
   color: #2588ff;
   font-size: 14px;
 }
 
-/* Action area */
+/* Right-side action panel */
 
 #opList .op-action {
   display: flex;
-  flex: 0 0 180px;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
   gap: 10px;
+
   min-width: 0;
   padding-left: 22px;
-  border-left: 1px solid #edf0f5;
+
+  border-left: 1px solid #edf1f6;
 }
 
-/* All action buttons */
+/* Shared button styles */
 
 #opList .op-contact,
 #opList .op-link,
@@ -2137,96 +2153,98 @@ h1 em,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
-  min-height: 43px;
+  min-width: 0;
+  min-height: 42px;
   box-sizing: border-box;
-  padding: 11px 13px;
+  padding: 10px 12px;
+
   border: 1px solid transparent;
-  border-radius: 9px;
+  border-radius: 7px;
+
   font-family: inherit;
   font-size: 12px;
-  font-weight: 650;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1.5;
   text-align: center;
   text-decoration: none;
+
   overflow-wrap: anywhere;
   cursor: pointer;
+
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
-#opList .op-contact:hover,
-#opList .op-link:hover {
-  transform: translateY(-1px);
-}
-
-/* Primary: View Opportunity */
+/* Primary action */
 
 #opList .op-contact-view,
 #opList .op-link:not(.op-link-disabled) {
-  color: #fff;
+  color: #ffffff;
   background: #1769e8;
   border-color: #1769e8;
-  box-shadow: 0 3px 8px rgba(23, 105, 232, 0.13);
 }
 
 #opList .op-contact-view:hover,
 #opList .op-link:not(.op-link-disabled):hover {
-  background: #1058cb;
-  border-color: #1058cb;
-  box-shadow: 0 5px 14px rgba(23, 105, 232, 0.2);
+  color: #ffffff;
+  background: #1058ca;
+  border-color: #1058ca;
+  box-shadow: 0 4px 12px rgba(23, 105, 232, 0.16);
 }
 
-/* Email */
+/* Email action */
 
 #opList .op-contact-email {
-  color: #5145b8;
-  background: #f4f2ff;
-  border-color: #e5e0ff;
+  color: #4c49a8;
+  background: #f5f4ff;
+  border-color: #e4e2ff;
 }
 
 #opList .op-contact-email:hover {
-  background: #eae6ff;
-  border-color: #d5ccff;
+  background: #eae8ff;
+  border-color: #d4d0ff;
 }
 
-/* WhatsApp */
+/* WhatsApp action */
 
 #opList .op-contact-whatsapp {
-  color: #16794a;
-  background: #effaf4;
-  border-color: #d5f1e0;
+  color: #137746;
+  background: #effaf3;
+  border-color: #d5f0df;
 }
 
 #opList .op-contact-whatsapp:hover {
-  background: #e2f7e9;
-  border-color: #bce8ce;
+  background: #e2f6e9;
+  border-color: #bfe7cd;
 }
 
-/* Disabled link */
+/* Unavailable action */
 
 #opList .op-link-disabled {
-  color: #8490a2;
-  background: #f3f5f8;
-  border-color: #e7ebf1;
+  color: #8995a6;
+  background: #f5f6f8;
+  border-color: #e7eaf0;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
-/* Empty / loading state */
+/* Empty or loading state */
 
 #opList .empty-state {
-  grid-column: 1 / -1;
-  padding: 38px 24px;
-  color: #647084;
-  background: #fff;
-  border: 1px dashed #d8e0eb;
-  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 42px 24px;
+
+  color: #64748b;
+  background: #ffffff;
+  border: 1px dashed #d6dfeb;
+  border-radius: 12px;
+
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.8;
   text-align: center;
 }
 
@@ -2238,45 +2256,47 @@ h1 em,
   outline-offset: 3px;
 }
 
-/* =========================================================
+/* ==========================================================
    TABLET
-========================================================= */
+========================================================== */
 
 @media (max-width: 820px) {
   #opList {
-    gap: 15px;
+    gap: 14px;
   }
 
   #opList .op {
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 155px;
+    gap: 18px;
     padding: 22px;
   }
 
   #opList .op h3 {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   #opList .op-action {
-    flex-basis: 155px;
-    padding-left: 17px;
+    padding-left: 16px;
   }
 }
 
-/* =========================================================
+/* ==========================================================
    MOBILE
-========================================================= */
+========================================================== */
 
 @media (max-width: 600px) {
   #opList {
-    gap: 14px;
-    margin-top: 18px;
+    gap: 13px;
+    margin-top: 20px;
   }
 
   #opList .op {
+    display: flex;
     flex-direction: column;
     gap: 18px;
-    padding: 20px 17px;
-    border-radius: 14px;
+
+    padding: 19px 16px;
+    border-radius: 11px;
   }
 
   #opList .op:hover {
@@ -2284,20 +2304,18 @@ h1 em,
   }
 
   #opList .op h3 {
-    font-size: 18px;
-    line-height: 1.45;
+    font-size: 17px;
+    line-height: 1.5;
   }
 
   #opList .op p {
-    margin-bottom: 15px;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.75;
     -webkit-line-clamp: 4;
   }
 
   #opList .op-meta {
-    gap: 8px 14px;
-    font-size: 12px;
+    gap: 9px 15px;
   }
 
   #opList .op-tags {
@@ -2309,27 +2327,23 @@ h1 em,
     font-size: 10px;
   }
 
-  #opList .op-highlight {
-    font-size: 12px;
-  }
-
   #opList .op-action {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    flex: 0 0 auto;
     gap: 9px;
+
     width: 100%;
     padding: 16px 0 0;
-    border-top: 1px solid #edf0f5;
+
+    border-top: 1px solid #edf1f6;
     border-left: none;
   }
 
   #opList .op-contact,
   #opList .op-link,
   #opList .op-link-disabled {
-    min-width: 0;
     min-height: 42px;
-    padding: 10px 8px;
+    padding: 10px 7px;
     font-size: 11px;
   }
 
@@ -2339,21 +2353,17 @@ h1 em,
   }
 }
 
-/* =========================================================
+/* ==========================================================
    SMALL MOBILE
-========================================================= */
+========================================================== */
 
 @media (max-width: 360px) {
   #opList .op {
-    padding: 16px 13px;
+    padding: 16px 12px;
   }
 
   #opList .op h3 {
     font-size: 16px;
-  }
-
-  #opList .op-company {
-    font-size: 11px;
   }
 
   #opList .op-action {
@@ -2363,24 +2373,21 @@ h1 em,
   #opList .op-contact,
   #opList .op-link,
   #opList .op-link-disabled {
-    padding: 9px 6px;
+    padding: 9px 5px;
     font-size: 10px;
   }
 }
 
-/* Respect reduced-motion preferences */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   #opList .op,
-  #opList .op::before,
   #opList .op-contact,
   #opList .op-link {
     transition: none;
   }
 
-  #opList .op:hover,
-  #opList .op-contact:hover,
-  #opList .op-link:hover {
+  #opList .op:hover {
     transform: none;
   }
 }
