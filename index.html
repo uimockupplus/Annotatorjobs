@@ -3386,21 +3386,79 @@ document.addEventListener("click", function (event) {
 });
 </script>
 <script>
-document.addEventListener("click", function (event) {
-  const card = event.target.closest("#opList article.op");
-  if (!card) return;
+(function () {
+  const list = document.getElementById("opList");
+  if (!list) return;
 
-  if (event.target.closest("a, button, input, select, textarea")) return;
+  function toggleCard(card) {
+    const isExpanded = card.classList.contains("op-expanded");
 
-  const expanded = card.classList.contains("op-expanded");
+    list.querySelectorAll("article.op.op-expanded").forEach(function (item) {
+      item.classList.remove("op-expanded");
+      item.setAttribute("aria-expanded", "false");
+    });
 
-  document.querySelectorAll("#opList article.op.op-expanded")
-    .forEach(item => item.classList.remove("op-expanded"));
-
-  if (!expanded) {
-    card.classList.add("op-expanded");
+    if (!isExpanded) {
+      card.classList.add("op-expanded");
+      card.setAttribute("aria-expanded", "true");
+    }
   }
-});
+
+  list.querySelectorAll("article.op").forEach(function (card) {
+    card.setAttribute("aria-expanded", "false");
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+
+    card.addEventListener("click", function (event) {
+      if (event.target.closest("a, button, input, select, textarea")) {
+        return;
+      }
+
+      toggleCard(card);
+    });
+
+    card.addEventListener("keydown", function (event) {
+      if (event.target !== card) return;
+
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleCard(card);
+      }
+    });
+  });
+
+  // Support opportunity cards rendered after the initial page load.
+  const observer = new MutationObserver(function () {
+    list.querySelectorAll("article.op:not([data-expand-ready])")
+      .forEach(function (card) {
+        card.setAttribute("data-expand-ready", "true");
+        card.setAttribute("aria-expanded", "false");
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+
+        card.addEventListener("click", function (event) {
+          if (event.target.closest("a, button, input, select, textarea")) return;
+          toggleCard(card);
+        });
+
+        card.addEventListener("keydown", function (event) {
+          if (event.target !== card) return;
+
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleCard(card);
+          }
+        });
+      });
+  });
+
+  // Mark existing cards to avoid duplicate event handlers.
+  list.querySelectorAll("article.op").forEach(function (card) {
+    card.setAttribute("data-expand-ready", "true");
+  });
+
+  observer.observe(list, { childList: true, subtree: true });
+})();
 </script>
 <script src="chatbot.js"></script>
 
