@@ -3304,6 +3304,46 @@ document.querySelectorAll(
   console.log("EvalLoop: Expand/collapse is ready.");
 })();
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const primaryNav = document.getElementById("primary-nav");
+
+    if (!menuToggle || !primaryNav) {
+        console.error("Mobile menu: button or navigation element not found.");
+        return;
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = primaryNav.classList.toggle("is-open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    primaryNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            primaryNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (
+            !menuToggle.contains(event.target) &&
+            !primaryNav.contains(event.target)
+        ) {
+            primaryNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+    });
+});
+</script>
 <script src="chatbot.js"></script>
 
 </body>
