@@ -753,45 +753,98 @@
     }
 
     .jobs-apply-button,
-    .jobs-contact-button,
-    .jobs-unavailable-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      min-height: 33px;
-      padding: 0 13px;
-      border: 1px solid var(--blue);
-      border-radius: 999px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 9px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .jobs-apply-button:hover,
-    .jobs-contact-button:hover {
-      color: #fff;
-      border-color: #0d6bd8;
-      background: #0d6bd8;
-    }
-
-    .jobs-contact-button {
-      color: var(--blue);
-      background: transparent;
-    }
-
-    .jobs-contact-button:hover {
-      color: #fff;
-    }
-
-    .jobs-unavailable-button {
-      cursor: not-allowed;
-      border-color: var(--border);
-      color: var(--muted);
-      background: var(--surface-soft);
-    }
+.jobs-contact-button,
+.jobs-unavailable-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid var(--blue);
+  border-radius: 999px;
+  color: #fff;
+  background: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+/* Apply Now */
+.jobs-apply-button {
+  color: #fff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+.jobs-apply-button:hover {
+  color: #fff;
+  border-color: #0d6bd8;
+  background: #0d6bd8;
+}
+/* General contact button */
+.jobs-contact-button {
+  color: var(--blue);
+  border-color: var(--blue);
+  background: transparent;
+}
+.jobs-contact-button:hover {
+  color: #fff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+/* WhatsApp */
+.jobs-whatsapp-button {
+  color: #168044;
+  border-color: #b8e6c9;
+  background: #f0fbf4;
+}
+.jobs-whatsapp-button:hover {
+  color: #126b38;
+  border-color: #8ed5a8;
+  background: #e1f7e9;
+}
+/* Email */
+.jobs-email-button {
+  color: var(--ink);
+  border-color: var(--border);
+  background: var(--surface);
+}
+.jobs-email-button:hover {
+  color: var(--ink);
+  border-color: var(--border);
+  background: var(--surface-soft);
+}
+/* No application/contact details */
+.jobs-unavailable-button {
+  cursor: not-allowed;
+  border-color: var(--border);
+  color: var(--muted);
+  background: var(--surface-soft);
+}
+/* Button layout */
+.jobs-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.jobs-card-actions a {
+  text-decoration: none;
+}
+@media (max-width: 480px) {
+  .jobs-card-actions {
+    gap: 6px;
+  }
+  .jobs-apply-button,
+  .jobs-contact-button,
+  .jobs-unavailable-button {
+    min-height: 34px;
+    padding: 0 11px;
+    font-size: 9px;
+  }
+}
 
     /* Empty and loading states */
 
@@ -1908,999 +1961,939 @@ html[data-theme="dark"] {
 
   <script src="chatbot.js" defer></script>
 
-  <script>
-    (() => {
-      "use strict";
-
-      const DATA_URL = "opportunities.json";
-      const PAGE_SIZE = 10;
-
-      const elements = {
-        searchForm: document.getElementById("jobs-search-form"),
-        search: document.getElementById("search"),
-        locationSearch: document.getElementById("location-search"),
-        locationFilter: document.getElementById("location-filter"),
-        list: document.getElementById("opList"),
-        count: document.getElementById("search-status"),
-        description: document.getElementById("results-description"),
-        activeFilters: document.getElementById("active-filters"),
-        sort: document.getElementById("jobs-sort"),
-        clear: document.getElementById("clear-filters"),
-        mobileClear: document.getElementById("mobile-clear-filters"),
-        loadMore: document.getElementById("load-more"),
-        filterSidebar: document.getElementById("jobs-filter-sidebar"),
-        mobileFilterToggle: document.getElementById("mobile-filter-toggle"),
-        mobileApply: document.getElementById("apply-mobile-filters"),
-        menuToggle: document.getElementById("menu-toggle"),
-        primaryNav: document.getElementById("primary-nav"),
-        themeToggle: document.getElementById("theme-toggle"),
-        structuredData: document.getElementById("jobs-structured-data")
-      };
-
-      let allJobs = [];
-      let filteredJobs = [];
-      let visibleCount = PAGE_SIZE;
-      let loadError = false;
-      let quickSearch = "";
-
-      const filterNames = {
-        "work-mode": "Work mode",
-        "experience": "Experience",
-        "opportunity-type": "Opportunity type",
-        "role": "Role category"
-      };
-
-      const roleLabels = {
-        annotation: "Data annotation",
-        "ai-engineer": "AI / ML engineering",
-        "gen-ai": "LLM / GenAI evaluation",
-        agentic: "Agentic AI",
-        language: "Language / speech",
-        others: "Other AI opportunities"
-      };
-
-      const typeLabels = {
-        "full-time": "Full-time",
-        contract: "Contract",
-        freelance: "Freelance",
-        project: "Project-based",
-        "part-time": "Part-time"
-      };
-
-      const experienceLabels = {
-        freshers: "Freshers",
-        "0-1": "0–1 years",
-        "2+": "2+ years"
-      };
-
-      const modeLabels = {
-        remote: "Remote",
-        office: "Office / On-site",
-        hybrid: "Hybrid"
-      };
-
-      function normalize(value) {
-        return String(value ?? "")
-          .toLowerCase()
-          .normalize("NFKD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/\s+/g, " ")
-          .trim();
+<script>
+  (() => {
+    "use strict";
+    const DATA_URL = "opportunities.json";
+    const PAGE_SIZE = 10;
+    const elements = {
+      searchForm: document.getElementById("jobs-search-form"),
+      search: document.getElementById("search"),
+      locationSearch: document.getElementById("location-search"),
+      locationFilter: document.getElementById("location-filter"),
+      list: document.getElementById("opList"),
+      count: document.getElementById("search-status"),
+      description: document.getElementById("results-description"),
+      activeFilters: document.getElementById("active-filters"),
+      sort: document.getElementById("jobs-sort"),
+      clear: document.getElementById("clear-filters"),
+      mobileClear: document.getElementById("mobile-clear-filters"),
+      loadMore: document.getElementById("load-more"),
+      filterSidebar: document.getElementById("jobs-filter-sidebar"),
+      mobileFilterToggle: document.getElementById("mobile-filter-toggle"),
+      mobileApply: document.getElementById("apply-mobile-filters"),
+      menuToggle: document.getElementById("menu-toggle"),
+      primaryNav: document.getElementById("primary-nav"),
+      themeToggle: document.getElementById("theme-toggle"),
+      structuredData: document.getElementById("jobs-structured-data")
+    };
+    let allJobs = [];
+    let filteredJobs = [];
+    let visibleCount = PAGE_SIZE;
+    let loadError = false;
+    let quickSearch = "";
+    const filterNames = {
+      "work-mode": "Work mode",
+      "experience": "Experience",
+      "opportunity-type": "Opportunity type",
+      "role": "Role category"
+    };
+    const roleLabels = {
+      annotation: "Data annotation",
+      "ai-engineer": "AI / ML engineering",
+      "gen-ai": "LLM / GenAI evaluation",
+      agentic: "Agentic AI",
+      language: "Language / speech",
+      others: "Other AI opportunities"
+    };
+    const typeLabels = {
+      "full-time": "Full-time",
+      contract: "Contract",
+      freelance: "Freelance",
+      project: "Project-based",
+      "part-time": "Part-time"
+    };
+    const experienceLabels = {
+      freshers: "Freshers",
+      "0-1": "0–1 years",
+      "2+": "2+ years"
+    };
+    const modeLabels = {
+      remote: "Remote",
+      office: "Office / On-site",
+      hybrid: "Hybrid"
+    };
+    function normalize(value) {
+      return String(value ?? "")
+        .toLowerCase()
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    function safeText(value, fallback = "") {
+      if (value === null || value === undefined) return fallback;
+      if (Array.isArray(value)) {
+        return value.map(item => safeText(item)).filter(Boolean).join(", ");
       }
-
-      function safeText(value, fallback = "") {
-        if (value === null || value === undefined) return fallback;
-        if (Array.isArray(value)) {
-          return value.map(item => safeText(item)).filter(Boolean).join(", ");
-        }
-        return String(value).trim() || fallback;
+      return String(value).trim() || fallback;
+    }
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+    function getTags(job) {
+      if (Array.isArray(job.tags)) {
+        return job.tags.map(tag => safeText(tag)).filter(Boolean);
       }
-
-      function escapeHTML(value) {
-        return String(value ?? "").replace(/[&<>"']/g, character => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        })[character]);
+      if (typeof job.tags === "string" && job.tags.trim()) {
+        return job.tags.split(",").map(tag => tag.trim()).filter(Boolean);
       }
-
-      function getTags(job) {
-        if (Array.isArray(job.tags)) {
-          return job.tags
-            .map(tag => safeText(tag))
-            .filter(Boolean);
-        }
-
-        if (typeof job.tags === "string" && job.tags.trim()) {
-          return job.tags.split(",").map(tag => tag.trim()).filter(Boolean);
-        }
-
-        return [];
-      }
-
-      function getSearchableText(job) {
-        return normalize([
-          job.company,
-          job.title,
-          job.description,
-          getTags(job).join(" "),
-          job.location,
-          job.duration,
-          job.highlight
-        ].join(" "));
-      }
-
-      function getJobLocation(job) {
-        return safeText(job.location, "Location not specified");
-      }
-
-      function getJobCompany(job) {
-        return safeText(job.company, "Company not specified");
-      }
-
-      function getJobTitle(job) {
-        return safeText(job.title, "Opportunity");
-      }
-
-      function getJobDescription(job) {
-        return safeText(job.description, "No additional description provided.");
-      }
-
-      function getJobHighlight(job) {
-        return safeText(job.highlight);
-      }
-
-      function getJobDuration(job) {
-        return safeText(job.duration);
-      }
-
-      function getJobEmail(job) {
-        const email = safeText(job.email);
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "";
-        return email;
-      }
-
-      function safeURL(value, allowedProtocols = ["https:", "http:"]) {
-        const raw = safeText(value);
-        if (!raw) return "";
-
-        try {
-          const url = new URL(raw, window.location.href);
-          if (!allowedProtocols.includes(url.protocol)) return "";
-          return url.href;
-        } catch {
-          return "";
-        }
-      }
-
-      function getApplyURL(job) {
-        const direct = safeURL(job.link);
-        if (direct) return direct;
-
-        const email = getJobEmail(job);
-        if (email) {
-          return "mailto:" + email +
-            "?subject=" + encodeURIComponent("Opportunity: " + getJobTitle(job));
-        }
-
-        const whatsapp = safeText(job.whatsapp);
-        if (whatsapp) {
-          const existingURL = safeURL(whatsapp);
-          if (existingURL && /(^|\.)wa\.me$|whatsapp\.com$/i.test(new URL(existingURL).hostname)) {
-            return existingURL;
-          }
-
-          const digits = whatsapp.replace(/\D/g, "");
-          if (digits.length >= 7) {
-            return "https://wa.me/" + digits;
-          }
-        }
-
+      return [];
+    }
+    function getSearchableText(job) {
+      return normalize([
+        job.company,
+        job.title,
+        job.description,
+        getTags(job).join(" "),
+        job.location,
+        job.duration,
+        job.highlight
+      ].join(" "));
+    }
+    function getJobLocation(job) {
+      return safeText(job.location, "Location not specified");
+    }
+    function getJobCompany(job) {
+      return safeText(job.company, "Company not specified");
+    }
+    function getJobTitle(job) {
+      return safeText(job.title, "Opportunity");
+    }
+    function getJobDescription(job) {
+      return safeText(job.description, "No additional description provided.");
+    }
+    function getJobHighlight(job) {
+      return safeText(job.highlight);
+    }
+    function getJobDuration(job) {
+      return safeText(job.duration);
+    }
+    function getJobEmail(job) {
+      const email = safeText(job.email);
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return "";
       }
-
-      function getContactURL(job) {
-        const whatsapp = safeText(job.whatsapp);
-        if (!whatsapp) return "";
-
-        const existingURL = safeURL(whatsapp);
-        if (
-          existingURL &&
-          /(^|\.)wa\.me$|whatsapp\.com$/i.test(new URL(existingURL).hostname)
-        ) {
-          return existingURL;
-        }
-
-        const digits = whatsapp.replace(/\D/g, "");
-        return digits.length >= 7 ? "https://wa.me/" + digits : "";
+      return email;
+    }
+    function safeURL(value, allowedProtocols = ["https:", "http:"]) {
+      const raw = safeText(value);
+      if (!raw) return "";
+      try {
+        const url = new URL(raw, window.location.href);
+        if (!allowedProtocols.includes(url.protocol)) return "";
+        return url.href;
+      } catch {
+        return "";
       }
-
-      function getJobMode(job) {
-        const text = getSearchableText(job);
-
-        if (/\bhybrid\b/.test(text)) return "hybrid";
-
-        if (
-          /\bremote\b|\bwork from home\b|\bwfh\b|\banywhere\b|\bfully distributed\b/.test(text)
-        ) {
-          return "remote";
+    }
+    /*
+     * APPLICATION URL
+     * Only job.link is treated as the application link.
+     * Email and WhatsApp are generated as their own separate buttons.
+     */
+    function getApplyURL(job) {
+      const rawLink = safeText(job.link);
+      if (!rawLink) return "";
+      return safeURL(rawLink);
+    }
+    /*
+     * WHATSAPP URL
+     * Supports:
+     * 1. International phone numbers, e.g. +919876543210
+     * 2. wa.me links
+     * 3. WhatsApp API links
+     */
+    function getContactURL(job) {
+      const whatsapp = safeText(job.whatsapp);
+      if (!whatsapp) return "";
+      const existingURL = safeURL(whatsapp);
+      if (existingURL) {
+        try {
+          const url = new URL(existingURL);
+          const hostname = url.hostname.toLowerCase();
+          if (
+            hostname === "wa.me" ||
+            hostname.endsWith(".wa.me") ||
+            hostname === "whatsapp.com" ||
+            hostname.endsWith(".whatsapp.com")
+          ) {
+            return existingURL;
+          }
+        } catch {
+          // Continue to phone-number validation.
         }
-
-        if (
-          /\bon[\s-]?site\b|\boffice[\s-]?based\b|\bin[\s-]?office\b|\bwork from office\b/.test(text)
-        ) {
-          return "office";
-        }
-
-        return "unspecified";
       }
-
-      function getJobExperience(job) {
-        const text = getSearchableText(job);
-
-        if (
-          /\bfreshers?\b|\bno experience\b|\bentry[\s-]?level\b|\bgraduates?\b|\bnew graduates?\b/.test(text)
-        ) {
-          return "freshers";
-        }
-
-        if (
-          /\b(?:0|zero)\s*(?:to|-|–)\s*1\s*(?:years?|yrs?)?\b|\b0-1\s*(?:years?|yrs?)?\b|\b1\s*(?:year|yr)\s*(?:of )?experience\b/.test(text)
-        ) {
-          return "0-1";
-        }
-
-        if (
-          /\b[2-9]\+?\s*(?:years?|yrs?)\b|\b(?:2|3|4|5|6|7|8|9)\s*(?:to|-|–)\s*\d+\s*(?:years?|yrs?)\b|\bminimum\s+[2-9]\s*(?:years?|yrs?)\b/.test(text)
-        ) {
-          return "2+";
-        }
-
-        return "unspecified";
+      // Avoid interpreting arbitrary website URLs as phone numbers.
+      if (/^https?:\/\//i.test(whatsapp)) {
+        return "";
       }
-
-      function getJobType(job) {
-        const text = getSearchableText(job);
-
-        if (/\bpart[\s-]?time\b/.test(text)) return "part-time";
-        if (/\bfull[\s-]?time\b/.test(text)) return "full-time";
-        if (/\bfreelance\b|\bindependent contractor\b/.test(text)) return "freelance";
-        if (/\bcontract\b|\bcontractor\b|\btemporary\b|\btemp role\b/.test(text)) return "contract";
-        if (/\bproject[\s-]?based\b|\bper project\b|\bcontributor network\b|\bcontributor\b/.test(text)) return "project";
-
-        return "unspecified";
+      const digits = whatsapp.replace(/\D/g, "");
+      if (digits.length >= 7 && digits.length <= 15) {
+        return "https://wa.me/" + digits;
       }
-
-      function getJobRole(job) {
-        const text = getSearchableText(job);
-
-        if (
-          /\blanguage\b|\blinguist\b|\btranscription\b|\bspeech\b|\bvoice data\b|\bsubtitle\b|\blocalization\b|\blocalisation\b/.test(text)
-        ) {
-          return "language";
-        }
-
-        if (
-          /\bagentic\b|\bagentic ai\b|\bai agents?\b|\bgui agents?\b|\bcomputer use agent\b/.test(text)
-        ) {
-          return "agentic";
-        }
-
-        if (
-          /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bdata label\b|\bimage label\b|\bvideo annotation\b|\bdata collection\b|\bbounding boxes\b/.test(text)
-        ) {
-          return "annotation";
-        }
-
-        if (
-          /\bai engineer\b|\bml engineer\b|\bmachine learning engineer\b|\bai\/ml engineer\b|\bdeep learning engineer\b|\bmachine learning\b/.test(text)
-        ) {
-          return "ai-engineer";
-        }
-
-        if (
-          /\bllm\b|\blarge language model\b|\bgenerative ai\b|\bgenai\b|\bprompt engineer\b|\bprompting\b|\bevaluation\b|\bevaluator\b|\bmodel eval\b|\bai trainer\b|\bai training\b|\bred team\b|\bragas\b/.test(text)
-        ) {
-          return "gen-ai";
-        }
-
-        return "others";
+      return "";
+    }
+    function getJobMode(job) {
+      const text = getSearchableText(job);
+      if (/\bhybrid\b/.test(text)) return "hybrid";
+      if (
+        /\bremote\b|\bwork from home\b|\bwfh\b|\banywhere\b|\bfully distributed\b/.test(text)
+      ) {
+        return "remote";
       }
-
-      function getFilterValues(name) {
-        return [...document.querySelectorAll('input[name="' + name + '"]:checked')]
-          .map(input => input.value);
+      if (
+        /\bon[\s-]?site\b|\boffice[\s-]?based\b|\bin[\s-]?office\b|\bwork from office\b/.test(text)
+      ) {
+        return "office";
       }
-
-      function getActiveFilters() {
-        return {
-          workMode: getFilterValues("work-mode"),
-          experience: getFilterValues("experience"),
-          type: getFilterValues("opportunity-type"),
-          role: getFilterValues("role"),
-          location: elements.locationFilter.value,
-          keyword: elements.search.value.trim(),
-          locationSearch: elements.locationSearch.value.trim(),
-          quick: quickSearch
-        };
+      return "unspecified";
+    }
+    function getJobExperience(job) {
+      const text = getSearchableText(job);
+      if (
+        /\bfreshers?\b|\bno experience\b|\bentry[\s-]?level\b|\bgraduates?\b|\bnew graduates?\b/.test(text)
+      ) {
+        return "freshers";
       }
-
-      function matchesSelectedFilters(job, filters) {
-        const searchable = getSearchableText(job);
-        const location = normalize(getJobLocation(job));
-
-        const keyword = normalize(filters.keyword);
-        const locationQuery = normalize(filters.locationSearch);
-
-        if (keyword && !searchable.includes(keyword)) return false;
-
-        if (
-          filters.quick &&
-          !matchesQuickSearch(job, filters.quick)
-        ) {
-          return false;
-        }
-
-        if (
-          locationQuery &&
-          !location.includes(locationQuery) &&
-          !(locationQuery === "remote" && getJobMode(job) === "remote")
-        ) {
-          return false;
-        }
-
-        if (
-          filters.location &&
-          normalize(filters.location) !== location
-        ) {
-          return false;
-        }
-
-        if (
-          filters.workMode.length &&
-          !filters.workMode.includes(getJobMode(job))
-        ) {
-          return false;
-        }
-
-        if (
-          filters.experience.length &&
-          !filters.experience.includes(getJobExperience(job))
-        ) {
-          return false;
-        }
-
-        if (
-          filters.type.length &&
-          !filters.type.includes(getJobType(job))
-        ) {
-          return false;
-        }
-
-        if (
-          filters.role.length &&
-          !filters.role.includes(getJobRole(job))
-        ) {
-          return false;
-        }
-
-        return true;
+      if (
+        /\b(?:0|zero)\s*(?:to|-|–)\s*1\s*(?:years?|yrs?)?\b|\b0-1\s*(?:years?|yrs?)?\b|\b1\s*(?:year|yr)\s*(?:of )?experience\b/.test(text)
+      ) {
+        return "0-1";
       }
-
-      function matchesQuickSearch(job, query) {
-        const text = getSearchableText(job);
-
-        const quickTerms = {
-          remote: () => getJobMode(job) === "remote",
-          llm: () => /\bllm\b|\bevaluation\b|\bevaluator\b|\bgenai\b|\bgenerative ai\b|\bmodel eval\b/.test(text),
-          annotation: () => /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bbounding boxes\b|\bdata label\b/.test(text),
-          training: () => /\btraining\b|\btrainer\b|\bai trainer\b|\bdata collection\b/.test(text),
-          "ai-engineer": () => getJobRole(job) === "ai-engineer"
-        };
-
-        return quickTerms[query] ? quickTerms[query]() : true;
+      if (
+        /\b[2-9]\+?\s*(?:years?|yrs?)\b|\b(?:2|3|4|5|6|7|8|9)\s*(?:to|-|–)\s*\d+\s*(?:years?|yrs?)\b|\bminimum\s+[2-9]\s*(?:years?|yrs?)\b/.test(text)
+      ) {
+        return "2+";
       }
-
-      function getInitials(company) {
-        const words = safeText(company, "AI")
-          .split(/\s+/)
-          .filter(Boolean);
-
-        if (words.length > 1) {
-          return (words[0][0] + words[1][0]).toUpperCase();
-        }
-
-        return (words[0] || "AI").slice(0, 2).toUpperCase();
+      return "unspecified";
+    }
+    function getJobType(job) {
+      const text = getSearchableText(job);
+      if (/\bpart[\s-]?time\b/.test(text)) return "part-time";
+      if (/\bfull[\s-]?time\b/.test(text)) return "full-time";
+      if (/\bfreelance\b|\bindependent contractor\b/.test(text)) return "freelance";
+      if (/\bcontract\b|\bcontractor\b|\btemporary\b|\btemp role\b/.test(text)) return "contract";
+      if (
+        /\bproject[\s-]?based\b|\bper project\b|\bcontributor network\b|\bcontributor\b/.test(text)
+      ) {
+        return "project";
       }
-
-      function createMetaItem(icon, value) {
-        if (!value) return "";
-
+      return "unspecified";
+    }
+    function getJobRole(job) {
+      const text = getSearchableText(job);
+      if (
+        /\blanguage\b|\blinguist\b|\btranscription\b|\bspeech\b|\bvoice data\b|\bsubtitle\b|\blocalization\b|\blocalisation\b/.test(text)
+      ) {
+        return "language";
+      }
+      if (
+        /\bagentic\b|\bagentic ai\b|\bai agents?\b|\bgui agents?\b|\bcomputer use agent\b/.test(text)
+      ) {
+        return "agentic";
+      }
+      if (
+        /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bdata label\b|\bimage label\b|\bvideo annotation\b|\bdata collection\b|\bbounding boxes\b/.test(text)
+      ) {
+        return "annotation";
+      }
+      if (
+        /\bai engineer\b|\bml engineer\b|\bmachine learning engineer\b|\bai\/ml engineer\b|\bdeep learning engineer\b|\bmachine learning\b/.test(text)
+      ) {
+        return "ai-engineer";
+      }
+      if (
+        /\bllm\b|\blarge language model\b|\bgenerative ai\b|\bgenai\b|\bprompt engineer\b|\bprompting\b|\bevaluation\b|\bevaluator\b|\bmodel eval\b|\bai trainer\b|\bai training\b|\bred team\b|\bragas\b/.test(text)
+      ) {
+        return "gen-ai";
+      }
+      return "others";
+    }
+    function getFilterValues(name) {
+      return [...document.querySelectorAll('input[name="' + name + '"]:checked')]
+        .map(input => input.value);
+    }
+    function getActiveFilters() {
+      return {
+        workMode: getFilterValues("work-mode"),
+        experience: getFilterValues("experience"),
+        type: getFilterValues("opportunity-type"),
+        role: getFilterValues("role"),
+        location: elements.locationFilter.value,
+        keyword: elements.search.value.trim(),
+        locationSearch: elements.locationSearch.value.trim(),
+        quick: quickSearch
+      };
+    }
+    function matchesSelectedFilters(job, filters) {
+      const searchable = getSearchableText(job);
+      const location = normalize(getJobLocation(job));
+      const keyword = normalize(filters.keyword);
+      const locationQuery = normalize(filters.locationSearch);
+      if (keyword && !searchable.includes(keyword)) return false;
+      if (filters.quick && !matchesQuickSearch(job, filters.quick)) {
+        return false;
+      }
+      if (
+        locationQuery &&
+        !location.includes(locationQuery) &&
+        !(locationQuery === "remote" && getJobMode(job) === "remote")
+      ) {
+        return false;
+      }
+      if (filters.location && normalize(filters.location) !== location) {
+        return false;
+      }
+      if (
+        filters.workMode.length &&
+        !filters.workMode.includes(getJobMode(job))
+      ) {
+        return false;
+      }
+      if (
+        filters.experience.length &&
+        !filters.experience.includes(getJobExperience(job))
+      ) {
+        return false;
+      }
+      if (
+        filters.type.length &&
+        !filters.type.includes(getJobType(job))
+      ) {
+        return false;
+      }
+      if (
+        filters.role.length &&
+        !filters.role.includes(getJobRole(job))
+      ) {
+        return false;
+      }
+      return true;
+    }
+    function matchesQuickSearch(job, query) {
+      const text = getSearchableText(job);
+      const quickTerms = {
+        remote: () => getJobMode(job) === "remote",
+        llm: () =>
+          /\bllm\b|\bevaluation\b|\bevaluator\b|\bgenai\b|\bgenerative ai\b|\bmodel eval\b/.test(text),
+        annotation: () =>
+          /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bbounding boxes\b|\bdata label\b/.test(text),
+        training: () =>
+          /\btraining\b|\btrainer\b|\bai trainer\b|\bdata collection\b/.test(text),
+        "ai-engineer": () => getJobRole(job) === "ai-engineer"
+      };
+      return quickTerms[query] ? quickTerms[query]() : true;
+    }
+    function getInitials(company) {
+      const words = safeText(company, "AI")
+        .split(/\s+/)
+        .filter(Boolean);
+      if (words.length > 1) {
+        return (words[0][0] + words[1][0]).toUpperCase();
+      }
+      return (words[0] || "AI").slice(0, 2).toUpperCase();
+    }
+    function createMetaItem(icon, value) {
+      if (!value) return "";
+      return `
+        <span class="jobs-meta-item">
+          <span class="jobs-meta-icon" aria-hidden="true">${icon}</span>
+          <span>${escapeHTML(value)}</span>
+        </span>
+      `;
+    }
+    /*
+     * INDEPENDENT ACTION BUTTONS
+     *
+     * Apply Now: only when job.link is valid.
+     * WhatsApp: only when job.whatsapp is valid.
+     * Email: only when job.email is valid.
+     *
+     * A job can show one, two, or all three buttons.
+     */
+    function createJobActions(job) {
+      const applyURL = getApplyURL(job);
+      const whatsappURL = getContactURL(job);
+      const email = getJobEmail(job);
+      const buttons = [];
+      if (applyURL) {
+        buttons.push(`
+          <a
+            class="jobs-apply-button"
+            href="${escapeHTML(applyURL)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply Now <span aria-hidden="true">↗</span>
+          </a>
+        `);
+      }
+      if (whatsappURL) {
+        buttons.push(`
+          <a
+            class="jobs-contact-button jobs-whatsapp-button"
+            href="${escapeHTML(whatsappURL)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span aria-hidden="true">◉</span> WhatsApp
+          </a>
+        `);
+      }
+      if (email) {
+        const emailURL =
+          "mailto:" + email +
+          "?subject=" + encodeURIComponent("Opportunity: " + getJobTitle(job));
+        buttons.push(`
+          <a
+            class="jobs-contact-button jobs-email-button"
+            href="${escapeHTML(emailURL)}"
+          >
+            <span aria-hidden="true">✉</span> Email
+          </a>
+        `);
+      }
+      if (!buttons.length) {
         return `
-          <span class="jobs-meta-item">
-            <span class="jobs-meta-icon" aria-hidden="true">${icon}</span>
-            <span>${escapeHTML(value)}</span>
+          <span
+            class="jobs-unavailable-button"
+            title="No application link or contact was supplied"
+          >
+            Application details unavailable
           </span>
         `;
       }
-
-      function createJobCard(job, index) {
-        const company = getJobCompany(job);
-        const title = getJobTitle(job);
-        const description = getJobDescription(job);
-        const location = getJobLocation(job);
-        const duration = getJobDuration(job);
-        const highlight = getJobHighlight(job);
-        const tags = getTags(job).slice(0, 6);
-        const applyURL = getApplyURL(job);
-        const contactURL = getContactURL(job);
-
-        const role = getJobRole(job);
-        const mode = getJobMode(job);
-        const type = getJobType(job);
-        const experience = getJobExperience(job);
-
-        const inferredTags = [];
-
-        if (mode !== "unspecified") inferredTags.push(modeLabels[mode]);
-        if (type !== "unspecified") inferredTags.push(typeLabels[type]);
-        if (experience !== "unspecified") inferredTags.push(experienceLabels[experience]);
-
-        const allTags = [...new Set([...tags, ...inferredTags])].slice(0, 7);
-
-        const tagHTML = allTags.length
-          ? allTags.map(tag => `<span class="jobs-tag">${escapeHTML(tag)}</span>`).join("")
-          : `<span class="jobs-tag">${escapeHTML(roleLabels[role])}</span>`;
-
-        const applyHTML = applyURL
-          ? `<a class="jobs-apply-button" href="${escapeHTML(applyURL)}" target="${applyURL.startsWith("mailto:") ? "_self" : "_blank"}" ${applyURL.startsWith("mailto:") ? "" : 'rel="noopener noreferrer"'}>View opportunity <span aria-hidden="true">↗</span></a>`
-          : `<span class="jobs-unavailable-button" title="No application link or contact was supplied">Application link unavailable</span>`;
-
-        const contactHTML = contactURL && !applyURL
-          ? `<a class="jobs-contact-button" href="${escapeHTML(contactURL)}" target="_blank" rel="noopener noreferrer">Contact provider</a>`
-          : "";
-
-        const card = document.createElement("article");
-        card.className = "jobs-card";
-        card.setAttribute("data-index", String(index));
-
-        card.innerHTML = `
-          <div class="jobs-company-mark" aria-hidden="true">
-            ${escapeHTML(getInitials(company))}
-          </div>
-
-          <div class="jobs-card-content">
-            <div class="jobs-card-topline">
-              <span class="jobs-company-name">${escapeHTML(company)}</span>
-              ${highlight ? `<span class="jobs-highlight-badge">${escapeHTML(highlight)}</span>` : ""}
-            </div>
-
-            <h3>
-              <a href="${applyURL ? escapeHTML(applyURL) : "#jobs-results"}"
-                 ${applyURL && !applyURL.startsWith("mailto:") ? 'target="_blank" rel="noopener noreferrer"' : ""}
-                 ${!applyURL ? 'aria-label="Application link not available for ' + escapeHTML(title) + '"' : ""}>
-                ${escapeHTML(title)}
-              </a>
-            </h3>
-
-            <p class="jobs-card-description">${escapeHTML(description)}</p>
-
-            <div class="jobs-card-meta">
-              ${createMetaItem("⌖", location)}
-              ${duration ? createMetaItem("◷", duration) : ""}
-            </div>
-
-            <div class="jobs-card-tags">${tagHTML}</div>
-
-            <div class="jobs-card-footer">
-              <span class="jobs-card-source-note">
-                Listed by EvalLoop Jobs · Verify details with the provider
-              </span>
-              <div class="jobs-card-actions">
-                ${contactHTML}
-                ${applyHTML}
-              </div>
-            </div>
-          </div>
-        `;
-
-        return card;
+      return `
+        <div class="jobs-card-actions">
+          ${buttons.join("")}
+        </div>
+      `;
+    }
+    function createJobCard(job, index) {
+      const company = getJobCompany(job);
+      const title = getJobTitle(job);
+      const description = getJobDescription(job);
+      const location = getJobLocation(job);
+      const duration = getJobDuration(job);
+      const highlight = getJobHighlight(job);
+      const tags = getTags(job).slice(0, 6);
+      const role = getJobRole(job);
+      const mode = getJobMode(job);
+      const type = getJobType(job);
+      const experience = getJobExperience(job);
+      const inferredTags = [];
+      if (mode !== "unspecified") inferredTags.push(modeLabels[mode]);
+      if (type !== "unspecified") inferredTags.push(typeLabels[type]);
+      if (experience !== "unspecified") {
+        inferredTags.push(experienceLabels[experience]);
       }
-
-      function renderEmptyState() {
-        elements.list.innerHTML = `
-          <div class="jobs-state">
-            <div class="jobs-state-icon" aria-hidden="true">⌕</div>
-            <h3>No matching opportunities</h3>
-            <p>
-              Try a different keyword, broaden your location, or remove some filters
-              to see more opportunities.
-            </p>
-            <button class="jobs-state-button" type="button" id="empty-clear-filters">
-              Clear all filters
-            </button>
+      const allTags = [...new Set([...tags, ...inferredTags])].slice(0, 7);
+      const tagHTML = allTags.length
+        ? allTags
+            .map(tag => `<span class="jobs-tag">${escapeHTML(tag)}</span>`)
+            .join("")
+        : `<span class="jobs-tag">${escapeHTML(roleLabels[role])}</span>`;
+      const card = document.createElement("article");
+      card.className = "jobs-card";
+      card.setAttribute("data-index", String(index));
+      card.innerHTML = `
+        <div class="jobs-company-mark" aria-hidden="true">
+          ${escapeHTML(getInitials(company))}
+        </div>
+        <div class="jobs-card-content">
+          <div class="jobs-card-topline">
+            <span class="jobs-company-name">${escapeHTML(company)}</span>
+            ${
+              highlight
+                ? `<span class="jobs-highlight-badge">${escapeHTML(highlight)}</span>`
+                : ""
+            }
           </div>
-        `;
-
-        const clearButton = document.getElementById("empty-clear-filters");
-        if (clearButton) clearButton.addEventListener("click", clearAllFilters);
-      }
-
-      function renderErrorState() {
-        elements.list.innerHTML = `
-          <div class="jobs-state">
-            <div class="jobs-state-icon" aria-hidden="true">!</div>
-            <h3>Unable to load opportunities</h3>
-            <p>
-              The directory data could not be loaded. Please check your connection
-              and try again in a moment.
-            </p>
-            <button class="jobs-state-button" type="button" id="retry-load">
-              Try again
-            </button>
+          <h3 class="jobs-card-title">
+            ${escapeHTML(title)}
+          </h3>
+          <p class="jobs-card-description">
+            ${escapeHTML(description)}
+          </p>
+          <div class="jobs-card-meta">
+            ${createMetaItem("⌖", location)}
+            ${duration ? createMetaItem("◷", duration) : ""}
           </div>
-        `;
-
-        const retryButton = document.getElementById("retry-load");
-        if (retryButton) retryButton.addEventListener("click", loadJobs);
+          <div class="jobs-card-tags">
+            ${tagHTML}
+          </div>
+          <div class="jobs-card-footer">
+            <span class="jobs-card-source-note">
+              Listed by EvalLoop Jobs · Verify details with the provider
+            </span>
+            ${createJobActions(job)}
+          </div>
+        </div>
+      `;
+      return card;
+    }
+    function renderEmptyState() {
+      elements.list.innerHTML = `
+        <div class="jobs-state">
+          <div class="jobs-state-icon" aria-hidden="true">⌕</div>
+          <h3>No matching opportunities</h3>
+          <p>
+            Try a different keyword, broaden your location, or remove some filters
+            to see more opportunities.
+          </p>
+          <button class="jobs-state-button" type="button" id="empty-clear-filters">
+            Clear all filters
+          </button>
+        </div>
+      `;
+      const clearButton = document.getElementById("empty-clear-filters");
+      if (clearButton) {
+        clearButton.addEventListener("click", clearAllFilters);
       }
-
-      function renderJobs() {
-        elements.list.setAttribute("aria-busy", "false");
-        elements.list.innerHTML = "";
-
-        if (loadError) {
-          renderErrorState();
-          elements.count.textContent = "Unable to load data";
-          elements.description.textContent = "Please try again.";
-          elements.loadMore.hidden = true;
-          elements.activeFilters.innerHTML = "";
-          return;
-        }
-
-        if (!filteredJobs.length) {
-          renderEmptyState();
-          elements.count.textContent = "0 opportunities found";
-          elements.description.textContent = "No listings match the current search.";
-          elements.loadMore.hidden = true;
-          renderActiveFilters();
-          return;
-        }
-
-        const visibleJobs = filteredJobs.slice(0, visibleCount);
-        const fragment = document.createDocumentFragment();
-
-        visibleJobs.forEach((job, index) => {
-          fragment.appendChild(createJobCard(job, index));
-        });
-
-        elements.list.appendChild(fragment);
-
-        const total = filteredJobs.length;
-        const showing = visibleJobs.length;
-
-        elements.count.textContent =
-          total + (total === 1 ? " opportunity found" : " opportunities found");
-
-        elements.description.innerHTML =
-          "Showing <strong>" + showing + "</strong> of <strong>" + total +
-          "</strong> matching " + (total === 1 ? "opportunity" : "opportunities");
-
-        elements.loadMore.hidden = showing >= total;
-        elements.loadMore.textContent =
-          "Show more opportunities (" + (total - showing) + " remaining)";
-
+    }
+    function renderErrorState() {
+      elements.list.innerHTML = `
+        <div class="jobs-state">
+          <div class="jobs-state-icon" aria-hidden="true">!</div>
+          <h3>Unable to load opportunities</h3>
+          <p>
+            The directory data could not be loaded. Please check your connection
+            and try again in a moment.
+          </p>
+          <button class="jobs-state-button" type="button" id="retry-load">
+            Try again
+          </button>
+        </div>
+      `;
+      const retryButton = document.getElementById("retry-load");
+      if (retryButton) {
+        retryButton.addEventListener("click", loadJobs);
+      }
+    }
+    function renderJobs() {
+      elements.list.setAttribute("aria-busy", "false");
+      elements.list.innerHTML = "";
+      if (loadError) {
+        renderErrorState();
+        elements.count.textContent = "Unable to load data";
+        elements.description.textContent = "Please try again.";
+        elements.loadMore.hidden = true;
+        elements.activeFilters.innerHTML = "";
+        return;
+      }
+      if (!filteredJobs.length) {
+        renderEmptyState();
+        elements.count.textContent = "0 opportunities found";
+        elements.description.textContent = "No listings match the current search.";
+        elements.loadMore.hidden = true;
         renderActiveFilters();
+        return;
       }
-
-      function updateStructuredData() {
-        if (!elements.structuredData) return;
-
-        const itemList = filteredJobs.slice(0, 100).map((job, index) => ({
-          "@type": "ListItem",
-          "position": index + 1,
-          "item": {
-            "@type": "Thing",
-            "name": getJobTitle(job),
-            "description": getJobDescription(job).slice(0, 300),
-            "url": getApplyURL(job) || "https://annotatorjobs.vercel.app/opportunities.html"
+      const visibleJobs = filteredJobs.slice(0, visibleCount);
+      const fragment = document.createDocumentFragment();
+      visibleJobs.forEach((job, index) => {
+        fragment.appendChild(createJobCard(job, index));
+      });
+      elements.list.appendChild(fragment);
+      const total = filteredJobs.length;
+      const showing = visibleJobs.length;
+      elements.count.textContent =
+        total + (total === 1 ? " opportunity found" : " opportunities found");
+      elements.description.innerHTML =
+        "Showing <strong>" + showing + "</strong> of <strong>" + total +
+        "</strong> matching " +
+        (total === 1 ? "opportunity" : "opportunities");
+      elements.loadMore.hidden = showing >= total;
+      elements.loadMore.textContent =
+        "Show more opportunities (" + (total - showing) + " remaining)";
+      renderActiveFilters();
+    }
+    function updateStructuredData() {
+      if (!elements.structuredData) return;
+      const itemList = filteredJobs.slice(0, 100).map((job, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Thing",
+          "name": getJobTitle(job),
+          "description": getJobDescription(job).slice(0, 300),
+          "url": getApplyURL(job) ||
+            "https://annotatorjobs.vercel.app/opportunities.html"
+        }
+      }));
+      const structured = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "AI Jobs and LLM Evaluation Opportunities",
+        "url": "https://annotatorjobs.vercel.app/opportunities.html",
+        "description": "A curated directory of AI, LLM evaluation, data annotation, AI training, and related opportunities.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "EvalLoop Jobs",
+          "url": "https://annotatorjobs.vercel.app/"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "AI opportunities",
+          "numberOfItems": itemList.length,
+          "itemListElement": itemList
+        }
+      };
+      elements.structuredData.textContent = JSON.stringify(structured);
+    }
+    function renderActiveFilters() {
+      const filters = getActiveFilters();
+      const chips = [];
+      if (filters.keyword) {
+        chips.push({
+          label: "Keyword: " + filters.keyword,
+          remove: () => {
+            elements.search.value = "";
           }
-        }));
-
-        const structured = {
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": "AI Jobs and LLM Evaluation Opportunities",
-          "url": "https://annotatorjobs.vercel.app/opportunities.html",
-          "description": "A curated directory of AI, LLM evaluation, data annotation, AI training, and related opportunities.",
-          "isPartOf": {
-            "@type": "WebSite",
-            "name": "EvalLoop Jobs",
-            "url": "https://annotatorjobs.vercel.app/"
-          },
-          "mainEntity": {
-            "@type": "ItemList",
-            "name": "AI opportunities",
-            "numberOfItems": itemList.length,
-            "itemListElement": itemList
-          }
-        };
-
-        elements.structuredData.textContent = JSON.stringify(structured);
+        });
       }
-
-      function renderActiveFilters() {
-        const filters = getActiveFilters();
-        const chips = [];
-
-        if (filters.keyword) {
+      if (filters.locationSearch) {
+        chips.push({
+          label: "Location: " + filters.locationSearch,
+          remove: () => {
+            elements.locationSearch.value = "";
+          }
+        });
+      }
+      if (filters.location) {
+        chips.push({
+          label: "Location: " + filters.location,
+          remove: () => {
+            elements.locationFilter.value = "";
+          }
+        });
+      }
+      for (const [name, values] of [
+        ["work-mode", filters.workMode],
+        ["experience", filters.experience],
+        ["opportunity-type", filters.type],
+        ["role", filters.role]
+      ]) {
+        values.forEach(value => {
+          let label = value;
+          if (name === "work-mode") label = modeLabels[value] || value;
+          if (name === "experience") label = experienceLabels[value] || value;
+          if (name === "opportunity-type") label = typeLabels[value] || value;
+          if (name === "role") label = roleLabels[value] || value;
           chips.push({
-            label: "Keyword: " + filters.keyword,
-            remove: () => { elements.search.value = ""; }
-          });
-        }
-
-        if (filters.locationSearch) {
-          chips.push({
-            label: "Location: " + filters.locationSearch,
-            remove: () => { elements.locationSearch.value = ""; }
-          });
-        }
-
-        if (filters.location) {
-          chips.push({
-            label: "Location: " + filters.location,
-            remove: () => { elements.locationFilter.value = ""; }
-          });
-        }
-
-        for (const [name, values] of [
-          ["work-mode", filters.workMode],
-          ["experience", filters.experience],
-          ["opportunity-type", filters.type],
-          ["role", filters.role]
-        ]) {
-          values.forEach(value => {
-            let label = value;
-
-            if (name === "work-mode") label = modeLabels[value] || value;
-            if (name === "experience") label = experienceLabels[value] || value;
-            if (name === "opportunity-type") label = typeLabels[value] || value;
-            if (name === "role") label = roleLabels[value] || value;
-
-            chips.push({
-              label,
-              remove: () => {
-                const input = document.querySelector(
-                  'input[name="' + name + '"][value="' + value + '"]'
-                );
-                if (input) input.checked = false;
-              }
-            });
-          });
-        }
-
-        if (filters.quick) {
-          const quickLabels = {
-            remote: "Remote",
-            llm: "LLM Evaluation",
-            annotation: "Data Annotation",
-            training: "AI Training",
-            "ai-engineer": "AI Engineer"
-          };
-
-          chips.push({
-            label: quickLabels[filters.quick] || filters.quick,
+            label,
             remove: () => {
-              quickSearch = "";
-              document.querySelectorAll("[data-quick]").forEach(button => {
-                button.classList.remove("is-active");
-                button.setAttribute("aria-pressed", "false");
-              });
+              const input = document.querySelector(
+                'input[name="' + name + '"][value="' + value + '"]'
+              );
+              if (input) input.checked = false;
             }
           });
-        }
-
-        elements.activeFilters.innerHTML = "";
-
-        chips.forEach((chip, index) => {
-          const wrapper = document.createElement("span");
-          wrapper.className = "jobs-active-chip";
-
-          const label = document.createElement("span");
-          label.textContent = chip.label;
-
-          const removeButton = document.createElement("button");
-          removeButton.type = "button";
-          removeButton.textContent = "×";
-          removeButton.setAttribute("aria-label", "Remove filter " + chip.label);
-          removeButton.addEventListener("click", () => {
-            chip.remove();
-            applyFilters();
-          });
-
-          wrapper.append(label, removeButton);
-          elements.activeFilters.appendChild(wrapper);
-        });
-
-        if (chips.length > 1) {
-          const clear = document.createElement("button");
-          clear.type = "button";
-          clear.className = "jobs-active-clear";
-          clear.textContent = "Clear all";
-          clear.addEventListener("click", clearAllFilters);
-          elements.activeFilters.appendChild(clear);
-        }
-      }
-
-      function populateLocationOptions() {
-        const previousValue = elements.locationFilter.value;
-
-        const locations = [...new Set(
-          allJobs
-            .map(job => safeText(job.location))
-            .filter(Boolean)
-        )].sort((a, b) => a.localeCompare(b));
-
-        elements.locationFilter.innerHTML = '<option value="">All locations</option>';
-
-        locations.forEach(location => {
-          const option = document.createElement("option");
-          option.value = location;
-          option.textContent = location;
-          elements.locationFilter.appendChild(option);
-        });
-
-        if (locations.includes(previousValue)) {
-          elements.locationFilter.value = previousValue;
-        }
-      }
-
-      function applyFilters() {
-        loadError = false;
-
-        const filters = getActiveFilters();
-
-        filteredJobs = allJobs.filter(job => matchesSelectedFilters(job, filters));
-
-        const sortBy = elements.sort.value;
-
-        if (sortBy === "company") {
-          filteredJobs.sort((a, b) =>
-            getJobCompany(a).localeCompare(getJobCompany(b))
-          );
-        } else if (sortBy === "title") {
-          filteredJobs.sort((a, b) =>
-            getJobTitle(a).localeCompare(getJobTitle(b))
-          );
-        }
-
-        visibleCount = PAGE_SIZE;
-
-        renderJobs();
-        updateStructuredData();
-        updateQuickButtons();
-      }
-
-      function updateQuickButtons() {
-        document.querySelectorAll("[data-quick]").forEach(button => {
-          const isActive = button.dataset.quick === quickSearch;
-          button.classList.toggle("is-active", isActive);
-          button.setAttribute("aria-pressed", String(isActive));
         });
       }
-
-      function clearAllFilters() {
-        elements.search.value = "";
-        elements.locationSearch.value = "";
-        elements.locationFilter.value = "";
-        elements.sort.value = "relevance";
-        quickSearch = "";
-
-        document.querySelectorAll(
-          'input[name="work-mode"], input[name="experience"], input[name="opportunity-type"], input[name="role"]'
-        ).forEach(input => {
-          input.checked = false;
-        });
-
-        document.querySelectorAll("[data-quick]").forEach(button => {
-          button.classList.remove("is-active");
-          button.setAttribute("aria-pressed", "false");
-        });
-
-        applyFilters();
-      }
-
-      async function loadJobs() {
-        loadError = false;
-        elements.list.setAttribute("aria-busy", "true");
-        elements.count.textContent = "Loading opportunities…";
-        elements.description.textContent = "Retrieving directory listings…";
-        elements.list.innerHTML = `
-          <div class="jobs-state">
-            <div class="jobs-state-icon" aria-hidden="true">⌕</div>
-            <h3>Loading opportunities</h3>
-            <p>Retrieving listings from the EvalLoop Jobs directory.</p>
-          </div>
-        `;
-
-        try {
-          const response = await fetch(DATA_URL, {
-            cache: "no-store",
-            headers: { "Accept": "application/json" }
-          });
-
-          if (!response.ok) {
-            throw new Error("Could not fetch opportunities.json: " + response.status);
+      if (filters.quick) {
+        const quickLabels = {
+          remote: "Remote",
+          llm: "LLM Evaluation",
+          annotation: "Data Annotation",
+          training: "AI Training",
+          "ai-engineer": "AI Engineer"
+        };
+        chips.push({
+          label: quickLabels[filters.quick] || filters.quick,
+          remove: () => {
+            quickSearch = "";
+            document.querySelectorAll("[data-quick]").forEach(button => {
+              button.classList.remove("is-active");
+              button.setAttribute("aria-pressed", "false");
+            });
           }
-
-          const data = await response.json();
-
-          if (!Array.isArray(data)) {
-            throw new Error("The opportunity data must be a JSON array.");
-          }
-
-          allJobs = data.filter(job =>
-            job && typeof job === "object" && !Array.isArray(job)
-          );
-
-          populateLocationOptions();
+        });
+      }
+      elements.activeFilters.innerHTML = "";
+      chips.forEach(chip => {
+        const wrapper = document.createElement("span");
+        wrapper.className = "jobs-active-chip";
+        const label = document.createElement("span");
+        label.textContent = chip.label;
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "×";
+        removeButton.setAttribute("aria-label", "Remove filter " + chip.label);
+        removeButton.addEventListener("click", () => {
+          chip.remove();
           applyFilters();
-
-          if (allJobs.length === 0) {
-            elements.count.textContent = "0 opportunities found";
-            elements.description.textContent =
-              "No listings are currently available in the directory.";
-          }
-        } catch (error) {
-          console.error("EvalLoop Jobs: failed to load opportunities.", error);
-          loadError = true;
-          elements.list.setAttribute("aria-busy", "false");
-          renderJobs();
-        }
+        });
+        wrapper.append(label, removeButton);
+        elements.activeFilters.appendChild(wrapper);
+      });
+      if (chips.length > 1) {
+        const clear = document.createElement("button");
+        clear.type = "button";
+        clear.className = "jobs-active-clear";
+        clear.textContent = "Clear all";
+        clear.addEventListener("click", clearAllFilters);
+        elements.activeFilters.appendChild(clear);
       }
-
-      /* Search submission */
-      elements.searchForm.addEventListener("submit", event => {
-        event.preventDefault();
-        quickSearch = "";
-        updateQuickButtons();
-        applyFilters();
+    }
+    function populateLocationOptions() {
+      const previousValue = elements.locationFilter.value;
+      const locations = [...new Set(
+        allJobs
+          .map(job => safeText(job.location))
+          .filter(Boolean)
+      )].sort((a, b) => a.localeCompare(b));
+      elements.locationFilter.innerHTML =
+        '<option value="">All locations</option>';
+      locations.forEach(location => {
+        const option = document.createElement("option");
+        option.value = location;
+        option.textContent = location;
+        elements.locationFilter.appendChild(option);
       });
-
-      let searchDebounce;
-
-      elements.search.addEventListener("input", () => {
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(applyFilters, 180);
+      if (locations.includes(previousValue)) {
+        elements.locationFilter.value = previousValue;
+      }
+    }
+    function applyFilters() {
+      loadError = false;
+      const filters = getActiveFilters();
+      filteredJobs = allJobs.filter(job =>
+        matchesSelectedFilters(job, filters)
+      );
+      const sortBy = elements.sort.value;
+      if (sortBy === "company") {
+        filteredJobs.sort((a, b) =>
+          getJobCompany(a).localeCompare(getJobCompany(b))
+        );
+      } else if (sortBy === "title") {
+        filteredJobs.sort((a, b) =>
+          getJobTitle(a).localeCompare(getJobTitle(b))
+        );
+      }
+      visibleCount = PAGE_SIZE;
+      renderJobs();
+      updateStructuredData();
+      updateQuickButtons();
+    }
+    function updateQuickButtons() {
+      document.querySelectorAll("[data-quick]").forEach(button => {
+        const isActive = button.dataset.quick === quickSearch;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
-
-      elements.locationSearch.addEventListener("input", () => {
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(applyFilters, 180);
-      });
-
-      elements.locationFilter.addEventListener("change", applyFilters);
-      elements.sort.addEventListener("change", applyFilters);
-
+    }
+    function clearAllFilters() {
+      elements.search.value = "";
+      elements.locationSearch.value = "";
+      elements.locationFilter.value = "";
+      elements.sort.value = "relevance";
+      quickSearch = "";
       document.querySelectorAll(
         'input[name="work-mode"], input[name="experience"], input[name="opportunity-type"], input[name="role"]'
       ).forEach(input => {
-        input.addEventListener("change", applyFilters);
+        input.checked = false;
       });
-
       document.querySelectorAll("[data-quick]").forEach(button => {
+        button.classList.remove("is-active");
         button.setAttribute("aria-pressed", "false");
-
-        button.addEventListener("click", () => {
-          const requested = button.dataset.quick;
-          quickSearch = quickSearch === requested ? "" : requested;
-
-          if (requested === "remote" && quickSearch) {
-            elements.locationSearch.value = "";
-            elements.locationFilter.value = "";
+      });
+      applyFilters();
+    }
+    async function loadJobs() {
+      loadError = false;
+      elements.list.setAttribute("aria-busy", "true");
+      elements.count.textContent = "Loading opportunities…";
+      elements.description.textContent = "Retrieving directory listings…";
+      elements.list.innerHTML = `
+        <div class="jobs-state">
+          <div class="jobs-state-icon" aria-hidden="true">⌕</div>
+          <h3>Loading opportunities</h3>
+          <p>Retrieving listings from the EvalLoop Jobs directory.</p>
+        </div>
+      `;
+      try {
+        const response = await fetch(DATA_URL, {
+          cache: "no-store",
+          headers: {
+            "Accept": "application/json"
           }
-
-          applyFilters();
         });
-      });
-
-      elements.clear.addEventListener("click", clearAllFilters);
-      elements.mobileClear.addEventListener("click", clearAllFilters);
-
-      elements.loadMore.addEventListener("click", () => {
-        visibleCount += PAGE_SIZE;
+        if (!response.ok) {
+          throw new Error(
+            "Could not fetch opportunities.json: " + response.status
+          );
+        }
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          throw new Error("The opportunity data must be a JSON array.");
+        }
+        allJobs = data.filter(job =>
+          job && typeof job === "object" && !Array.isArray(job)
+        );
+        populateLocationOptions();
+        applyFilters();
+        if (allJobs.length === 0) {
+          elements.count.textContent = "0 opportunities found";
+          elements.description.textContent =
+            "No listings are currently available in the directory.";
+        }
+      } catch (error) {
+        console.error(
+          "EvalLoop Jobs: failed to load opportunities.",
+          error
+        );
+        loadError = true;
+        elements.list.setAttribute("aria-busy", "false");
         renderJobs();
+      }
+    }
+    /* Search submission */
+    elements.searchForm.addEventListener("submit", event => {
+      event.preventDefault();
+      quickSearch = "";
+      updateQuickButtons();
+      applyFilters();
+    });
+    let searchDebounce;
+    elements.search.addEventListener("input", () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(applyFilters, 180);
+    });
+    elements.locationSearch.addEventListener("input", () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(applyFilters, 180);
+    });
+    elements.locationFilter.addEventListener("change", applyFilters);
+    elements.sort.addEventListener("change", applyFilters);
+    document.querySelectorAll(
+      'input[name="work-mode"], input[name="experience"], input[name="opportunity-type"], input[name="role"]'
+    ).forEach(input => {
+      input.addEventListener("change", applyFilters);
+    });
+    document.querySelectorAll("[data-quick]").forEach(button => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const requested = button.dataset.quick;
+        quickSearch = quickSearch === requested ? "" : requested;
+        if (requested === "remote" && quickSearch) {
+          elements.locationSearch.value = "";
+          elements.locationFilter.value = "";
+        }
+        applyFilters();
       });
-
-      /* Mobile filters */
-      elements.mobileFilterToggle.addEventListener("click", () => {
-        const isOpen = elements.filterSidebar.classList.toggle("is-open");
-
-        elements.mobileFilterToggle.setAttribute("aria-expanded", String(isOpen));
-        elements.mobileFilterToggle.innerHTML = isOpen
-          ? '<span aria-hidden="true">×</span> Hide filters'
-          : '<span aria-hidden="true">☷</span> Filters';
+    });
+    elements.clear.addEventListener("click", clearAllFilters);
+    elements.mobileClear.addEventListener("click", clearAllFilters);
+    elements.loadMore.addEventListener("click", () => {
+      visibleCount += PAGE_SIZE;
+      renderJobs();
+    });
+    /* Mobile filters */
+    elements.mobileFilterToggle.addEventListener("click", () => {
+      const isOpen = elements.filterSidebar.classList.toggle("is-open");
+      elements.mobileFilterToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+      elements.mobileFilterToggle.innerHTML = isOpen
+        ? '<span aria-hidden="true">×</span> Hide filters'
+        : '<span aria-hidden="true">☷</span> Filters';
+    });
+    elements.mobileApply.addEventListener("click", () => {
+      elements.filterSidebar.classList.remove("is-open");
+      elements.mobileFilterToggle.setAttribute("aria-expanded", "false");
+      elements.mobileFilterToggle.innerHTML =
+        '<span aria-hidden="true">☷</span> Filters';
+      document.getElementById("jobs-results").scrollIntoView({
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
+        block: "start"
       });
-
-      elements.mobileApply.addEventListener("click", () => {
-        elements.filterSidebar.classList.remove("is-open");
-        elements.mobileFilterToggle.setAttribute("aria-expanded", "false");
-        elements.mobileFilterToggle.innerHTML =
-          '<span aria-hidden="true">☷</span> Filters';
-
-        document.getElementById("jobs-results").scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            ? "auto"
-            : "smooth",
-          block: "start"
-        });
-      });
-
-      /* Mobile navigation */
-      elements.menuToggle.addEventListener("click", () => {
-        const isOpen = elements.primaryNav.classList.toggle("is-open");
-
-        elements.menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    /* Mobile navigation */
+    elements.menuToggle.addEventListener("click", () => {
+      const isOpen = elements.primaryNav.classList.toggle("is-open");
+      elements.menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+      elements.menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    });
+    elements.primaryNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        elements.primaryNav.classList.remove("is-open");
+        elements.menuToggle.setAttribute("aria-expanded", "false");
         elements.menuToggle.setAttribute(
           "aria-label",
-          isOpen ? "Close navigation menu" : "Open navigation menu"
+          "Open navigation menu"
         );
       });
-
-      elements.primaryNav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          elements.primaryNav.classList.remove("is-open");
-          elements.menuToggle.setAttribute("aria-expanded", "false");
-          elements.menuToggle.setAttribute("aria-label", "Open navigation menu");
-        });
-      });
-
-      /* Theme preference shared with the homepage */
-      function updateThemeButton(theme) {
-        const dark = theme === "dark";
-
-        elements.themeToggle.innerHTML = dark
-          ? '<span aria-hidden="true">☀</span>'
-          : '<span aria-hidden="true">☾</span>';
-
-        elements.themeToggle.setAttribute(
-          "aria-label",
-          dark ? "Switch to light mode" : "Switch to dark mode"
-        );
-
-        elements.themeToggle.setAttribute(
-          "title",
-          dark ? "Switch to light mode" : "Switch to dark mode"
-        );
-
-        elements.themeToggle.setAttribute("aria-pressed", String(dark));
-      }
-
-      const storedTheme = localStorage.getItem("evalloop-theme");
-
-      if (storedTheme === "dark" || storedTheme === "light") {
-        document.documentElement.setAttribute("data-theme", storedTheme);
-      }
-
-      updateThemeButton(
-        document.documentElement.getAttribute("data-theme") || "light"
+    });
+    /*
+     * Theme preference shared with the homepage.
+     * Keep this behavior if your HTML still contains #theme-toggle.
+     */
+    function updateThemeButton(theme) {
+      if (!elements.themeToggle) return;
+      const dark = theme === "dark";
+      elements.themeToggle.innerHTML = dark
+        ? '<span aria-hidden="true">☀</span>'
+        : '<span aria-hidden="true">☾</span>';
+      elements.themeToggle.setAttribute(
+        "aria-label",
+        dark ? "Switch to light mode" : "Switch to dark mode"
       );
-
+      elements.themeToggle.setAttribute(
+        "title",
+        dark ? "Switch to light mode" : "Switch to dark mode"
+      );
+      elements.themeToggle.setAttribute(
+        "aria-pressed",
+        String(dark)
+      );
+    }
+    const storedTheme = localStorage.getItem("evalloop-theme");
+    if (storedTheme === "dark" || storedTheme === "light") {
+      document.documentElement.setAttribute("data-theme", storedTheme);
+    }
+    updateThemeButton(
+      document.documentElement.getAttribute("data-theme") || "light"
+    );
+    if (elements.themeToggle) {
       elements.themeToggle.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme");
+        const current =
+          document.documentElement.getAttribute("data-theme");
         const next = current === "dark" ? "light" : "dark";
-
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("evalloop-theme", next);
         updateThemeButton(next);
       });
-
-      /* Initial load */
-      loadJobs();
-    })();
-  </script>
+    }
+    /* Initial load */
+    loadJobs();
+  })();
+</script>
 </body>
 </html>
