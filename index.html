@@ -2346,7 +2346,6 @@ LinkedIn ↗
   </div>
   <a class="guide-all" href="#directory">Browse all opportunities ↗</a>
 </div>
-<button class="guide-toggle" id="guide-toggle" type="button" aria-expanded="false" aria-controls="directory-guide"><span aria-hidden="true">✳</span> Find a role</button>
 <script>
 const referrals=[
 [
@@ -2740,25 +2739,6 @@ The home page shows the first MAX_HOME jobs; the rest live on opportunities.html
     nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
   }
-  const toggle = document.getElementById('guide-toggle');
-  const panel = document.getElementById('directory-guide');
-  const close = panel && panel.querySelector('.guide-close');
-  const setGuide = open => {
-    if (!toggle || !panel) return;
-    panel.hidden = !open;
-    toggle.setAttribute('aria-expanded', String(open));
-    if (open) close?.focus(); else toggle.focus();
-  };
-  toggle?.addEventListener('click', () => setGuide(toggle.getAttribute('aria-expanded') !== 'true'));
-  close?.addEventListener('click', () => setGuide(false));
-  panel?.querySelectorAll('[data-guide-filter]').forEach(button => button.addEventListener('click', () => {
-    const filterTab = [...document.querySelectorAll('.tab')].find(tab => tab.dataset.filter === button.dataset.guideFilter);
-    filterTab?.click();
-    setGuide(false);
-    document.getElementById('directory')?.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
-  }));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && panel && !panel.hidden) setGuide(false); });
-})();
 </script>
 
 </body>
