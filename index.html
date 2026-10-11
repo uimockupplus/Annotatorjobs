@@ -1917,7 +1917,8 @@ h1 em,
 }
 /* ============================================
    EVALLOOP JOBS — PREMIUM OPPORTUNITY CARDS
-   Naukri-inspired layout | Responsive | No overflow
+   Naukri-inspired layout | Pure white cards
+   Responsive | No overflow
 ============================================ */
 #opList,
 #opList * {
@@ -1932,7 +1933,9 @@ h1 em,
   min-width: 0;
   margin-top: 24px;
 }
-/* Main card */
+/* ============================================
+   MAIN CARD
+============================================ */
 #opList .op {
   position: relative;
   display: grid;
@@ -1945,18 +1948,12 @@ h1 em,
   padding: 25px 26px;
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(139, 166, 205, 0.17);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
-  background:
-    linear-gradient(
-      115deg,
-      rgba(38, 67, 105, 0.16),
-      rgba(17, 25, 42, 0.72) 65%
-    );
-  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 3px 14px rgba(15, 23, 42, 0.045);
   transition:
     border-color 220ms ease,
-    background 220ms ease,
     box-shadow 220ms ease,
     transform 220ms ease;
 }
@@ -1968,25 +1965,22 @@ h1 em,
   left: 0;
   width: 3px;
   border-radius: 0 4px 4px 0;
-  background: #4db3ff;
+  background: #2588ff;
   opacity: 0;
   transition: opacity 220ms ease;
 }
 #opList .op:hover {
-  border-color: rgba(77, 179, 255, 0.42);
-  background:
-    linear-gradient(
-      115deg,
-      rgba(38, 75, 119, 0.24),
-      rgba(17, 25, 42, 0.88) 70%
-    );
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.085);
   transform: translateY(-2px);
 }
 #opList .op:hover::before {
   opacity: 1;
 }
-/* Left content */
+/* ============================================
+   LEFT CONTENT
+============================================ */
 #opList .op-main {
   display: flex;
   flex-direction: column;
@@ -1996,25 +1990,29 @@ h1 em,
   min-width: 0;
   overflow: hidden;
 }
-/* Company label */
+/* ============================================
+   COMPANY NAME
+============================================ */
 #opList .op-company {
   display: inline-block;
   max-width: 100%;
   margin: 0 0 9px;
-  color: #8bc8ff;
+  color: #2563eb;
   font-size: 12px;
   font-weight: 650;
   line-height: 1.5;
-  letter-spacing: 0.045em;
+  letter-spacing: 0.035em;
   overflow-wrap: anywhere;
 }
-/* Job title */
+/* ============================================
+   JOB TITLE
+============================================ */
 #opList .op h3 {
   display: block;
   width: 100%;
   max-width: 100%;
   margin: 0 0 11px;
-  color: #f4f7fc;
+  color: #111827;
   font-size: clamp(18px, 2vw, 22px);
   font-weight: 650;
   line-height: 1.4;
@@ -2023,14 +2021,16 @@ h1 em,
   word-break: normal;
   white-space: normal;
 }
-/* Description */
+/* ============================================
+   JOB DESCRIPTION
+============================================ */
 #opList .op p {
   display: -webkit-box;
   width: 100%;
   max-width: 720px;
   margin: 0 0 16px;
   overflow: hidden;
-  color: #aebbd0;
+  color: #4b5563;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.75;
@@ -2039,7 +2039,9 @@ h1 em,
   overflow-wrap: anywhere;
   word-break: normal;
 }
-/* Location and duration */
+/* ============================================
+   LOCATION AND DURATION
+============================================ */
 #opList .op-meta {
   display: flex;
   flex-wrap: wrap;
@@ -2048,7 +2050,7 @@ h1 em,
   width: 100%;
   max-width: 100%;
   margin-top: 1px;
-  color: #c0cada;
+  color: #64748b;
   font-size: 12px;
   line-height: 1.65;
 }
@@ -2059,7 +2061,9 @@ h1 em,
   max-width: 100%;
   overflow-wrap: anywhere;
 }
-/* Skill and category tags */
+/* ============================================
+   SKILL AND CATEGORY TAGS
+============================================ */
 #opList .op-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2075,31 +2079,35 @@ h1 em,
   justify-content: center;
   max-width: 100%;
   padding: 6px 10px;
-  border: 1px solid rgba(125, 163, 209, 0.19);
+  border: 1px solid #e2e8f0;
   border-radius: 7px;
-  background: rgba(108, 145, 195, 0.08);
-  color: #c8d7eb;
+  background: #f8fafc;
+  color: #334155;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.45;
   white-space: normal;
   overflow-wrap: anywhere;
 }
-/* Highlight */
+/* ============================================
+   OPPORTUNITY HIGHLIGHT
+============================================ */
 #opList .op-highlight {
   display: -webkit-box;
   width: 100%;
   max-width: 100%;
   margin-top: 12px;
   overflow: hidden;
-  color: #8de0b5;
+  color: #15803d;
   font-size: 12px;
   line-height: 1.65;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow-wrap: anywhere;
 }
-/* Right-side actions */
+/* ============================================
+   RIGHT-SIDE ACTIONS
+============================================ */
 #opList .op-action {
   display: flex;
   flex-direction: column;
@@ -2110,7 +2118,9 @@ h1 em,
   min-width: 0;
   max-width: 100%;
 }
-/* All action buttons */
+/* ============================================
+   ALL ACTION BUTTONS
+============================================ */
 #opList .op-contact,
 #opList .op-link,
 #opList .op-link-disabled {
@@ -2122,10 +2132,10 @@ h1 em,
   max-width: 100%;
   min-height: 41px;
   padding: 10px 12px;
-  border: 1px solid rgba(141, 163, 194, 0.23);
+  border: 1px solid #e2e8f0;
   border-radius: 9px;
-  background: rgba(255, 255, 255, 0.035);
-  color: #dbe7f7;
+  background: #ffffff;
+  color: #334155;
   font-size: 12px;
   font-weight: 600;
   line-height: 1.45;
@@ -2137,63 +2147,83 @@ h1 em,
   transition:
     background 180ms ease,
     border-color 180ms ease,
+    box-shadow 180ms ease,
     transform 180ms ease;
 }
 #opList .op-contact:hover,
 #opList .op-link:hover {
   transform: translateY(-1px);
 }
-/* Primary application button */
+/* ============================================
+   PRIMARY APPLICATION BUTTON
+============================================ */
 #opList .op-contact-view,
 #opList .op-link {
-  border-color: rgba(77, 179, 255, 0.4);
-  background: #2588e8;
+  border-color: #2588ff;
+  background: #2588ff;
   color: #ffffff;
 }
 #opList .op-contact-view:hover,
 #opList .op-link:hover {
-  border-color: #69bcff;
-  background: #1479d8;
+  border-color: #1674e8;
+  background: #1674e8;
+  box-shadow: 0 4px 12px rgba(37, 136, 255, 0.18);
+  color: #ffffff;
 }
-/* Email button */
+/* ============================================
+   EMAIL BUTTON
+============================================ */
 #opList .op-contact-email {
-  border-color: rgba(177, 150, 255, 0.24);
-  background: rgba(145, 105, 255, 0.08);
-  color: #d9caff;
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+  color: #6d28d9;
 }
 #opList .op-contact-email:hover {
-  border-color: rgba(177, 150, 255, 0.5);
-  background: rgba(145, 105, 255, 0.15);
+  border-color: #c4b5fd;
+  background: #ede9fe;
+  color: #5b21b6;
 }
-/* WhatsApp button */
+/* ============================================
+   WHATSAPP BUTTON
+============================================ */
 #opList .op-contact-whatsapp {
-  border-color: rgba(61, 210, 126, 0.25);
-  background: rgba(37, 211, 102, 0.07);
-  color: #9be9b8;
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
 }
 #opList .op-contact-whatsapp:hover {
-  border-color: rgba(61, 210, 126, 0.5);
-  background: rgba(37, 211, 102, 0.14);
+  border-color: #86efac;
+  background: #dcfce7;
+  color: #166534;
 }
-/* Disabled link */
+/* ============================================
+   DISABLED LINK
+============================================ */
 #opList .op-link-disabled {
-  color: #8996aa;
+  border-color: #e5e7eb;
+  background: #f9fafb;
+  color: #9ca3af;
   cursor: not-allowed;
 }
-/* Loading and empty states */
+/* ============================================
+   LOADING AND EMPTY STATES
+============================================ */
 #opList .empty-state {
   width: 100%;
   max-width: 100%;
   padding: 28px 20px;
-  border: 1px dashed rgba(139, 166, 205, 0.25);
+  border: 1px dashed #cbd5e1;
   border-radius: 14px;
-  color: #aebbd0;
+  background: #ffffff;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.7;
   text-align: center;
   overflow-wrap: anywhere;
 }
-/* Tablet */
+/* ============================================
+   TABLET
+============================================ */
 @media (max-width: 820px) {
   #opList .op {
     gap: 18px;
@@ -2203,7 +2233,9 @@ h1 em,
     width: 132px;
   }
 }
-/* Mobile */
+/* ============================================
+   MOBILE
+============================================ */
 @media (max-width: 600px) {
   #opList {
     gap: 12px;
@@ -2244,7 +2276,9 @@ h1 em,
     font-size: 12px;
   }
 }
-/* Very narrow screens */
+/* ============================================
+   VERY NARROW SCREENS
+============================================ */
 @media (max-width: 360px) {
   #opList .op {
     padding: 15px;
@@ -2256,7 +2290,9 @@ h1 em,
     grid-column: auto;
   }
 }
-/* Accessibility */
+/* ============================================
+   ACCESSIBILITY
+============================================ */
 @media (prefers-reduced-motion: reduce) {
   #opList .op,
   #opList .op::before,
