@@ -3176,7 +3176,7 @@ document.querySelectorAll(
         '</p>';
       return;
     }
-    list.innerHTML = jobs.slice(0, 6).map(job => {
+    list.innerHTML = jobs.slice(0, 10).map(job => {
       const company = escapeHTML(job.company || 'AI Opportunity');
       const title = escapeHTML(job.title || 'Explore this opportunity');
       const description = escapeHTML(job.description || '');
