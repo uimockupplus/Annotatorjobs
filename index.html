@@ -1915,181 +1915,111 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-/* =========================================
-
-   EVALLOOP JOBS — COMPACT OPPORTUNITY STRIPS
-
-   Stable header | Expandable details | Responsive
-
-========================================= */
-
-#opList,
-
-#opList * {
-
-  box-sizing: border-box !important;
-
-}
+/* EVALLOOP JOBS — COMPACT OPPORTUNITY STRIPS */
 
 #opList {
 
-  display: flex !important;
+  display: flex;
 
-  flex-direction: column !important;
+  flex-direction: column;
 
-  gap: 0 !important;
+  gap: 0;
 
-  width: 100% !important;
+  border: 1px solid var(--border, #263247);
 
-  margin: 20px 0 !important;
+  border-radius: 12px;
 
-  padding: 0 !important;
-
-  background: #fff !important;
-
-  border: 1px solid #e5eaf2 !important;
-
-  border-radius: 12px !important;
-
-  overflow: hidden !important;
+  overflow: hidden;
 
 }
 
-/* =========================================
-
-   OPPORTUNITY STRIP
-
-========================================= */
-
 #opList article.op {
 
-  display: grid !important;
+  position: relative;
 
-  grid-template-columns: minmax(0, 1fr) auto !important;
+  display: grid;
 
-  grid-template-rows: auto !important;
+  grid-template-columns: minmax(0, 1fr) auto;
 
-  align-items: start !important;
+  align-items: start;
 
-  gap: 0 16px !important;
+  gap: 0 16px;
 
-  width: 100% !important;
+  padding: 18px 20px;
 
-  min-width: 0 !important;
+  margin: 0;
 
-  margin: 0 !important;
+  border: 0;
 
-  padding: 17px 20px !important;
+  border-bottom: 1px solid var(--border, #263247);
 
-  background: #fff !important;
+  border-radius: 0;
 
-  border: 0 !important;
+  background: var(--card, #101a2b);
 
-  border-bottom: 1px solid #edf0f5 !important;
-
-  border-radius: 0 !important;
-
-  box-shadow: none !important;
-
-  transform: none !important;
-
-  transition: background .18s ease !important;
+  cursor: pointer;
 
 }
 
 #opList article.op:last-child {
 
-  border-bottom: 0 !important;
+  border-bottom: 0;
 
 }
 
-#opList article.op:hover {
-
-  background: #f8faff !important;
-
-  transform: none !important;
-
-  box-shadow: none !important;
-
-}
-
-/* =========================================
-
-   HEADER CONTENT
-
-   Company → Role → Location → Duration
-
-========================================= */
+/* Main content stays in the first column */
 
 #opList article.op .op-main {
 
-  grid-column: 1 !important;
+  grid-column: 1;
 
-  grid-row: 1 !important;
+  grid-row: 1;
 
-  display: flex !important;
+  display: flex;
 
-  flex-direction: column !important;
+  flex-direction: column;
 
-  align-items: flex-start !important;
+  align-items: flex-start;
 
-  gap: 5px !important;
+  min-width: 0;
 
-  min-width: 0 !important;
-
-  width: 100% !important;
-
-  margin: 0 !important;
-
-  padding: 0 !important;
+  gap: 7px;
 
 }
 
-/* Company name */
+/* Company */
 
 #opList article.op .op-company {
 
-  order: 0 !important;
+  order: 1;
 
-  margin: 0 0 2px !important;
+  margin: 0;
 
-  padding: 0 !important;
+  color: var(--accent, #4da3ff);
 
-  color: #2588ff !important;
+  font-size: 13px;
 
-  font-size: 13px !important;
+  font-weight: 600;
 
-  font-weight: 600 !important;
-
-  line-height: 1.5 !important;
-
-  overflow-wrap: anywhere !important;
+  line-height: 1.4;
 
 }
 
-/* Role */
+/* Role stays directly under company */
 
-#opList article.op h3 {
+#opList article.op .op-main h3 {
 
-  order: 1 !important;
+  order: 2;
 
-  margin: 0 !important;
+  margin: 0;
 
-  padding: 0 !important;
+  color: var(--text, #f1f5f9);
 
-  color: #182230 !important;
+  font-size: 18px;
 
-  font-family: inherit !important;
+  font-weight: 500;
 
-  font-size: 17px !important;
-
-  font-weight: 600 !important;
-
-  line-height: 1.45 !important;
-
-  letter-spacing: -0.2px !important;
-
-  overflow-wrap: anywhere !important;
+  line-height: 1.4;
 
 }
 
@@ -2097,545 +2027,263 @@ h1 em,
 
 #opList article.op .op-meta {
 
-  order: 2 !important;
+  order: 3;
 
-  display: flex !important;
+  display: flex;
 
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
 
-  align-items: center !important;
+  gap: 8px 14px;
 
-  gap: 4px 14px !important;
+  margin: 0;
 
-  width: 100% !important;
+  color: var(--muted, #9ca9bc);
 
-  margin: 2px 0 0 !important;
-
-  padding: 0 !important;
-
-  color: #667085 !important;
-
-  font-size: 12.5px !important;
-
-  line-height: 1.6 !important;
+  font-size: 13px;
 
 }
 
-#opList article.op .op-meta span {
+/* Hidden until expanded */
 
-  display: inline !important;
+#opList article.op .op-main > p,
 
-  min-width: 0 !important;
+#opList article.op .op-tags,
 
-  margin: 0 !important;
+#opList article.op .op-highlight,
 
-  color: #667085 !important;
+#opList article.op .op-action {
 
-  font-size: 12.5px !important;
-
-  font-weight: 400 !important;
-
-  line-height: 1.6 !important;
-
-  overflow-wrap: anywhere !important;
+  display: none;
 
 }
 
-/* =========================================
-
-   EXPAND / COLLAPSE CONTROL
-
-========================================= */
+/* Expand label */
 
 #opList article.op::after {
 
-  content: "Expand ＋" !important;
+  content: "Expand ＋";
 
-  grid-column: 2 !important;
+  grid-column: 2;
 
-  grid-row: 1 !important;
+  grid-row: 1;
 
-  align-self: start !important;
+  align-self: start;
 
-  justify-self: end !important;
+  white-space: nowrap;
 
-  margin: 2px 0 0 !important;
+  color: var(--accent, #4da3ff);
 
-  padding: 4px 0 4px 8px !important;
+  font-size: 13px;
 
-  color: #2588ff !important;
+  font-weight: 600;
 
-  font-size: 12px !important;
-
-  font-weight: 600 !important;
-
-  line-height: 1.5 !important;
-
-  white-space: nowrap !important;
-
-  cursor: pointer !important;
+  padding-top: 2px;
 
 }
 
-#opList article.op.op-expanded::after {
-
-  content: "Collapse −" !important;
-
-  color: #475467 !important;
-
-}
-
-/* =========================================
-
-   COLLAPSED STATE
-
-   Hide additional content, retain header
-
-========================================= */
-
-#opList article.op:not(.op-expanded) .op-main > p,
-
-#opList article.op:not(.op-expanded) .op-tags,
-
-#opList article.op:not(.op-expanded) .op-highlight,
-
-#opList article.op:not(.op-expanded) .op-action {
-
-  display: none !important;
-
-}
-
-/* =========================================
-
-   EXPANDED STATE
-
-   Header stays at the top.
-
-   Details appear below it.
-
-========================================= */
+/* EXPANDED CARD */
 
 #opList article.op.op-expanded {
 
-  grid-template-columns: minmax(0, 1fr) auto !important;
-
-  grid-template-rows: auto auto !important;
-
-  align-items: start !important;
-
-  gap: 0 16px !important;
-
-  padding: 20px !important;
-
-  background: #fbfcff !important;
+  background: var(--card-hover, #142137);
 
 }
 
-/* Never move the header into another row */
+/* Company, role and metadata remain at the top */
 
 #opList article.op.op-expanded .op-main {
 
-  grid-column: 1 !important;
+  grid-column: 1 / -1;
 
-  grid-row: 1 !important;
-
-  align-self: start !important;
+  grid-row: 1;
 
 }
 
-/* Expanded description */
+/* Description appears BELOW the header */
 
 #opList article.op.op-expanded .op-main > p {
 
-  display: block !important;
+  display: block;
 
-  margin: 10px 0 0 !important;
+  order: 4;
 
-  padding: 0 !important;
+  width: 100%;
 
-  color: #596579 !important;
+  margin: 10px 0 0;
 
-  font-size: 13px !important;
+  color: var(--muted, #c0cad8);
 
-  font-weight: 400 !important;
+  font-size: 14px;
 
-  line-height: 1.8 !important;
+  line-height: 1.75;
 
-  overflow-wrap: anywhere !important;
+  white-space: normal;
 
 }
 
-/* Skill tags */
+/* Tags appear after description */
 
 #opList article.op.op-expanded .op-tags {
 
-  grid-column: 1 / -1 !important;
+  display: flex;
 
-  display: flex !important;
+  order: 5;
 
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
 
-  align-items: center !important;
+  gap: 7px;
 
-  gap: 6px !important;
+  width: 100%;
 
-  width: 100% !important;
-
-  margin: 12px 0 0 !important;
-
-  padding: 0 !important;
+  margin-top: 12px;
 
 }
 
-#opList article.op.op-expanded .op-tag {
+/* Individual tags */
 
-  display: inline-flex !important;
+#opList article.op .op-tag {
 
-  align-items: center !important;
+  display: inline-flex;
 
-  max-width: 100% !important;
+  align-items: center;
 
-  padding: 5px 9px !important;
+  padding: 5px 9px;
 
-  border: 1px solid #e2ecfc !important;
+  border: 1px solid var(--border, #263247);
 
-  border-radius: 5px !important;
+  border-radius: 6px;
 
-  background: #eef5ff !important;
+  font-size: 12px;
 
-  color: #315b91 !important;
-
-  font-size: 11px !important;
-
-  line-height: 1.5 !important;
-
-  overflow-wrap: anywhere !important;
+  line-height: 1.4;
 
 }
 
-/* Highlight */
+/* Highlight appears after tags */
 
 #opList article.op.op-expanded .op-highlight {
 
-  grid-column: 1 / -1 !important;
+  display: block;
 
-  display: block !important;
+  order: 6;
 
-  width: 100% !important;
+  width: 100%;
 
-  margin: 12px 0 0 !important;
+  margin-top: 12px;
 
-  padding: 10px 12px !important;
+  padding: 10px 12px;
 
-  border-left: 3px solid #2588ff !important;
+  border-left: 3px solid var(--accent, #4da3ff);
 
-  border-radius: 4px !important;
+  border-radius: 0 6px 6px 0;
 
-  background: #f0f7ff !important;
+  background: rgba(77, 163, 255, 0.07);
 
-  color: #344054 !important;
+  color: var(--text, #f1f5f9);
 
-  font-size: 12px !important;
+  font-size: 13px;
 
-  line-height: 1.7 !important;
-
-  overflow-wrap: anywhere !important;
+  line-height: 1.6;
 
 }
 
-/* Application actions appear below the header and details */
+/* Contact buttons appear last */
 
 #opList article.op.op-expanded .op-action {
 
-  grid-column: 1 / -1 !important;
+  display: flex;
 
-  grid-row: 2 !important;
+  grid-column: 1 / -1;
 
-  align-self: start !important;
+  grid-row: 2;
 
-  display: flex !important;
+  flex-wrap: wrap;
 
-  flex-direction: row !important;
+  gap: 9px;
 
-  flex-wrap: wrap !important;
+  width: 100%;
 
-  align-items: center !important;
-
-  gap: 8px !important;
-
-  width: 100% !important;
-
-  min-width: 0 !important;
-
-  margin: 14px 0 0 !important;
-
-  padding: 14px 0 0 !important;
-
-  border: 0 !important;
-
-  border-top: 1px solid #e5eaf2 !important;
+  margin-top: 16px;
 
 }
 
-/* Action buttons */
+/* Collapse label */
 
-#opList article.op .op-contact,
+#opList article.op.op-expanded::after {
 
-#opList article.op .op-link,
-
-#opList article.op .op-link-disabled {
-
-  display: inline-flex !important;
-
-  align-items: center !important;
-
-  justify-content: center !important;
-
-  min-width: 100px !important;
-
-  min-height: 40px !important;
-
-  margin: 0 !important;
-
-  padding: 9px 16px !important;
-
-  border: 1px solid transparent !important;
-
-  border-radius: 6px !important;
-
-  font-family: inherit !important;
-
-  font-size: 12px !important;
-
-  font-weight: 600 !important;
-
-  line-height: 1.5 !important;
-
-  text-align: center !important;
-
-  text-decoration: none !important;
-
-  overflow-wrap: anywhere !important;
-
-  cursor: pointer !important;
+  content: "Collapse −";
 
 }
 
-/* Primary action */
+/* Links and buttons */
 
-#opList article.op .op-contact-view,
+#opList article.op .op-contact {
 
-#opList article.op .op-link:not(.op-link-disabled) {
+  display: inline-flex;
 
-  background: #2588ff !important;
+  align-items: center;
 
-  border-color: #2588ff !important;
+  justify-content: center;
 
-  color: #fff !important;
+  padding: 9px 13px;
 
-}
+  border: 1px solid var(--border, #263247);
 
-#opList article.op .op-contact-view:hover,
+  border-radius: 7px;
 
-#opList article.op .op-link:not(.op-link-disabled):hover {
+  color: var(--text, #f1f5f9);
 
-  background: #176bd6 !important;
+  font-size: 13px;
 
-  border-color: #176bd6 !important;
-
-}
-
-/* Secondary actions */
-
-#opList article.op .op-contact-email,
-
-#opList article.op .op-contact-whatsapp {
-
-  background: #fff !important;
-
-  border-color: #dce3ed !important;
-
-  color: #344054 !important;
+  text-decoration: none;
 
 }
 
-#opList article.op .op-contact-email:hover,
+#opList article.op .op-contact:hover {
 
-#opList article.op .op-contact-whatsapp:hover {
-
-  background: #f5f8fc !important;
+  border-color: var(--accent, #4da3ff);
 
 }
 
-/* Disabled action */
-
-#opList article.op .op-link-disabled {
-
-  background: #f2f4f7 !important;
-
-  border-color: #eaecf0 !important;
-
-  color: #98a2b3 !important;
-
-  cursor: not-allowed !important;
-
-}
-
-/* Keyboard accessibility */
-
-#opList article.op:focus-visible {
-
-  outline: 2px solid #2588ff !important;
-
-  outline-offset: -2px !important;
-
-}
-
-/* =========================================
-
-   MOBILE RESPONSIVENESS
-
-========================================= */
+/* Mobile */
 
 @media (max-width: 600px) {
 
-  #opList {
-
-    margin: 16px 0 !important;
-
-    border-radius: 9px !important;
-
-  }
-
   #opList article.op {
 
-    grid-template-columns: minmax(0, 1fr) auto !important;
+    padding: 15px;
 
-    grid-template-rows: auto !important;
+    grid-template-columns: minmax(0, 1fr) auto;
 
-    gap: 0 8px !important;
-
-    padding: 15px 13px !important;
+    gap: 0 8px;
 
   }
 
-  #opList article.op .op-main {
+  #opList article.op .op-main h3 {
 
-    grid-column: 1 !important;
-
-    grid-row: 1 !important;
-
-  }
-
-  #opList article.op .op-company {
-
-    font-size: 12px !important;
-
-  }
-
-  #opList article.op h3 {
-
-    font-size: 15px !important;
-
-    line-height: 1.5 !important;
-
-  }
-
-  #opList article.op .op-meta {
-
-    gap: 3px 10px !important;
-
-  }
-
-  #opList article.op .op-meta span {
-
-    font-size: 11.5px !important;
+    font-size: 16px;
 
   }
 
   #opList article.op::after {
 
-    grid-column: 2 !important;
-
-    grid-row: 1 !important;
-
-    align-self: start !important;
-
-    margin-top: 0 !important;
-
-    padding-left: 4px !important;
-
-    font-size: 11px !important;
-
-  }
-
-  #opList article.op.op-expanded {
-
-    grid-template-columns: minmax(0, 1fr) auto !important;
-
-    grid-template-rows: auto auto !important;
-
-    gap: 0 8px !important;
-
-    padding: 16px 13px !important;
-
-  }
-
-  #opList article.op.op-expanded .op-main {
-
-    grid-column: 1 !important;
-
-    grid-row: 1 !important;
+    font-size: 11px;
 
   }
 
   #opList article.op.op-expanded .op-action {
 
-    grid-column: 1 / -1 !important;
+    flex-direction: column;
 
-    grid-row: 2 !important;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: stretch !important;
-
-    gap: 8px !important;
-
-    width: 100% !important;
-
-    margin-top: 13px !important;
-
-    padding-top: 13px !important;
+    align-items: stretch;
 
   }
 
-  #opList article.op.op-expanded .op-action > * {
+  #opList article.op.op-expanded .op-contact {
 
-    width: 100% !important;
+    width: 100%;
 
-    min-width: 0 !important;
-
-  }
-
-  #opList article.op.op-expanded .op-tags,
-
-  #opList article.op.op-expanded .op-highlight {
-
-    grid-column: 1 / -1 !important;
-
-  }
-
-}
-
-/* Respect reduced-motion preferences */
-
-@media (prefers-reduced-motion: reduce) {
-
-  #opList article.op {
-
-    transition: none !important;
+    box-sizing: border-box;
 
   }
 
