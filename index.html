@@ -3212,6 +3212,26 @@ document.querySelectorAll(
   loadOpportunities();
 })();
 </script>
+<script>
+document.addEventListener("click", function (event) {
+  const card = event.target.closest("#opList article.op");
+  if (!card) return;
+
+  /* Preserve normal application/contact link behavior */
+  if (event.target.closest("a, button, input, select, textarea")) return;
+
+  const wasExpanded = card.classList.contains("op-expanded");
+
+  document.querySelectorAll("#opList article.op.op-expanded")
+    .forEach(function (item) {
+      item.classList.remove("op-expanded");
+    });
+
+  if (!wasExpanded) {
+    card.classList.add("op-expanded");
+  }
+});
+</script>
 <script src="chatbot.js"></script>
 
 </body>
