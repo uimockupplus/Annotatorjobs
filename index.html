@@ -2812,7 +2812,6 @@ document.querySelectorAll(
     console.error('EvalLoop Jobs: #opList container not found.');
     return;
   }
-  // Escape external text before inserting it into HTML.
   function escapeHTML(value) {
     return String(value ?? '').replace(/[&<>"']/g, char => ({
       '&': '&amp;',
@@ -2822,11 +2821,40 @@ document.querySelectorAll(
       "'": '&#39;'
     })[char]);
   }
+  function safeWebURL(value) {
+    try {
+      const url = new URL(String(value || '').trim());
+      return ['https:', 'http:'].includes(url.protocol)
+        ? url.href
+        : '';
+    } catch {
+      return '';
+    }
+  }
+  function safeEmail(value) {
+    const email = String(value || '').trim();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      ? email
+      : '';
+  }
+  function safeWhatsApp(value) {
+    const raw = String(value || '').trim();
+    // Accept a full WhatsApp URL.
+    const webURL = safeWebURL(raw);
+    if (webURL && /^(https?:\/\/)?(www\.)?(wa\.me|api\.whatsapp\.com)\//i.test(raw)) {
+      return webURL;
+    }
+    // Or accept a phone number with an optional leading +.
+    const phone = raw.replace(/[\s().-]/g, '');
+    if (/^\+?\d{8,15}$/.test(phone)) {
+      return 'https://wa.me/' + phone.replace(/^\+/, '');
+    }
+    return '';
+  }
   function renderOpportunities(data) {
-    // Support either a JSON array or an object containing opportunities.
     const jobs = Array.isArray(data)
       ? data
-      : data && Array.isArray(data.opportunities)
+      : Array.isArray(data?.opportunities)
         ? data.opportunities
         : [];
     if (!jobs.length) {
@@ -2848,15 +2876,27 @@ document.querySelectorAll(
             `<span class="op-tag">${escapeHTML(tag)}</span>`
           ).join('')
         : '';
-      const link = String(job.link || '').trim();
-      // Only allow safe external HTTP/HTTPS application links.
-      let safeLink = '';
-      try {
-        const parsed = new URL(link);
-        if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
-          safeLink = parsed.href;
-        }
-      } catch (_) {}
+      const jobURL = safeWebURL(job.link);
+      const email = safeEmail(job.email);
+      const whatsapp = safeWhatsApp(job.whatsapp);
+      const contactLinks = [
+        jobURL
+          ? `<a class="op-contact op-contact-view"
+                href="${escapeHTML(jobURL)}"
+                target="_blank"
+                rel="noopener noreferrer">View opportunity ↗</a>`
+          : '',
+        email
+          ? `<a class="op-contact op-contact-email"
+                href="mailto:${escapeHTML(email)}">✉ Email</a>`
+          : '',
+        whatsapp
+          ? `<a class="op-contact op-contact-whatsapp"
+                href="${escapeHTML(whatsapp)}"
+                target="_blank"
+                rel="noopener noreferrer">WhatsApp ↗</a>`
+          : ''
+      ].filter(Boolean).join('');
       return `
         <article class="op">
           <div class="op-main">
@@ -2868,24 +2908,16 @@ document.querySelectorAll(
               ${duration ? `<span>${duration}</span>` : ''}
             </div>
             ${tags ? `<div class="op-tags">${tags}</div>` : ''}
-            ${highlight ? `<div class="op-highlight">${highlight}</div>` : ''}
+            ${highlight
+              ? `<div class="op-highlight">${highlight}</div>`
+              : ''}
           </div>
           <div class="op-action">
-            ${
-              safeLink
-                ? `<a class="op-link"
-                     href="${escapeHTML(safeLink)}"
-                     target="_blank"
-                     rel="noopener noreferrer">
-                     View opportunity ↗
-                   </a>`
-                : '<span class="op-link-disabled">Link unavailable</span>'
-            }
+            ${contactLinks || '<span class="op-link-disabled">No contact links provided</span>'}
           </div>
         </article>
       `;
     }).join('');
-    // Apply the existing reveal animation to the newly added cards.
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -2912,16 +2944,13 @@ document.querySelectorAll(
       if (!response.ok) {
         throw new Error(`GitHub returned HTTP ${response.status}`);
       }
-      const data = await response.json();
-      renderOpportunities(data);
+      renderOpportunities(await response.json());
     } catch (error) {
       console.error('EvalLoop Jobs: Could not load opportunities.', error);
-      list.innerHTML = `
-        <p class="empty-state" role="status">
-          We couldn't load opportunities right now.
-          Please refresh the page or try again later.
-        </p>
-      `;
+      list.innerHTML =
+        '<p class="empty-state" role="status">' +
+        'We couldn’t load opportunities right now. Please try again later.' +
+        '</p>';
     }
   }
   loadOpportunities();
