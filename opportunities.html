@@ -1,2936 +1,2482 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>AI Jobs & LLM Evaluation Opportunities — EvalLoop Jobs</title>
-  <meta
-    name="description"
-    content="Discover AI jobs, LLM evaluation projects, data annotation work, AI training, GenAI, agentic AI, and multimodal opportunities on EvalLoop Jobs."
-  >
-  <meta name="theme-color" content="#f8f8f6">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://annotatorjobs.vercel.app/opportunities.html">
-  <link rel="icon" href="/assets/evalloop-logo.png" type="image/png">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="AI Jobs & LLM Evaluation Opportunities — EvalLoop Jobs">
-  <meta
-    property="og:description"
-    content="Explore AI, LLM evaluation, data annotation, AI training, GenAI, and agentic AI opportunities."
-  >
-  <meta property="og:url" content="https://annotatorjobs.vercel.app/opportunities.html">
-  <meta property="og:site_name" content="EvalLoop Jobs">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="AI Jobs & LLM Evaluation Opportunities — EvalLoop Jobs">
-  <meta
-    name="twitter:description"
-    content="Find AI jobs, evaluation projects, annotation work, and specialist AI opportunities."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chatbot.css">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWMRL2H5C7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CWMRL2H5C7');
-  </script>
-
-  <style>
-    /* =========================================================
-       EvalLoop Jobs — Search and listings page
-       Scoped to this page. Shared style.css remains untouched.
-    ========================================================= */
-
-    .jobs-page {
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--ink);
-    }
-
-    .jobs-page,
-    .jobs-page * {
-      box-sizing: border-box;
-    }
-
-    .jobs-page .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-inline: auto;
-    }
-
-    .jobs-page .header .nav {
-      display: flex;
-      align-items: center;
-    }
-
-    .jobs-page .header .top-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-    }
-
-    .jobs-page .header .menu-toggle {
-      flex-shrink: 0;
-    }
-
-    .jobs-page .header .logo {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .jobs-page .header .theme-toggle {
-      flex-shrink: 0;
-    }
-
-    /* Search area */
-
-    .jobs-search-section {
-      padding: 35px 0 27px;
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(22, 133, 253, .065), transparent 62%),
-        var(--bg);
-    }
-
-    .jobs-search-inner {
-      width: min(1200px, calc(100% - 64px));
-      margin-inline: auto;
-    }
-
-    .jobs-breadcrumb {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 23px;
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .jobs-breadcrumb a:hover {
-      color: var(--blue);
-    }
-
-    .jobs-breadcrumb span:last-child {
-      color: var(--ink);
-    }
-
-    .jobs-heading-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 25px;
-      margin-bottom: 23px;
-    }
-
-    .jobs-heading-copy {
-      min-width: 0;
-    }
-
-    .jobs-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 11px;
-      color: var(--blue);
-      font: 700 9px "Space Grotesk", sans-serif;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .jobs-kicker::before {
-      content: "";
-      width: 17px;
-      height: 2px;
-      background: var(--blue);
-    }
-
-    .jobs-page h1 {
-      margin: 0;
-      color: var(--ink);
-      font: 500 clamp(2.1rem, 4.3vw, 3.45rem)/1.06 "Space Grotesk", sans-serif;
-      letter-spacing: -.065em;
-    }
-
-    .jobs-heading-copy > p {
-      max-width: 610px;
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .jobs-heading-note {
-      flex: 0 0 auto;
-      padding: 10px 13px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--surface);
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.5;
-    }
-
-    .jobs-heading-note strong {
-      display: block;
-      margin-bottom: 2px;
-      color: var(--ink);
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    /* Main search panel */
-
-    .jobs-search-box {
-      padding: 9px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--surface);
-      box-shadow: 0 8px 28px rgba(24, 42, 62, .035);
-    }
-
-    .jobs-search-form {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(190px, .85fr) auto;
-      gap: 8px;
-    }
-
-    .jobs-search-field {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      min-width: 0;
-      min-height: 51px;
-      padding: 0 14px;
-      border: 1px solid transparent;
-      border-radius: 9px;
-      background: var(--surface-soft);
-      transition: border-color .2s ease, background-color .2s ease;
-    }
-
-    .jobs-search-field:focus-within {
-      border-color: rgba(22, 133, 253, .55);
-      background: var(--surface);
-    }
-
-    .jobs-field-icon {
-      flex: 0 0 auto;
-      color: var(--blue);
-      font-size: 17px;
-      line-height: 1;
-    }
-
-    .jobs-search-field input {
-      width: 100%;
-      min-width: 0;
-      padding: 10px 0;
-      border: 0;
-      outline: none;
-      color: var(--ink);
-      background: transparent;
-      font-size: 12px;
-    }
-
-    .jobs-search-field input::placeholder {
-      color: var(--muted);
-      opacity: .85;
-    }
-
-    .jobs-search-field input:focus-visible {
-      outline: none;
-    }
-
-    .jobs-find-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 51px;
-      padding: 0 25px;
-      border: 1px solid var(--blue);
-      border-radius: 9px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: background .2s ease, transform .2s ease;
-    }
-
-    .jobs-find-button:hover {
-      transform: translateY(-1px);
-      background: #0d6bd8;
-    }
-
-    .jobs-find-button:disabled {
-      cursor: wait;
-      opacity: .65;
-    }
-
-    .jobs-search-hint {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 4px 1px;
-      color: var(--muted);
-      font-size: 9px;
-    }
-
-    .jobs-search-hint strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    /* Quick filters */
-
-    .jobs-quick-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 17px;
-    }
-
-    .jobs-quick-label {
-      margin-right: 3px;
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .jobs-quick-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      min-height: 31px;
-      padding: 0 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--ink);
-      background: var(--surface);
-      font-size: 10px;
-      transition: border-color .2s ease, color .2s ease, background .2s ease;
-    }
-
-    .jobs-quick-chip:hover,
-    .jobs-quick-chip.is-active {
-      border-color: #b9dafa;
-      color: #126bc7;
-      background: var(--blue-soft);
-    }
-
-    .jobs-quick-chip .chip-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--blue);
-    }
-
-    /* Directory */
-
-    .jobs-directory {
-      padding: 30px 0 85px;
-      background: var(--bg);
-    }
-
-    .jobs-layout {
-      display: grid;
-      grid-template-columns: 244px minmax(0, 1fr);
-      align-items: start;
-      gap: 22px;
-      width: min(1200px, calc(100% - 64px));
-      margin-inline: auto;
-    }
-
-    /* Sidebar */
-
-    .jobs-filter-sidebar {
-      min-width: 0;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      background: var(--surface);
-      overflow: hidden;
-    }
-
-    .jobs-filter-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 17px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .jobs-filter-header h2 {
-      margin: 0;
-      color: var(--ink);
-      font: 600 13px "Space Grotesk", sans-serif;
-      letter-spacing: -.02em;
-    }
-
-    .jobs-clear-button {
-      padding: 4px 0;
-      border: 0;
-      color: var(--blue);
-      background: transparent;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .jobs-clear-button:hover {
-      color: #0d6bd8;
-    }
-
-    .jobs-filter-group {
-      padding: 17px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .jobs-filter-group:last-child {
-      border-bottom: 0;
-    }
-
-    .jobs-filter-group h3 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin: 0 0 14px;
-      color: var(--ink);
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .jobs-filter-group h3 span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 400;
-    }
-
-    .jobs-filter-options {
-      display: grid;
-      gap: 12px;
-    }
-
-    .jobs-filter-option {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      min-width: 0;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 10px;
-      line-height: 1.5;
-    }
-
-    .jobs-filter-option:hover {
-      color: var(--ink);
-    }
-
-    .jobs-filter-option input {
-      flex: 0 0 auto;
-      width: 14px;
-      height: 14px;
-      margin: 0;
-      accent-color: var(--blue);
-      cursor: pointer;
-    }
-
-    .jobs-filter-option .filter-count {
-      margin-left: auto;
-      color: var(--muted);
-      font-size: 9px;
-    }
-
-    .jobs-filter-select {
-      width: 100%;
-      min-height: 39px;
-      padding: 0 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--ink);
-      background: var(--surface);
-      font-size: 10px;
-    }
-
-    .jobs-filter-select:focus-visible {
-      border-color: var(--blue);
-    }
-
-    .jobs-filter-mobile-actions {
-      display: none;
-    }
-
-    /* Results */
-
-    .jobs-results {
-      min-width: 0;
-    }
-
-    .jobs-results-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 14px;
-    }
-
-    .jobs-results-heading {
-      min-width: 0;
-    }
-
-    .jobs-results-heading h2 {
-      margin: 0;
-      color: var(--ink);
-      font: 500 21px "Space Grotesk", sans-serif;
-      letter-spacing: -.045em;
-    }
-
-    .jobs-results-heading p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.5;
-    }
-
-    .jobs-results-heading strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .jobs-results-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex: 0 0 auto;
-    }
-
-    .jobs-mobile-filter-button {
-      display: none;
-    }
-
-    .jobs-sort-label {
-      color: var(--muted);
-      font-size: 10px;
-      white-space: nowrap;
-    }
-
-    .jobs-sort-select {
-      min-height: 35px;
-      padding: 0 27px 0 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--ink);
-      background: var(--surface);
-      font-size: 10px;
-    }
-
-    .jobs-active-filters {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 7px;
-      margin: 0 0 13px;
-    }
-
-    .jobs-active-filters:empty {
-      display: none;
-    }
-
-    .jobs-active-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 27px;
-      padding: 0 9px;
-      border: 1px solid #c7e2fc;
-      border-radius: 7px;
-      color: #176dc5;
-      background: var(--blue-soft);
-      font-size: 9px;
-    }
-
-    .jobs-active-chip button {
-      padding: 0;
-      border: 0;
-      color: inherit;
-      background: transparent;
-      font-size: 14px;
-      line-height: 1;
-    }
-
-    .jobs-active-clear {
-      padding: 5px;
-      border: 0;
-      color: var(--muted);
-      background: transparent;
-      font-size: 9px;
-    }
-
-    /* Job cards */
-
-    .jobs-list {
-      display: grid;
-      gap: 11px;
-    }
-
-    .jobs-card {
-      display: grid;
-      grid-template-columns: 48px minmax(0, 1fr);
-      gap: 15px;
-      min-width: 0;
-      padding: 19px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-    }
-
-    .jobs-card:hover {
-      transform: translateY(-2px);
-      border-color: #c5e1fc;
-      box-shadow: 0 10px 25px rgba(25, 67, 109, .055);
-    }
-
-    .jobs-company-mark {
-      display: grid;
-      place-items: center;
-      width: 46px;
-      height: 46px;
-      border: 1px solid #dcecff;
-      border-radius: 11px;
-      color: #176dc5;
-      background: var(--blue-soft);
-      font: 600 14px "Space Grotesk", sans-serif;
-      text-transform: uppercase;
-      overflow: hidden;
-    }
-
-    .jobs-company-mark img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .jobs-card-content {
-      min-width: 0;
-    }
-
-    .jobs-card-topline {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 7px 10px;
-      margin-bottom: 6px;
-    }
-
-    .jobs-company-name {
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .035em;
-      text-transform: uppercase;
-      overflow-wrap: anywhere;
-    }
-
-    .jobs-highlight-badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 20px;
-      padding: 2px 7px;
-      border: 1px solid #dcecff;
-      border-radius: 5px;
-      color: #176dc5;
-      background: var(--blue-soft);
-      font-size: 8px;
-      font-weight: 600;
-    }
-
-    .jobs-card h3 {
-      margin: 0;
-      color: var(--ink);
-      font: 500 18px/1.35 "Space Grotesk", sans-serif;
-      letter-spacing: -.035em;
-      overflow-wrap: anywhere;
-    }
-
-    .jobs-card h3 a:hover {
-      color: var(--blue);
-    }
-
-    .jobs-card-description {
-      display: -webkit-box;
-      overflow: hidden;
-      margin: 8px 0 12px;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.7;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      overflow-wrap: anywhere;
-    }
-
-    .jobs-card-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px 15px;
-      margin-bottom: 13px;
-      color: var(--muted);
-      font-size: 9px;
-    }
-
-    .jobs-meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      min-width: 0;
-      overflow-wrap: anywhere;
-    }
-
-    .jobs-meta-icon {
-      color: var(--blue);
-      font-size: 12px;
-    }
-
-    .jobs-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
-    .jobs-tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 23px;
-      padding: 3px 8px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      color: var(--muted);
-      background: var(--surface);
-      font-size: 9px;
-      line-height: 1.35;
-    }
-
-    .jobs-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .jobs-card-source-note {
-      color: var(--muted);
-      font-size: 9px;
-      line-height: 1.5;
-    }
-
-    .jobs-card-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-   /* ========================================
-   JOB ACTION BUTTONS — EVALLOOP JOBS
-======================================== */
-
-.jobs-apply-button,
-.jobs-contact-button,
-.jobs-unavailable-button {
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Explore AI training, data annotation, LLM evaluation, GenAI, AI operations, and expert work opportunities curated by EvalLoop Jobs, an independent opportunity discovery platform.">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical" href="https://annotatorjobs.vercel.app/opportunities.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="All Opportunities — EvalLoop Jobs">
+<meta property="og:description" content="Discover AI training, annotation, evaluation, GenAI, and expert work opportunities from their respective employers and providers.">
+<meta property="og:url" content="https://annotatorjobs.vercel.app/opportunities.html">
+<meta property="og:site_name" content="EvalLoop Jobs">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="All Opportunities — EvalLoop Jobs">
+<meta name="twitter:description" content="An independent directory of AI training, annotation, evaluation, GenAI, and expert work opportunities.">
+
+<title>All Opportunities — EvalLoop Jobs</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://annotatorjobs.vercel.app/#organization",
+      "name": "EvalLoop Jobs",
+      "url": "https://annotatorjobs.vercel.app/",
+      "description": "An independent opportunity discovery platform for AI training, data annotation, LLM evaluation, GenAI, AI operations, and expert work opportunities."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://annotatorjobs.vercel.app/#website",
+      "name": "EvalLoop Jobs",
+      "url": "https://annotatorjobs.vercel.app/",
+      "publisher": {
+        "@id": "https://annotatorjobs.vercel.app/#organization"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://annotatorjobs.vercel.app/opportunities.html#page",
+      "url": "https://annotatorjobs.vercel.app/opportunities.html",
+      "name": "All Opportunities — EvalLoop Jobs",
+      "description": "A curated directory of AI training, annotation, evaluation, GenAI, and expert work opportunities.",
+      "isPartOf": {
+        "@id": "https://annotatorjobs.vercel.app/#website"
+      },
+      "publisher": {
+        "@id": "https://annotatorjobs.vercel.app/#organization"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CWMRL2H5C7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CWMRL2H5C7');
+</script>
+
+<link rel="icon" type="image/png" href="/favicon.png?v=2">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="chatbot.css">
+
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem('evalloop-theme');
+    var theme = saved || (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    );
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {
+    document.documentElement.dataset.theme = 'light';
+  }
+})();
+</script>
+
+<style>
+:root {
+  color-scheme: light;
+
+  --bg: #f8f8f6;
+  --surface: #ffffff;
+  --surface-soft: #f0efed;
+  --surface-blue: #eef6ff;
+  --ink: #191918;
+  --muted: #747370;
+  --blue: #1685fd;
+  --blue-dark: #086bd4;
+  --blue-soft: #eef6ff;
+  --border: #e7e6e2;
+  --border-strong: #d7d6d1;
+  --success: #16845b;
+  --shadow: 0 12px 40px rgba(25,25,24,.045);
+  --radius: 12px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #000000;
+  --surface: #101010;
+  --surface-soft: #171717;
+  --surface-blue: #101b29;
+  --ink: #eef5ff;
+  --muted: #a0a0a0;
+  --blue: #4c9bff;
+  --blue-dark: #79b4ff;
+  --blue-soft: #101b29;
+  --border: #292929;
+  --border-strong: #3a3a3a;
+  --success: #5fd6a0;
+  --shadow: 0 12px 40px rgba(0,0,0,.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+body,
+button,
+input {
+  font-family: "DM Sans", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: #fff;
+  background: var(--blue);
+}
+
+.container {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+/* Header */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.header-inner {
+  width: min(1120px, calc(100% - 64px));
+  min-height: 76px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brand-name {
+  font: 700 16px "Space Grotesk", sans-serif;
+  letter-spacing: -.055em;
+}
+
+.brand-name span {
+  color: var(--blue);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.desktop-nav a {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.desktop-nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 16px;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  border-color: var(--blue);
+  background: var(--surface-blue);
+}
+
+.header-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 0 19px;
-  border: 1px solid transparent;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--ink);
   border-radius: 999px;
-  font-size: 12px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform .2s ease, opacity .2s ease;
 }
 
-/* APPLY NOW — TRANSPARENT BLUE */
-
-.jobs-apply-button {
-
-  color: #1769c2;
-
-  border: 1.5px solid #2588ff;
-
-  background: rgba(37, 136, 255, 0.09);
-
-  box-shadow: 0 2px 7px rgba(37, 136, 255, 0.08);
-
+.header-cta:hover {
+  transform: translateY(-2px);
+  opacity: .86;
 }
 
-.jobs-apply-button:hover {
-
-  color: #0d5db5;
-
-  border-color: #1976e8;
-
-  background: rgba(37, 136, 255, 0.16);
-
-  box-shadow: 0 4px 12px rgba(37, 136, 255, 0.16);
-
-  transform: translateY(-1px);
-
-}
-/* WHATSAPP — TRANSPARENT GREEN */
-
-.jobs-whatsapp-button {
-  color: #16803d;
-  border: 1.5px solid #25a653;
-  background: rgba(37, 211, 102, 0.10);
-  box-shadow: 0 2px 7px rgba(37, 211, 102, 0.10);
+.menu-toggle {
+  display: none;
 }
 
-.jobs-whatsapp-button:hover {
-  color: #116b32;
-  border-color: #1fa451;
-  background: rgba(37, 211, 102, 0.18);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.18);
-  transform: translateY(-1px);
+.mobile-nav {
+  display: none;
 }
 
-/* EMAIL — SOFT TRANSPARENT CHARCOAL */
+/* Intro */
 
-.jobs-email-button {
-  color: #343a40;
-  border: 1.5px solid #aeb4bc;
-  background: rgba(108, 117, 125, 0.07);
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+.page-intro {
+  padding-top: 82px;
+  padding-bottom: 38px;
 }
 
-.jobs-email-button:hover {
-  color: #171a1d;
-  border-color: #6c757d;
-  background: rgba(108, 117, 125, 0.13);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transform: translateY(-1px);
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue);
+  font: 700 10px "Space Grotesk", sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
-/* NO APPLICATION OR CONTACT DETAILS */
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--blue);
+}
 
-.jobs-unavailable-button {
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(230px, .6fr);
+  align-items: end;
+  gap: 48px;
+  margin-top: 20px;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+.page-title {
+  max-width: 760px;
+  margin: 0;
+  font: 500 clamp(3.5rem, 8vw, 6.8rem)/.91 "Space Grotesk", sans-serif;
+  letter-spacing: -.095em;
+}
+
+.page-title em {
+  color: var(--blue);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.intro-copy {
+  max-width: 330px;
+  margin: 0 0 6px;
   color: var(--muted);
-  border-color: var(--border);
-  background: var(--surface-soft);
-  cursor: not-allowed;
-  opacity: 0.8;
+  font-size: 13px;
+  line-height: 1.85;
 }
 
-/* BUTTON CONTAINER */
+.intro-copy strong {
+  color: var(--ink);
+  font-weight: 600;
+}
 
-.jobs-card-actions {
+.intro-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 10px 22px;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.meta-divider {
+  width: 1px;
+  height: 15px;
+  background: var(--border-strong);
+}
+
+/* Independence notice */
+
+.directory-note {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 42px;
+  padding: 22px 24px;
+  border: 1px solid #dce9f9;
+  border-radius: var(--radius);
+  background: var(--surface-blue);
+}
+
+:root[data-theme="dark"] .directory-note {
+  border-color: #24384f;
+}
+
+.notice-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(22,133,253,.22);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--blue);
+  font-size: 16px;
+}
+
+.notice-title {
+  margin: 1px 0 7px;
+  font: 600 14px "Space Grotesk", sans-serif;
+  letter-spacing: -.025em;
+}
+
+.notice-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.notice-copy strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.text-link {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .2s ease;
+}
+
+.text-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Directory section */
+
+.directory {
+  padding-top: 26px;
+  padding-bottom: 100px;
+}
+
+.directory-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.directory-heading h2 {
+  margin: 0;
+  font: 500 26px "Space Grotesk", sans-serif;
+  letter-spacing: -.055em;
+}
+
+.directory-heading p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.count {
+  flex-shrink: 0;
+  color: var(--muted);
+  font: 600 10px "Space Grotesk", sans-serif;
+  letter-spacing: .08em;
+  text-align: right;
+}
+
+.count b {
+  color: var(--blue);
+  font-size: 14px;
+}
+
+/* Search */
+
+.search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 51px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(22,133,253,.08);
+}
+
+.search-icon {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: var(--muted);
+  opacity: .9;
+}
+
+.search-box input:focus-visible {
+  outline: none;
+}
+
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 51px;
+  padding: 0 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.reset-button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Filters */
+
+.filters-panel {
   margin-top: 14px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
 }
 
-.jobs-card-actions a {
-  text-decoration: none;
+.filter-group + .filter-group {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 }
 
-/* KEYBOARD ACCESSIBILITY */
-
-.jobs-apply-button:focus-visible,
-.jobs-whatsapp-button:focus-visible,
-.jobs-email-button:focus-visible {
-  outline: 3px solid rgba(37, 136, 255, 0.35);
-  outline-offset: 3px;
+.filter-row {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
 }
 
-/* MOBILE RESPONSIVENESS */
+.filter-label {
+  padding-top: 9px;
+  color: var(--muted);
+  font: 700 10px "Space Grotesk", sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
 
-@media (max-width: 480px) {
-  .jobs-card-actions {
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.filter-chip .chip-count {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.filter-chip:hover {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+.filter-chip.active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.filter-chip.active .chip-count {
+  color: #fff;
+}
+
+/* Active filter status */
+
+.filter-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 42px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.filter-status strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.clear-filters {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue-dark);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.clear-filters:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.clear-filters[hidden] {
+  display: none;
+}
+
+/* Opportunity cards */
+
+.opportunity-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.opportunity-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 205px;
+  gap: 28px;
+  padding: 25px 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+
+.opportunity-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.card-main {
+  min-width: 0;
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.company-name {
+  color: var(--blue-dark);
+  font: 600 12px "Space Grotesk", sans-serif;
+  letter-spacing: -.01em;
+}
+
+.open-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--success);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.open-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.opportunity-title {
+  margin: 11px 0 9px;
+  font: 500 clamp(19px, 2vw, 24px)/1.25 "Space Grotesk", sans-serif;
+  letter-spacing: -.055em;
+}
+
+.opportunity-description {
+  max-width: 690px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.card-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding-left: 22px;
+  border-left: 1px solid var(--border);
+}
+
+.card-facts {
+  display: grid;
+  gap: 12px;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 7px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.fact-icon {
+  color: var(--muted);
+}
+
+.fact strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.fact.highlight {
+  padding: 10px 11px;
+  border-radius: 7px;
+  background: var(--surface-blue);
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  transition: color .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.action-link:hover {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+.action-link.primary-action {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.action-link.primary-action:hover {
+  border-color: var(--blue-dark);
+  background: var(--blue-dark);
+}
+
+.action-link[hidden] {
+  display: none;
+}
+
+/* Empty and loading states */
+
+.state-card {
+  padding: 66px 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+
+.state-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--surface-blue);
+  color: var(--blue);
+  font-size: 21px;
+}
+
+.state-card h3 {
+  margin: 0;
+  font: 500 22px "Space Grotesk", sans-serif;
+  letter-spacing: -.045em;
+}
+
+.state-card p {
+  max-width: 400px;
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.state-card .state-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 20px;
+  padding: 0 16px;
+  border: 1px solid var(--blue);
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Submit opportunity */
+
+.submit-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  margin-top: 65px;
+  padding: 31px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.submit-kicker {
+  margin: 0 0 8px;
+  color: var(--blue-dark);
+  font: 700 9px "Space Grotesk", sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.submit-title {
+  margin: 0;
+  font: 500 25px/1.2 "Space Grotesk", sans-serif;
+  letter-spacing: -.055em;
+}
+
+.submit-copy {
+  max-width: 470px;
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  padding: 0 18px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  opacity: .85;
+}
+
+/* Back to home */
+
+.back-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.back-home:hover {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(0, 1.3fr);
+  gap: 50px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.footer-brand-copy {
+  max-width: 300px;
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.footer-powered {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.footer-powered a {
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+
+.footer-nav {
+  display: flex;
+  align-content: start;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  color: var(--muted);
+  font-size: 11px;
+  transition: color .2s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.footer-bottom a {
+  color: var(--muted);
+}
+
+.footer-bottom a:hover {
+  color: var(--blue-dark);
+}
+
+/* Motion */
+
+.reveal {
+  animation: rise-in .5s ease both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .container,
+  .header-inner {
+    width: calc(100% - 48px);
+  }
+
+  .desktop-nav {
+    gap: 18px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .intro-copy {
+    max-width: 510px;
+  }
+
+  .page-title {
+    font-size: clamp(3.8rem, 10vw, 6rem);
+  }
+
+  .opportunity-card {
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 20px;
+    padding: 22px;
+  }
+
+  .card-side {
+    padding-left: 18px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .container,
+  .header-inner {
+    width: calc(100% - 40px);
+  }
+
+  .header-inner {
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  .brand {
     gap: 8px;
   }
 
-  .jobs-apply-button,
-  .jobs-contact-button,
-  .jobs-unavailable-button {
-    min-height: 42px;
-    padding: 0 15px;
+  .brand img {
+    width: 31px;
+    height: 31px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .header-cta {
+    min-height: 37px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav.open {
+    display: grid;
+    gap: 0;
+    padding: 8px 20px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 43px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .mobile-nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .mobile-nav a[aria-current="page"] {
+    color: var(--blue-dark);
+    font-weight: 700;
+  }
+
+  .page-intro {
+    padding-top: 58px;
+    padding-bottom: 26px;
+  }
+
+  .page-title {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+    line-height: .94;
+  }
+
+  .intro-grid {
+    gap: 20px;
+    margin-top: 17px;
+  }
+
+  .intro-copy {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .intro-meta {
+    gap: 12px;
+    margin-top: 23px;
+    font-size: 10px;
+  }
+
+  .meta-divider {
+    display: none;
+  }
+
+  .directory-note {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 27px;
+    padding: 17px 15px;
+  }
+
+  .notice-icon {
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .notice-title {
+    font-size: 13px;
+  }
+
+  .notice-copy {
+    font-size: 11px;
+    line-height: 1.85;
+  }
+
+  .directory {
+    padding-top: 22px;
+    padding-bottom: 65px;
+  }
+
+  .directory-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .directory-heading h2 {
+    font-size: 24px;
+  }
+
+  .directory-heading p {
     font-size: 11px;
   }
-}
-    /* Empty and loading states */
 
-    .jobs-state {
-      padding: 47px 22px;
-      border: 1px dashed var(--border);
-      border-radius: 13px;
-      background: var(--surface);
-      text-align: center;
-    }
-
-    .jobs-state-icon {
-      display: grid;
-      place-items: center;
-      width: 46px;
-      height: 46px;
-      margin: 0 auto 15px;
-      border-radius: 13px;
-      color: var(--blue);
-      background: var(--blue-soft);
-      font-size: 21px;
-    }
-
-    .jobs-state h3 {
-      margin: 0;
-      color: var(--ink);
-      font: 500 19px "Space Grotesk", sans-serif;
-      letter-spacing: -.035em;
-    }
-
-    .jobs-state p {
-      max-width: 390px;
-      margin: 9px auto 17px;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.7;
-    }
-
-    .jobs-state-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 35px;
-      padding: 0 14px;
-      border: 1px solid var(--blue);
-      border-radius: 999px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .jobs-state-button:hover {
-      color: #fff;
-      background: #0d6bd8;
-    }
-
-    .jobs-load-more-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .jobs-load-more {
-      min-height: 39px;
-      padding: 0 18px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--ink);
-      background: var(--surface);
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .jobs-load-more:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-
-    .jobs-load-more[hidden] {
-      display: none;
-    }
-
-    /* Independent directory notice */
-
-    .jobs-disclaimer {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      margin-top: 20px;
-      padding: 14px 15px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--surface-soft);
-    }
-
-    .jobs-disclaimer-icon {
-      flex: 0 0 auto;
-      color: var(--blue);
-      font-size: 15px;
-    }
-
-    .jobs-disclaimer p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 9px;
-      line-height: 1.7;
-    }
-
-    .jobs-disclaimer strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    /* Submission panel */
-
-    .jobs-submit-section {
-      padding: 0 0 76px;
-      background: var(--bg);
-    }
-
-    .jobs-submit-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding: 25px 27px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 95% 0%, rgba(22,133,253,.075), transparent 34%),
-        var(--surface);
-    }
-
-    .jobs-submit-copy {
-      min-width: 0;
-    }
-
-    .jobs-submit-copy .jobs-kicker {
-      margin-bottom: 8px;
-    }
-
-    .jobs-submit-copy h2 {
-      margin: 0;
-      color: var(--ink);
-      font: 500 22px/1.25 "Space Grotesk", sans-serif;
-      letter-spacing: -.045em;
-    }
-
-    .jobs-submit-copy p {
-      max-width: 560px;
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.7;
-    }
-
-    .jobs-submit-link {
-      display: inline-flex;
-      flex: 0 0 auto;
-      align-items: center;
-      justify-content: center;
-      min-height: 39px;
-      padding: 0 16px;
-      border: 1px solid var(--blue);
-      border-radius: 999px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 10px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .jobs-submit-link:hover {
-      color: #fff;
-      background: #0d6bd8;
-    }
-
-    /* Footer */
-
-    .jobs-page .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      width: min(1200px, calc(100% - 64px));
-      margin-inline: auto;
-      border-top: 1px solid var(--border);
-    }
-
-    .jobs-footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--ink);
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .jobs-footer-brand img {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-    }
-
-    .jobs-footer-copy {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 9px;
-      line-height: 1.6;
-    }
-
-    .jobs-page .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .jobs-page .footer-links a {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .jobs-page .footer-links a:hover {
-      color: var(--blue);
-    }
-    /* Dark mode toggle removed */
-.theme-toggle {
-  display: none !important;
-}
-    /* Keep EvalLoop Jobs in the editorial light theme */
-:root {
-  color-scheme: light;
-}
-
-html[data-theme="dark"] {
-  color-scheme: light;
-
-  --bg: #f8f8f6;
-  --ink: #191918;
-  --muted: #747370;
-  --paper: #f0efed;
-  --dark: #0B172A;
-  --border: #e7e6e2;
-  --blue: #1685FD;
-  --cyan: #8EC5FF;
-  --lime: #1685FD;
-  --white: #fff;
-  --blue-soft: #EEF6FF;
-  --surface: #fff;
-  --surface-soft: #F7FAFD;
-}
-
-    /* Dark theme overrides */
-
-    [data-theme="dark"] .jobs-search-section {
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(22,133,253,.09), transparent 62%),
-        var(--bg);
-    }
-
-    [data-theme="dark"] .jobs-search-box,
-    [data-theme="dark"] .jobs-filter-sidebar,
-    [data-theme="dark"] .jobs-card,
-    [data-theme="dark"] .jobs-state,
-    [data-theme="dark"] .jobs-submit-card {
-      border-color: var(--border);
-      background-color: var(--surface);
-    }
-
-    [data-theme="dark"] .jobs-search-field {
-      background: var(--surface-soft);
-    }
-
-    [data-theme="dark"] .jobs-search-field:focus-within {
-      background: var(--surface);
-    }
-
-    [data-theme="dark"] .jobs-search-field input {
-      color: var(--ink);
-    }
-
-    [data-theme="dark"] .jobs-heading-note,
-    [data-theme="dark"] .jobs-quick-chip,
-    [data-theme="dark"] .jobs-sort-select,
-    [data-theme="dark"] .jobs-filter-select,
-    [data-theme="dark"] .jobs-load-more {
-      border-color: var(--border);
-      color: var(--ink);
-      background: var(--surface);
-    }
-
-    [data-theme="dark"] .jobs-quick-chip:hover,
-    [data-theme="dark"] .jobs-quick-chip.is-active {
-      border-color: #29496b;
-      color: var(--cyan);
-      background: #142b47;
-    }
-
-    [data-theme="dark"] .jobs-company-mark {
-      border-color: #29496b;
-      color: var(--cyan);
-      background: #142b47;
-    }
-
-    [data-theme="dark"] .jobs-highlight-badge,
-    [data-theme="dark"] .jobs-active-chip {
-      border-color: #29496b;
-      color: var(--cyan);
-      background: #142b47;
-    }
-
-    [data-theme="dark"] .jobs-tag {
-      border-color: var(--border);
-      color: var(--muted);
-      background: var(--surface);
-    }
-
-    [data-theme="dark"] .jobs-card:hover {
-      border-color: #29496b;
-      background: var(--surface-soft);
-    }
-
-    [data-theme="dark"] .jobs-filter-group,
-    [data-theme="dark"] .jobs-filter-header,
-    [data-theme="dark"] .jobs-card-footer {
-      border-color: var(--border);
-    }
-
-    [data-theme="dark"] .jobs-disclaimer {
-      border-color: var(--border);
-      background: var(--surface-soft);
-    }
-
-    [data-theme="dark"] .jobs-contact-button {
-      color: var(--cyan);
-    }
-
-    [data-theme="dark"] .jobs-unavailable-button {
-      border-color: var(--border);
-      color: var(--muted);
-      background: var(--surface-soft);
-    }
-
-    [data-theme="dark"] .jobs-page .footer {
-      border-color: var(--border);
-    }
-
-    /* Tablet */
-
-    @media (max-width: 980px) {
-      .jobs-layout {
-        grid-template-columns: 220px minmax(0, 1fr);
-        gap: 15px;
-      }
-
-      .jobs-card {
-        padding: 16px;
-      }
-
-      .jobs-card h3 {
-        font-size: 17px;
-      }
-
-      .jobs-search-form {
-        grid-template-columns: minmax(0, 1.3fr) minmax(170px, .9fr) auto;
-      }
-
-      .jobs-find-button {
-        padding-inline: 18px;
-      }
-
-      .jobs-results-top {
-        align-items: flex-start;
-      }
-    }
-
-    /* Mobile header and search */
-
-    @media (max-width: 760px) {
-      .jobs-page .header {
-        gap: 10px;
-      }
-
-      .jobs-page .header .menu-toggle {
-        display: flex;
-        margin-left: auto;
-      }
-
-      .jobs-page .header .nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 7px);
-        left: 0;
-        right: 0;
-        z-index: 30;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2px;
-        margin: 0;
-        padding: 10px;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        background: var(--surface);
-        box-shadow: 0 14px 32px rgba(24,41,62,.1);
-      }
-
-      .jobs-page .header .nav.is-open {
-        display: flex;
-      }
-
-      .jobs-page .header .nav a {
-        padding: 11px 12px;
-        border-radius: 8px;
-      }
-
-      .jobs-page .header .nav a:hover {
-        background: var(--blue-soft);
-      }
-
-      .jobs-heading-row {
-        align-items: flex-start;
-      }
-
-      .jobs-heading-note {
-        display: none;
-      }
-
-      .jobs-search-form {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      }
-
-      .jobs-search-field:first-child {
-        grid-column: 1 / -1;
-      }
-
-      .jobs-find-button {
-        min-height: 43px;
-      }
-
-      .jobs-search-field {
-        min-height: 45px;
-      }
-
-      .jobs-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .jobs-filter-sidebar {
-        display: none;
-        position: relative;
-      }
-
-      .jobs-filter-sidebar.is-open {
-        display: block;
-      }
-
-      .jobs-mobile-filter-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-        min-height: 35px;
-        padding: 0 11px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--ink);
-        background: var(--surface);
-        font-size: 10px;
-        font-weight: 600;
-      }
-
-      .jobs-results-controls {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .jobs-filter-mobile-actions {
-        display: flex;
-        gap: 8px;
-        padding: 13px 16px;
-        border-top: 1px solid var(--border);
-      }
-
-      .jobs-filter-mobile-actions button {
-        min-height: 35px;
-        flex: 1;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--ink);
-        background: var(--surface);
-        font-size: 10px;
-        font-weight: 600;
-      }
-
-      .jobs-filter-mobile-actions .jobs-mobile-apply {
-        border-color: var(--blue);
-        color: #fff;
-        background: var(--blue);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .jobs-search-section {
-        padding: 26px 0 22px;
-      }
-
-      .jobs-search-inner,
-      .jobs-layout,
-      .jobs-page .footer {
-        width: calc(100% - 40px);
-      }
-
-      .jobs-breadcrumb {
-        margin-bottom: 19px;
-        font-size: 9px;
-      }
-
-      .jobs-heading-row {
-        margin-bottom: 18px;
-      }
-
-      .jobs-page h1 {
-        font-size: clamp(2.15rem, 10.5vw, 3.1rem);
-        letter-spacing: -.07em;
-      }
-
-      .jobs-heading-copy > p {
-        max-width: 460px;
-        font-size: 11px;
-      }
-
-      .jobs-kicker {
-        font-size: 8px;
-      }
-
-      .jobs-search-box {
-        padding: 7px;
-        border-radius: 12px;
-      }
-
-      .jobs-search-form {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 7px;
-      }
-
-      .jobs-search-field:first-child {
-        grid-column: auto;
-      }
-
-      .jobs-search-field {
-        min-height: 43px;
-        padding-inline: 11px;
-      }
-
-      .jobs-find-button {
-        min-height: 43px;
-        width: 100%;
-      }
-
-      .jobs-search-hint {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-        padding: 9px 3px 1px;
-        font-size: 9px;
-      }
-
-      .jobs-quick-row {
-        gap: 7px;
-        margin-top: 14px;
-      }
-
-      .jobs-quick-label {
-        width: 100%;
-        margin-bottom: 2px;
-      }
-
-      .jobs-quick-chip {
-        min-height: 29px;
-        padding-inline: 10px;
-        font-size: 9px;
-      }
-
-      .jobs-directory {
-        padding: 22px 0 52px;
-      }
-
-      .jobs-layout {
-        gap: 13px;
-      }
-
-      .jobs-results-top {
-        flex-direction: column;
-        gap: 13px;
-      }
-
-      .jobs-results-heading h2 {
-        font-size: 20px;
-      }
-
-      .jobs-results-controls {
-        justify-content: space-between;
-        width: 100%;
-      }
-
-      .jobs-sort-label {
-        display: none;
-      }
-
-      .jobs-sort-select {
-        min-height: 35px;
-      }
-
-      .jobs-mobile-filter-button {
-        min-height: 35px;
-      }
-
-      .jobs-card {
-        grid-template-columns: 37px minmax(0, 1fr);
-        gap: 11px;
-        padding: 14px;
-        border-radius: 11px;
-      }
-
-      .jobs-company-mark {
-        width: 36px;
-        height: 36px;
-        border-radius: 9px;
-        font-size: 12px;
-      }
-
-      .jobs-card-topline {
-        gap: 6px;
-      }
-
-      .jobs-company-name {
-        font-size: 9px;
-      }
-
-      .jobs-card h3 {
-        font-size: 16px;
-        line-height: 1.4;
-      }
-
-      .jobs-card-description {
-        margin: 7px 0 10px;
-        font-size: 10px;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
-      }
-
-      .jobs-card-meta {
-        gap: 7px 12px;
-        margin-bottom: 10px;
-        font-size: 9px;
-      }
-
-      .jobs-card-tags {
-        gap: 5px;
-        margin-bottom: 11px;
-      }
-
-      .jobs-tag {
-        min-height: 21px;
-        padding: 3px 7px;
-        font-size: 8px;
-      }
-
-      .jobs-card-footer {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .jobs-card-actions {
-        width: 100%;
-      }
-
-      .jobs-apply-button,
-      .jobs-contact-button,
-      .jobs-unavailable-button {
-        min-height: 32px;
-      }
-
-      .jobs-submit-section {
-        padding-bottom: 48px;
-      }
-
-      .jobs-submit-card {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 17px;
-        padding: 21px;
-      }
-
-      .jobs-submit-copy h2 {
-        font-size: 21px;
-      }
-
-      .jobs-submit-link {
-        width: 100%;
-      }
-
-      .jobs-page .footer {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 14px;
-        padding: 23px 0;
-      }
-
-      .jobs-page .footer-links {
-        gap: 5px 14px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .jobs-page *,
-      .jobs-page *::before,
-      .jobs-page *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
-
-  <script type="application/ld+json" id="jobs-structured-data">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "AI Jobs and LLM Evaluation Opportunities",
-    "url": "https://annotatorjobs.vercel.app/opportunities.html",
-    "description": "A curated directory of AI, LLM evaluation, data annotation, AI training, and related opportunities.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "EvalLoop Jobs",
-      "url": "https://annotatorjobs.vercel.app/"
-    },
-    "mainEntity": {
-      "@type": "ItemList",
-      "name": "AI opportunities",
-      "itemListElement": []
-    }
+  .count {
+    text-align: left;
   }
-  </script>
+
+  .search-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .search-box {
+    min-height: 48px;
+    padding: 0 13px;
+  }
+
+  .reset-button {
+    min-height: 40px;
+    justify-self: start;
+    padding: 0 13px;
+  }
+
+  .filters-panel {
+    padding: 16px 13px;
+  }
+
+  .filter-group + .filter-group {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .filter-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .filter-label {
+    padding-top: 0;
+    font-size: 9px;
+  }
+
+  .filter-chips {
+    gap: 7px;
+  }
+
+  .filter-chip {
+    min-height: 35px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .filter-status {
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+
+  .opportunity-list {
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .opportunity-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 19px 16px;
+    border-radius: 10px;
+  }
+
+  .opportunity-card:hover {
+    transform: none;
+  }
+
+  .company-name {
+    font-size: 11px;
+  }
+
+  .opportunity-title {
+    margin-top: 10px;
+    font-size: 21px;
+  }
+
+  .opportunity-description {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .tag-list {
+    gap: 6px;
+    margin-top: 13px;
+  }
+
+  .tag {
+    min-height: 24px;
+    padding: 0 7px;
+    font-size: 9px;
+  }
+
+  .card-side {
+    gap: 16px;
+    padding: 15px 0 0;
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .card-facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .fact {
+    font-size: 10px;
+  }
+
+  .fact.highlight {
+    grid-column: 1 / -1;
+  }
+
+  .card-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .action-link {
+    min-height: 39px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .state-card {
+    padding: 48px 18px;
+  }
+
+  .submit-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 42px;
+    padding: 23px 18px;
+  }
+
+  .submit-title {
+    font-size: 23px;
+  }
+
+  .submit-copy {
+    font-size: 11px;
+  }
+
+  .submit-button {
+    width: 100%;
+    min-height: 45px;
+  }
+
+  .back-row {
+    margin-top: 27px;
+  }
+
+  .footer-inner {
+    gap: 25px;
+    padding-top: 28px;
+    padding-bottom: 25px;
+  }
+
+  .footer-brand-copy {
+    max-width: 290px;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+    gap: 7px 17px;
+  }
+
+  .footer-nav a {
+    min-height: 30px;
+    font-size: 10px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 1.7;
+  }
+}
+</style>
 </head>
 
 <body>
-  <a class="skip-link" href="#jobs-results">Skip to job listings</a>
 
-  <div class="jobs-page" id="top">
-    <!-- Shared EvalLoop Jobs navigation -->
-    <header class="header">
-      <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
-        <span class="logo-mark">
-          <img src="/assets/evalloop-logo.png" alt="">
-        </span>
-        <span>EvalLoop Jobs</span>
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="index.html" class="brand" aria-label="EvalLoop Jobs home">
+      <img
+        src="/assets/evalloop-logo.png"
+        alt=""
+        width="35"
+        height="35"
+        onerror="this.style.display='none'"
+      >
+      <span class="brand-name">EvalLoop <span>Jobs</span></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="opportunities.html" aria-current="page">Opportunities</a>
+      <a href="about.html">About</a>
+      <a href="interview-prep.html">Interview Prep</a>
+    </nav>
+
+    <div class="header-actions">
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch color theme"
+        title="Switch color theme">
+        ☾
+      </button>
+
+      <a class="header-cta" href="#directory">
+        Explore roles <span aria-hidden="true">↗</span>
       </a>
-
-      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="opportunities.html" aria-current="page">Opportunities</a>
-        <a href="about.html">About</a>
-        <a href="interview-prep.html">Interview Prep</a>
-      </nav>
 
       <button
         class="menu-toggle"
-        id="menu-toggle"
+        id="menuToggle"
         type="button"
-        aria-expanded="false"
-        aria-controls="primary-nav"
         aria-label="Open navigation menu"
-      >
-        <span></span>
-        <span></span>
-        <span class="sr-only">Menu</span>
+        aria-expanded="false"
+        aria-controls="mobileNav">
+        ☰
       </button>
+    </div>
 
-      <button
-        class="theme-toggle"
-        id="theme-toggle"
-        type="button"
-        aria-label="Switch to dark mode"
-        title="Switch to dark mode"
-        aria-pressed="false"
-      >
-        <span aria-hidden="true">☾</span>
-      </button>
-
-      <a href="#jobs-results" class="top-cta">Find opportunities ↗</a>
-    </header>
-
-    <main>
-      <!-- Search introduction -->
-      <section class="jobs-search-section" aria-labelledby="jobs-page-title">
-        <div class="jobs-search-inner">
-          <nav class="jobs-breadcrumb" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">Opportunities</span>
-          </nav>
-
-          <div class="jobs-heading-row">
-            <div class="jobs-heading-copy">
-              <div class="jobs-kicker">AI opportunities directory</div>
-              <h1 id="jobs-page-title">Find work in <span style="color:var(--blue)">AI.</span></h1>
-              <p>
-                Explore AI careers, LLM evaluation projects, annotation work,
-                AI training, and specialist opportunities from across the AI ecosystem.
-              </p>
-            </div>
-
-            <aside class="jobs-heading-note" aria-label="Directory information">
-              <strong>One place to explore</strong>
-              Curated opportunities<br>from external sources
-            </aside>
-          </div>
-
-          <div class="jobs-search-box">
-            <form class="jobs-search-form" id="jobs-search-form" role="search">
-              <label class="jobs-search-field">
-                <span class="jobs-field-icon" aria-hidden="true">⌕</span>
-                <input
-                  type="search"
-                  id="search"
-                  name="q"
-                  placeholder="Job title, skill, company or keyword"
-                  autocomplete="off"
-                  aria-label="Search job titles, skills, companies or keywords"
-                >
-              </label>
-
-              <label class="jobs-search-field">
-                <span class="jobs-field-icon" aria-hidden="true">⌖</span>
-                <input
-                  type="search"
-                  id="location-search"
-                  name="location"
-                  placeholder="City, country or Remote"
-                  autocomplete="off"
-                  aria-label="Search by location"
-                >
-              </label>
-
-              <button class="jobs-find-button" type="submit">
-                Find opportunities <span aria-hidden="true">→</span>
-              </button>
-            </form>
-
-            <div class="jobs-search-hint">
-              <span>Search across <strong>AI, GenAI, evaluation, annotation</strong> and more.</span>
-              <span id="search-status" aria-live="polite">Loading opportunities…</span>
-            </div>
-          </div>
-
-          <div class="jobs-quick-row" aria-label="Popular searches">
-            <span class="jobs-quick-label">Popular searches</span>
-            <button class="jobs-quick-chip" type="button" data-quick="remote">
-              <span class="chip-dot"></span> Remote
-            </button>
-            <button class="jobs-quick-chip" type="button" data-quick="llm">
-              <span class="chip-dot"></span> LLM Evaluation
-            </button>
-            <button class="jobs-quick-chip" type="button" data-quick="annotation">
-              <span class="chip-dot"></span> Data Annotation
-            </button>
-            <button class="jobs-quick-chip" type="button" data-quick="training">
-              <span class="chip-dot"></span> AI Training
-            </button>
-            <button class="jobs-quick-chip" type="button" data-quick="ai-engineer">
-              <span class="chip-dot"></span> AI Engineer
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Search results and filters -->
-      <section class="jobs-directory" id="jobs-results" aria-label="Opportunity search results">
-        <div class="jobs-layout">
-          <aside
-            class="jobs-filter-sidebar"
-            id="jobs-filter-sidebar"
-            aria-label="Filter opportunities"
-          >
-            <div class="jobs-filter-header">
-              <h2>Filters</h2>
-              <button class="jobs-clear-button" type="button" id="clear-filters">
-                Clear all
-              </button>
-            </div>
-
-            <div class="jobs-filter-group">
-              <h3>Work mode <span aria-hidden="true">⌄</span></h3>
-              <div class="jobs-filter-options">
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="work-mode" value="remote">
-                  <span>Remote</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="work-mode" value="office">
-                  <span>Office / On-site</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="work-mode" value="hybrid">
-                  <span>Hybrid</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="jobs-filter-group">
-              <h3>Experience <span aria-hidden="true">⌄</span></h3>
-              <div class="jobs-filter-options">
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="experience" value="freshers">
-                  <span>Freshers</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="experience" value="0-1">
-                  <span>0–1 years</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="experience" value="2+">
-                  <span>2+ years</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="jobs-filter-group">
-              <h3>Opportunity type <span aria-hidden="true">⌄</span></h3>
-              <div class="jobs-filter-options">
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="opportunity-type" value="full-time">
-                  <span>Full-time</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="opportunity-type" value="contract">
-                  <span>Contract</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="opportunity-type" value="freelance">
-                  <span>Freelance</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="opportunity-type" value="project">
-                  <span>Project-based</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="opportunity-type" value="part-time">
-                  <span>Part-time</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="jobs-filter-group">
-              <h3>Role category <span aria-hidden="true">⌄</span></h3>
-              <div class="jobs-filter-options">
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="annotation">
-                  <span>Data annotation</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="ai-engineer">
-                  <span>AI / ML engineering</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="gen-ai">
-                  <span>LLM / GenAI evaluation</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="agentic">
-                  <span>Agentic AI</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="language">
-                  <span>Language / speech</span>
-                </label>
-                <label class="jobs-filter-option">
-                  <input type="checkbox" name="role" value="others">
-                  <span>Other AI opportunities</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="jobs-filter-group">
-              <h3>Location <span aria-hidden="true">⌄</span></h3>
-              <select class="jobs-filter-select" id="location-filter" aria-label="Filter by location">
-                <option value="">All locations</option>
-              </select>
-            </div>
-
-            <div class="jobs-filter-mobile-actions">
-              <button type="button" id="mobile-clear-filters">Clear filters</button>
-              <button type="button" class="jobs-mobile-apply" id="apply-mobile-filters">
-                Show results
-              </button>
-            </div>
-          </aside>
-
-          <div class="jobs-results">
-            <div class="jobs-results-top">
-              <div class="jobs-results-heading">
-                <h2>Explore opportunities</h2>
-                <p id="results-description" aria-live="polite">
-                  Finding relevant opportunities…
-                </p>
-              </div>
-
-              <div class="jobs-results-controls">
-                <button
-                  class="jobs-mobile-filter-button"
-                  id="mobile-filter-toggle"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="jobs-filter-sidebar"
-                >
-                  <span aria-hidden="true">☷</span> Filters
-                </button>
-
-                <label class="jobs-sort-label" for="jobs-sort">Sort by</label>
-                <select class="jobs-sort-select" id="jobs-sort" aria-label="Sort opportunities">
-                  <option value="relevance">Relevance</option>
-                  <option value="company">Company A–Z</option>
-                  <option value="title">Job title A–Z</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="jobs-active-filters" id="active-filters" aria-label="Active filters"></div>
-
-            <div
-              class="jobs-list"
-              id="opList"
-              aria-live="polite"
-              aria-busy="true"
-            >
-              <div class="jobs-state">
-                <div class="jobs-state-icon" aria-hidden="true">⌕</div>
-                <h3>Loading opportunities</h3>
-                <p>We’re retrieving the latest listings from the EvalLoop Jobs directory.</p>
-              </div>
-            </div>
-
-            <div class="jobs-load-more-row">
-              <button class="jobs-load-more" id="load-more" type="button" hidden>
-                Show more opportunities
-              </button>
-            </div>
-
-            <div class="jobs-disclaimer">
-              <span class="jobs-disclaimer-icon" aria-hidden="true">ⓘ</span>
-              <p>
-                <strong>Independent directory notice.</strong>
-                EvalLoop Jobs is an independent curated discovery platform, not an employer
-                or recruitment agency. Opportunities may originate from companies, hiring
-                platforms, project providers, contributor networks, and public sources.
-                The named company or provider is responsible for the opportunity, and
-                applications should be submitted through the original channel listed.
-                Always verify the details before sharing personal information.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Opportunity submissions -->
-      <section class="jobs-submit-section" aria-labelledby="jobs-submit-title">
-        <div class="jobs-search-inner">
-          <div class="jobs-submit-card">
-            <div class="jobs-submit-copy">
-              <div class="jobs-kicker">Help grow the directory</div>
-              <h2 id="jobs-submit-title">Know an AI opportunity?</h2>
-              <p>
-                Help more people discover relevant AI work. Share opportunities that may
-                benefit AI professionals, specialists, contributors, and newcomers.
-              </p>
-            </div>
-
-            <a
-              class="jobs-submit-link"
-              href="/submit-opportunity.html"
-            >
-              Submit an opportunity <span aria-hidden="true">&nbsp;↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-   <footer class="footer wrap">
-
-<span>Powered by alphex ai.</span>
-<a
-class="back"
-href="https://www.linkedin.com/company/evalloopjobs/"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn ↗
-</a>
-<a class="back" href="#top">Back to top ↗</a>
-</footer>
   </div>
 
-  <script src="chatbot.js" defer></script>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="opportunities.html" aria-current="page">Opportunities</a>
+    <a href="about.html">About</a>
+    <a href="interview-prep.html">Interview Prep</a>
+    <a href="submit-opportunity.html">Submit an opportunity</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="page-intro container">
+
+    <div class="eyebrow">The opportunity directory</div>
+
+    <div class="intro-grid">
+
+      <h1 class="page-title">
+        Find your<br>
+        next <em>opportunity.</em>
+      </h1>
+
+      <p class="intro-copy">
+        Explore opportunities across <strong>AI training, data annotation,
+        LLM evaluation, GenAI, AI operations, and expert work.</strong>
+        Search by role, experience, or work mode to find opportunities
+        that may fit your next step.
+      </p>
+
+    </div>
+
+    <div class="intro-meta">
+      <span class="meta-item">
+        <span class="meta-dot"></span>
+        Curated opportunity listings
+      </span>
+
+      <span class="meta-divider" aria-hidden="true"></span>
+
+      <span class="meta-item">Explore. Compare. Apply directly.</span>
+    </div>
+
+    <aside class="directory-note" aria-label="Directory disclaimer">
+
+      <div class="notice-icon" aria-hidden="true">↗</div>
+
+      <div>
+        <h2 class="notice-title">An independent opportunity directory</h2>
+
+        <p class="notice-copy">
+          EvalLoop Jobs curates and organizes opportunities from companies,
+          hiring platforms, project providers, contributor networks, and
+          other sources. The company shown on each listing is the associated
+          employer or opportunity provider where available.
+          <strong>EvalLoop Jobs is not the employer for third-party opportunities.</strong>
+          Always review the original listing, eligibility requirements, and
+          application instructions before applying.
+          <a class="text-link" href="about.html">Learn more about EvalLoop Jobs →</a>
+        </p>
+      </div>
+
+    </aside>
+
+  </section>
+
+  <section class="directory container" id="directory">
+
+    <div class="directory-heading">
+      <div>
+        <h2>Explore opportunities</h2>
+        <p>Use the search and filters to narrow down the directory.</p>
+      </div>
+
+      <div class="count" id="count" aria-live="polite">
+        LOADING OPPORTUNITIES…
+      </div>
+    </div>
+
+    <div class="search-row">
+
+      <label class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search by title, company, location, or keyword"
+          autocomplete="off"
+          aria-label="Search opportunities">
+      </label>
+
+      <button class="reset-button" id="resetButton" type="button">
+        Reset search ↺
+      </button>
+
+    </div>
+
+    <div class="filters-panel" id="filters" aria-label="Opportunity filters">
+      <p style="margin:0;color:var(--muted);font-size:12px">
+        Loading filters…
+      </p>
+    </div>
+
+    <div class="filter-status">
+      <span id="filterSummary">Loading opportunities…</span>
+
+      <button
+        class="clear-filters"
+        id="clear"
+        type="button"
+        hidden>
+        Clear all filters ×
+      </button>
+    </div>
+
+    <div class="opportunity-list" id="opList" aria-live="polite">
+
+      <div class="state-card">
+        <div class="state-icon" aria-hidden="true">↻</div>
+        <h3>Loading opportunities</h3>
+        <p>Fetching the latest available listings. This should only take a moment.</p>
+      </div>
+
+    </div>
+
+    <section class="submit-section">
+
+      <div>
+        <p class="submit-kicker">Help the community discover more</p>
+
+        <h2 class="submit-title">Know an opportunity worth sharing?</h2>
+
+        <p class="submit-copy">
+          Help others discover AI training, evaluation, annotation,
+          GenAI, and expert work by submitting a relevant opportunity.
+        </p>
+      </div>
+
+      <a class="submit-button" href="submit-opportunity.html">
+        Submit an opportunity <span aria-hidden="true">↗</span>
+      </a>
+
+    </section>
+
+    <div class="back-row">
+      <a class="back-home" href="index.html">
+        <span aria-hidden="true">←</span> Back to home
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="footer-inner container">
+
+    <div>
+      <a href="index.html" class="brand" aria-label="EvalLoop Jobs home">
+        <img
+          src="/assets/evalloop-logo.png"
+          alt=""
+          width="35"
+          height="35"
+          onerror="this.style.display='none'"
+        >
+        <span class="brand-name">EvalLoop <span>Jobs</span></span>
+      </a>
+
+      <p class="footer-brand-copy">
+        Curated pathways into the work behind better AI.
+        Discover opportunities across AI training, evaluation,
+        annotation, GenAI, and expert work.
+      </p>
+
+      <p class="footer-powered">
+        An independent project from
+        <a href="https://alphex-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Alphex AI ↗</a>
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="about.html">About</a>
+      <a href="opportunities.html" aria-current="page">Opportunities</a>
+      <a href="interview-prep.html">Interview Prep</a>
+      <a href="submit-opportunity.html">Submit opportunity</a>
+      <a href="join-network.html">Join network</a>
+      <a href="contact.html">Contact</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </nav>
+
+  </div>
+
+  <div class="footer-bottom container">
+    <span>© <span id="year"></span> EvalLoop Jobs. All rights reserved.</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+
+</footer>
 
 <script>
-  (() => {
-    "use strict";
-    const DATA_URL = "opportunities.json";
-    const PAGE_SIZE = 10;
-    const elements = {
-      searchForm: document.getElementById("jobs-search-form"),
-      search: document.getElementById("search"),
-      locationSearch: document.getElementById("location-search"),
-      locationFilter: document.getElementById("location-filter"),
-      list: document.getElementById("opList"),
-      count: document.getElementById("search-status"),
-      description: document.getElementById("results-description"),
-      activeFilters: document.getElementById("active-filters"),
-      sort: document.getElementById("jobs-sort"),
-      clear: document.getElementById("clear-filters"),
-      mobileClear: document.getElementById("mobile-clear-filters"),
-      loadMore: document.getElementById("load-more"),
-      filterSidebar: document.getElementById("jobs-filter-sidebar"),
-      mobileFilterToggle: document.getElementById("mobile-filter-toggle"),
-      mobileApply: document.getElementById("apply-mobile-filters"),
-      menuToggle: document.getElementById("menu-toggle"),
-      primaryNav: document.getElementById("primary-nav"),
-      themeToggle: document.getElementById("theme-toggle"),
-      structuredData: document.getElementById("jobs-structured-data")
-    };
-    let allJobs = [];
-    let filteredJobs = [];
-    let visibleCount = PAGE_SIZE;
-    let loadError = false;
-    let quickSearch = "";
-    const filterNames = {
-      "work-mode": "Work mode",
-      "experience": "Experience",
-      "opportunity-type": "Opportunity type",
-      "role": "Role category"
-    };
-    const roleLabels = {
-      annotation: "Data annotation",
-      "ai-engineer": "AI / ML engineering",
-      "gen-ai": "LLM / GenAI evaluation",
-      agentic: "Agentic AI",
-      language: "Language / speech",
-      others: "Other AI opportunities"
-    };
-    const typeLabels = {
-      "full-time": "Full-time",
-      contract: "Contract",
-      freelance: "Freelance",
-      project: "Project-based",
-      "part-time": "Part-time"
-    };
-    const experienceLabels = {
-      freshers: "Freshers",
-      "0-1": "0–1 years",
-      "2+": "2+ years"
-    };
-    const modeLabels = {
-      remote: "Remote",
-      office: "Office / On-site",
-      hybrid: "Hybrid"
-    };
-    function normalize(value) {
-      return String(value ?? "")
-        .toLowerCase()
-        .normalize("NFKD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
+(function () {
+  "use strict";
+
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+
+  function setTheme(theme) {
+    const nextTheme = theme === "dark" ? "dark" : "light";
+
+    root.dataset.theme = nextTheme;
+
+    try {
+      localStorage.setItem("evalloop-theme", nextTheme);
+    } catch (error) {
+      // The page remains usable if storage is unavailable.
     }
-    function safeText(value, fallback = "") {
-      if (value === null || value === undefined) return fallback;
-      if (Array.isArray(value)) {
-        return value.map(item => safeText(item)).filter(Boolean).join(", ");
-      }
-      return String(value).trim() || fallback;
+
+    if (themeToggle) {
+      themeToggle.textContent = nextTheme === "dark" ? "☀" : "☾";
+      themeToggle.setAttribute(
+        "aria-label",
+        nextTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+      themeToggle.title =
+        nextTheme === "dark" ? "Switch to light theme" : "Switch to dark theme";
     }
-    function escapeHTML(value) {
-      return String(value ?? "").replace(/[&<>"']/g, character => ({
+  }
+
+  setTheme(root.dataset.theme || "light");
+
+  themeToggle.addEventListener("click", function () {
+    setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+  });
+
+  menuToggle.addEventListener("click", function () {
+    const isOpen = mobileNav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    menuToggle.textContent = isOpen ? "×" : "☰";
+  });
+
+  mobileNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.textContent = "☰";
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+
+/* ==========================================================
+   OPPORTUNITY DIRECTORY
+   Loads opportunities.json and provides search and filtering.
+   ========================================================== */
+
+(function () {
+  "use strict";
+
+  const list = document.getElementById("opList");
+  const search = document.getElementById("search");
+  const count = document.getElementById("count");
+  const filtersBox = document.getElementById("filters");
+  const clearButton = document.getElementById("clear");
+  const resetButton = document.getElementById("resetButton");
+  const filterSummary = document.getElementById("filterSummary");
+
+  const GROUPS = [
+    {
+      key: "exp",
+      label: "Experience",
+      options: [
+        ["freshers", "Freshers"],
+        ["0-1", "0–1 year"],
+        ["2+", "2+ years"]
+      ]
+    },
+    {
+      key: "mode",
+      label: "Work mode",
+      options: [
+        ["remote", "Remote"],
+        ["office", "Office / Hybrid"]
+      ]
+    },
+    {
+      key: "role",
+      label: "Job role",
+      options: [
+        ["annotation", "Annotation"],
+        ["ai-engineer", "AI engineer"],
+        ["gen-ai", "GenAI / LLM"],
+        ["agentic", "Agentic AI"],
+        ["others", "Other roles"]
+      ]
+    }
+  ];
+
+  const active = {
+    exp: "all",
+    mode: "all",
+    role: "all"
+  };
+
+  let jobs = [];
+  let isLoaded = false;
+
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function (character) {
+      return {
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
         '"': "&quot;",
         "'": "&#39;"
-      })[character]);
-    }
-    function getTags(job) {
-      if (Array.isArray(job.tags)) {
-        return job.tags.map(tag => safeText(tag)).filter(Boolean);
-      }
-      if (typeof job.tags === "string" && job.tags.trim()) {
-        return job.tags.split(",").map(tag => tag.trim()).filter(Boolean);
-      }
-      return [];
-    }
-    function getSearchableText(job) {
-      return normalize([
-        job.company,
-        job.title,
-        job.description,
-        getTags(job).join(" "),
-        job.location,
-        job.duration,
-        job.highlight
-      ].join(" "));
-    }
-    function getJobLocation(job) {
-      return safeText(job.location, "Location not specified");
-    }
-    function getJobCompany(job) {
-      return safeText(job.company, "Company not specified");
-    }
-    function getJobTitle(job) {
-      return safeText(job.title, "Opportunity");
-    }
-    function getJobDescription(job) {
-      return safeText(job.description, "No additional description provided.");
-    }
-    function getJobHighlight(job) {
-      return safeText(job.highlight);
-    }
-    function getJobDuration(job) {
-      return safeText(job.duration);
-    }
-    function getJobEmail(job) {
-      const email = safeText(job.email);
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      }[character];
+    });
+  }
+
+  function safeUrl(value) {
+    if (!value) return "";
+
+    try {
+      const url = new URL(String(value), window.location.href);
+
+      if (!["http:", "https:"].includes(url.protocol)) {
         return "";
       }
-      return email;
-    }
-    function safeURL(value, allowedProtocols = ["https:", "http:"]) {
-      const raw = safeText(value);
-      if (!raw) return "";
-      try {
-        const url = new URL(raw, window.location.href);
-        if (!allowedProtocols.includes(url.protocol)) return "";
-        return url.href;
-      } catch {
-        return "";
-      }
-    }
-    /*
-     * APPLICATION URL
-     * Only job.link is treated as the application link.
-     * Email and WhatsApp are generated as their own separate buttons.
-     */
-    function getApplyURL(job) {
-      const rawLink = safeText(job.link);
-      if (!rawLink) return "";
-      return safeURL(rawLink);
-    }
-    /*
-     * WHATSAPP URL
-     * Supports:
-     * 1. International phone numbers, e.g. +919876543210
-     * 2. wa.me links
-     * 3. WhatsApp API links
-     */
-    function getContactURL(job) {
-      const whatsapp = safeText(job.whatsapp);
-      if (!whatsapp) return "";
-      const existingURL = safeURL(whatsapp);
-      if (existingURL) {
-        try {
-          const url = new URL(existingURL);
-          const hostname = url.hostname.toLowerCase();
-          if (
-            hostname === "wa.me" ||
-            hostname.endsWith(".wa.me") ||
-            hostname === "whatsapp.com" ||
-            hostname.endsWith(".whatsapp.com")
-          ) {
-            return existingURL;
-          }
-        } catch {
-          // Continue to phone-number validation.
-        }
-      }
-      // Avoid interpreting arbitrary website URLs as phone numbers.
-      if (/^https?:\/\//i.test(whatsapp)) {
-        return "";
-      }
-      const digits = whatsapp.replace(/\D/g, "");
-      if (digits.length >= 7 && digits.length <= 15) {
-        return "https://wa.me/" + digits;
-      }
+
+      return url.href;
+    } catch (error) {
       return "";
     }
-    function getJobMode(job) {
-      const text = getSearchableText(job);
-      if (/\bhybrid\b/.test(text)) return "hybrid";
-      if (
-        /\bremote\b|\bwork from home\b|\bwfh\b|\banywhere\b|\bfully distributed\b/.test(text)
-      ) {
-        return "remote";
-      }
-      if (
-        /\bon[\s-]?site\b|\boffice[\s-]?based\b|\bin[\s-]?office\b|\bwork from office\b/.test(text)
-      ) {
-        return "office";
-      }
-      return "unspecified";
+  }
+
+  function safeEmail(value) {
+    const email = String(value || "").trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return "";
     }
-    function getJobExperience(job) {
-      const text = getSearchableText(job);
-      if (
-        /\bfreshers?\b|\bno experience\b|\bentry[\s-]?level\b|\bgraduates?\b|\bnew graduates?\b/.test(text)
-      ) {
-        return "freshers";
-      }
-      if (
-        /\b(?:0|zero)\s*(?:to|-|–)\s*1\s*(?:years?|yrs?)?\b|\b0-1\s*(?:years?|yrs?)?\b|\b1\s*(?:year|yr)\s*(?:of )?experience\b/.test(text)
-      ) {
-        return "0-1";
-      }
-      if (
-        /\b[2-9]\+?\s*(?:years?|yrs?)\b|\b(?:2|3|4|5|6|7|8|9)\s*(?:to|-|–)\s*\d+\s*(?:years?|yrs?)\b|\bminimum\s+[2-9]\s*(?:years?|yrs?)\b/.test(text)
-      ) {
-        return "2+";
-      }
-      return "unspecified";
+
+    return email;
+  }
+
+  function safeWhatsapp(value) {
+    const number = String(value || "").replace(/\D/g, "");
+
+    if (number.length < 7 || number.length > 15) {
+      return "";
     }
-    function getJobType(job) {
-      const text = getSearchableText(job);
-      if (/\bpart[\s-]?time\b/.test(text)) return "part-time";
-      if (/\bfull[\s-]?time\b/.test(text)) return "full-time";
-      if (/\bfreelance\b|\bindependent contractor\b/.test(text)) return "freelance";
-      if (/\bcontract\b|\bcontractor\b|\btemporary\b|\btemp role\b/.test(text)) return "contract";
-      if (
-        /\bproject[\s-]?based\b|\bper project\b|\bcontributor network\b|\bcontributor\b/.test(text)
-      ) {
-        return "project";
-      }
-      return "unspecified";
+
+    return number;
+  }
+
+  function normalizedText(value) {
+    return String(value || "").toLowerCase().trim();
+  }
+
+  function blob(job) {
+    return [
+      job.title,
+      job.description,
+      (job.tags || []).join(" "),
+      job.highlight,
+      job.location,
+      job.duration
+    ].join(" ").toLowerCase();
+  }
+
+  function detectExperience(job) {
+    const text = blob(job);
+
+    if (/\b(fresher|freshers|entry[- ]level|no experience|recent graduate|new grad|graduate)\b/.test(text)) {
+      return "freshers";
     }
-    function getJobRole(job) {
-      const text = getSearchableText(job);
-      if (
-        /\blanguage\b|\blinguist\b|\btranscription\b|\bspeech\b|\bvoice data\b|\bsubtitle\b|\blocalization\b|\blocalisation\b/.test(text)
-      ) {
-        return "language";
-      }
-      if (
-        /\bagentic\b|\bagentic ai\b|\bai agents?\b|\bgui agents?\b|\bcomputer use agent\b/.test(text)
-      ) {
-        return "agentic";
-      }
-      if (
-        /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bdata label\b|\bimage label\b|\bvideo annotation\b|\bdata collection\b|\bbounding boxes\b/.test(text)
-      ) {
-        return "annotation";
-      }
-      if (
-        /\bai engineer\b|\bml engineer\b|\bmachine learning engineer\b|\bai\/ml engineer\b|\bdeep learning engineer\b|\bmachine learning\b/.test(text)
-      ) {
-        return "ai-engineer";
-      }
-      if (
-        /\bllm\b|\blarge language model\b|\bgenerative ai\b|\bgenai\b|\bprompt engineer\b|\bprompting\b|\bevaluation\b|\bevaluator\b|\bmodel eval\b|\bai trainer\b|\bai training\b|\bred team\b|\bragas\b/.test(text)
-      ) {
-        return "gen-ai";
-      }
-      return "others";
+
+    const range = text.match(
+      /(\d+)\s*(?:\+|-|–|to)?\s*\d*\s*(?:years?|yrs?)\b/
+    );
+
+    if (range) {
+      return Number(range[1]) >= 2 ? "2+" : "0-1";
     }
-    function getFilterValues(name) {
-      return [...document.querySelectorAll('input[name="' + name + '"]:checked')]
-        .map(input => input.value);
+
+    if (/\b(senior|sr\.|principal|staff|experienced)\b/.test(text)) {
+      return "2+";
     }
-    function getActiveFilters() {
-      return {
-        workMode: getFilterValues("work-mode"),
-        experience: getFilterValues("experience"),
-        type: getFilterValues("opportunity-type"),
-        role: getFilterValues("role"),
-        location: elements.locationFilter.value,
-        keyword: elements.search.value.trim(),
-        locationSearch: elements.locationSearch.value.trim(),
-        quick: quickSearch
-      };
+
+    if (/\b(junior|jr\.|intern|trainee)\b/.test(text)) {
+      return "0-1";
     }
-    function matchesSelectedFilters(job, filters) {
-      const searchable = getSearchableText(job);
-      const location = normalize(getJobLocation(job));
-      const keyword = normalize(filters.keyword);
-      const locationQuery = normalize(filters.locationSearch);
-      if (keyword && !searchable.includes(keyword)) return false;
-      if (filters.quick && !matchesQuickSearch(job, filters.quick)) {
-        return false;
-      }
-      if (
-        locationQuery &&
-        !location.includes(locationQuery) &&
-        !(locationQuery === "remote" && getJobMode(job) === "remote")
-      ) {
-        return false;
-      }
-      if (filters.location && normalize(filters.location) !== location) {
-        return false;
-      }
-      if (
-        filters.workMode.length &&
-        !filters.workMode.includes(getJobMode(job))
-      ) {
-        return false;
-      }
-      if (
-        filters.experience.length &&
-        !filters.experience.includes(getJobExperience(job))
-      ) {
-        return false;
-      }
-      if (
-        filters.type.length &&
-        !filters.type.includes(getJobType(job))
-      ) {
-        return false;
-      }
-      if (
-        filters.role.length &&
-        !filters.role.includes(getJobRole(job))
-      ) {
-        return false;
-      }
-      return true;
+
+    return "unspecified";
+  }
+
+  function normalizeExperience(value) {
+    const text = normalizedText(value);
+
+    if (!text) return null;
+
+    if (/fresh|entry|no experience|graduate/.test(text)) {
+      return "freshers";
     }
-    function matchesQuickSearch(job, query) {
-      const text = getSearchableText(job);
-      const quickTerms = {
-        remote: () => getJobMode(job) === "remote",
-        llm: () =>
-          /\bllm\b|\bevaluation\b|\bevaluator\b|\bgenai\b|\bgenerative ai\b|\bmodel eval\b/.test(text),
-        annotation: () =>
-          /\bannotation\b|\bannotator\b|\blabeling\b|\blabelling\b|\bbounding boxes\b|\bdata label\b/.test(text),
-        training: () =>
-          /\btraining\b|\btrainer\b|\bai trainer\b|\bdata collection\b/.test(text),
-        "ai-engineer": () => getJobRole(job) === "ai-engineer"
-      };
-      return quickTerms[query] ? quickTerms[query]() : true;
+
+    const match = text.match(/(\d+)/);
+
+    if (match) {
+      return Number(match[1]) >= 2 ? "2+" : "0-1";
     }
-    function getInitials(company) {
-      const words = safeText(company, "AI")
-        .split(/\s+/)
-        .filter(Boolean);
-      if (words.length > 1) {
-        return (words[0][0] + words[1][0]).toUpperCase();
-      }
-      return (words[0] || "AI").slice(0, 2).toUpperCase();
+
+    if (/senior|experienced/.test(text)) {
+      return "2+";
     }
-    function createMetaItem(icon, value) {
-      if (!value) return "";
-      return `
-        <span class="jobs-meta-item">
-          <span class="jobs-meta-icon" aria-hidden="true">${icon}</span>
-          <span>${escapeHTML(value)}</span>
-        </span>
-      `;
+
+    return null;
+  }
+
+  function modeOf(value) {
+    const text = normalizedText(value);
+
+    if (/\b(hybrid|on-?site|in-?office|work from office|wfo|office)\b/.test(text)) {
+      return "office";
     }
-    /*
-     * INDEPENDENT ACTION BUTTONS
-     *
-     * Apply Now: only when job.link is valid.
-     * WhatsApp: only when job.whatsapp is valid.
-     * Email: only when job.email is valid.
-     *
-     * A job can show one, two, or all three buttons.
-     */
-    function createJobActions(job) {
-      const applyURL = getApplyURL(job);
-      const whatsappURL = getContactURL(job);
-      const email = getJobEmail(job);
-      const buttons = [];
-      if (applyURL) {
-        buttons.push(`
-          <a
-            class="jobs-apply-button"
-            href="${escapeHTML(applyURL)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apply Now <span aria-hidden="true">↗</span>
-          </a>
-        `);
-      }
-      if (whatsappURL) {
-        buttons.push(`
-          <a
-            class="jobs-contact-button jobs-whatsapp-button"
-            href="${escapeHTML(whatsappURL)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span aria-hidden="true">◉</span> WhatsApp
-          </a>
-        `);
-      }
-      if (email) {
-        const emailURL =
-          "mailto:" + email +
-          "?subject=" + encodeURIComponent("Opportunity: " + getJobTitle(job));
-        buttons.push(`
-          <a
-            class="jobs-contact-button jobs-email-button"
-            href="${escapeHTML(emailURL)}"
-          >
-            <span aria-hidden="true">✉</span> Email
-          </a>
-        `);
-      }
-      if (!buttons.length) {
-        return `
-          <span
-            class="jobs-unavailable-button"
-            title="No application link or contact was supplied"
-          >
-            Application details unavailable
-          </span>
-        `;
-      }
-      return `
-        <div class="jobs-card-actions">
-          ${buttons.join("")}
-        </div>
-      `;
+
+    if (/\b(remote|work from home|wfh|anywhere)\b/.test(text)) {
+      return "remote";
     }
-    function createJobCard(job, index) {
-      const company = getJobCompany(job);
-      const title = getJobTitle(job);
-      const description = getJobDescription(job);
-      const location = getJobLocation(job);
-      const duration = getJobDuration(job);
-      const highlight = getJobHighlight(job);
-      const tags = getTags(job).slice(0, 6);
-      const role = getJobRole(job);
-      const mode = getJobMode(job);
-      const type = getJobType(job);
-      const experience = getJobExperience(job);
-      const inferredTags = [];
-      if (mode !== "unspecified") inferredTags.push(modeLabels[mode]);
-      if (type !== "unspecified") inferredTags.push(typeLabels[type]);
-      if (experience !== "unspecified") {
-        inferredTags.push(experienceLabels[experience]);
-      }
-      const allTags = [...new Set([...tags, ...inferredTags])].slice(0, 7);
-      const tagHTML = allTags.length
-        ? allTags
-            .map(tag => `<span class="jobs-tag">${escapeHTML(tag)}</span>`)
-            .join("")
-        : `<span class="jobs-tag">${escapeHTML(roleLabels[role])}</span>`;
-      const card = document.createElement("article");
-      card.className = "jobs-card";
-      card.setAttribute("data-index", String(index));
-      card.innerHTML = `
-        <div class="jobs-company-mark" aria-hidden="true">
-          ${escapeHTML(getInitials(company))}
-        </div>
-        <div class="jobs-card-content">
-          <div class="jobs-card-topline">
-            <span class="jobs-company-name">${escapeHTML(company)}</span>
-            ${
-              highlight
-                ? `<span class="jobs-highlight-badge">${escapeHTML(highlight)}</span>`
-                : ""
-            }
-          </div>
-          <h3 class="jobs-card-title">
-            ${escapeHTML(title)}
-          </h3>
-          <p class="jobs-card-description">
-            ${escapeHTML(description)}
-          </p>
-          <div class="jobs-card-meta">
-            ${createMetaItem("⌖", location)}
-            ${duration ? createMetaItem("◷", duration) : ""}
-          </div>
-          <div class="jobs-card-tags">
-            ${tagHTML}
-          </div>
-          <div class="jobs-card-footer">
-            <span class="jobs-card-source-note">
-              Listed by EvalLoop Jobs · Verify details with the provider
-            </span>
-            ${createJobActions(job)}
-          </div>
-        </div>
-      `;
-      return card;
-    }
-    function renderEmptyState() {
-      elements.list.innerHTML = `
-        <div class="jobs-state">
-          <div class="jobs-state-icon" aria-hidden="true">⌕</div>
-          <h3>No matching opportunities</h3>
-          <p>
-            Try a different keyword, broaden your location, or remove some filters
-            to see more opportunities.
-          </p>
-          <button class="jobs-state-button" type="button" id="empty-clear-filters">
-            Clear all filters
-          </button>
-        </div>
-      `;
-      const clearButton = document.getElementById("empty-clear-filters");
-      if (clearButton) {
-        clearButton.addEventListener("click", clearAllFilters);
-      }
-    }
-    function renderErrorState() {
-      elements.list.innerHTML = `
-        <div class="jobs-state">
-          <div class="jobs-state-icon" aria-hidden="true">!</div>
-          <h3>Unable to load opportunities</h3>
-          <p>
-            The directory data could not be loaded. Please check your connection
-            and try again in a moment.
-          </p>
-          <button class="jobs-state-button" type="button" id="retry-load">
-            Try again
-          </button>
-        </div>
-      `;
-      const retryButton = document.getElementById("retry-load");
-      if (retryButton) {
-        retryButton.addEventListener("click", loadJobs);
-      }
-    }
-    function renderJobs() {
-      elements.list.setAttribute("aria-busy", "false");
-      elements.list.innerHTML = "";
-      if (loadError) {
-        renderErrorState();
-        elements.count.textContent = "Unable to load data";
-        elements.description.textContent = "Please try again.";
-        elements.loadMore.hidden = true;
-        elements.activeFilters.innerHTML = "";
-        return;
-      }
-      if (!filteredJobs.length) {
-        renderEmptyState();
-        elements.count.textContent = "0 opportunities found";
-        elements.description.textContent = "No listings match the current search.";
-        elements.loadMore.hidden = true;
-        renderActiveFilters();
-        return;
-      }
-      const visibleJobs = filteredJobs.slice(0, visibleCount);
-      const fragment = document.createDocumentFragment();
-      visibleJobs.forEach((job, index) => {
-        fragment.appendChild(createJobCard(job, index));
+
+    return null;
+  }
+
+  function detectMode(job) {
+    return (
+      modeOf(job.mode) ||
+      modeOf(job.location) ||
+      modeOf([
+        job.title,
+        job.description,
+        (job.tags || []).join(" "),
+        job.duration,
+        job.highlight
+      ].join(" ")) ||
+      "unspecified"
+    );
+  }
+
+  const ROLE_RULES = [
+    [
+      "annotation",
+      /annotat|\blabel(l)?(er|ers|ing)?\b|\brater\b|\braters\b|transcri|data collect|\btagging\b|\bcurator\b|content review|moderat/
+    ],
+    [
+      "agentic",
+      /\bagent\b|\bagents\b|agentic|multi ?agent|tool use|function call/
+    ],
+    [
+      "gen-ai",
+      /\bgen ?ai\b|generative|\bllms?\b|prompt|rlhf|language model|chatbot|conversational/
+    ],
+    [
+      "ai-engineer",
+      /\b(engineer|engineers|developer|developers|scientist|scientists|mlops|architect)\b|machine learning|\bml\b/
+    ]
+  ];
+
+  function detectRoles(job) {
+    const title = " " + normalizedText(job.title).replace(/[^a-z0-9+]+/g, " ") + " ";
+
+    const roles = ROLE_RULES
+      .filter(function (rule) {
+        return rule[1].test(title);
+      })
+      .map(function (rule) {
+        return rule[0];
       });
-      elements.list.appendChild(fragment);
-      const total = filteredJobs.length;
-      const showing = visibleJobs.length;
-      elements.count.textContent =
-        total + (total === 1 ? " opportunity found" : " opportunities found");
-      elements.description.innerHTML =
-        "Showing <strong>" + showing + "</strong> of <strong>" + total +
-        "</strong> matching " +
-        (total === 1 ? "opportunity" : "opportunities");
-      elements.loadMore.hidden = showing >= total;
-      elements.loadMore.textContent =
-        "Show more opportunities (" + (total - showing) + " remaining)";
-      renderActiveFilters();
+
+    return roles.length ? roles : ["others"];
+  }
+
+  function explicitRoles(value) {
+    const valid = GROUPS[2].options.map(function (option) {
+      return option[0];
+    });
+
+    const values = (Array.isArray(value) ? value : [value])
+      .map(function (item) {
+        return normalizedText(item);
+      })
+      .filter(function (item) {
+        return valid.includes(item);
+      });
+
+    return values.length ? values : null;
+  }
+
+  function enrich(job) {
+    const item = Object.assign({}, job);
+
+    item.tags = Array.isArray(job.tags) ? job.tags : [];
+
+    item._exp =
+      normalizeExperience(job.experience) ||
+      detectExperience(item);
+
+    item._mode = detectMode(item);
+
+    item._roles =
+      explicitRoles(job.role) ||
+      detectRoles(item);
+
+    return item;
+  }
+
+  function matchesFilter(job, key, value) {
+    if (key === "role") {
+      return Array.isArray(job._roles) && job._roles.includes(value);
     }
-    function updateStructuredData() {
-      if (!elements.structuredData) return;
-      const itemList = filteredJobs.slice(0, 100).map((job, index) => ({
+
+    return job["_" + key] === value;
+  }
+
+  function countFor(group, value) {
+    if (value === "all") return jobs.length;
+
+    return jobs.filter(function (job) {
+      return matchesFilter(job, group.key, value);
+    }).length;
+  }
+
+  function renderFilters() {
+    filtersBox.innerHTML = GROUPS.map(function (group) {
+      const options = [
+        ["all", "All", jobs.length]
+      ].concat(
+        group.options
+          .map(function (option) {
+            return [
+              option[0],
+              option[1],
+              countFor(group, option[0])
+            ];
+          })
+          .filter(function (option) {
+            return option[2] > 0;
+          })
+      );
+
+      return `
+        <div class="filter-group">
+          <div class="filter-row">
+            <div class="filter-label">${esc(group.label)}</div>
+
+            <div class="filter-chips" role="group" aria-label="${esc(group.label)}">
+              ${options.map(function (option) {
+                const value = option[0];
+                const label = option[1];
+                const number = option[2];
+                const selected = active[group.key] === value;
+
+                return `
+                  <button
+                    type="button"
+                    class="filter-chip${selected ? " active" : ""}"
+                    data-group="${esc(group.key)}"
+                    data-value="${esc(value)}"
+                    aria-pressed="${selected}">
+                    <span>${esc(label)}</span>
+                    <span class="chip-count">${number}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    filtersBox.querySelectorAll(".filter-chip").forEach(function (button) {
+      button.addEventListener("click", function () {
+        active[button.dataset.group] = button.dataset.value;
+        renderFilters();
+        render();
+      });
+    });
+  }
+
+  function currentQuery() {
+    return normalizedText(search.value);
+  }
+
+  function hasActiveFilters() {
+    return (
+      active.exp !== "all" ||
+      active.mode !== "all" ||
+      active.role !== "all" ||
+      currentQuery() !== ""
+    );
+  }
+
+  function filteredJobs() {
+    const query = currentQuery();
+
+    return jobs.filter(function (job) {
+      const expMatch =
+        active.exp === "all" ||
+        matchesFilter(job, "exp", active.exp);
+
+      const modeMatch =
+        active.mode === "all" ||
+        matchesFilter(job, "mode", active.mode);
+
+      const roleMatch =
+        active.role === "all" ||
+        matchesFilter(job, "role", active.role);
+
+      const queryMatch =
+        !query ||
+        [
+          job.company,
+          job.title,
+          job.description,
+          job.location,
+          job.duration,
+          job.highlight,
+          (job.tags || []).join(" ")
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(query);
+
+      return expMatch && modeMatch && roleMatch && queryMatch;
+    });
+  }
+
+  function opportunityCard(job, index) {
+    const email = safeEmail(job.email);
+    const whatsapp = safeWhatsapp(job.whatsapp);
+    const link = safeUrl(job.link);
+
+    const mailSubject = encodeURIComponent(
+      "Application for " + String(job.title || "opportunity")
+    );
+
+    const tags = (job.tags || []).map(function (tag) {
+      return `<span class="tag">${esc(tag)}</span>`;
+    }).join("");
+
+    const actions = [];
+
+    if (link) {
+      actions.push(`
+        <a
+          class="action-link primary-action"
+          href="${esc(link)}"
+          target="_blank"
+          rel="noopener noreferrer">
+          View opportunity ↗
+        </a>
+      `);
+    }
+
+    if (email) {
+      actions.push(`
+        <a
+          class="action-link"
+          href="mailto:${esc(email)}?subject=${mailSubject}">
+          Email CV ✉
+        </a>
+      `);
+    }
+
+    if (whatsapp) {
+      actions.push(`
+        <a
+          class="action-link"
+          href="https://wa.me/${whatsapp}"
+          target="_blank"
+          rel="noopener noreferrer">
+          WhatsApp ↗
+        </a>
+      `);
+    }
+
+    return `
+      <article class="opportunity-card reveal">
+
+        <div class="card-main">
+
+          <div class="card-topline">
+            <span class="company-name">${esc(job.company || "Opportunity provider")}</span>
+            <span class="open-label">Opportunity listing</span>
+          </div>
+
+          <h3 class="opportunity-title">${esc(job.title || "Untitled opportunity")}</h3>
+
+          <p class="opportunity-description">${esc(job.description || "Review the original listing for more information about this opportunity.")}</p>
+
+          ${tags ? `<div class="tag-list">${tags}</div>` : ""}
+
+        </div>
+
+        <div class="card-side">
+
+          <div class="card-facts">
+
+            <div class="fact">
+              <span class="fact-icon" aria-hidden="true">⌖</span>
+              <span>${esc(job.location || "Location not specified")}</span>
+            </div>
+
+            <div class="fact">
+              <span class="fact-icon" aria-hidden="true">◷</span>
+              <span>${esc(job.duration || "Duration not specified")}</span>
+            </div>
+
+            ${job.highlight ? `
+              <div class="fact highlight">
+                <span aria-hidden="true">✳</span>
+                <span>${esc(job.highlight)}</span>
+              </div>
+            ` : ""}
+
+          </div>
+
+          <div class="card-actions">
+            ${actions.length ? actions.join("") : `
+              <span style="color:var(--muted);font-size:11px;line-height:1.7">
+                No application link is currently provided.
+              </span>
+            `}
+          </div>
+
+        </div>
+
+      </article>
+    `;
+  }
+
+  function showState(title, message, icon, buttonLabel) {
+    list.innerHTML = `
+      <div class="state-card">
+        <div class="state-icon" aria-hidden="true">${esc(icon || "⌕")}</div>
+        <h3>${esc(title)}</h3>
+        <p>${esc(message)}</p>
+        ${buttonLabel ? `
+          <button class="state-button" id="stateReset" type="button">
+            ${esc(buttonLabel)}
+          </button>
+        ` : ""}
+      </div>
+    `;
+
+    const stateReset = document.getElementById("stateReset");
+
+    if (stateReset) {
+      stateReset.addEventListener("click", clearAll);
+    }
+  }
+
+  function render() {
+    if (!isLoaded) return;
+
+    const matches = filteredJobs();
+    const filtering = hasActiveFilters();
+
+    clearButton.hidden = !filtering;
+
+    count.innerHTML = filtering
+      ? `SHOWING <b>${matches.length}</b> OF ${jobs.length}`
+      : `<b>${jobs.length}</b> OPPORTUNITIES`;
+
+    filterSummary.innerHTML = filtering
+      ? `Found <strong>${matches.length}</strong> matching ${matches.length === 1 ? "opportunity" : "opportunities"}.`
+      : `Showing all <strong>${jobs.length}</strong> opportunities in the directory.`;
+
+    if (!matches.length) {
+      showState(
+        "No matching opportunities",
+        "Try a different keyword or remove one or more filters to see more listings.",
+        "⌕",
+        "Clear all filters"
+      );
+      return;
+    }
+
+    list.innerHTML = matches.map(function (job) {
+      return opportunityCard(job);
+    }).join("");
+  }
+
+  function clearAll() {
+    active.exp = "all";
+    active.mode = "all";
+    active.role = "all";
+    search.value = "";
+
+    renderFilters();
+    render();
+  }
+
+  search.addEventListener("input", render);
+
+  clearButton.addEventListener("click", clearAll);
+
+  resetButton.addEventListener("click", function () {
+    search.value = "";
+    render();
+    search.focus();
+  });
+
+  /*
+   * Keep the aggregate directory represented as a CollectionPage
+   * and ItemList. Do not label the entire directory as a JobPosting.
+   */
+  function addStructuredData() {
+    const old = document.getElementById("evalloop-opportunity-structured-data");
+
+    if (old) old.remove();
+
+    const script = document.createElement("script");
+    script.id = "evalloop-opportunity-structured-data";
+    script.type = "application/ld+json";
+
+    const items = jobs.map(function (job, index) {
+      const item = {
         "@type": "ListItem",
         "position": index + 1,
+        "name": String(job.title || ""),
         "item": {
           "@type": "Thing",
-          "name": getJobTitle(job),
-          "description": getJobDescription(job).slice(0, 300),
-          "url": getApplyURL(job) ||
-            "https://annotatorjobs.vercel.app/opportunities.html"
-        }
-      }));
-      const structured = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "AI Jobs and LLM Evaluation Opportunities",
-        "url": "https://annotatorjobs.vercel.app/opportunities.html",
-        "description": "A curated directory of AI, LLM evaluation, data annotation, AI training, and related opportunities.",
-        "isPartOf": {
-          "@type": "WebSite",
-          "name": "EvalLoop Jobs",
-          "url": "https://annotatorjobs.vercel.app/"
-        },
-        "mainEntity": {
-          "@type": "ItemList",
-          "name": "AI opportunities",
-          "numberOfItems": itemList.length,
-          "itemListElement": itemList
+          "name": String(job.title || ""),
+          "description": String(job.description || ""),
+          "provider": {
+            "@type": "Organization",
+            "name": String(job.company || "Opportunity provider")
+          }
         }
       };
-      elements.structuredData.textContent = JSON.stringify(structured);
-    }
-    function renderActiveFilters() {
-      const filters = getActiveFilters();
-      const chips = [];
-      if (filters.keyword) {
-        chips.push({
-          label: "Keyword: " + filters.keyword,
-          remove: () => {
-            elements.search.value = "";
-          }
-        });
+
+      const link = safeUrl(job.link);
+
+      if (link) {
+        item.item.url = link;
       }
-      if (filters.locationSearch) {
-        chips.push({
-          label: "Location: " + filters.locationSearch,
-          remove: () => {
-            elements.locationSearch.value = "";
-          }
-        });
-      }
-      if (filters.location) {
-        chips.push({
-          label: "Location: " + filters.location,
-          remove: () => {
-            elements.locationFilter.value = "";
-          }
-        });
-      }
-      for (const [name, values] of [
-        ["work-mode", filters.workMode],
-        ["experience", filters.experience],
-        ["opportunity-type", filters.type],
-        ["role", filters.role]
-      ]) {
-        values.forEach(value => {
-          let label = value;
-          if (name === "work-mode") label = modeLabels[value] || value;
-          if (name === "experience") label = experienceLabels[value] || value;
-          if (name === "opportunity-type") label = typeLabels[value] || value;
-          if (name === "role") label = roleLabels[value] || value;
-          chips.push({
-            label,
-            remove: () => {
-              const input = document.querySelector(
-                'input[name="' + name + '"][value="' + value + '"]'
-              );
-              if (input) input.checked = false;
-            }
-          });
-        });
-      }
-      if (filters.quick) {
-        const quickLabels = {
-          remote: "Remote",
-          llm: "LLM Evaluation",
-          annotation: "Data Annotation",
-          training: "AI Training",
-          "ai-engineer": "AI Engineer"
-        };
-        chips.push({
-          label: quickLabels[filters.quick] || filters.quick,
-          remove: () => {
-            quickSearch = "";
-            document.querySelectorAll("[data-quick]").forEach(button => {
-              button.classList.remove("is-active");
-              button.setAttribute("aria-pressed", "false");
-            });
-          }
-        });
-      }
-      elements.activeFilters.innerHTML = "";
-      chips.forEach(chip => {
-        const wrapper = document.createElement("span");
-        wrapper.className = "jobs-active-chip";
-        const label = document.createElement("span");
-        label.textContent = chip.label;
-        const removeButton = document.createElement("button");
-        removeButton.type = "button";
-        removeButton.textContent = "×";
-        removeButton.setAttribute("aria-label", "Remove filter " + chip.label);
-        removeButton.addEventListener("click", () => {
-          chip.remove();
-          applyFilters();
-        });
-        wrapper.append(label, removeButton);
-        elements.activeFilters.appendChild(wrapper);
+
+      return item;
+    });
+
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "AI and AI-training opportunities",
+      "url": "https://annotatorjobs.vercel.app/opportunities.html",
+      "numberOfItems": jobs.length,
+      "itemListElement": items
+    });
+
+    document.head.appendChild(script);
+  }
+
+  async function loadJobs() {
+    try {
+      const response = await fetch("opportunities.json", {
+        cache: "no-store"
       });
-      if (chips.length > 1) {
-        const clear = document.createElement("button");
-        clear.type = "button";
-        clear.className = "jobs-active-clear";
-        clear.textContent = "Clear all";
-        clear.addEventListener("click", clearAllFilters);
-        elements.activeFilters.appendChild(clear);
+
+      if (!response.ok) {
+        throw new Error("Unable to load opportunities.json: HTTP " + response.status);
       }
-    }
-    function populateLocationOptions() {
-      const previousValue = elements.locationFilter.value;
-      const locations = [...new Set(
-        allJobs
-          .map(job => safeText(job.location))
-          .filter(Boolean)
-      )].sort((a, b) => a.localeCompare(b));
-      elements.locationFilter.innerHTML =
-        '<option value="">All locations</option>';
-      locations.forEach(location => {
-        const option = document.createElement("option");
-        option.value = location;
-        option.textContent = location;
-        elements.locationFilter.appendChild(option);
-      });
-      if (locations.includes(previousValue)) {
-        elements.locationFilter.value = previousValue;
+
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error("The opportunities data must be a JSON array.");
       }
-    }
-    function applyFilters() {
-      loadError = false;
-      const filters = getActiveFilters();
-      filteredJobs = allJobs.filter(job =>
-        matchesSelectedFilters(job, filters)
-      );
-      const sortBy = elements.sort.value;
-      if (sortBy === "company") {
-        filteredJobs.sort((a, b) =>
-          getJobCompany(a).localeCompare(getJobCompany(b))
+
+      jobs = data.map(enrich);
+
+      isLoaded = true;
+
+      if (!jobs.length) {
+        count.textContent = "0 OPPORTUNITIES";
+        filterSummary.textContent = "There are no opportunities to display right now.";
+
+        renderFilters();
+
+        showState(
+          "New opportunities are on the way",
+          "There are no listings to display right now. Please check back later.",
+          "↗"
         );
-      } else if (sortBy === "title") {
-        filteredJobs.sort((a, b) =>
-          getJobTitle(a).localeCompare(getJobTitle(b))
-        );
+
+        return;
       }
-      visibleCount = PAGE_SIZE;
-      renderJobs();
-      updateStructuredData();
-      updateQuickButtons();
-    }
-    function updateQuickButtons() {
-      document.querySelectorAll("[data-quick]").forEach(button => {
-        const isActive = button.dataset.quick === quickSearch;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-    }
-    function clearAllFilters() {
-      elements.search.value = "";
-      elements.locationSearch.value = "";
-      elements.locationFilter.value = "";
-      elements.sort.value = "relevance";
-      quickSearch = "";
-      document.querySelectorAll(
-        'input[name="work-mode"], input[name="experience"], input[name="opportunity-type"], input[name="role"]'
-      ).forEach(input => {
-        input.checked = false;
-      });
-      document.querySelectorAll("[data-quick]").forEach(button => {
-        button.classList.remove("is-active");
-        button.setAttribute("aria-pressed", "false");
-      });
-      applyFilters();
-    }
-    async function loadJobs() {
-      loadError = false;
-      elements.list.setAttribute("aria-busy", "true");
-      elements.count.textContent = "Loading opportunities…";
-      elements.description.textContent = "Retrieving directory listings…";
-      elements.list.innerHTML = `
-        <div class="jobs-state">
-          <div class="jobs-state-icon" aria-hidden="true">⌕</div>
-          <h3>Loading opportunities</h3>
-          <p>Retrieving listings from the EvalLoop Jobs directory.</p>
-        </div>
-      `;
-      try {
-        const response = await fetch(DATA_URL, {
-          cache: "no-store",
-          headers: {
-            "Accept": "application/json"
-          }
-        });
-        if (!response.ok) {
-          throw new Error(
-            "Could not fetch opportunities.json: " + response.status
-          );
-        }
-        const data = await response.json();
-        if (!Array.isArray(data)) {
-          throw new Error("The opportunity data must be a JSON array.");
-        }
-        allJobs = data.filter(job =>
-          job && typeof job === "object" && !Array.isArray(job)
-        );
-        populateLocationOptions();
-        applyFilters();
-        if (allJobs.length === 0) {
-          elements.count.textContent = "0 opportunities found";
-          elements.description.textContent =
-            "No listings are currently available in the directory.";
-        }
-      } catch (error) {
-        console.error(
-          "EvalLoop Jobs: failed to load opportunities.",
-          error
-        );
-        loadError = true;
-        elements.list.setAttribute("aria-busy", "false");
-        renderJobs();
-      }
-    }
-    /* Search submission */
-    elements.searchForm.addEventListener("submit", event => {
-      event.preventDefault();
-      quickSearch = "";
-      updateQuickButtons();
-      applyFilters();
-    });
-    let searchDebounce;
-    elements.search.addEventListener("input", () => {
-      clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(applyFilters, 180);
-    });
-    elements.locationSearch.addEventListener("input", () => {
-      clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(applyFilters, 180);
-    });
-    elements.locationFilter.addEventListener("change", applyFilters);
-    elements.sort.addEventListener("change", applyFilters);
-    document.querySelectorAll(
-      'input[name="work-mode"], input[name="experience"], input[name="opportunity-type"], input[name="role"]'
-    ).forEach(input => {
-      input.addEventListener("change", applyFilters);
-    });
-    document.querySelectorAll("[data-quick]").forEach(button => {
-      button.setAttribute("aria-pressed", "false");
-      button.addEventListener("click", () => {
-        const requested = button.dataset.quick;
-        quickSearch = quickSearch === requested ? "" : requested;
-        if (requested === "remote" && quickSearch) {
-          elements.locationSearch.value = "";
-          elements.locationFilter.value = "";
-        }
-        applyFilters();
-      });
-    });
-    elements.clear.addEventListener("click", clearAllFilters);
-    elements.mobileClear.addEventListener("click", clearAllFilters);
-    elements.loadMore.addEventListener("click", () => {
-      visibleCount += PAGE_SIZE;
-      renderJobs();
-    });
-    /* Mobile filters */
-    elements.mobileFilterToggle.addEventListener("click", () => {
-      const isOpen = elements.filterSidebar.classList.toggle("is-open");
-      elements.mobileFilterToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-      elements.mobileFilterToggle.innerHTML = isOpen
-        ? '<span aria-hidden="true">×</span> Hide filters'
-        : '<span aria-hidden="true">☷</span> Filters';
-    });
-    elements.mobileApply.addEventListener("click", () => {
-      elements.filterSidebar.classList.remove("is-open");
-      elements.mobileFilterToggle.setAttribute("aria-expanded", "false");
-      elements.mobileFilterToggle.innerHTML =
-        '<span aria-hidden="true">☷</span> Filters';
-      document.getElementById("jobs-results").scrollIntoView({
-        behavior: window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches ? "auto" : "smooth",
-        block: "start"
-      });
-    });
-    /* Mobile navigation */
-    elements.menuToggle.addEventListener("click", () => {
-      const isOpen = elements.primaryNav.classList.toggle("is-open");
-      elements.menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-      elements.menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-    });
-    elements.primaryNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        elements.primaryNav.classList.remove("is-open");
-        elements.menuToggle.setAttribute("aria-expanded", "false");
-        elements.menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation menu"
-        );
-      });
-    });
-    /*
-     * Theme preference shared with the homepage.
-     * Keep this behavior if your HTML still contains #theme-toggle.
-     */
-    function updateThemeButton(theme) {
-      if (!elements.themeToggle) return;
-      const dark = theme === "dark";
-      elements.themeToggle.innerHTML = dark
-        ? '<span aria-hidden="true">☀</span>'
-        : '<span aria-hidden="true">☾</span>';
-      elements.themeToggle.setAttribute(
-        "aria-label",
-        dark ? "Switch to light mode" : "Switch to dark mode"
-      );
-      elements.themeToggle.setAttribute(
-        "title",
-        dark ? "Switch to light mode" : "Switch to dark mode"
-      );
-      elements.themeToggle.setAttribute(
-        "aria-pressed",
-        String(dark)
+
+      addStructuredData();
+      renderFilters();
+      render();
+
+    } catch (error) {
+      console.error("Unable to load opportunities:", error);
+
+      count.textContent = "UNAVAILABLE";
+      filterSummary.textContent = "The opportunity directory could not be loaded.";
+
+      filtersBox.innerHTML = "";
+
+      showState(
+        "We couldn't load the directory",
+        "Please refresh the page in a moment. If the problem continues, the opportunity data file may be temporarily unavailable.",
+        "↻"
       );
     }
-    const storedTheme = localStorage.getItem("evalloop-theme");
-    if (storedTheme === "dark" || storedTheme === "light") {
-      document.documentElement.setAttribute("data-theme", storedTheme);
-    }
-    updateThemeButton(
-      document.documentElement.getAttribute("data-theme") || "light"
-    );
-    if (elements.themeToggle) {
-      elements.themeToggle.addEventListener("click", () => {
-        const current =
-          document.documentElement.getAttribute("data-theme");
-        const next = current === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem("evalloop-theme", next);
-        updateThemeButton(next);
-      });
-    }
-    /* Initial load */
-    loadJobs();
-  })();
+  }
+
+  loadJobs();
+})();
 </script>
+
+<script src="chatbot.js"></script>
+
 </body>
 </html>
