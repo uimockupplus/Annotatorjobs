@@ -1,277 +1,1209 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Disclaimer for EvalLoop Jobs, an independent opportunity discovery platform for AI training, data annotation, LLM evaluation, GenAI, expert work, and AI operations opportunities.">
-
-<meta name="robots" content="index,follow">
-
-<title>Disclaimer — EvalLoop Jobs | Independent Opportunity Directory</title>
-
-<link rel="canonical" href="https://annotatorjobs.vercel.app/disclaimer.html">
-
-<link rel="icon" type="image/png" href="/favicon.png?v=2">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="pages.css">
-<link rel="stylesheet" href="chatbot.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read the EvalLoop Jobs disclaimer covering third-party opportunities, employment relationships, compensation, referrals, listing accuracy, AI-generated information and applicant safety.">
+  <meta name="robots" content="index,follow">
+  <title>Disclaimer — EvalLoop Jobs | Independent AI Opportunity Directory</title>
+  <link rel="canonical" href="https://annotatorjobs.vercel.app/disclaimer.html">
+  <link rel="icon" type="image/png" href="/assets/evalloop-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chatbot.css">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('evalloop-theme');
+        const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+        const theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : (systemDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+        document.documentElement.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg: #f8f8f6;
+      --ink: #191918;
+      --muted: #747370;
+      --paper: #f0efed;
+      --border: #e7e6e2;
+      --blue: #1685fd;
+      --cyan: #8ec5ff;
+      --blue-soft: #eef6ff;
+      --surface: #ffffff;
+      --surface-soft: #f7fafd;
+      --radius: 17px;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color .2s ease, background-color .2s ease,
+        border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    a:hover { color: var(--blue); }
+    button { font: inherit; cursor: pointer; }
+    :focus-visible {
+      outline: 3px solid rgba(22,133,253,.58);
+      outline-offset: 4px;
+      border-radius: 5px;
+    }
+    .shell {
+      min-height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .wrap {
+      width: min(1200px, calc(100% - 64px));
+      margin-inline: auto;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      background: #24212f;
+      transform: translateY(-150%);
+    }
+    .skip-link:focus {
+      color: #fff;
+      transform: translateY(0);
+    }
+    /* Navigation */
+    .header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      width: min(1240px, calc(100% - 64px));
+      min-height: 72px;
+      margin: auto;
+      gap: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+    }
+    .logo:hover { color: var(--ink); }
+    .logo-mark {
+      display: block;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+    }
+    .logo-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .nav a,
+    .footer-links a {
+      transition: color .2s ease;
+    }
+    .nav a[aria-current="page"],
+    .footer-links a[aria-current="page"] {
+      color: var(--blue);
+    }
+    .top-cta {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      min-height: 37px;
+      padding: 0 16px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .top-cta:hover {
+      color: #fff;
+      border-color: #0d6bd8;
+      background: #0d6bd8;
+    }
+    .menu-toggle {
+      display: none;
+      width: 37px;
+      height: 37px;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--surface);
+    }
+    .menu-toggle span:not(.sr-only) {
+      display: block;
+      width: 14px;
+      height: 1.5px;
+      background: currentColor;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .theme-toggle {
+      display: grid;
+      flex: 0 0 auto;
+      width: 37px;
+      height: 37px;
+      place-items: center;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--surface);
+      font-size: 18px;
+      line-height: 1;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .theme-toggle:hover {
+      border-color: var(--blue);
+      transform: translateY(-1px);
+    }
+    /* Announcement */
+    .announcement {
+      display: flex;
+      min-height: 37px;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 7px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .announcement a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    /* Disclaimer hero */
+    .legal-page { overflow: hidden; }
+    .legal-hero {
+      padding-top: 86px;
+      padding-bottom: 58px;
+      text-align: center;
+    }
+    .eyebrow,
+    .legal-kicker {
+      color: #176dc5;
+      font: 700 9px "Space Grotesk", sans-serif;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .legal-hero h1 {
+      max-width: 900px;
+      margin: 22px auto 20px;
+      color: var(--ink);
+      font: 500 clamp(3.25rem, 7vw, 6rem)/.98 "Space Grotesk", sans-serif;
+      letter-spacing: -.085em;
+    }
+    .legal-hero h1 em,
+    .legal-page h2 em {
+      color: var(--blue);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .legal-lede {
+      max-width: 670px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .legal-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 29px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .legal-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    /* Main legal content */
+    .legal-content {
+      padding-top: 30px;
+      padding-bottom: 92px;
+      border-top: 1px solid var(--border);
+    }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: minmax(210px, .36fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 35px;
+      margin-top: 28px;
+    }
+    .legal-sidebar {
+      position: sticky;
+      top: 25px;
+      padding: 23px 19px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--surface);
+    }
+    .sidebar-label {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font: 700 9px "Space Grotesk", sans-serif;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .legal-toc {
+      display: grid;
+      gap: 3px;
+    }
+    .legal-toc a {
+      display: grid;
+      grid-template-columns: 25px minmax(0,1fr);
+      gap: 8px;
+      padding: 10px 8px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .legal-toc a span {
+      color: var(--blue);
+      font: 600 9px "Space Grotesk", sans-serif;
+    }
+    .legal-toc a:hover {
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+    .sidebar-note {
+      margin-top: 19px;
+      padding-top: 17px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+    .sidebar-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .legal-main {
+      min-width: 0;
+    }
+    .summary-card {
+      position: relative;
+      overflow: hidden;
+      padding: 27px 29px;
+      border: 1px solid #dceafa;
+      border-radius: 16px;
+      background: linear-gradient(115deg, #eef6ff, #f8fbff);
+    }
+    .summary-card:after {
+      position: absolute;
+      top: -58px;
+      right: -42px;
+      width: 170px;
+      height: 170px;
+      border: 1px solid rgba(22,133,253,.13);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+    .summary-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: #176dc5;
+      font: 700 9px "Space Grotesk", sans-serif;
+      letter-spacing: .14em;
+    }
+    .summary-label:before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      content: "";
+    }
+    .summary-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #515e6d;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .summary-card strong { color: #17283a; }
+    .legal-sections {
+      margin-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .legal-section {
+      display: grid;
+      grid-template-columns: 44px minmax(0,1fr);
+      gap: 15px;
+      padding: 28px 3px 30px;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 25px;
+    }
+    .section-number {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      color: var(--blue);
+      background: var(--surface);
+      font: 600 10px "Space Grotesk", sans-serif;
+    }
+    .section-content { min-width: 0; }
+    .section-content h2 {
+      margin: 3px 0 13px;
+      color: var(--ink);
+      font: 500 clamp(1.25rem, 2.4vw, 1.65rem)/1.25 "Space Grotesk", sans-serif;
+      letter-spacing: -.045em;
+    }
+    .section-content p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.85;
+    }
+    .section-content p:last-child { margin-bottom: 0; }
+    .section-content strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .section-content a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-decoration-color: rgba(22,133,253,.35);
+      text-underline-offset: 3px;
+    }
+    .section-content ul {
+      display: grid;
+      gap: 10px;
+      margin: 15px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .section-content li {
+      position: relative;
+      padding-left: 21px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .section-content li:before {
+      position: absolute;
+      top: 8px;
+      left: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      content: "";
+    }
+    .legal-contact {
+      margin-top: 25px;
+      padding: 25px 26px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--surface);
+    }
+    .legal-contact .legal-kicker { margin-bottom: 11px; }
+    .legal-contact h2 {
+      margin: 0 0 9px;
+      color: var(--ink);
+      font: 500 25px/1.2 "Space Grotesk", sans-serif;
+      letter-spacing: -.055em;
+    }
+    .legal-contact p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .legal-contact a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    /* Closing CTA */
+    .legal-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 30px;
+      padding: 30px 32px;
+      border: 1px solid #dceafa;
+      border-radius: 17px;
+      background: linear-gradient(110deg, #eef6ff, #f7fbff);
+    }
+    .legal-cta h2 {
+      margin: 11px 0;
+      color: #191918;
+      font: 500 clamp(1.8rem, 3vw, 2.5rem)/1.08 "Space Grotesk", sans-serif;
+      letter-spacing: -.065em;
+    }
+    .legal-cta p {
+      max-width: 500px;
+      margin: 0;
+      color: #747b84;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+    .legal-cta-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .btn {
+      display: inline-flex;
+      min-height: 41px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 17px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      color: #fff;
+      background: var(--blue);
+    }
+    .btn-primary:hover {
+      color: #fff;
+      background: #0d6bd8;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--ink);
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      color: var(--blue);
+      background: var(--surface);
+    }
+    /* Footer */
+    .footer {
+      display: flex;
+      min-height: 112px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .powered-by {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+    .powered-by strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px 16px;
+    }
+    .footer-links a {
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+    }
+    /* Dark theme */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #000000;
+      --ink: #eef5ff;
+      --muted: #a0a0a0;
+      --paper: #000000;
+      --border: #292929;
+      --blue: #1685fd;
+      --cyan: #8ec5ff;
+      --blue-soft: #14263a;
+      --surface: #111111;
+      --surface-soft: #191919;
+    }
+    [data-theme="dark"] body,
+    [data-theme="dark"] .shell,
+    [data-theme="dark"] .legal-page {
+      color: var(--ink);
+      background: var(--bg);
+    }
+    [data-theme="dark"] .header,
+    [data-theme="dark"] .footer,
+    [data-theme="dark"] .legal-content {
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .announcement {
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .logo,
+    [data-theme="dark"] .legal-hero h1,
+    [data-theme="dark"] .section-content h2,
+    [data-theme="dark"] .section-content strong,
+    [data-theme="dark"] .sidebar-note strong,
+    [data-theme="dark"] .legal-contact h2 {
+      color: var(--ink);
+    }
+    [data-theme="dark"] .legal-sidebar,
+    [data-theme="dark"] .section-number,
+    [data-theme="dark"] .legal-contact {
+      border-color: var(--border);
+      background: var(--surface);
+    }
+    [data-theme="dark"] .legal-toc a:hover {
+      background: #162f4f;
+    }
+    [data-theme="dark"] .summary-card {
+      border-color: #263b50;
+      background: linear-gradient(115deg, #0c1724, #111a26);
+    }
+    [data-theme="dark"] .summary-card p { color: #b5c3d2; }
+    [data-theme="dark"] .summary-card strong { color: #eef5ff; }
+    [data-theme="dark"] .summary-card:after {
+      border-color: rgba(22,133,253,.18);
+    }
+    [data-theme="dark"] .legal-cta {
+      border-color: var(--border);
+      background: linear-gradient(110deg, #070707, #131313);
+    }
+    [data-theme="dark"] .legal-cta h2 { color: var(--ink); }
+    [data-theme="dark"] .legal-cta p { color: var(--muted); }
+    [data-theme="dark"] .btn-secondary {
+      border-color: var(--border);
+      color: var(--ink);
+    }
+    [data-theme="dark"] .btn-secondary:hover {
+      background: var(--surface);
+    }
+    [data-theme="dark"] .menu-toggle,
+    [data-theme="dark"] .theme-toggle {
+      border-color: var(--border);
+      color: var(--ink);
+      background: var(--surface);
+    }
+    [data-theme="dark"] .menu-toggle span:not(.sr-only) {
+      background: currentColor;
+    }
+    /* Tablet */
+    @media (max-width: 950px) {
+      .header { gap: 12px; }
+      .nav { gap: 15px; }
+      .legal-layout {
+        grid-template-columns: 190px minmax(0,1fr);
+        gap: 22px;
+      }
+      .legal-cta { align-items: flex-start; }
+      .footer { flex-wrap: wrap; padding: 24px 0; }
+      .footer-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    /* Mobile navigation */
+    @media (max-width: 760px) {
+      .header { min-height: 68px; gap: 9px; }
+      .menu-toggle {
+        display: flex;
+        margin-left: auto;
+      }
+      .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 7px);
+        left: 0;
+        right: 0;
+        z-index: 20;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: 0 14px 32px rgba(24,41,62,.1);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        padding: 11px 12px;
+        border-radius: 8px;
+      }
+      .nav a:hover { background: var(--surface-soft); }
+      .legal-layout { grid-template-columns: 1fr; }
+      .legal-sidebar {
+        position: static;
+        padding: 18px;
+      }
+      .legal-toc {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+      .sidebar-note { margin-top: 14px; }
+      .legal-cta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .legal-cta-actions {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+    /* Phone */
+    @media (max-width: 640px) {
+      .wrap,
+      .header {
+        width: calc(100% - 40px);
+      }
+      .logo { gap: 6px; font-size: 12px; }
+      .logo-mark { width: 26px; height: 26px; }
+      .menu-toggle,
+      .theme-toggle {
+        width: 33px;
+        height: 33px;
+      }
+      .top-cta {
+        min-height: 34px;
+        padding: 0 10px;
+        font-size: 9px;
+      }
+      .announcement {
+        padding: 8px 18px;
+        font-size: 9px;
+      }
+      .legal-hero {
+        padding-top: 60px;
+        padding-bottom: 48px;
+      }
+      .legal-hero h1 {
+        margin: 19px auto 17px;
+        font-size: clamp(3rem, 13vw, 4.4rem);
+        line-height: .97;
+      }
+      .legal-lede {
+        font-size: 12px;
+        line-height: 1.8;
+      }
+      .legal-meta {
+        gap: 10px 14px;
+        font-size: 9px;
+      }
+      .legal-content {
+        padding-top: 24px;
+        padding-bottom: 60px;
+      }
+      .legal-layout { margin-top: 22px; }
+      .legal-toc { gap: 1px; }
+      .legal-toc a {
+        grid-template-columns: 21px minmax(0,1fr);
+        gap: 5px;
+        padding: 9px 5px;
+        font-size: 10px;
+      }
+      .summary-card { padding: 22px 20px; }
+      .summary-card p {
+        font-size: 12px;
+        line-height: 1.8;
+      }
+      .legal-section {
+        grid-template-columns: 34px minmax(0,1fr);
+        gap: 10px;
+        padding: 23px 0 25px;
+      }
+      .section-number {
+        width: 31px;
+        height: 31px;
+        border-radius: 9px;
+        font-size: 9px;
+      }
+      .section-content h2 {
+        margin-top: 3px;
+        margin-bottom: 11px;
+        font-size: 21px;
+      }
+      .section-content p,
+      .section-content li {
+        font-size: 11px;
+        line-height: 1.8;
+      }
+      .legal-contact { padding: 22px 20px; }
+      .legal-contact h2 { font-size: 23px; }
+      .legal-cta {
+        gap: 23px;
+        margin-top: 23px;
+        padding: 25px 21px;
+      }
+      .legal-cta h2 { font-size: 29px; }
+      .legal-cta-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .legal-cta-actions .btn { width: 100%; }
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 23px 0;
+      }
+      .footer-links { gap: 4px 14px; }
+    }
+    @media (max-width: 380px) {
+      .header { gap: 6px; }
+      .logo { gap: 4px; font-size: 11px; }
+      .logo-mark { width: 23px; height: 23px; }
+      .menu-toggle,
+      .theme-toggle { width: 30px; height: 30px; }
+      .top-cta { padding-inline: 7px; font-size: 8px; }
+      .legal-toc a { font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<div class="shell">
-
-<header class="header">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<nav class="nav">
-<a href="opportunities.html">Opportunities</a>
-<a href="about.html">About</a>
-<a href="interview-prep.html">Interview Prep</a>
-</nav>
-
-<a href="opportunities.html" class="top-cta">Explore roles ↗</a>
-
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+        <span class="logo-mark"><img src="/assets/evalloop-logo.png" alt=""></span>
+        <span>EvalLoop Jobs</span>
+      </a>
+  <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+    <a href="opportunities.html">Opportunities</a>
+    <a href="about.html">About</a>
+    <a href="interview-prep.html">Interview Prep</a>
+  </nav>
+  <button class="menu-toggle" id="menu-toggle" type="button"
+    aria-expanded="false" aria-controls="primary-nav"
+    aria-label="Open navigation menu">
+    <span></span><span></span><span class="sr-only">Menu</span>
+  </button>
+  <button class="theme-toggle" id="theme-toggle" type="button"
+    aria-label="Switch theme" aria-pressed="false" title="Switch theme">
+    <span aria-hidden="true">☾</span>
+  </button>
+  <a href="opportunities.html" class="top-cta">Explore roles ↗</a>
 </header>
-
-
-<main class="page wrap">
-
-<div class="eyebrow">LEGAL / 03</div>
-
-<h1 class="page-title">
-A clear word about <em>opportunities.</em>
-</h1>
-
-<div class="updated">
-Last updated: September 28, 2026
-</div>
-
-
-<article class="legal-card">
-
-<div class="summary">
-<b>IN SHORT</b>
-EvalLoop Jobs is an independent opportunity discovery platform. We organize and share information and links to AI-related work, but we are not the employer for the opportunities listed on the Site. We do not guarantee acceptance, employment, work availability, or income, and we do not control third-party platforms.
-</div>
-
-
-<section class="sec">
-<h2><b>01</b>Information, not employment</h2>
-
-<p>
-EvalLoop Jobs is an independent opportunity directory and is not an employer, staffing agency, recruitment agency, or contracting company.
-</p>
-
-<p>
-Listing an opportunity on the Site does not create an employment, contractor, agency, partnership, or other working relationship between EvalLoop Jobs and an applicant.
-</p>
-
-<p>
-The company, organization, platform, or project provider identified on an individual listing is the associated employer or opportunity provider for that listing, where such information is available.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>02</b>Third-party opportunities</h2>
-
-<p>
-Many opportunities listed on EvalLoop Jobs are offered by third-party companies, platforms, contributor networks, or project operators.
-</p>
-
-<p>
-EvalLoop Jobs acts as a discovery and information layer. The relevant third-party organization independently controls its application process, eligibility requirements, onboarding, work allocation, rates, payment terms, account decisions, and project availability.
-</p>
-
-<p>
-EvalLoop Jobs does not represent itself as the hiring company for a third-party opportunity simply because that opportunity appears in our directory.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>03</b>No guarantee</h2>
-
-<p>
-We do not guarantee that an opportunity will remain open, that you will qualify, that you will be selected, that work will be available after onboarding, or that you will earn a particular amount.
-</p>
-
-<p>
-Compensation, requirements, deadlines, geographic eligibility, project availability, and platform rules may change after an opportunity is published.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>04</b>Verify before applying</h2>
-
-<p>
-Before submitting personal information or accepting work, verify the opportunity directly through the original company, organization, or platform.
-</p>
-
-<ul>
-<li>Check the current job description and eligibility requirements.</li>
-<li>Confirm the current compensation and payment terms.</li>
-<li>Check whether the opportunity is available in your country or region.</li>
-<li>Review the platform's current terms and privacy policy.</li>
-<li>Use the official application or onboarding process.</li>
-<li>Confirm the identity of the actual employer or opportunity provider.</li>
-</ul>
-
-</section>
-
-
-<section class="sec">
-<h2><b>05</b>Referral links</h2>
-
-<p>
-Some links on EvalLoop Jobs may be referral or tracked links. If you use a referral link, the relevant third-party platform may record that referral under its own systems and terms.
-</p>
-
-<p>
-The presence of a referral link does not change the identity of the actual employer or opportunity provider. It also does not change the platform's own application, selection, onboarding, payment, or eligibility decisions.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>06</b>Opportunity accuracy</h2>
-
-<p>
-We try to publish useful and relevant information, but listings can become outdated or change without notice. A listing on EvalLoop Jobs should not be treated as confirmation that a role is still accepting applications.
-</p>
-
-<p>
-Where possible, listings identify the company or organization associated with the original opportunity and provide a link to the original application or source.
-</p>
-
-<p>
-If you notice an opportunity that is closed, incorrect, misleading, or potentially unsafe, please contact us so we can review it.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>07</b>Scams and suspicious requests</h2>
-
-<p>
-Be cautious if an opportunity asks you for money, unusual payments, passwords, banking credentials, or sensitive identity information before legitimate onboarding.
-</p>
-
-<p>
-When in doubt, stop and verify the opportunity directly with the official company or platform.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>08</b>AI-generated information</h2>
-
-<p>
-EvalLoop Jobs may use AI-assisted tools for research, organization, search, or chatbot responses. AI-generated information can contain errors. Important information should always be checked against the relevant official source.
-</p>
-
-</section>
-
-
-<section class="sec">
-<h2><b>09</b>Contact</h2>
-
-<p>
-For corrections, suspicious listings, or questions about this disclaimer, contact
-<a href="mailto:evalloopjobs@gmail.com">evalloopjobs@gmail.com</a>.
-</p>
-
-</section>
-
-</article>
-
+<main id="main" class="legal-page">
+  <div class="announcement">
+    An independent opportunity discovery platform.
+    <a href="index.html#directory">Explore the directory →</a>
+  </div>
+  <section class="legal-hero wrap" aria-labelledby="legal-title">
+    <div class="eyebrow">LEGAL / 03</div>
+    <h1 id="legal-title">Clear expectations.<br><em>Informed decisions.</em></h1>
+    <p class="legal-lede">
+      A straightforward explanation of what EvalLoop Jobs does, how third-party
+      opportunities work, and what you should verify before applying.
+    </p>
+    <div class="legal-meta">
+      <span><i class="meta-dot"></i> Independent opportunity directory</span>
+      <span><i class="meta-dot"></i> Third-party listings</span>
+      <span><i class="meta-dot"></i> Last updated: October 11, 2026</span>
+    </div>
+  </section>
+  <section class="legal-content" aria-label="Disclaimer content">
+    <div class="wrap">
+      <div class="legal-kicker">THE IMPORTANT DETAILS / 01</div>
+      <div class="legal-layout">
+        <aside class="legal-sidebar" aria-label="Disclaimer sections">
+          <p class="sidebar-label">On this page</p>
+          <nav class="legal-toc">
+            <a href="#employment"><span>01</span>Information, not employment</a>
+            <a href="#third-party"><span>02</span>Third-party opportunities</a>
+            <a href="#guarantees"><span>03</span>No guarantees</a>
+            <a href="#verification"><span>04</span>Verify before applying</a>
+            <a href="#referrals"><span>05</span>Referral links</a>
+            <a href="#accuracy"><span>06</span>Listing accuracy</a>
+            <a href="#scams"><span>07</span>Scams and safety</a>
+            <a href="#ai-information"><span>08</span>AI-generated information</a>
+            <a href="#contact"><span>09</span>Contact</a>
+          </nav>
+          <div class="sidebar-note">
+            <strong>Before you apply</strong>
+            Always confirm current requirements and application details through
+            the original company or platform.
+          </div>
+        </aside>
+        <div class="legal-main">
+          <div class="summary-card">
+            <div class="summary-label">IN SHORT</div>
+            <p>
+              <strong>EvalLoop Jobs is an independent opportunity discovery platform,
+              not an employer.</strong> We organize and share information and links
+              to AI-related work. We do not guarantee selection, employment, work
+              availability, or income, and we do not control third-party platforms.
+            </p>
+          </div>
+          <div class="legal-sections">
+            <section class="legal-section" id="employment">
+              <div class="section-number">01</div>
+              <div class="section-content">
+                <h2>Information, <em>not employment.</em></h2>
+                <p>
+                  EvalLoop Jobs is an independent opportunity directory and is not
+                  an employer, staffing agency, recruitment agency, or contracting
+                  company.
+                </p>
+                <p>
+                  Listing an opportunity on this website does not create an
+                  employment, contractor, agency, partnership, or other working
+                  relationship between EvalLoop Jobs and an applicant.
+                </p>
+                <p>
+                  The company, organization, platform, or project provider identified
+                  on an individual listing is the associated employer or opportunity
+                  provider, where that information is available.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="third-party">
+              <div class="section-number">02</div>
+              <div class="section-content">
+                <h2>Third-party <em>opportunities.</em></h2>
+                <p>
+                  Many opportunities listed on EvalLoop Jobs are offered by
+                  third-party companies, platforms, contributor networks, or project
+                  operators.
+                </p>
+                <p>
+                  EvalLoop Jobs acts as a discovery and information layer. The
+                  relevant third-party organization independently controls its
+                  application process, eligibility requirements, onboarding, work
+                  allocation, rates, payment terms, account decisions, and project
+                  availability.
+                </p>
+                <p>
+                  EvalLoop Jobs does not represent itself as the hiring company for
+                  a third-party opportunity simply because that opportunity appears
+                  in our directory.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="guarantees">
+              <div class="section-number">03</div>
+              <div class="section-content">
+                <h2>No guarantees of <em>selection or income.</em></h2>
+                <p>
+                  We do not guarantee that an opportunity will remain open, that
+                  you will qualify, that you will be selected, that work will be
+                  available after onboarding, or that you will earn a particular
+                  amount.
+                </p>
+                <p>
+                  Compensation, requirements, deadlines, geographic eligibility,
+                  project availability, and platform rules may change after an
+                  opportunity is published.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="verification">
+              <div class="section-number">04</div>
+              <div class="section-content">
+                <h2>Verify details <em>before applying.</em></h2>
+                <p>
+                  Before submitting personal information or accepting work, verify
+                  the opportunity directly through the original company,
+                  organization, or platform.
+                </p>
+                <ul>
+                  <li>Check the current job description and eligibility requirements.</li>
+                  <li>Confirm the current compensation, rates, and payment terms.</li>
+                  <li>Check whether the opportunity is available in your country or region.</li>
+                  <li>Review the platform's current terms and privacy policy.</li>
+                  <li>Use the official application or onboarding process.</li>
+                  <li>Confirm the identity of the actual employer or opportunity provider.</li>
+                </ul>
+              </div>
+            </section>
+            <section class="legal-section" id="referrals">
+              <div class="section-number">05</div>
+              <div class="section-content">
+                <h2>Referral and <em>tracked links.</em></h2>
+                <p>
+                  Some links on EvalLoop Jobs may be referral or tracked links. If
+                  you use a referral link, the relevant third-party platform may
+                  record that referral under its own systems and terms.
+                </p>
+                <p>
+                  The presence of a referral link does not change the identity of
+                  the actual employer or opportunity provider. It also does not
+                  change the platform's application, selection, onboarding, payment,
+                  or eligibility decisions.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="accuracy">
+              <div class="section-number">06</div>
+              <div class="section-content">
+                <h2>Opportunity <em>accuracy and availability.</em></h2>
+                <p>
+                  We try to publish useful and relevant information, but listings
+                  can become outdated or change without notice. A listing on
+                  EvalLoop Jobs should not be treated as confirmation that a role
+                  is still accepting applications.
+                </p>
+                <p>
+                  Where possible, listings identify the company or organization
+                  associated with the original opportunity and provide a link to
+                  the original application or source.
+                </p>
+                <p>
+                  If you notice an opportunity that is closed, incorrect,
+                  misleading, or potentially unsafe, please
+                  <a href="contact.html">contact us</a> so we can review it.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="scams">
+              <div class="section-number">07</div>
+              <div class="section-content">
+                <h2>Scams and <em>suspicious requests.</em></h2>
+                <p>
+                  Be cautious if an opportunity asks you for money, unusual
+                  payments, passwords, banking credentials, or sensitive identity
+                  information before legitimate onboarding.
+                </p>
+                <p>
+                  When in doubt, stop and verify the opportunity directly with the
+                  official company or platform. Do not assume that a listing is
+                  safe simply because it appears in a directory.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="ai-information">
+              <div class="section-number">08</div>
+              <div class="section-content">
+                <h2>AI-assisted and <em>generated information.</em></h2>
+                <p>
+                  EvalLoop Jobs may use AI-assisted tools for research,
+                  organization, search, or chatbot responses. AI-generated
+                  information can contain errors, omissions, or outdated details.
+                </p>
+                <p>
+                  Important information, including application instructions,
+                  eligibility, compensation, and company details, should always be
+                  checked against the relevant official source.
+                </p>
+              </div>
+            </section>
+            <section class="legal-section" id="contact">
+              <div class="section-number">09</div>
+              <div class="section-content">
+                <h2>Questions, corrections, <em>or concerns.</em></h2>
+                <p>
+                  For corrections, suspicious listings, or questions about this
+                  disclaimer, you can contact the EvalLoop Jobs team by email.
+                </p>
+                <p>
+                  <a href="mailto:evalloopjobs@gmail.com">evalloopjobs@gmail.com</a>
+                </p>
+              </div>
+            </section>
+          </div>
+          <div class="legal-contact">
+            <div class="legal-kicker">NEED HELP?</div>
+            <h2>Something doesn't look right?</h2>
+            <p>
+              Let us know if you find an outdated listing or a potentially
+              misleading opportunity. We can review the information published in
+              our directory.
+              <a href="contact.html">Contact EvalLoop Jobs →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <section class="legal-cta" aria-labelledby="legal-cta-title">
+        <div>
+          <div class="legal-kicker">EXPLORE RESPONSIBLY</div>
+          <h2 id="legal-cta-title">Find your next <em>AI opportunity.</em></h2>
+          <p>
+            Explore AI-related work, review the original source, and make informed
+            decisions before applying.
+          </p>
+        </div>
+        <div class="legal-cta-actions">
+          <a class="btn btn-primary" href="opportunities.html">Browse opportunities ↗</a>
+          <a class="btn btn-secondary" href="about.html">About EvalLoop Jobs →</a>
+        </div>
+      </section>
+    </div>
+  </section>
 </main>
-
-
 <footer class="footer wrap">
-
-<a href="index.html" class="logo">
-<span class="logo-mark">◉</span>
-<span>EvalLoop Jobs</span>
-</a>
-
-<span>Independent opportunity discovery for the work behind better AI.</span>
-
-<nav class="footer-links" aria-label="Footer">
-<a href="about.html">About</a>
-<a href="opportunities.html">Opportunities</a>
-<a href="submit-opportunity.html">Submit Opportunity</a>
-<a href="join-network.html">Join Network</a>
-<a href="contact.html">Contact</a>
-<a class="footer-current" href="disclaimer.html">Disclaimer</a>
-<a href="terms.html">Terms</a>
-<a href="privacy.html">Privacy</a>
-<a href="https://www.linkedin.com/company/evalloopjobs/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-</nav>
-
+  <a href="index.html" class="logo" aria-label="EvalLoop Jobs home">
+    <span class="logo-mark"><img src="/assets/evalloop-logo.png" alt=""></span>
+    <span>EvalLoop Jobs</span>
+  </a>
+  <a class="powered-by" href="https://alphex-ai.vercel.app/"
+    target="_blank" rel="noopener noreferrer">
+    Powered by <strong>alphex ai.</strong> <span aria-hidden="true">↗</span>
+  </a>
+  <nav class="footer-links" aria-label="Footer links">
+    <a href="about.html">About</a>
+    <a href="opportunities.html">Opportunities</a>
+    <a href="interview-prep.html">Interview Prep</a>
+    <a href="submit-opportunity.html">Submit opportunity</a>
+    <a href="join-network.html">Join network</a>
+    <a href="contact.html">Contact</a>
+    <a href="disclaimer.html" aria-current="page">Disclaimer</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://www.linkedin.com/company/evalloopjobs/"
+      target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+  </nav>
 </footer>
-
-</div>
-
-<script src="chatbot.js"></script>
-
-<script>
-const dot=document.querySelector('.cursor-dot');
-const ring=document.querySelector('.cursor-ring');
-
-let mx=innerWidth/2;
-let my=innerHeight/2;
-let rx=mx;
-let ry=my;
-
-addEventListener('pointermove',e=>{
-mx=e.clientX;
-my=e.clientY;
-dot.style.left=mx+'px';
-dot.style.top=my+'px';
-});
-
-(function tick(){
-rx+=(mx-rx)*.16;
-ry+=(my-ry)*.16;
-ring.style.left=rx+'px';
-ring.style.top=ry+'px';
-requestAnimationFrame(tick);
-})();
-
-document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
-el.onmouseenter=()=>{
-ring.classList.add('active');
-dot.classList.add('hot');
-};
-
-el.onmouseleave=()=>{
-ring.classList.remove('active');
-dot.classList.remove('hot');
-};
-});
-</script>
-
+  </div>
+  <script>
+    (() => {
+      const themeButton = document.getElementById('theme-toggle');
+      const menuButton = document.getElementById('menu-toggle');
+      const primaryNav = document.getElementById('primary-nav');
+      if (themeButton) {
+        const syncThemeControl = () => {
+          const dark = document.documentElement.dataset.theme === 'dark';
+          themeButton.innerHTML =
+            `<span aria-hidden="true">${dark ? '☀' : '☾'}</span>`;
+          themeButton.setAttribute(
+            'aria-label',
+            `Switch to ${dark ? 'light' : 'dark'} mode`
+          );
+          themeButton.title = `Switch to ${dark ? 'light' : 'dark'} mode`;
+          themeButton.setAttribute('aria-pressed', String(dark));
+        };
+        syncThemeControl();
+        themeButton.addEventListener('click', () => {
+          const theme =
+            document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          try {
+            localStorage.setItem('evalloop-theme', theme);
+          } catch {}
+          syncThemeControl();
+        });
+      }
+      if (menuButton && primaryNav) {
+        const closeMenu = () => {
+          primaryNav.classList.remove('is-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Open navigation menu');
+        };
+        menuButton.addEventListener('click', () => {
+          const open = menuButton.getAttribute('aria-expanded') !== 'true';
+          menuButton.setAttribute('aria-expanded', String(open));
+          menuButton.setAttribute(
+            'aria-label',
+            open ? 'Close navigation menu' : 'Open navigation menu'
+          );
+          primaryNav.classList.toggle('is-open', open);
+        });
+        primaryNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('click', event => {
+          if (
+            !menuButton.contains(event.target) &&
+            !primaryNav.contains(event.target)
+          ) {
+            closeMenu();
+          }
+        });
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape') closeMenu();
+        });
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 760) closeMenu();
+        });
+      }
+    })();
+  </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
