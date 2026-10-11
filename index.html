@@ -1915,481 +1915,368 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-/* ==========================================================
-   EVALLOOP JOBS — NAUKRI-INSPIRED OPPORTUNITY CARDS
-   Scope: Recent Opportunities only
-   Responsive • Professional • Clean white job cards
-========================================================== */
+/* ==================================
+
+   EVALLOOP JOBS — OPPORTUNITY STRIPS
+
+================================== */
 
 #opList {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  margin: 26px 0 0;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  gap: 0 !important;
+
+  width: 100% !important;
+
+  margin: 24px auto !important;
+
+  padding: 0 !important;
+
+  border: 1px solid #e6eaf0 !important;
+
+  border-radius: 12px !important;
+
+  overflow: hidden !important;
+
+  background: #fff !important;
+
 }
 
-/* Main job card */
+#opList article.op {
 
-#opList .op {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  align-items: stretch;
-  gap: 26px;
-  width: 100%;
-  min-width: 0;
-  padding: 25px 26px;
-  overflow: hidden;
+  display: grid !important;
 
-  background: #ffffff;
-  border: 1px solid #e4eaf2;
-  border-radius: 14px;
+  grid-template-columns: minmax(0, 1fr) 125px !important;
 
-  box-shadow: 0 2px 8px rgba(20, 40, 75, 0.035);
+  align-items: center !important;
 
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  gap: 16px !important;
+
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  padding: 17px 20px !important;
+
+  border: 0 !important;
+
+  border-bottom: 1px solid #edf0f4 !important;
+
+  border-radius: 0 !important;
+
+  background: #fff !important;
+
+  box-shadow: none !important;
+
+  transition: background .2s ease !important;
+
 }
 
-#opList .op:hover {
-  border-color: #b8d4ff;
-  box-shadow: 0 8px 26px rgba(31, 91, 170, 0.09);
-  transform: translateY(-2px);
+#opList article.op:last-child {
+
+  border-bottom: 0 !important;
+
 }
 
-/* Main information */
+#opList article.op:hover {
 
-#opList .op-main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
+  background: #f8faff !important;
+
+  transform: none !important;
+
+  box-shadow: none !important;
+
 }
 
-/* Company */
+#opList article.op .op-main {
 
-#opList .op-company {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: flex !important;
 
-  margin: 0 0 9px;
+  flex-direction: column !important;
 
-  color: #64748b;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.5;
+  align-items: flex-start !important;
 
-  overflow-wrap: anywhere;
+  gap: 5px !important;
+
+  min-width: 0 !important;
+
 }
 
-#opList .op-company::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  flex: 0 0 8px;
+#opList article.op .op-company {
 
-  background: #2588ff;
-  border-radius: 3px;
+  order: 1 !important;
+
+  margin: 0 !important;
+
+  color: #667085 !important;
+
+  font-size: 12px !important;
+
+  font-weight: 500 !important;
+
 }
 
-/* Job title */
+#opList article.op h3 {
 
-#opList .op h3 {
-  margin: 0 0 12px;
+  order: 0 !important;
 
-  color: #1a2942;
-  font-size: 20px;
-  font-weight: 650;
-  line-height: 1.45;
-  letter-spacing: -0.025em;
+  margin: 0 !important;
 
-  overflow-wrap: anywhere;
+  color: #1755a6 !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.5 !important;
+
+  overflow-wrap: anywhere !important;
+
 }
 
-#opList .op h3:hover {
-  color: #1769e8;
+#opList article.op .op-meta {
+
+  display: flex !important;
+
+  flex-wrap: wrap !important;
+
+  gap: 5px 12px !important;
+
+  margin: 1px 0 0 !important;
+
+  color: #667085 !important;
+
+  font-size: 12px !important;
+
 }
 
-/* Description */
+#opList article.op .op-meta span {
 
-#opList .op p {
-  display: -webkit-box;
+  color: #667085 !important;
 
-  margin: 0 0 16px;
-  overflow: hidden;
+  font-size: 12px !important;
 
-  color: #58677d;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.8;
-
-  overflow-wrap: anywhere;
-
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
-/* Location and duration */
+#opList article.op .op-action {
 
-#opList .op-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 22px;
+  display: flex !important;
 
-  width: 100%;
-  margin: 0 0 17px;
+  flex-direction: column !important;
 
-  color: #536278;
-  font-size: 12px;
-  line-height: 1.6;
+  gap: 7px !important;
+
+  min-width: 0 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+
 }
 
-#opList .op-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
+/* Compact action buttons */
 
-  min-width: 0;
-  overflow-wrap: anywhere;
+#opList article.op .op-contact,
+
+#opList article.op .op-link,
+
+#opList article.op .op-link-disabled {
+
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  width: 100% !important;
+
+  min-height: 34px !important;
+
+  padding: 7px 10px !important;
+
+  border-radius: 6px !important;
+
+  font-size: 12px !important;
+
+  font-weight: 600 !important;
+
+  text-align: center !important;
+
+  text-decoration: none !important;
+
 }
 
-#opList .op-meta span::before {
-  content: "";
-  display: inline-block;
+#opList article.op .op-contact-view,
 
-  width: 6px;
-  height: 6px;
-  flex: 0 0 6px;
+#opList article.op .op-link:not(.op-link-disabled) {
 
-  background: #9aa9bc;
-  border-radius: 50%;
+  color: #fff !important;
+
+  background: #245eea !important;
+
+  border: 1px solid #245eea !important;
+
 }
 
-/* Skills and category tags */
+#opList article.op .op-contact-email,
 
-#opList .op-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+#opList article.op .op-contact-whatsapp {
 
-  width: 100%;
-  margin: 0 0 16px;
+  color: #344054 !important;
+
+  background: #fff !important;
+
+  border: 1px solid #dce3ed !important;
+
 }
 
-#opList .op-tag {
-  display: inline-flex;
-  align-items: center;
+#opList article.op .op-tag {
 
-  max-width: 100%;
-  padding: 6px 11px;
+  font-size: 11px !important;
 
-  color: #445875;
-  background: #f4f7fb;
-  border: 1px solid #e5ebf3;
-  border-radius: 5px;
-
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.5;
-
-  overflow-wrap: anywhere;
 }
 
-/* Opportunity highlight */
+/* Expanded content */
 
-#opList .op-highlight {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
+#opList article.op.op-expanded {
 
-  width: 100%;
-  margin-top: auto;
-  padding: 12px 14px;
+  background: #fbfcff !important;
 
-  color: #3b5d8b;
-  background: #f3f7ff;
-  border: 1px solid #e2ebfc;
-  border-radius: 7px;
-
-  font-size: 12px;
-  line-height: 1.7;
-
-  overflow-wrap: anywhere;
 }
 
-#opList .op-highlight::before {
-  content: "✦";
-  flex: 0 0 auto;
+#opList article.op.op-expanded .op-main > p {
 
-  color: #2588ff;
-  font-size: 14px;
+  display: block !important;
+
+  margin-top: 8px !important;
+
+  color: #596579 !important;
+
+  font-size: 13px !important;
+
+  line-height: 1.8 !important;
+
 }
 
-/* Right-side action panel */
+#opList article.op:not(.op-expanded) .op-main > p,
 
-#opList .op-action {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  gap: 10px;
+#opList article.op:not(.op-expanded) .op-tags,
 
-  min-width: 0;
-  padding-left: 22px;
+#opList article.op:not(.op-expanded) .op-highlight {
 
-  border-left: 1px solid #edf1f6;
+  display: none !important;
+
 }
 
-/* Shared button styles */
+#opList article.op:not(.op-expanded) .op-action {
 
-#opList .op-contact,
-#opList .op-link,
-#opList .op-link-disabled {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: none !important;
 
-  width: 100%;
-  min-width: 0;
-  min-height: 42px;
-  box-sizing: border-box;
-  padding: 10px 12px;
-
-  border: 1px solid transparent;
-  border-radius: 7px;
-
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-
-  overflow-wrap: anywhere;
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-/* Primary action */
+#opList article.op.op-expanded {
 
-#opList .op-contact-view,
-#opList .op-link:not(.op-link-disabled) {
-  color: #ffffff;
-  background: #1769e8;
-  border-color: #1769e8;
+  grid-template-columns: minmax(0, 1fr) !important;
+
+  gap: 12px !important;
+
+  padding: 20px !important;
+
 }
 
-#opList .op-contact-view:hover,
-#opList .op-link:not(.op-link-disabled):hover {
-  color: #ffffff;
-  background: #1058ca;
-  border-color: #1058ca;
-  box-shadow: 0 4px 12px rgba(23, 105, 232, 0.16);
+#opList article.op.op-expanded .op-action {
+
+  display: flex !important;
+
+  flex-direction: row !important;
+
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
+
+  padding-top: 12px !important;
+
+  border-top: 1px solid #e8edf4 !important;
+
 }
 
-/* Email action */
+#opList article.op.op-expanded .op-action > * {
 
-#opList .op-contact-email {
-  color: #4c49a8;
-  background: #f5f4ff;
-  border-color: #e4e2ff;
+  width: auto !important;
+
+  min-width: 110px !important;
+
 }
 
-#opList .op-contact-email:hover {
-  background: #eae8ff;
-  border-color: #d4d0ff;
+#opList article.op.op-expanded .op-tags {
+
+  display: flex !important;
+
+  flex-wrap: wrap !important;
+
+  gap: 6px !important;
+
 }
 
-/* WhatsApp action */
+#opList article.op.op-expanded .op-highlight {
 
-#opList .op-contact-whatsapp {
-  color: #137746;
-  background: #effaf3;
-  border-color: #d5f0df;
+  display: block !important;
+
 }
 
-#opList .op-contact-whatsapp:hover {
-  background: #e2f6e9;
-  border-color: #bfe7cd;
-}
-
-/* Unavailable action */
-
-#opList .op-link-disabled {
-  color: #8995a6;
-  background: #f5f6f8;
-  border-color: #e7eaf0;
-  cursor: not-allowed;
-}
-
-/* Empty or loading state */
-
-#opList .empty-state {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 42px 24px;
-
-  color: #64748b;
-  background: #ffffff;
-  border: 1px dashed #d6dfeb;
-  border-radius: 12px;
-
-  font-size: 14px;
-  line-height: 1.8;
-  text-align: center;
-}
-
-/* Keyboard accessibility */
-
-#opList .op-contact:focus-visible,
-#opList .op-link:focus-visible {
-  outline: 3px solid rgba(37, 136, 255, 0.35);
-  outline-offset: 3px;
-}
-
-/* ==========================================================
-   TABLET
-========================================================== */
-
-@media (max-width: 820px) {
-  #opList {
-    gap: 14px;
-  }
-
-  #opList .op {
-    grid-template-columns: minmax(0, 1fr) 155px;
-    gap: 18px;
-    padding: 22px;
-  }
-
-  #opList .op h3 {
-    font-size: 18px;
-  }
-
-  #opList .op-action {
-    padding-left: 16px;
-  }
-}
-
-/* ==========================================================
-   MOBILE
-========================================================== */
+/* Mobile */
 
 @media (max-width: 600px) {
+
   #opList {
-    gap: 13px;
-    margin-top: 20px;
+
+    margin-top: 16px !important;
+
+    border-radius: 9px !important;
+
   }
 
-  #opList .op {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  #opList article.op {
 
-    padding: 19px 16px;
-    border-radius: 11px;
+    grid-template-columns: minmax(0, 1fr) !important;
+
+    gap: 10px !important;
+
+    padding: 15px !important;
+
   }
 
-  #opList .op:hover {
-    transform: none;
+  #opList article.op h3 {
+
+    font-size: 14px !important;
+
   }
 
-  #opList .op h3 {
-    font-size: 17px;
-    line-height: 1.5;
+  #opList article.op .op-action {
+
+    display: none !important;
+
   }
 
-  #opList .op p {
-    font-size: 13px;
-    line-height: 1.75;
-    -webkit-line-clamp: 4;
+  #opList article.op.op-expanded .op-action {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
   }
 
-  #opList .op-meta {
-    gap: 9px 15px;
+  #opList article.op.op-expanded .op-action > * {
+
+    width: 100% !important;
+
   }
 
-  #opList .op-tags {
-    gap: 6px;
-  }
-
-  #opList .op-tag {
-    padding: 5px 8px;
-    font-size: 10px;
-  }
-
-  #opList .op-action {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-
-    width: 100%;
-    padding: 16px 0 0;
-
-    border-top: 1px solid #edf1f6;
-    border-left: none;
-  }
-
-  #opList .op-contact,
-  #opList .op-link,
-  #opList .op-link-disabled {
-    min-height: 42px;
-    padding: 10px 7px;
-    font-size: 11px;
-  }
-
-  #opList .op-contact-view,
-  #opList .op-link {
-    grid-column: 1 / -1;
-  }
-}
-
-/* ==========================================================
-   SMALL MOBILE
-========================================================== */
-
-@media (max-width: 360px) {
-  #opList .op {
-    padding: 16px 12px;
-  }
-
-  #opList .op h3 {
-    font-size: 16px;
-  }
-
-  #opList .op-action {
-    gap: 7px;
-  }
-
-  #opList .op-contact,
-  #opList .op-link,
-  #opList .op-link-disabled {
-    padding: 9px 5px;
-    font-size: 10px;
-  }
-}
-
-/* Reduced motion */
-
-@media (prefers-reduced-motion: reduce) {
-  #opList .op,
-  #opList .op-contact,
-  #opList .op-link {
-    transition: none;
-  }
-
-  #opList .op:hover {
-    transform: none;
-  }
 }
 </style>
 <script>
