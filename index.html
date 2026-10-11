@@ -1915,11 +1915,11 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-/* ==================================
+/* ==========================================
 
-   EVALLOOP JOBS — OPPORTUNITY STRIPS
+   EVALLOOP JOBS — CLEAN OPPORTUNITY STRIPS
 
-================================== */
+========================================== */
 
 #opList {
 
@@ -1931,35 +1931,39 @@ h1 em,
 
   width: 100% !important;
 
-  margin: 24px auto !important;
+  margin: 22px auto !important;
 
   padding: 0 !important;
 
-  border: 1px solid #e6eaf0 !important;
+  background: #fff !important;
+
+  border: 1px solid #e5e7eb !important;
 
   border-radius: 12px !important;
 
   overflow: hidden !important;
 
-  background: #fff !important;
-
 }
+
+/* Individual strip */
 
 #opList article.op {
 
   display: grid !important;
 
-  grid-template-columns: minmax(0, 1fr) 125px !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
 
   align-items: center !important;
 
-  gap: 16px !important;
+  gap: 20px !important;
 
   width: 100% !important;
 
   margin: 0 !important;
 
-  padding: 17px 20px !important;
+  padding: 19px 22px !important;
+
+  background: #fff !important;
 
   border: 0 !important;
 
@@ -1967,9 +1971,9 @@ h1 em,
 
   border-radius: 0 !important;
 
-  background: #fff !important;
-
   box-shadow: none !important;
+
+  transform: none !important;
 
   transition: background .2s ease !important;
 
@@ -1977,19 +1981,21 @@ h1 em,
 
 #opList article.op:last-child {
 
-  border-bottom: 0 !important;
+  border-bottom: none !important;
 
 }
 
 #opList article.op:hover {
 
-  background: #f8faff !important;
-
-  transform: none !important;
+  background: #f9fbff !important;
 
   box-shadow: none !important;
 
+  transform: none !important;
+
 }
+
+/* Main content */
 
 #opList article.op .op-main {
 
@@ -2001,31 +2007,45 @@ h1 em,
 
   gap: 5px !important;
 
+  width: 100% !important;
+
   min-width: 0 !important;
 
+  padding: 0 !important;
+
 }
+
+/* Company name — large, bold, black */
 
 #opList article.op .op-company {
-
-  order: 1 !important;
-
-  margin: 0 !important;
-
-  color: #667085 !important;
-
-  font-size: 12px !important;
-
-  font-weight: 500 !important;
-
-}
-
-#opList article.op h3 {
 
   order: 0 !important;
 
   margin: 0 !important;
 
-  color: #1755a6 !important;
+  color: #111827 !important;
+
+  font-size: 17px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.5 !important;
+
+  overflow-wrap: anywhere !important;
+
+}
+
+/* Role — medium size, blue accent */
+
+#opList article.op h3 {
+
+  order: 1 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  color: #2588ff !important;
 
   font-size: 15px !important;
 
@@ -2037,19 +2057,29 @@ h1 em,
 
 }
 
+/* Location and duration */
+
 #opList article.op .op-meta {
+
+  order: 2 !important;
 
   display: flex !important;
 
   flex-wrap: wrap !important;
 
-  gap: 5px 12px !important;
+  align-items: center !important;
 
-  margin: 1px 0 0 !important;
+  gap: 4px 16px !important;
+
+  margin: 2px 0 0 !important;
+
+  padding: 0 !important;
 
   color: #667085 !important;
 
-  font-size: 12px !important;
+  font-size: 12.5px !important;
+
+  line-height: 1.6 !important;
 
 }
 
@@ -2057,29 +2087,113 @@ h1 em,
 
   color: #667085 !important;
 
-  font-size: 12px !important;
+  font-size: 12.5px !important;
+
+  line-height: 1.6 !important;
+
+  overflow-wrap: anywhere !important;
 
 }
+
+/* Hide details until expanded */
+
+#opList article.op:not(.op-expanded) .op-main > p,
+
+#opList article.op:not(.op-expanded) .op-tags,
+
+#opList article.op:not(.op-expanded) .op-highlight {
+
+  display: none !important;
+
+}
+
+/* Hide application buttons in collapsed state */
+
+#opList article.op:not(.op-expanded) .op-action {
+
+  display: none !important;
+
+}
+
+/* Expand control */
 
 #opList article.op .op-action {
 
   display: flex !important;
 
-  flex-direction: column !important;
+  flex-direction: row !important;
 
-  gap: 7px !important;
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
 
   min-width: 0 !important;
 
   margin: 0 !important;
 
-  padding: 0 !important;
+  padding: 14px 0 0 !important;
 
-  border: 0 !important;
+  border-top: 1px solid #edf0f4 !important;
 
 }
 
-/* Compact action buttons */
+/* Expanded card */
+
+#opList article.op.op-expanded {
+
+  display: grid !important;
+
+  grid-template-columns: minmax(0, 1fr) !important;
+
+  gap: 12px !important;
+
+  padding: 22px !important;
+
+  background: #fbfcff !important;
+
+}
+
+#opList article.op.op-expanded .op-main > p {
+
+  display: block !important;
+
+  margin-top: 8px !important;
+
+  color: #475467 !important;
+
+  font-size: 13px !important;
+
+  line-height: 1.8 !important;
+
+  overflow-wrap: anywhere !important;
+
+}
+
+#opList article.op.op-expanded .op-tags {
+
+  display: flex !important;
+
+  flex-wrap: wrap !important;
+
+  gap: 7px !important;
+
+}
+
+#opList article.op.op-expanded .op-highlight {
+
+  display: block !important;
+
+  margin-top: 8px !important;
+
+}
+
+#opList article.op.op-expanded .op-action {
+
+  grid-column: 1 / -1 !important;
+
+}
+
+/* Contact and application buttons */
 
 #opList article.op .op-contact,
 
@@ -2093,139 +2207,17 @@ h1 em,
 
   justify-content: center !important;
 
-  width: 100% !important;
+  min-height: 40px !important;
 
-  min-height: 34px !important;
+  padding: 10px 16px !important;
 
-  padding: 7px 10px !important;
-
-  border-radius: 6px !important;
+  border-radius: 7px !important;
 
   font-size: 12px !important;
 
   font-weight: 600 !important;
 
-  text-align: center !important;
-
   text-decoration: none !important;
-
-}
-
-#opList article.op .op-contact-view,
-
-#opList article.op .op-link:not(.op-link-disabled) {
-
-  color: #fff !important;
-
-  background: #245eea !important;
-
-  border: 1px solid #245eea !important;
-
-}
-
-#opList article.op .op-contact-email,
-
-#opList article.op .op-contact-whatsapp {
-
-  color: #344054 !important;
-
-  background: #fff !important;
-
-  border: 1px solid #dce3ed !important;
-
-}
-
-#opList article.op .op-tag {
-
-  font-size: 11px !important;
-
-}
-
-/* Expanded content */
-
-#opList article.op.op-expanded {
-
-  background: #fbfcff !important;
-
-}
-
-#opList article.op.op-expanded .op-main > p {
-
-  display: block !important;
-
-  margin-top: 8px !important;
-
-  color: #596579 !important;
-
-  font-size: 13px !important;
-
-  line-height: 1.8 !important;
-
-}
-
-#opList article.op:not(.op-expanded) .op-main > p,
-
-#opList article.op:not(.op-expanded) .op-tags,
-
-#opList article.op:not(.op-expanded) .op-highlight {
-
-  display: none !important;
-
-}
-
-#opList article.op:not(.op-expanded) .op-action {
-
-  display: none !important;
-
-}
-
-#opList article.op.op-expanded {
-
-  grid-template-columns: minmax(0, 1fr) !important;
-
-  gap: 12px !important;
-
-  padding: 20px !important;
-
-}
-
-#opList article.op.op-expanded .op-action {
-
-  display: flex !important;
-
-  flex-direction: row !important;
-
-  flex-wrap: wrap !important;
-
-  gap: 8px !important;
-
-  padding-top: 12px !important;
-
-  border-top: 1px solid #e8edf4 !important;
-
-}
-
-#opList article.op.op-expanded .op-action > * {
-
-  width: auto !important;
-
-  min-width: 110px !important;
-
-}
-
-#opList article.op.op-expanded .op-tags {
-
-  display: flex !important;
-
-  flex-wrap: wrap !important;
-
-  gap: 6px !important;
-
-}
-
-#opList article.op.op-expanded .op-highlight {
-
-  display: block !important;
 
 }
 
@@ -2237,7 +2229,7 @@ h1 em,
 
     margin-top: 16px !important;
 
-    border-radius: 9px !important;
+    border-radius: 10px !important;
 
   }
 
@@ -2247,7 +2239,13 @@ h1 em,
 
     gap: 10px !important;
 
-    padding: 15px !important;
+    padding: 17px 15px !important;
+
+  }
+
+  #opList article.op .op-company {
+
+    font-size: 16px !important;
 
   }
 
@@ -2257,15 +2255,21 @@ h1 em,
 
   }
 
-  #opList article.op .op-action {
+  #opList article.op .op-meta {
 
-    display: none !important;
+    gap: 4px 12px !important;
+
+    font-size: 12px !important;
+
+  }
+
+  #opList article.op.op-expanded {
+
+    padding: 18px 15px !important;
 
   }
 
   #opList article.op.op-expanded .op-action {
-
-    display: flex !important;
 
     flex-direction: column !important;
 
