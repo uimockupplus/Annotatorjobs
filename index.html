@@ -2022,6 +2022,60 @@ h1 em,
     white-space: normal;
   }
 }
+  /* Recent Opportunities — contact buttons */
+#opList .op-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  min-width: 0;
+  max-width: 100%;
+}
+#opList .op-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 38px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+#opList .op-contact-view {
+  color: #b8dcff;
+  background: rgba(77, 179, 255, 0.10);
+  border-color: rgba(77, 179, 255, 0.35);
+}
+#opList .op-contact-email {
+  color: #e2d7ff;
+  background: rgba(151, 111, 255, 0.10);
+  border-color: rgba(151, 111, 255, 0.30);
+}
+#opList .op-contact-whatsapp {
+  color: #9aefbd;
+  background: rgba(37, 211, 102, 0.09);
+  border-color: rgba(37, 211, 102, 0.30);
+}
+#opList .op-contact:hover {
+  border-color: currentColor;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 640px) {
+  #opList .op-action {
+    justify-content: flex-start;
+  }
+  #opList .op-contact {
+    min-height: 40px;
+  }
+}
 </style>
 <script>
 (() => {
