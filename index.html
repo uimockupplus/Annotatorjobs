@@ -1915,11 +1915,11 @@ h1 em,
     scroll-behavior:auto!important;
   }
 }
-/* ==========================================
+/* =========================================
 
-   EVALLOOP JOBS — CLEAN OPPORTUNITY STRIPS
+   EVALLOOP JOBS — COMPACT OPPORTUNITY STRIPS
 
-========================================== */
+========================================= */
 
 #opList {
 
@@ -1931,21 +1931,19 @@ h1 em,
 
   width: 100% !important;
 
-  margin: 22px auto !important;
+  margin: 20px 0 !important;
 
   padding: 0 !important;
 
   background: #fff !important;
 
-  border: 1px solid #e5e7eb !important;
+  border: 1px solid #e5eaf2 !important;
 
   border-radius: 12px !important;
 
   overflow: hidden !important;
 
 }
-
-/* Individual strip */
 
 #opList article.op {
 
@@ -1955,19 +1953,21 @@ h1 em,
 
   align-items: center !important;
 
-  gap: 20px !important;
+  gap: 8px 16px !important;
 
   width: 100% !important;
 
+  min-width: 0 !important;
+
   margin: 0 !important;
 
-  padding: 19px 22px !important;
+  padding: 17px 20px !important;
 
   background: #fff !important;
 
   border: 0 !important;
 
-  border-bottom: 1px solid #edf0f4 !important;
+  border-bottom: 1px solid #edf0f5 !important;
 
   border-radius: 0 !important;
 
@@ -1975,23 +1975,19 @@ h1 em,
 
   transform: none !important;
 
-  transition: background .2s ease !important;
+  transition: background .18s ease !important;
 
 }
 
 #opList article.op:last-child {
 
-  border-bottom: none !important;
+  border-bottom: 0 !important;
 
 }
 
 #opList article.op:hover {
 
-  background: #f9fbff !important;
-
-  box-shadow: none !important;
-
-  transform: none !important;
+  background: #f8faff !important;
 
 }
 
@@ -2007,27 +2003,27 @@ h1 em,
 
   gap: 5px !important;
 
-  width: 100% !important;
-
   min-width: 0 !important;
+
+  width: 100% !important;
 
   padding: 0 !important;
 
 }
 
-/* Company name — large, bold, black */
+/* Company name — accent blue */
 
 #opList article.op .op-company {
 
   order: 0 !important;
 
-  margin: 0 !important;
+  margin: 0 0 2px !important;
 
-  color: #111827 !important;
+  color: #2588ff !important;
 
-  font-size: 17px !important;
+  font-size: 13px !important;
 
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 
   line-height: 1.5 !important;
 
@@ -2035,7 +2031,7 @@ h1 em,
 
 }
 
-/* Role — medium size, blue accent */
+/* Role — medium-large */
 
 #opList article.op h3 {
 
@@ -2045,13 +2041,17 @@ h1 em,
 
   padding: 0 !important;
 
-  color: #2588ff !important;
+  color: #182230 !important;
 
-  font-size: 15px !important;
+  font-family: inherit !important;
+
+  font-size: 17px !important;
 
   font-weight: 600 !important;
 
-  line-height: 1.5 !important;
+  line-height: 1.45 !important;
+
+  letter-spacing: -0.2px !important;
 
   overflow-wrap: anywhere !important;
 
@@ -2069,7 +2069,9 @@ h1 em,
 
   align-items: center !important;
 
-  gap: 4px 16px !important;
+  gap: 4px 14px !important;
+
+  width: 100% !important;
 
   margin: 2px 0 0 !important;
 
@@ -2085,9 +2087,15 @@ h1 em,
 
 #opList article.op .op-meta span {
 
+  display: inline !important;
+
+  min-width: 0 !important;
+
   color: #667085 !important;
 
   font-size: 12.5px !important;
+
+  font-weight: 400 !important;
 
   line-height: 1.6 !important;
 
@@ -2095,19 +2103,13 @@ h1 em,
 
 }
 
-/* Hide details until expanded */
+/* Hide extra information while collapsed */
 
 #opList article.op:not(.op-expanded) .op-main > p,
 
 #opList article.op:not(.op-expanded) .op-tags,
 
-#opList article.op:not(.op-expanded) .op-highlight {
-
-  display: none !important;
-
-}
-
-/* Hide application buttons in collapsed state */
+#opList article.op:not(.op-expanded) .op-highlight,
 
 #opList article.op:not(.op-expanded) .op-action {
 
@@ -2115,41 +2117,43 @@ h1 em,
 
 }
 
-/* Expand control */
+/* Expand label */
 
-#opList article.op .op-action {
+#opList article.op::after {
 
-  display: flex !important;
+  content: "Expand ＋" !important;
 
-  flex-direction: row !important;
+  grid-column: 2 !important;
 
-  flex-wrap: wrap !important;
+  grid-row: 1 !important;
 
-  gap: 8px !important;
+  align-self: center !important;
 
-  min-width: 0 !important;
+  color: #2588ff !important;
 
-  margin: 0 !important;
+  font-size: 12px !important;
 
-  padding: 14px 0 0 !important;
+  font-weight: 600 !important;
 
-  border-top: 1px solid #edf0f4 !important;
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
 
 }
 
-/* Expanded card */
+#opList article.op.op-expanded::after {
+
+  content: "Collapse −" !important;
+
+}
+
+/* Expanded layout */
 
 #opList article.op.op-expanded {
 
-  display: grid !important;
-
-  grid-template-columns: minmax(0, 1fr) !important;
-
-  gap: 12px !important;
-
-  padding: 22px !important;
-
   background: #fbfcff !important;
+
+  padding: 20px !important;
 
 }
 
@@ -2157,9 +2161,9 @@ h1 em,
 
   display: block !important;
 
-  margin-top: 8px !important;
+  margin: 9px 0 0 !important;
 
-  color: #475467 !important;
+  color: #596579 !important;
 
   font-size: 13px !important;
 
@@ -2175,7 +2179,23 @@ h1 em,
 
   flex-wrap: wrap !important;
 
-  gap: 7px !important;
+  gap: 6px !important;
+
+  margin-top: 7px !important;
+
+}
+
+#opList article.op.op-expanded .op-tag {
+
+  padding: 5px 9px !important;
+
+  border-radius: 5px !important;
+
+  background: #eef5ff !important;
+
+  color: #315b91 !important;
+
+  font-size: 11px !important;
 
 }
 
@@ -2185,15 +2205,37 @@ h1 em,
 
   margin-top: 8px !important;
 
+  padding: 10px 12px !important;
+
+  border-left: 3px solid #2588ff !important;
+
+  background: #f0f7ff !important;
+
+  color: #344054 !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.7 !important;
+
 }
 
 #opList article.op.op-expanded .op-action {
 
   grid-column: 1 / -1 !important;
 
-}
+  display: flex !important;
 
-/* Contact and application buttons */
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
+
+  margin-top: 10px !important;
+
+  padding-top: 14px !important;
+
+  border-top: 1px solid #e5eaf2 !important;
+
+}
 
 #opList article.op .op-contact,
 
@@ -2207,65 +2249,125 @@ h1 em,
 
   justify-content: center !important;
 
-  min-height: 40px !important;
+  min-height: 38px !important;
 
-  padding: 10px 16px !important;
+  padding: 9px 16px !important;
 
-  border-radius: 7px !important;
+  border-radius: 6px !important;
 
   font-size: 12px !important;
 
   font-weight: 600 !important;
 
+  text-align: center !important;
+
   text-decoration: none !important;
 
 }
 
-/* Mobile */
+#opList article.op .op-contact-view,
+
+#opList article.op .op-link:not(.op-link-disabled) {
+
+  background: #2588ff !important;
+
+  border: 1px solid #2588ff !important;
+
+  color: #fff !important;
+
+}
+
+#opList article.op .op-contact-email,
+
+#opList article.op .op-contact-whatsapp {
+
+  background: #fff !important;
+
+  border: 1px solid #dce3ed !important;
+
+  color: #344054 !important;
+
+}
+
+#opList article.op .op-link-disabled {
+
+  background: #f2f4f7 !important;
+
+  color: #98a2b3 !important;
+
+}
+
+/* Keyboard accessibility */
+
+#opList article.op:focus-visible {
+
+  outline: 2px solid #2588ff !important;
+
+  outline-offset: -2px !important;
+
+}
+
+/* =========================================
+
+   MOBILE RESPONSIVENESS
+
+========================================= */
 
 @media (max-width: 600px) {
 
   #opList {
 
-    margin-top: 16px !important;
+    margin: 16px 0 !important;
 
-    border-radius: 10px !important;
+    border-radius: 9px !important;
 
   }
 
   #opList article.op {
 
-    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
 
-    gap: 10px !important;
+    gap: 7px 8px !important;
 
-    padding: 17px 15px !important;
+    padding: 15px 13px !important;
 
   }
 
   #opList article.op .op-company {
 
-    font-size: 16px !important;
+    font-size: 12px !important;
 
   }
 
   #opList article.op h3 {
 
-    font-size: 14px !important;
+    font-size: 15px !important;
+
+    line-height: 1.5 !important;
 
   }
 
   #opList article.op .op-meta {
 
-    gap: 4px 12px !important;
+    gap: 3px 10px !important;
 
-    font-size: 12px !important;
+  }
+
+  #opList article.op .op-meta span {
+
+    font-size: 11.5px !important;
+
+  }
+
+  #opList article.op::after {
+
+    font-size: 11px !important;
 
   }
 
   #opList article.op.op-expanded {
 
-    padding: 18px 15px !important;
+    padding: 16px 13px !important;
 
   }
 
