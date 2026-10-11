@@ -1917,6 +1917,8 @@ h1 em,
 }
 /* EVALLOOP JOBS — COMPACT OPPORTUNITY STRIPS */
 
+/* Opportunity list */
+
 #opList {
 
   display: flex;
@@ -1932,6 +1934,8 @@ h1 em,
   overflow: hidden;
 
 }
+
+/* Individual opportunity */
 
 #opList article.op {
 
@@ -1955,8 +1959,6 @@ h1 em,
 
   border-radius: 0;
 
-  background: var(--card, #101a2b);
-
   cursor: pointer;
 
 }
@@ -1967,7 +1969,7 @@ h1 em,
 
 }
 
-/* Main content stays in the first column */
+/* Main content */
 
 #opList article.op .op-main {
 
@@ -1987,7 +1989,7 @@ h1 em,
 
 }
 
-/* Company */
+/* Company name */
 
 #opList article.op .op-company {
 
@@ -2005,7 +2007,7 @@ h1 em,
 
 }
 
-/* Role stays directly under company */
+/* Role */
 
 #opList article.op .op-main h3 {
 
@@ -2043,7 +2045,7 @@ h1 em,
 
 }
 
-/* Hidden until expanded */
+/* Hide details when collapsed */
 
 #opList article.op .op-main > p,
 
@@ -2057,7 +2059,7 @@ h1 em,
 
 }
 
-/* Expand label */
+/* Expand control */
 
 #opList article.op::after {
 
@@ -2081,15 +2083,7 @@ h1 em,
 
 }
 
-/* EXPANDED CARD */
-
-#opList article.op.op-expanded {
-
-  background: var(--card-hover, #142137);
-
-}
-
-/* Company, role and metadata remain at the top */
+/* Expanded opportunity */
 
 #opList article.op.op-expanded .op-main {
 
@@ -2099,7 +2093,7 @@ h1 em,
 
 }
 
-/* Description appears BELOW the header */
+/* Description appears below company and role */
 
 #opList article.op.op-expanded .op-main > p {
 
@@ -2121,7 +2115,7 @@ h1 em,
 
 }
 
-/* Tags appear after description */
+/* Tags appear below description */
 
 #opList article.op.op-expanded .op-tags {
 
@@ -2159,7 +2153,7 @@ h1 em,
 
 }
 
-/* Highlight appears after tags */
+/* Highlight appears below tags */
 
 #opList article.op.op-expanded .op-highlight {
 
@@ -2177,8 +2171,6 @@ h1 em,
 
   border-radius: 0 6px 6px 0;
 
-  background: rgba(77, 163, 255, 0.07);
-
   color: var(--text, #f1f5f9);
 
   font-size: 13px;
@@ -2187,7 +2179,7 @@ h1 em,
 
 }
 
-/* Contact buttons appear last */
+/* Contact actions appear last */
 
 #opList article.op.op-expanded .op-action {
 
@@ -2207,7 +2199,7 @@ h1 em,
 
 }
 
-/* Collapse label */
+/* Collapse control */
 
 #opList article.op.op-expanded::after {
 
@@ -2215,7 +2207,7 @@ h1 em,
 
 }
 
-/* Links and buttons */
+/* Contact links */
 
 #opList article.op .op-contact {
 
@@ -2245,7 +2237,7 @@ h1 em,
 
 }
 
-/* Mobile */
+/* Mobile layout */
 
 @media (max-width: 600px) {
 
