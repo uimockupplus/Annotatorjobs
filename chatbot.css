@@ -1,17 +1,13 @@
-/* EvalLoopjobs Chatbot
-   Uses the same tokens as index.html (--bg, --ink, --muted, --lime, --paper, --border, --cyan)
-   so it doesn't need its own palette. If those variables ever change on the page,
-   this widget follows automatically. Fallback values are included in case this file
-   loads on a page without them. */
+/* =========================================================
+   EvalLoop Jobs — Chatbot UI
+   Matches the light editorial website design.
+   Existing IDs and classes are preserved for chatbot.js.
+   ========================================================= */
 
-/* The site hides the native cursor everywhere (body{cursor:none}) and draws
-   its own dot/ring instead, but that custom cursor is only wired up to
-   elements present at page load and sits at a lower z-index than this
-   widget — so inside the chatbot no cursor shows at all. Restore the
-   normal cursor within the widget's own boundary. */
 #evalbot-toggle,
 #evalbot,
-#evalbot * {
+#evalbot *,
+#evalbot-label {
   cursor: auto;
 }
 
@@ -19,7 +15,9 @@
 #evalbot-close,
 #evalbot-send,
 .evalbot-suggestion,
-.evalbot-job-actions a {
+.evalbot-job-actions a,
+.evalbot-resume-pin,
+.evalbot-resume-cta a {
   cursor: pointer;
 }
 
@@ -30,42 +28,60 @@
 #evalbot-toggle,
 #evalbot-label,
 #evalbot {
-  --ev-bg: var(--bg, #0b1224);
-  --ev-ink: var(--ink, #f5f8ff);
-  --ev-muted: var(--muted, #8fa0bb);
-  --ev-lime: var(--lime, #2588ff);
-  --ev-paper: var(--paper, #111d36);
-  --ev-border: var(--border, #233555);
-  --ev-cyan: var(--cyan, #4db3ff);
+  --ev-bg: var(--bg, #f8f8f6);
+  --ev-ink: var(--ink, #191918);
+  --ev-muted: var(--muted, #747370);
+  --ev-lime: var(--blue, #1685fd);
+  --ev-paper: var(--white, #ffffff);
+  --ev-border: var(--border, #e7e6e2);
+  --ev-cyan: var(--cyan, #8ec5ff);
+  --ev-blue-soft: var(--blue-soft, #eef6ff);
+
   font-family: "DM Sans", Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-/* "EvalLoop AI" peekaboo label — the toggle button itself is always
-   visible and clickable; only this little bubble beside it fades in
-   and out on a loop (driven by chatbot.js), so the AI branding gets
-   noticed without becoming a permanent, ignorable fixture. */
+#evalbot *,
+#evalbot *::before,
+#evalbot *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   Floating EvalLoop AI label
+   ========================================================= */
+
 #evalbot-label {
   position: fixed;
   right: 90px;
   bottom: 40px;
   z-index: 9999;
+
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 14px;
+  gap: 8px;
+
+  padding: 10px 15px;
   border: 1px solid var(--ev-border);
   border-radius: 999px;
+
   background: var(--ev-paper);
   color: var(--ev-ink);
-  font-family: "Space Grotesk", sans-serif;
+
+  font-family: "Space Grotesk", "DM Sans", sans-serif;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+
+  box-shadow: 0 5px 22px rgba(25, 25, 24, 0.09);
+
   opacity: 0;
-  transform: translateY(6px) scale(.94);
+  transform: translateY(6px) scale(.96);
   pointer-events: none;
-  transition: opacity .4s ease, transform .4s ease;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
 }
 
 #evalbot-label.show {
@@ -76,53 +92,89 @@
 #evalbot-label .evalbot-ai-dot {
   width: 7px;
   height: 7px;
+  flex-shrink: 0;
+
   border-radius: 50%;
   background: var(--ev-lime);
-  box-shadow: 0 0 10px var(--ev-lime);
-  animation: evalbotDotPulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 9px rgba(22, 133, 253, .35);
+
+  animation: evalbotDotPulse 1.8s ease-in-out infinite;
 }
 
 @keyframes evalbotDotPulse {
-  0%, 100% { opacity: .5; transform: scale(.8); }
-  50% { opacity: 1; transform: scale(1.15); }
+  0%, 100% {
+    opacity: .55;
+    transform: scale(.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
 }
+
+/* =========================================================
+   Circular chatbot toggle
+   ========================================================= */
 
 #evalbot-toggle {
   position: fixed;
   right: 24px;
   bottom: 24px;
+  z-index: 9999;
+
   width: 56px;
   height: 56px;
-  border: none;
-  border-radius: 50%;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
-  cursor: pointer;
-  z-index: 9999;
+  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(37, 136, 255, .35);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+
+  border: 1px solid var(--ev-lime);
+  border-radius: 50%;
+
+  background: var(--ev-lime);
+  color: #ffffff;
+
+  box-shadow: 0 8px 24px rgba(22, 133, 253, .23);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
 }
 
 #evalbot-toggle:hover {
-  background: var(--ev-cyan);
+  background: #0875eb;
+  border-color: #0875eb;
+
   transform: translateY(-3px);
-  box-shadow: 0 16px 38px rgba(37, 136, 255, .42);
+
+  box-shadow: 0 12px 30px rgba(22, 133, 253, .3);
+}
+
+#evalbot-toggle:focus-visible {
+  outline: 3px solid rgba(22, 133, 253, .3);
+  outline-offset: 4px;
 }
 
 #evalbot-toggle .evalbot-toggle-icon,
 #evalbot-toggle .evalbot-toggle-close {
   position: absolute;
+
   font-size: 22px;
   line-height: 1;
-  transition: opacity .15s ease, transform .15s ease;
+
+  transition:
+    opacity .15s ease,
+    transform .15s ease;
 }
 
 #evalbot-toggle .evalbot-toggle-close {
   font-size: 28px;
   font-weight: 300;
+
   opacity: 0;
   transform: rotate(-45deg);
 }
@@ -137,23 +189,36 @@
   transform: rotate(0);
 }
 
+/* =========================================================
+   Main chatbot window
+   ========================================================= */
+
 #evalbot {
   position: fixed;
   right: 24px;
   bottom: 92px;
-  width: 372px;
-  max-width: calc(100vw - 32px);
-  height: 540px;
-  max-height: calc(100vh - 130px);
-  background: linear-gradient(145deg, rgba(21,35,63,.98), rgba(15,25,48,.98));
-  border: 1px solid var(--ev-border);
-  border-radius: 14px;
-  box-shadow: 0 28px 70px rgba(0,0,0,.42), 0 0 38px rgba(37,136,255,.14);
+  z-index: 9998;
+
   display: none;
   flex-direction: column;
+
+  width: 380px;
+  max-width: calc(100vw - 32px);
+
+  height: 560px;
+  max-height: calc(100dvh - 130px);
+
   overflow: hidden;
-  z-index: 9998;
+
+  border: 1px solid var(--ev-border);
+  border-radius: 18px;
+
+  background: var(--ev-paper);
   color: var(--ev-ink);
+
+  box-shadow:
+    0 24px 65px rgba(25, 25, 24, .13),
+    0 3px 12px rgba(25, 25, 24, .04);
 }
 
 #evalbot.open {
@@ -162,230 +227,383 @@
 }
 
 @keyframes evalbotIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
+
+/* =========================================================
+   Chatbot header
+   ========================================================= */
 
 .evalbot-header {
   padding: 16px 18px;
-  background: var(--ev-paper);
-  border-bottom: 1px solid var(--ev-border);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+
   flex-shrink: 0;
+
+  background: var(--ev-paper);
+  border-bottom: 1px solid var(--ev-border);
 }
 
 .evalbot-title {
   display: flex;
   align-items: center;
   gap: 11px;
+
+  min-width: 0;
 }
 
 .evalbot-icon {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
-  background: var(--ev-lime);
-  color: var(--ev-ink);
-  border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  box-shadow: 0 0 16px rgba(37,136,255,.35);
+
+  border: 1px solid rgba(22, 133, 253, .18);
+  border-radius: 12px;
+
+  background: var(--ev-blue-soft);
+  color: var(--ev-lime);
+
+  font-size: 16px;
 }
 
 .evalbot-title strong {
   display: block;
-  font-family: "Space Grotesk", sans-serif;
+
+  color: var(--ev-ink);
+
+  font-family: "Space Grotesk", "DM Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: -.01em;
+  letter-spacing: -.02em;
 }
 
 .evalbot-title small {
   display: block;
+  margin-top: 3px;
+
   color: var(--ev-muted);
+
   font-size: 11px;
-  margin-top: 1px;
+  line-height: 1.4;
 }
 
 #evalbot-close {
-  border: none;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
   background: transparent;
   color: var(--ev-muted);
-  font-size: 20px;
+
+  font-size: 21px;
   line-height: 1;
-  cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 6px;
-  transition: color .15s ease, background .15s ease;
+
+  transition:
+    background .15s ease,
+    color .15s ease,
+    border-color .15s ease;
 }
 
 #evalbot-close:hover {
+  background: var(--ev-bg);
+  border-color: var(--ev-border);
   color: var(--ev-ink);
-  background: rgba(255,255,255,.06);
 }
+
+/* =========================================================
+   Message area
+   ========================================================= */
 
 #evalbot-messages {
   flex: 1;
-  padding: 16px;
+  min-height: 0;
+
+  padding: 18px 15px;
   overflow-y: auto;
-  background: var(--ev-bg);
+  overscroll-behavior: contain;
+
   display: flex;
   flex-direction: column;
+
+  background: var(--ev-bg);
+
+  scrollbar-width: thin;
+  scrollbar-color: #d6d5d0 transparent;
 }
 
 #evalbot-messages::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 #evalbot-messages::-webkit-scrollbar-thumb {
-  background: var(--ev-border);
-  border-radius: 6px;
+  background: #d6d5d0;
+  border-radius: 999px;
+}
+
+#evalbot-messages::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .evalbot-message {
-  max-width: 88%;
+  max-width: 89%;
+
+  margin-bottom: 11px;
   padding: 11px 13px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.55;
+
+  border-radius: 14px;
+
+  font-size: 12.5px;
+  line-height: 1.65;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .evalbot-bot {
-  background: var(--ev-paper);
-  border: 1px solid var(--ev-border);
-  color: var(--ev-ink);
   align-self: flex-start;
-  border-bottom-left-radius: 4px;
+
+  border: 1px solid var(--ev-border);
+  border-bottom-left-radius: 5px;
+
+  background: var(--ev-paper);
+  color: var(--ev-ink);
 }
 
 .evalbot-user {
   align-self: flex-end;
+
+  border: 1px solid var(--ev-lime);
+  border-bottom-right-radius: 5px;
+
   background: var(--ev-lime);
-  color: var(--ev-ink);
-  border-bottom-right-radius: 4px;
+  color: #ffffff;
 }
+
+/* Keep links readable in both message types. */
+
+.evalbot-message a {
+  color: var(--ev-lime);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.evalbot-user a {
+  color: #ffffff;
+}
+
+/* =========================================================
+   Typing indicator
+   ========================================================= */
 
 .evalbot-typing {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 13px 15px;
+  gap: 5px;
+
+  padding: 12px 14px;
 }
 
 .evalbot-typing span {
   width: 6px;
   height: 6px;
+
   border-radius: 50%;
-  background: var(--ev-muted);
+  background: #999892;
+
   animation: evalbotTyping 1.1s ease-in-out infinite;
 }
 
-.evalbot-typing span:nth-child(2) { animation-delay: .15s; }
-.evalbot-typing span:nth-child(3) { animation-delay: .3s; }
+.evalbot-typing span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.evalbot-typing span:nth-child(3) {
+  animation-delay: .3s;
+}
 
 @keyframes evalbotTyping {
-  0%, 60%, 100% { opacity: .3; transform: translateY(0); }
-  30% { opacity: 1; transform: translateY(-2px); }
+  0%, 60%, 100% {
+    opacity: .35;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
 }
+
+/* =========================================================
+   Recommended job cards
+   ========================================================= */
 
 .evalbot-job {
   margin-top: 10px;
-  padding: 12px;
+  padding: 13px;
+
   border: 1px solid var(--ev-border);
-  border-radius: 8px;
-  background: rgba(21,35,63,.5);
+  border-radius: 12px;
+
+  background: var(--ev-paper);
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.evalbot-job:hover {
+  border-color: rgba(22, 133, 253, .4);
+  box-shadow: 0 4px 15px rgba(25, 25, 24, .04);
 }
 
 .evalbot-job strong {
   display: block;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 13.5px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+
   color: var(--ev-ink);
+
+  font-family: "Space Grotesk", "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .evalbot-job small {
   display: block;
+  margin-bottom: 5px;
+
   color: var(--ev-muted);
-  font-size: 11.5px;
-  margin-bottom: 4px;
+
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 .evalbot-job-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 8px;
+  gap: 6px;
+
+  margin-top: 10px;
 }
 
 .evalbot-job-tags span {
-  padding: 4px 8px;
+  padding: 5px 8px;
+
   border: 1px solid var(--ev-border);
   border-radius: 999px;
+
+  background: var(--ev-bg);
   color: var(--ev-muted);
-  font-size: 9.5px;
+
+  font-size: 10px;
+  line-height: 1.3;
 }
 
 .evalbot-job-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin-top: 10px;
+
+  margin-top: 12px;
 }
 
 .evalbot-job-actions a {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 32px;
+  padding: 7px 11px;
+
   border: 1px solid var(--ev-lime);
-  border-radius: 7px;
-  background: rgba(37,136,255,.14);
-  color: var(--ev-ink);
-  text-decoration: none;
+  border-radius: 8px;
+
+  background: var(--ev-lime);
+  color: #ffffff;
+
   font-size: 11px;
   font-weight: 600;
-  transition: background .15s ease, transform .15s ease;
+  text-decoration: none;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
 }
 
 .evalbot-job-actions a:hover {
-  background: var(--ev-lime);
+  background: #0875eb;
   transform: translateY(-1px);
 }
 
+/* =========================================================
+   Quick actions and resume links
+   ========================================================= */
+
 .evalbot-quick-actions {
-  padding: 0 12px 10px;
+  padding: 0 14px 12px;
+  flex-shrink: 0;
+
   background: var(--ev-paper);
   border-top: 1px solid var(--ev-border);
-  flex-shrink: 0;
 }
 
 .evalbot-resume-pin {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding: 9px 12px;
-  border: 1px solid var(--ev-lime);
-  border-radius: 8px;
-  background: rgba(37,136,255,.12);
+  gap: 7px;
+
+  width: 100%;
+  margin-top: 11px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--ev-border);
+  border-radius: 9px;
+
+  background: var(--ev-paper);
   color: var(--ev-ink);
-  text-decoration: none;
+
   font-size: 11.5px;
   font-weight: 600;
   text-align: center;
-  transition: background .15s ease, transform .15s ease;
+  text-decoration: none;
+
+  transition:
+    border-color .15s ease,
+    background .15s ease,
+    color .15s ease;
 }
 
 .evalbot-resume-pin:hover {
-  background: var(--ev-lime);
-  transform: translateY(-1px);
+  border-color: var(--ev-lime);
+  background: var(--ev-blue-soft);
+  color: var(--ev-lime);
 }
 
 .evalbot-resume-cta {
@@ -395,128 +613,222 @@
 .evalbot-resume-cta a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+
   padding: 8px 12px;
+
   border: 1px solid var(--ev-lime);
   border-radius: 8px;
-  background: rgba(37,136,255,.14);
-  color: var(--ev-ink);
-  text-decoration: none;
+
+  background: var(--ev-blue-soft);
+  color: var(--ev-lime);
+
   font-size: 12px;
   font-weight: 600;
-  transition: background .15s ease, transform .15s ease;
+  text-decoration: none;
+
+  transition:
+    background .15s ease,
+    color .15s ease;
 }
 
 .evalbot-resume-cta a:hover {
   background: var(--ev-lime);
-  transform: translateY(-1px);
+  color: #ffffff;
 }
 
+/* =========================================================
+   Input area
+   ========================================================= */
+
 .evalbot-input-area {
-  padding: 12px;
-  border-top: 1px solid var(--ev-border);
-  background: var(--ev-paper);
   display: flex;
+  align-items: center;
   gap: 8px;
+
+  padding: 12px;
+
   flex-shrink: 0;
+
+  background: var(--ev-paper);
+  border-top: 1px solid var(--ev-border);
 }
 
 #evalbot-input {
   flex: 1;
   min-width: 0;
+  min-height: 42px;
+
+  padding: 11px 12px;
+
   border: 1px solid var(--ev-border);
-  border-radius: 9px;
-  padding: 10px 12px;
+  border-radius: 10px;
+
   outline: none;
+
   background: var(--ev-bg);
   color: var(--ev-ink);
-  font-size: 13px;
-  font-family: inherit;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.4;
+
+  transition:
+    border-color .15s ease,
+    box-shadow .15s ease;
 }
 
 #evalbot-input::placeholder {
-  color: var(--ev-muted);
+  color: #96948f;
 }
 
 #evalbot-input:focus {
   border-color: var(--ev-lime);
+  box-shadow: 0 0 0 3px rgba(22, 133, 253, .1);
 }
 
 #evalbot-send {
-  width: 40px;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
-  border: none;
-  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--ev-lime);
+  border-radius: 10px;
+
   background: var(--ev-lime);
-  color: var(--ev-ink);
-  cursor: pointer;
-  font-size: 15px;
-  transition: background .15s ease;
+  color: #ffffff;
+
+  font-size: 16px;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
 }
 
 #evalbot-send:hover {
-  background: var(--ev-cyan);
+  background: #0875eb;
+  transform: translateY(-1px);
 }
+
+#evalbot-send:focus-visible,
+#evalbot-close:focus-visible,
+.evalbot-suggestion:focus-visible {
+  outline: 2px solid var(--ev-lime);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   Suggested questions
+   ========================================================= */
 
 .evalbot-suggestions {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 7px;
+
   margin-top: 12px;
 }
 
 .evalbot-suggestion {
+  padding: 7px 10px;
+
   border: 1px solid var(--ev-border);
-  background: transparent;
-  color: var(--ev-muted);
-  padding: 6px 10px;
   border-radius: 999px;
+
+  background: var(--ev-paper);
+  color: var(--ev-muted);
+
+  font-family: "DM Sans", Arial, sans-serif;
   font-size: 10.5px;
-  cursor: pointer;
-  transition: background .15s ease, color .15s ease, border-color .15s ease;
+  line-height: 1.35;
+
+  transition:
+    border-color .15s ease,
+    background .15s ease,
+    color .15s ease;
 }
 
 .evalbot-suggestion:hover {
-  background: var(--ev-lime);
   border-color: var(--ev-lime);
-  color: var(--ev-ink);
+  background: var(--ev-blue-soft);
+  color: var(--ev-lime);
 }
+
+/* =========================================================
+   Mobile layout
+   ========================================================= */
 
 @media (max-width: 500px) {
   #evalbot {
     right: 12px;
     bottom: 82px;
+
     width: calc(100vw - 24px);
-    height: 68vh;
-    max-height: none;
+    height: min(68dvh, 600px);
+    max-height: calc(100dvh - 108px);
+
+    border-radius: 16px;
   }
 
   #evalbot-toggle {
     right: 16px;
     bottom: 16px;
+
+    width: 54px;
+    height: 54px;
   }
 
   #evalbot-label {
     right: 78px;
     bottom: 30px;
+
+    max-width: calc(100vw - 112px);
+    padding: 8px 11px;
+
     font-size: 11px;
-    padding: 8px 12px;
+  }
+
+  .evalbot-header {
+    padding: 13px 14px;
+  }
+
+  #evalbot-messages {
+    padding: 14px 12px;
+  }
+
+  .evalbot-message {
+    max-width: 94%;
+  }
+
+  .evalbot-input-area {
+    padding: 10px;
+  }
+
+  .evalbot-quick-actions {
+    padding: 0 10px 10px;
   }
 }
 
+/* =========================================================
+   Reduced motion accessibility
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+  #evalbot,
   #evalbot.open,
+  #evalbot-toggle,
+  #evalbot-label,
+  #evalbot-label .evalbot-ai-dot,
   .evalbot-typing span,
-  #evalbot-toggle {
-    animation: none;
-    transition: none;
-  }
-
-  #evalbot-label {
-    transition: none;
-  }
-
-  #evalbot-label .evalbot-ai-dot {
-    animation: none;
+  .evalbot-job,
+  .evalbot-job-actions a,
+  .evalbot-suggestion {
+    animation: none !important;
+    transition: none !important;
   }
 }
