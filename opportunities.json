@@ -33,7 +33,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLScde9JV5vNp2314Bl1RYlbb-37yNYtChCC7Dg1kx47AEl2Tvw/viewform"
   },
   {
-  "company": "Company: Coforge",
+  "company": "Coforge",
   "title": "AI Engineer / AI Lead",
   "description": "Build cutting-edge AI solutions that transform businesses, including intelligent applications, AI-powered automation, conversational agents, and next-generation Generative AI systems. Required skills include Generative AI and LLMs, Agentic AI and AI agents, Python programming, machine learning, deep learning, LangChain, LangGraph, retrieval-augmented generation (RAG), vector databases, prompt engineering, and cloud AI platforms such as Azure OpenAI, AWS Bedrock, or Google Cloud Vertex AI. Familiarity with MLOps and LLMOps is preferred. Candidates must have at least 3 years of relevant experience and be available to join immediately.",
   "tags": [
@@ -72,7 +72,7 @@
   "link": ""
 },
   {
-  "company": "Company: Unknown",
+  "company": "Unknown",
   "title": "AI Engineer",
   "description": "Hiring AI Engineers for remote opportunities involving real-world production systems. Candidates should have hands-on experience building and deploying agentic AI solutions, large language model (LLM) systems, retrieval-augmented generation (RAG) pipelines, and multi-agent workflows. Applicants with proven experience shipping AI systems to production are encouraged to share their resumes. Applications are accepted by email, and referrals are welcome. Recruitment contact: Tom Calvin.",
   "tags": [
@@ -99,7 +99,7 @@
   "link": ""
   },
   {
-  "company": "Company: Periskope",
+  "company": "Periskope",
   "title": "AI Engineer",
   "description": "Build and deploy AI-native systems that power reliable AI agents. Own the engineering lifecycle, from solution design and coding to testing, deployment, and production debugging. Improve agent workflows, tool integrations, evaluation, observability, and failure recovery while balancing performance, cost, and speed. Requirements: 2–4 years of software engineering experience, hands-on AI agent development, strong knowledge of APIs, databases, system design, and production debugging, with experience owning production systems at a product startup or scale-up. Interview Process: Founder conversation via WhatsApp, a 2-hour technical session, and a 30-minute culture-fit round. Recruitment Partner: ClanX | Hiring Company: Periskope",
   "tags": [
@@ -138,7 +138,7 @@
   "link": "https://jobs.clanx.ai/o/ai-engineer-remote?source=mlp"
   },
   {
-  "company": "Company: Unknown",
+  "company": "Unknown",
   "title": "AI Generalist (AI Data Annotation)",
   "description": "The role involves AI data annotation, AI model evaluation, providing feedback, and problem-solving to help improve AI models. No prior AI experience is required.",
   "tags": [
@@ -165,7 +165,7 @@
   "link": ""
   },
   {
-  "company": "Company: Xccelera.ai",
+  "company": "Xccelera.ai",
   "title": "AI Developer (Fresher / 0–1 Years)",
   "description": "Build AI agents and RAG pipelines using Python, LLM APIs, and frameworks like LangChain, LangGraph, or CrewAI. Develop intelligent workflows, prompt strategies, and multi-agent systems. Requirements: B.Tech in a relevant field, 0–1 years of Python experience, familiarity with LLM frameworks, vector databases, Git, and Docker.",
   "tags": ["AI Developer", "Fresher", "Generative AI", "GenAI", "AI Agents", "Agentic AI", "Agent Orchestration", "Python", "LLM", "LLM Integration", "LangChain", "LangGraph", "CrewAI", "LlamaIndex", "AutoGen", "OpenAI Swarm", "Prompt Engineering", "RAG", "Retrieval-Augmented Generation", "OpenAI", "Anthropic", "Azure OpenAI", "Hugging Face", "REST APIs", "Tool Calling", "Multi-Agent Systems", "Memory Management", "Vector Databases", "Pinecone", "Chroma", "Weaviate", "Milvus", "Git", "Docker", "CI/CD", "AI Automation"],
@@ -177,7 +177,7 @@
   "link": ""
   },
   {
-  "company": "Company: Credang",
+  "company": "Credang",
   "title": "AI / ML Engineer",
   "description": "Develop and deploy AI/ML solutions, prepare and clean datasets, train and evaluate models, integrate Generative AI APIs (OpenAI, Gemini, Hugging Face), and build REST APIs using FastAPI or Flask. Debug code, optimize model performance, and document experiments. Requirements: Degree in Computer Science, AI/ML, Data Science, or a related field; strong Python, OOP, and data structures knowledge; familiarity with Pandas, NumPy, Scikit-learn, TensorFlow, or PyTorch; and Git/GitHub skills. Freshers welcome. Eligibility: Tamil Nadu residents only. Strong analytical, problem-solving, and communication skills required.",
   "tags": ["AI/ML Engineer", "Artificial Intelligence", "Machine Learning", "Python", "Data Preprocessing", "Data Cleaning", "Model Training", "Model Evaluation", "FastAPI", "Flask", "REST APIs", "Generative AI", "LLM", "Prompt Engineering", "OpenAI", "Gemini", "Hugging Face", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "OpenCV", "Git", "GitHub", "Freshers", "Remote Work"],
@@ -189,7 +189,7 @@
   "link": ""
   },
   {
-  "company": "Company: Polluxa",
+  "company": "Polluxa",
   "title": "GenAI Solutions Architect",
   "description": "Design and build next-generation AI-powered solutions using Generative AI, LLM integration, RAG pipelines, and AI agent development. Work on scalable AI architectures, cloud infrastructure, Python development, prompt engineering, MLOps, and LLMOps to develop and deploy intelligent AI applications. Candidates should have a strong interest in Generative AI, LLMs, intelligent agents, and scalable AI solutions.",
   "tags": ["GenAI Solutions Architect", "Generative AI", "GenAI", "LLM", "LLM Integration", "RAG", "RAG Pipelines", "AI Agents", "Agentic AI", "AI Architecture", "Cloud Architecture", "Python", "Prompt Engineering", "MLOps", "LLMOps", "AI Solutions", "Remote Work"],
@@ -201,7 +201,7 @@
   "link": ""
   },
   {
-  "company": "Company: Raglic",
+  "company": "Raglic",
   "title": "AI Engineer (LLM Agents & RAG)",
   "description": "Build and deploy AI agents for customer support, lead qualification, and recruitment. Integrate LLMs with CRMs, help desks, and WhatsApp while testing, monitoring, and improving agent performance. Requirements: Production LLM experience, TypeScript or Python, APIs, databases, and familiarity with RAG, embeddings, or vector search.",
   "tags": ["AI Engineer", "LLM", "LLM Agents", "AI Agents", "Agentic AI", "RAG", "Retrieval-Augmented Generation", "Generative AI", "Python", "TypeScript", "API Integration", "Workflow Automation", "Vector Search", "Hybrid Search", "Embeddings", "LLM Evaluation", "AI Quality Assurance", "Customer Support AI", "CRM Integration", "WhatsApp Business Platform", "Zendesk", "Intercom", "Production AI", "Database", "Remote Work"],
@@ -213,7 +213,7 @@
   "link": "https://raglic.com/careers/ai-engineer-llm-agents-rag"
   },
   {
-  "company": "Company: Marveit",
+  "company": "Marveit",
   "title": "Data Annotator / Video Annotation Operator",
   "description": "Perform image and video annotation for AI/ML training data projects. Candidates should have basic computer knowledge, strong attention to detail, the ability to follow instructions accurately, basic English communication skills, and their own laptop/PC with stable internet. Previous annotation experience is a plus, but training will be provided.",
   "tags": ["Data Annotator", "Video Annotation", "Image Annotation", "Data Annotation", "AI Training Data", "AI/ML", "Computer Vision", "Remote Work", "Data Labeling"],
@@ -225,7 +225,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSdAQnsGDg2TaNzvf6dFfqaFDRsZ-BkaTLKgoz0w6DOlY9R7mQ/viewform"
   },
   {
-  "company": "Company: TaskUs",
+  "company": "TaskUs",
   "title": "Video Labeling Specialist",
   "description": "Perform video labeling and data annotation activities for AI operations and training data projects. Candidates with experience in any field can apply. The role is suitable for professionals looking to start or grow their career in AI, data annotation, and video labeling.",
   "tags": ["Video Labeling Specialist", "Video Labeling", "Data Annotation", "AI Operations", "AI Training Data", "Video Annotation", "Data Labeling", "Artificial Intelligence"],
@@ -237,7 +237,7 @@
   "link": ""
   },
   {
-  "company": "Company: Brainvire",
+  "company": "Brainvire",
   "title": "AI Engineer",
   "description": "Build production-grade LLM systems and AI applications using Python, FastAPI/Django, SQL, Docker, Git, and Linux. Work with OpenAI, Anthropic, Gemini, Bedrock, Azure AI, Vertex AI, LangGraph, LangChain, MCP, Agentic AI, RAG, embeddings, hybrid search, reranking, GraphRAG, PostgreSQL/pgvector, vector databases, LLM evaluation, observability, AI security, and cost/latency optimization. Experience with Hugging Face, LoRA/QLoRA, ML, and multimodal AI is required, while vLLM, Triton, PyTorch, OpenCV, LiveKit, Llama, Mistral, Qwen, and Guardrails are good-to-have skills.",
   "tags": ["AI Engineer", "Artificial Intelligence", "Generative AI", "LLM", "Large Language Models", "Python", "FastAPI", "Django", "SQL", "Docker", "Git", "Linux", "OpenAI", "Anthropic", "Gemini", "AWS Bedrock", "Azure AI", "Vertex AI", "LangGraph", "LangChain", "MCP", "Agentic AI", "RAG", "Embeddings", "Hybrid Search", "Reranking", "GraphRAG", "PostgreSQL", "pgvector", "Vector Databases", "LLM Evaluation", "LangSmith", "Langfuse", "OpenTelemetry", "AI Security", "Prompt Injection", "Hugging Face", "LoRA", "QLoRA", "Multimodal AI"],
@@ -249,7 +249,7 @@
   "link": ""
   },
   {
-  "company": "Company: Brain Inventory",
+  "company": "Brain Inventory",
   "title": "AI Engineer",
   "description": "Build intelligent AI solutions using Python, FastAPI/Flask, OpenAI, Claude, and open-source LLMs. Work with prompt engineering, RAG, vector databases, LangChain, LangGraph, AI agents, REST APIs, Git, and CI/CD. Additional experience with Claude Code, Cursor, Docker, cloud platforms, or voice AI is an advantage.",
   "tags": ["AI Engineer", "Artificial Intelligence", "Generative AI", "LLM", "OpenAI", "Claude", "Prompt Engineering", "RAG", "Vector Databases", "LangChain", "LangGraph", "AI Agents", "Python", "FastAPI", "Flask", "REST APIs", "Git", "CI/CD", "Claude Code", "Cursor", "Docker", "Cloud", "Voice AI"],
@@ -261,7 +261,7 @@
   "link": ""
   },
   {
-  "company": "Company: Zensar Technologies",
+  "company": "Zensar Technologies",
   "title": "Generative AI Engineer",
   "description": "Build end-to-end Generative AI applications and intelligent agents, develop innovative PoCs and production-ready AI solutions, and work on advanced GenAI initiatives involving MCP and A2A frameworks. Candidates should have experience with Generative AI, LLMs, Agentic AI, RAG, LangGraph, CrewAI, AutoGen, Python, and cloud platforms such as AWS, Azure, or GCP.",
   "tags": ["Generative AI", "GenAI", "LLM", "Agentic AI", "AI Agents", "RAG", "LangGraph", "CrewAI", "AutoGen", "Python", "MCP", "A2A", "AWS", "Azure", "GCP", "Cloud", "AI Applications"],
@@ -273,7 +273,7 @@
   "link": ""
   },
   {
-  "company": "Company: Millennium Semiconductors India",
+  "company": "Millennium Semiconductors India",
   "title": "AI Lead / Manager",
   "description": "Lead AI and digital transformation initiatives using Generative AI, Python, and AI/ML technologies. Drive the adoption and implementation of AI solutions across business and technical functions.",
   "tags": ["AI Lead", "AI Manager", "Generative AI", "GenAI", "Python", "AI/ML", "Artificial Intelligence", "Digital Transformation", "AI Solutions"],
@@ -285,7 +285,7 @@
   "link": ""
   },
   {
-  "company": "Company: JoulestoWatts",
+  "company": "JoulestoWatts",
   "title": "AI FDE – Forward Deployed Engineer",
   "description": "Work on AI-driven solutions as a Forward Deployed Engineer. Freshers with a B.E./B.Tech/M.Tech in Computer Science, IT, or a related technical field are encouraged to apply. Candidates should have strong interest in AI/ML, academic or personal projects involving AI/ML, Generative AI, LLMs, RAG, or AI-powered applications, along with strong programming and CS fundamentals, analytical and problem-solving skills, debugging ability, communication skills, and willingness to learn. Exposure to AI solutioning or hands-on AI internships is an advantage.",
   "tags": ["AI FDE", "Forward Deployed Engineer", "AI Engineer", "Artificial Intelligence", "Machine Learning", "Generative AI", "GenAI", "LLM", "RAG", "AI Applications", "AI Solutions", "Python", "Programming", "Computer Science", "AI Projects", "Fresher"],
@@ -309,7 +309,7 @@
   "link": ""
   },
   {
-  "company": "Company: unknown",
+  "company": "unknown",
   "title": "Video Labeling / Data Annotation Associate",
   "description": "Perform video labeling, data annotation, and moderation activities in a backend operations environment. Candidates should have at least 3 months of experience in video labeling, data annotation, or moderation, along with good English communication skills. Immediate joiners are preferred. Work involves rotational shifts with cab transportation available during odd working hours.",
   "tags": ["Video Labeling", "Data Annotation", "Content Moderation", "Data Labeling", "AI Training Data", "Backend Operations", "Video Annotation", "Data Quality"],
@@ -321,7 +321,7 @@
   "link": ""
   },
   {
-  "company": "Company: Perit AI",
+  "company": "Perit AI",
   "title": "AI Data Annotator (Transcription)",
   "description": "Work remotely on AI data annotation and transcription projects. Candidates should have strong attention to detail, the ability to follow detailed guidelines, good communication skills, and consistent productivity and quality. Previous annotation or transcription experience is a plus. High-quality work, strong productivity, and overall output may lead to increased compensation after the initial contract.",
   "tags": ["AI Data Annotator", "Data Annotation", "Transcription", "AI Training Data", "Artificial Intelligence", "Data Projects", "Quality Assurance", "Remote Work"],
@@ -364,7 +364,7 @@
   "link": ""
   },
   {
-  "company": "Company: Accenture",
+  "company": "Accenture",
   "title": "AI / ML Engineer – Large Language Models (LLMs)",
   "description": "Lead the development and deployment of AI and Generative AI solutions, design scalable AI applications and production-ready pipelines, collaborate across teams, drive technical decisions, and mentor junior team members. Work on LLMs, deep learning, chatbots, and image processing use cases. Strong skills in Generative AI, prompt engineering, AI/ML solution development, deep learning frameworks, cloud AI services, neural network architectures, and production-ready AI pipelines are required.",
   "tags": ["AI/ML Engineer", "Machine Learning", "Artificial Intelligence", "Generative AI", "GenAI", "LLM", "Large Language Models", "Prompt Engineering", "AI/ML Solutions", "Deep Learning", "Chatbots", "Image Processing", "Deep Learning Frameworks", "Cloud AI", "Neural Networks", "AI Pipelines"],
@@ -376,7 +376,7 @@
   "link": ""
   },
   {
-  "company": "Company: Observe.AI",
+  "company": "Observe.AI",
   "title": "AI Agent Engineer",
   "description": "Design, integrate, test, and deploy enterprise Voice and Chat AI agents and AI Copilots for customer environments. Own prompt design, workflow configuration, API and enterprise system integrations, telephony setup, evaluation frameworks, client demos, deployment, and ongoing optimization. Work directly with customers to translate requirements into production solutions, integrate CRMs and knowledge bases, troubleshoot SIP/CCaaS/PSTN systems, optimize LLM agent performance, and collaborate with product and engineering teams. Strong hands-on skills in prompt design, workflow building, API integration, LLMs, RAG, and scripting are required.",
   "tags": ["AI Agent Engineer", "AI Agents", "Agentic AI", "Generative AI", "LLM", "Prompt Engineering", "AI Copilots", "Conversational AI", "Voice AI", "Chat AI", "API Integration", "Workflow Automation", "RAG", "LangChain", "LlamaIndex", "Python", "JavaScript", "Telephony", "SIP", "CCaaS", "PSTN", "Twilio", "Amazon Connect", "Vector Databases", "n8n", "Zapier", "Solution Engineering", "Customer-Facing AI"],
@@ -388,7 +388,7 @@
   "link": "https://www.observe.ai/position?gh_jid=5432596008"
   },
   {
-  "company": "Company: VIP Gifts Article",
+  "company": "VIP Gifts Article",
   "title": "Forward Deployed AI Engineer (FDE)",
   "description": "Build real-world AI solutions and production systems for e-commerce, corporate gifting, automation, and intelligent customer experiences. Work on AI agents, RAG, AI automation, React/Next.js, Python, FastAPI, SQL, databases, cloud, APIs, and e-commerce or marketplace integrations. <strong>Send your Resume + GitHub/Portfolio when applying.</strong>",
   "tags": ["Forward Deployed AI Engineer", "FDE", "AI Engineer", "AI Agents", "RAG", "AI Automation", "React", "Next.js", "Python", "FastAPI", "SQL", "Databases", "Cloud", "APIs", "E-Commerce", "Marketplace Integrations"],
@@ -400,7 +400,7 @@
   "link": ""
   },
   {
-  "company": "Company: Aptino Inc.",
+  "company": "Aptino Inc.",
   "title": "AI Engineer – Fresher",
   "description": "Work on real-world AI solutions involving Artificial Intelligence, Machine Learning, Generative AI, Agentic AI, LLMs, MLOps, and modern AI frameworks. Freshers and candidates with 0–1 year of experience are welcome.",
   "tags": ["AI Engineer", "Artificial Intelligence", "Machine Learning", "Generative AI", "GenAI", "Agentic AI", "LLM", "MLOps", "AI Frameworks", "Fresher"],
@@ -412,7 +412,7 @@
   "link": ""
   },
   {
-  "company": "Company: Sarvam",
+  "company": "Sarvam",
   "title": "Agent Engineer – Deployment Engineering",
   "description": "Build and deploy production-grade AI agents for enterprise and government customers using prompts, system design, workflows, tool integrations, and evaluation pipelines. Map agent scenarios, build proofs of concept, integrate with banking, CRM, ticketing and telephony systems, define and improve quality metrics, engineer regression-tested and versioned agents, and optimize accuracy, cost, reliability, performance, and scalability. Strong Python, LLM and agent experience, backend services, APIs, data pipelines, cloud infrastructure, evals, and production ownership are required.",
   "tags": ["Agent Engineer", "AI Agents", "Agentic AI", "Generative AI", "LLM", "Python", "Prompt Engineering", "Context Engineering", "AI Evaluation", "Evals", "Backend", "APIs", "Cloud Infrastructure", "Data Pipelines", "Production AI", "Regression Testing", "Tool Use"],
@@ -424,7 +424,7 @@
   "link": "https://www.sarvam.ai/careers/jobs/36f89b00-2010-4d23-aae3-17a2f53d9eaa"
   },
   {
-  "company": "Company: Appen",
+  "company": "Appen",
   "title": "3D & LiDAR Data Annotation Analyst",
   "description": "Create high-quality ground-truth datasets for perception models by annotating 2D and 3D objects across images, video, and LiDAR point clouds. Perform segmentation, object tracking, pose and keypoint annotations for vehicles, machinery, people, signage, terrain, and environmental features. Follow detailed annotation guidelines, review work against QA standards, escalate ambiguous scenes and sensor or tooling issues, document data-quality issues, and participate in calibration sessions and guideline reviews. Strong attention to detail, spatial reasoning, annotation-tool proficiency, and experience with image annotation or GenAI workflows are required.",
   "tags": ["3D Annotation", "LiDAR Annotation", "Data Annotation", "Image Annotation", "Video Annotation", "Point Cloud", "Computer Vision", "AI Training Data", "Ground Truth", "3D Segmentation", "Object Tracking", "Pose Annotation", "Keypoint Annotation", "Sensor Fusion", "Autonomous Vehicles", "Robotics", "GIS", "AutoCAD", "GenAI"],
@@ -436,7 +436,7 @@
   "link": "https://jobs.lever.co/appen-2/b66cbdf1-684b-449b-8779-5859fa4419fa"
   },
   {
-  "company": "Company: Surge AI",
+  "company": "Surge AI",
   "title": "Generative AI - Generalist",
   "description": "Support product development and delivery by overseeing end-to-end product operations, coordinating with product and engineering teams, tracking and optimizing performance metrics, managing internal and external communication, resolving operational roadblocks, and using data-driven insights to improve operational strategies. Strong analytical skills, comfort with ambiguity, cross-functional collaboration, and continuous improvement mindset are required. Interest in AI/ML systems is a plus but not required.",
   "tags": ["Generative AI", "AI Generalist", "Product Operations", "Operations", "Product Management", "AI/ML", "Data-Driven Insights", "Performance Metrics", "Process Optimization", "Cross-Functional Collaboration", "Operational Efficiency", "Continuous Improvement"],
@@ -448,7 +448,7 @@
   "link": "https://jobs.ashbyhq.com/surge-ai/5a9bdcd5-331e-4e38-9756-43367a17243c/application"
   },
   {
-    "company": "Company: Emplay",
+    "company": "Emplay",
     "title": "Associate Backend / AI Engineer",
     "description": "Build and maintain backend services using Python, FastAPI, and Flask while developing LLM-powered features, RAG pipelines, conversational AI, embeddings, vector search, AI agents, and tool-based workflows using LangChain or LlamaIndex. Work with AWS services, REST APIs, webhooks, databases, testing, performance monitoring, and AI/backend troubleshooting.",
     "tags": ["Backend Engineering", "AI Engineer", "Generative AI", "LLM", "RAG", "Vector Search", "AI Agents", "Python", "FastAPI", "Flask", "LangChain", "LlamaIndex", "AWS", "REST APIs", "Databases"],
@@ -460,7 +460,7 @@
     "link": ""
   },
   {
-    "company": "Company: Emplay",
+    "company": "Emplay",
     "title": "Backend / AI Engineer",
     "description": "Design and build LLM-powered agents and scalable backend services, architect advanced RAG pipelines, and develop MCP and multi-agent workflows. Build enterprise API and webhook integrations, bulk data pipelines, usage analytics, secure production-grade services, and scalable AI solutions using AWS. Work with OpenAI, Anthropic, Bedrock, OpenSearch, Pinecone, pgvector, LangChain, LlamaIndex, Python, FastAPI, Flask, and modern authentication and infrastructure technologies.",
     "tags": ["Backend Engineering", "AI Engineer", "Generative AI", "LLM", "AI Agents", "Advanced RAG", "MCP", "Multi-Agent Systems", "AWS Bedrock", "OpenAI", "Anthropic", "OpenSearch", "Pinecone", "pgvector", "LangChain", "LlamaIndex", "Python", "FastAPI", "Flask", "REST APIs", "GraphQL", "OAuth 2.0", "SAML", "OIDC", "Terraform", "AWS CDK"],
@@ -472,7 +472,7 @@
     "link": ""
   },
   {
-  "company": "Company: Zecdata",
+  "company": "Zecdata",
   "title": "GenAI with Python Developer",
   "description": "Develop Generative AI solutions using Python, LangGraph, RAG, and Agentic Workflows. Candidates should have 4+ years of relevant experience and strong hands-on skills in Python and modern GenAI technologies.",
   "tags": ["Generative AI", "GenAI", "Python", "LangGraph", "RAG", "Agentic AI", "Agentic Workflows"],
@@ -484,7 +484,7 @@
   "link": ""
   },
   {
-  "company": "Company: LAB3",
+  "company": "LAB3",
   "title": "AI Engineer / AI Agent Engineer",
   "description": "Build next-generation AI systems focused on AI agents, agentic workflows, MCP, RAG, multi-agent systems, and LLM applications. Candidates should have at least 1 year of AI or software engineering experience, hands-on experience with LLMs and AI agents or workflows, and proficiency in Python, TypeScript, JavaScript, or Go. Strong system design and engineering skills are required.",
   "tags": ["AI Engineer", "AI Agent Engineer", "AI Agents", "Agentic AI", "Agentic Workflow", "MCP", "RAG", "Multi-Agent Systems", "LLM", "Python", "TypeScript", "JavaScript", "Go", "System Design"],
@@ -496,7 +496,7 @@
   "link": ""
   },
   {
-  "company": "Company: Ethara.AI",
+  "company": "Ethara.AI",
   "title": "AI Specialist Trainer",
   "description": "Lead enterprise-wide AI capability building through structured learning programs on AI, Generative AI, and LLMs. Design advanced prompt engineering frameworks and reusable prompt libraries, train business teams on AI tools and applications, deliver professional communication training, establish ethical AI and data privacy guidelines, and create certification, assessment, and evaluation frameworks. Drive stakeholder engagement, AI adoption, organizational change, and measurable training impact and ROI.",
   "tags": ["AI Specialist", "AI Trainer", "Generative AI", "GenAI", "LLM", "Prompt Engineering", "AI Tools", "Corporate Training", "Learning & Development", "AI Adoption", "AI Transformation", "Responsible AI", "AI Governance", "Data Privacy", "Evaluation Frameworks"],
@@ -508,7 +508,7 @@
   "link": "https://www.ethara.ai/careers/ai-specialist-trainer"
   },
   {
-  "company": "Company: HackElite",
+  "company": "HackElite",
   "title": "AI Engineer Intern",
   "description": "Develop and integrate AI/ML applications using Python, REST APIs, and FastAPI. Work on RAG pipelines, LLM-based applications, AI agents, Agentic RAG, vector databases, embeddings, retrieval systems, prompt engineering, and Generative AI. Contribute to developing, testing, debugging, and optimizing AI solutions. Candidates should have a Bachelor's/Master's degree or be pursuing one in Computer Science, AI, Data Science, Engineering, or a related field, with strong Python and hands-on AI project experience.",
   "tags": ["AI Engineer", "AI Internship", "Artificial Intelligence", "Machine Learning", "LLM", "RAG", "Agentic RAG", "AI Agents", "Generative AI", "Python", "FastAPI", "REST APIs", "Vector Databases", "Embeddings", "Prompt Engineering"],
@@ -520,7 +520,7 @@
   "link": ""
   },
   {
-  "company": "Company: Golden Eagle IT Technologies",
+  "company": "Golden Eagle IT Technologies",
   "title": "GenAI Developer",
   "description": "Develop Generative AI solutions using LLMs, Python, AI/ML concepts, RAG, and LangChain or similar frameworks. Work on real-world AI projects while applying strong problem-solving and analytical skills.",
   "tags": ["Generative AI", "GenAI", "LLM", "Python", "RAG", "LangChain", "AI/ML", "AI Development"],
@@ -532,7 +532,7 @@
   "link": ""
   },
   {
-  "company": "Company: PragmaEdge",
+  "company": "PragmaEdge",
   "title": "Associate Trainee – AI Engineer",
   "description": "Hiring freshers for an AI Engineer trainee role. Candidates should have Python coding skills, knowledge of AI, Generative AI, Machine Learning, LLMs and LLM tools, along with basic RAG concepts. Familiarity with Flask, FastAPI, Django, and Python fundamentals before OOP is required or preferred.",
   "tags": ["AI Engineer", "Generative AI", "GenAI", "Machine Learning", "LLM", "LLM Tools", "Python", "RAG", "Flask", "FastAPI", "Django", "Prompt Engineering"],
@@ -544,7 +544,7 @@
   "link": ""
   },
   {
-  "company": "Company: Coremantle.ai",
+  "company": "Coremantle.ai",
   "title": "Transcriber – Audio Transcription, Data Annotation",
   "description": "Work as an individual contributor on audio transcription and data annotation projects, producing high-quality transcriptions with 95%+ accuracy. Freelance opportunities are available for Marathi, Tamil, Telugu, Gujarati, Bengali, Malayalam, Kannada, Punjabi, and Odia. Full-time opportunities are available for Telugu and Malayalam. Vendors are not eligible.",
   "tags": ["Audio Transcription", "Data Annotation", "Speech Data", "Transcription", "AI Training", "Telugu", "Malayalam", "Marathi", "Tamil", "Gujarati", "Bengali", "Kannada", "Punjabi", "Odia"],
@@ -556,7 +556,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSe_Fn-fFp3xESBjYZcmLqBW50WFnPVhiYz99Qf2Eii0AZ8U7g/viewform"
   },
   {
-  "company": "Company: AlphaSense",
+  "company": "AlphaSense",
   "title": "Annotation Specialist II",
   "description": "Curate, structure, and benchmark complex financial datasets used to fine-tune LLMs. Evaluate AI model outputs, diagnose edge cases and hallucination risks, establish annotation guidelines and validation frameworks, improve internal annotation tools and workflows, and act as a final quality gate for production GenAI features. Strong financial research and capital markets knowledge is required.",
   "tags": ["Data Annotation", "LLM Evaluation", "Generative AI", "Financial Data", "AI Training", "AI Evaluation", "Financial Research", "Quality Assurance", "Capital Markets", "Data Operations"],
@@ -568,7 +568,7 @@
   "link": "https://job-boards.greenhouse.io/alphasense/jobs/8794640002?gh_src=8a5751f62us"
   },
   {
-  "company": "Company: GlobalLogic",
+  "company": "GlobalLogic",
   "title": "Data Annotator – OTT Content Review",
   "description": "Review video, image, website, and advertising content and apply consistent labels such as IAB categories, advertiser domains, sensitive-content categories, and creative attributes. Build and maintain ground-truth datasets for model evaluation, perform quality checks, identify ambiguous cases, provide feedback on model errors, and improve annotation guidelines and processes.",
   "tags": ["Data Annotation", "OTT Content Review", "Audio & Video Annotation", "Content Engineering", "Advertising Data", "Ground Truth", "AI Evaluation", "Quality Assurance", "Content Moderation"],
@@ -580,7 +580,7 @@
   "link": "https://www.globallogic.com/careers/data-annotator-ott-content-review-irc304075/?utm_source=LinkedIn&utm_medium=jobboard&utm_campaign=career"
   },
   {
-  "company": "Company: Rhombus Power, Inc.",
+  "company": "Rhombus Power, Inc.",
   "title": "Data Labeling Manager",
   "description": "Lead and scale a team of Data Labeling Specialists supporting AI initiatives involving text, video, and overhead imagery. Manage hiring, onboarding, training, workforce planning, performance metrics, quality assurance, and labeling operations while ensuring accurate and timely datasets. Develop scalable processes, improve annotation standards, and collaborate with leadership and technical teams on operational improvements.",
   "tags": ["Data Labeling", "Data Annotation", "Annotation Operations", "Team Management", "Imagery Analysis", "Video Annotation", "Text Annotation", "AI Training", "Quality Assurance", "Workforce Planning"],
@@ -592,7 +592,7 @@
   "link": "https://job-boards.greenhouse.io/rhombuspower/jobs/7762861003?gh_src=3fd7205e3us"
   },
   {
-  "company": "Company: Coforge",
+  "company": "Coforge",
   "title": "Senior Engineer / Technical Lead – Gen AI / Agentic AI",
   "description": "Develop scalable Generative AI and Agentic AI solutions using Python, machine learning, LLMs, NLP, RAG, AI agents, and modern AI frameworks. Build end-to-end ML pipelines, autonomous and multi-agent systems, APIs and microservices, embeddings and vector database solutions, and production-grade AI deployments. Work with cloud platforms, Docker, CI/CD, observability, Responsible AI, model evaluation, and performance optimization while collaborating with product, engineering, and data teams.",
   "tags": ["Python", "Generative AI", "Agentic AI", "AI Agents", "Machine Learning", "LLM", "NLP", "RAG", "Prompt Engineering", "Vector Databases", "Deep Learning", "AWS", "Azure", "GCP", "Docker", "CI/CD", "AI Evaluation", "Responsible AI"],
@@ -604,7 +604,7 @@
   "link": "https://careers.coforge.com/coforge/jobview/senior-engineer-pune-2026010609441166?id=891276"
   },
   {
-  "company": "Company: Terry Soot Management Group (TSMG)",
+  "company": "Terry Soot Management Group (TSMG)",
   "title": "Audio Transcription Specialist – English (India)",
   "description": "Listen to recorded English (India) audio conversations and accurately transcribe them according to project guidelines. Review and correct transcription errors, follow formatting rules, maintain confidentiality, and complete assigned tasks on time. Strong listening, typing, attention to detail, and B2-level English skills are required.",
   "tags": ["Audio Transcription", "Speech Data", "English India", "AI Training", "Data Annotation", "Speech Recognition", "Transcription QA"],
@@ -616,7 +616,7 @@
   "link": "https://jobs.lever.co/tsmg/9268ecc2-8960-4e67-aa86-50574957ca12"
   },
   {
-  "company": "Company: Welo Data",
+  "company": "Welo Data",
   "title": "Audio Transcription Reviewer (Annotator)",
   "description": "Review short English (US) audio clips and verify or correct word-level timestamps, segment boundaries, and automated transcriptions. Follow detailed style guidelines, flag unclear segments for review, and maintain high accuracy and consistency across annotation batches.",
   "tags": ["Audio Annotation", "Transcription Review", "Speech Data", "AI Training", "Data Annotation", "Timestamp Annotation", "English US"],
@@ -628,7 +628,7 @@
   "link": "https://jobs.lever.co/weloglobal/b3fbbcd9-4d27-4cf4-b588-6af829e8c043"
   },
   {
-  "company": "Company: QualityAI",
+  "company": "QualityAI",
   "title": "Data Collection & Annotation Engineer",
   "description": "Collect, annotate, review, and validate image and video datasets for AI model training and evaluation. Perform data collection across different environments and scenarios, use annotation guidelines and tools such as CVAT, and conduct basic camera and firmware testing. Windows OS familiarity is required.",
   "tags": ["Data Collection", "Data Annotation", "Image Annotation", "Video Annotation", "AI Training", "AI Evaluation", "Manual QA", "CVAT", "Computer Vision"],
@@ -640,7 +640,7 @@
   "link": "https://careers.quality-ai.com/job/Bangalore-Data-Collection-&-Annotation-Engineer-560045/59591044/?utm_source=LINKEDIN&utm_medium=referrer"
   },
   {
-  "company": "Company: unknown",
+  "company": "unknown",
   "title": "Language Project – Voice Recording & Annotation",
   "description": "Work remotely on AI and speech technology projects involving high-quality voice recording, annotation, transcription, and data validation. Freelancers, students, and language experts can participate with flexible schedules, training, and project guidelines. Long-term projects and regular opportunities are available.",
   "tags": ["Voice Recording", "Audio Annotation", "Transcription", "Data Validation", "AI Training", "Speech Technology", "Language Data", "Data Collection"],
@@ -652,7 +652,7 @@
   "link": ""
   },
   {
-  "company": "Company: Eurofins Scientific",
+  "company": "Eurofins Scientific",
   "title": "AI Content Support Analyst",
   "description": "Transform training content into structured, AI-ready knowledge assets by transcribing videos, organizing content into chapters and timelines, formatting documentation, and preparing information for AI and chatbot retrieval. Maintain accuracy, readability, consistency, and quality while supporting a global AI and knowledge management initiative.",
   "tags": ["AI Content", "Knowledge Management", "AI Training", "Content Structuring", "Transcription", "Documentation", "AI Readiness", "Data Quality"],
@@ -664,7 +664,7 @@
   "link": "https://jobs.smartrecruiters.com/Eurofins/744000129426889-ai-content-support-analyst?trid=2d92f286-613b-4daf-9dfa-6340ffbecf73"
   },
   {
-  "company": "Company: TSMG",
+  "company": "TSMG",
   "title": "AI Text Validation Specialist – Telugu",
   "description": "Review AI-generated Telugu transcripts and convert them into natural display text by applying punctuation, capitalization, number/date/time/currency formatting, and other normalization rules. Keep all original words unchanged, follow project guidelines, and use reference audio only when needed. Training is provided.",
   "tags": ["AI Text Validation", "Telugu", "AI Training", "Speech Recognition", "Linguistic QA", "Data Annotation", "Text Normalization"],
@@ -676,7 +676,7 @@
   "link": "https://jobs.lever.co/tsmg/92f235bd-9bb9-4270-a2b1-e3838b2fda45/apply?lever-source=LinkedIn"
   },
   {
-  "company": "Company: Netopsys AI Pvt Ltd",
+  "company": "Netopsys AI Pvt Ltd",
   "title": "AI Engineer – Generative AI & Agentic Systems",
   "description": "Build production-ready Generative AI applications using Python, LLMs, RAG, Agentic AI, REST APIs, vector databases, and modern AI technologies. Work on conversational and Voice AI, prompt engineering, model evaluation, AI agents, retrieval optimization, and production deployment.",
   "tags": ["AI Engineer", "Generative AI", "Agentic AI", "LLM", "RAG", "Python", "AI Agents", "Vector Databases", "Voice AI", "Prompt Engineering", "AI Evaluation"],
@@ -688,7 +688,7 @@
   "link": "https://netopsys.in/careers/NET-AI-001"
   },
   {
-    "company": "Company: INFOeSearch",
+    "company": "INFOeSearch",
     "title": "Data Annotation Associate",
     "description": "Work on data annotation tasks supporting AI and machine learning workflows. Follow annotation guidelines, maintain accuracy and consistency, and contribute to live enterprise workloads with structured training.",
     "tags": ["Data Annotation", "AI Training", "Data Labeling", "AI/ML"],
@@ -700,7 +700,7 @@
     "link": "https://infoesearch.com/careers"
   },
   {
-  "company": "Company: WonderBotz",
+  "company": "WonderBotz",
   "title": "Junior AI Engineer",
   "description": "Hiring Junior AI Engineers to build and deploy Generative AI and Agentic AI solutions under senior engineer guidance. Work includes LLM applications, RAG pipelines, agentic workflows, vector databases, prompt engineering, REST APIs, cloud services, AI evaluation, and CI/CD. Strong Python skills and foundational knowledge of LLMs, RAG, and prompt engineering are required.",
   "tags": ["Junior AI Engineer", "Generative AI", "Agentic AI", "LLM", "RAG", "LangChain", "LangGraph", "Python", "AI Engineering", "Prompt Engineering"],
@@ -712,7 +712,7 @@
   "link": "https://wonderbotz.applytojob.com/apply/RbPIL43iH6/Junior-AI-Engineer?source=LILI"
   },
   {
-  "company": "Company: AlphaSense",
+  "company": "AlphaSense",
   "title": "Content Analyst",
   "description": "Research and onboard web-based content, monitor content ingestion and quality, maintain web scraping configurations, troubleshoot content issues, and support content-related requests. Work with engineering, product, and content teams while maintaining documentation, reports, and quality controls.",
   "tags": ["Content Analysis", "Content Operations", "Web Research", "Data Maintenance", "Quality Assurance", "Content QA", "Web Scraping", "Data Entry"],
@@ -724,7 +724,7 @@
   "link": "https://job-boards.greenhouse.io/alphasense/jobs/8025882002?gh_src=8a5751f62us"
   },
   {
-  "company": "Company: CyberMeru Technologies",
+  "company": "CyberMeru Technologies",
   "title": "AI Engineer",
   "description": "Hiring AI Engineers with 2–3 years of experience to build GenAI, RAG, and multi-agent applications. Work with LangChain, Claude, Gemini, MCP, PyTorch/TensorFlow, Python, FastAPI, Django, vector databases, SQL, Redis, Celery, Docker, and AWS.",
   "tags": ["AI Engineer", "Generative AI", "GenAI", "LLM", "RAG", "Agentic AI", "LangChain", "Python", "Machine Learning", "AWS"],
@@ -736,7 +736,7 @@
   "link": ""
   },
   {
-  "company": "Company: Arctic Engines",
+  "company": "Arctic Engines",
   "title": "Operations Lead / QC Lead – Video Annotation",
   "description": "Hiring Operations and QC Leads for large-scale egocentric video annotation projects in Physical AI. Operations Leads manage 100+ annotators and own hiring, onboarding, capacity planning, productivity, and delivery. QC Leads manage annotation guidelines, calibration, quality reviews, error analysis, rework, and reviewer teams. Direct experience with egocentric video, robotics, or Physical AI datasets is mandatory.",
   "tags": ["Video Annotation", "Egocentric Video", "Physical AI", "Robotics", "Operations Lead", "QC Lead", "Data Annotation", "Quality Control"],
@@ -748,7 +748,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaOohPP-SHuRjnBHZH9VdqIJy8rMgvi-HQI6VsmvS94ZHVjA/viewform"
   },
   {
-  "company": "Company: IAT Networks",
+  "company": "IAT Networks",
   "title": "Odia Language Expert – AI Training & Evaluation",
   "description": "Hiring native or near-native Odia language experts for a remote AI training and evaluation project. Review AI-generated Odia content, create prompts and reference answers, compare responses, identify language/factual/cultural issues, and provide detailed feedback and rewrites. 3+ years of relevant writing, editing, translation, localization, journalism, education, or content QA experience is required.",
   "tags": ["AI Training", "AI Evaluation", "Odia", "Language Expert", "LLM Evaluation", "Translation QA", "Content QA", "Localization"],
@@ -760,7 +760,7 @@
   "link": ""
   },
   {
-  "company": "Company: L&T Precision Engineering & Systems",
+  "company": "L&T Precision Engineering & Systems",
   "title": "GenAI Trainee",
   "description": "Hiring GenAI Trainees with 0–2 years of experience to support Machine Learning, Generative AI, Computer Vision, and AI solution development. Work includes LLMs, prompt engineering, RAG, response evaluation, chatbots, model evaluation, computer vision, data pipelines, APIs, and AI/ML deployment. Bachelor of Technology (BTech) required.",
   "tags": ["GenAI", "Artificial Intelligence", "Machine Learning", "LLM", "RAG", "Prompt Engineering", "Computer Vision", "AI Evaluation", "Python", "Deep Learning"],
@@ -772,7 +772,7 @@
   "link": "https://larsentoubrocareers.peoplestrong.com/job/detail/LNT_GT_1820562"
   },
   {
-  "company": "Company: DENSE AI",
+  "company": "DENSE AI",
   "title": "AI Data Annotation & LLM Review Roles",
   "description": "DENSE AI is hiring freshers and graduates across India for remote AI industry roles, including image/video/spatial annotation, NLP annotation, multilingual transcription, LLM prompt review, QA, and project-based data collection. Training is provided and prior experience is not required.",
   "tags": [
@@ -793,7 +793,7 @@
   "link": ""
   },
   {
-  "company": "Company: unknown",
+  "company": "unknown",
   "title": "Data Labelling / Annotation – Automotive / ADAS",
   "description": "Hiring experienced Data Labelling/Annotation professionals with 2–3 years of experience in Automotive, ADAS, or Computer Vision projects. Work includes lane detection, traffic signal and road sign annotation, object detection/classification, 2D/3D annotation, and ADAS datasets. LiDAR annotation experience is an added advantage.",
   "tags": ["Data Annotation", "Data Labelling", "Automotive", "ADAS", "Computer Vision", "Lane Annotation", "Object Detection", "2D/3D Annotation", "LiDAR"],
@@ -805,7 +805,7 @@
   "link": ""
   },
   {
-  "company": "Company: CyberWarFare Labs",
+  "company": "CyberWarFare Labs",
   "title": "Red Team & AI Security Intern",
   "description": "CyberWarFare Labs is hiring interns for Red Team Security and AI Security roles. Gain hands-on exposure to offensive security, AI security, cybersecurity research, and related security projects in a fully remote environment.",
   "tags": ["Cybersecurity", "Red Team", "Offensive Security", "AI Security", "Cybersecurity Research", "Security Internship"],
@@ -817,7 +817,7 @@
   "link": ""
   },
   {
-  "company": "Company: Sovrano",
+  "company": "Sovrano",
   "title": "Robotics Data Annotator",
   "description": "Join a qualified pool for upcoming robotics AI projects involving frame-by-frame and caption-based annotation of robot and human-hand actions in short video clips. Follow detailed labeling guidelines, maintain high accuracy and consistency, flag unclear clips, and complete a free qualification exam. Prior annotation, video annotation, robotics, or computer vision experience is a plus.",
   "tags": ["Robotics Data Annotation", "Video Annotation", "AI Training", "Computer Vision", "Data Labelling", "Data QA", "Robotics"],
@@ -829,7 +829,7 @@
   "link": "https://app.sovrano.ai/signup?utm_source=user&utm_medium=referral&utm_campaign=jobReferral&utm_content=v1&source=referral&referral_code=Q2F6TE86"
   },
   {
-  "company": "Company: micro1",
+  "company": "micro1",
   "title": "Video Data Annotation Specialist",
   "description": "Work on AI and Machine Learning projects involving video, audio, image, and other data annotation tasks. Responsibilities include reviewing, labeling, and annotating data according to project guidelines while maintaining data quality and accuracy. Candidates with relevant skills may apply, including freshers subject to project eligibility.",
   "tags": ["Video Annotation", "Audio Annotation", "Data Labeling", "Image Annotation", "AI/ML Data Processing", "Data Quality"],
@@ -841,7 +841,7 @@
   "link": "https://jobs.micro1.ai/post/4256a2e1-877f-42d5-8fef-20147a0b2db7?referralCode=1e8f2531-ffe5-406d-8c9f-b4a8db3bbeca&utm_source=referral&utm_medium=share&utm_campaign=job_referral"
   },
   {
-  "company": "Company: Acadecraft Inc.",
+  "company": "Acadecraft Inc.",
   "title": "Contract Translator / Linguist",
   "description": "Acadecraft Inc. is building a freelance linguist pool for translation, proofreading, and QA projects. Native or fluent speakers with translation experience can apply for remote, project-based work.",
   "tags": ["Translation", "Proofreading", "Linguistic QA", "Freelance", "Localization"],
@@ -853,7 +853,7 @@
   "link": "https://docs.google.com/forms/d/e/1FAIpQLSfCKpzAEjFPblp9FXqzqlu-ChZmtB79fnmFZcoaxnW1RRMmDQ/viewform"
   },
   {
-  "company": "Company: unknown",
+  "company": "unknown",
   "title": "Data Annotation Professional – LiDAR",
   "description": "Hiring experienced Data Annotation Professionals with a minimum of 2 years of relevant LiDAR annotation experience. The role involves working from the office in Kolkata, five days a week, with pick-up and drop transportation facilities available. Immediate joiners or candidates who can join within 7 days are preferred.",
   "tags": ["Data Annotation", "LiDAR Annotation", "3D Annotation", "Data Labeling"],
@@ -865,7 +865,7 @@
   "link": ""
   },
   {
-  "company": "Company: Abstrabit",
+  "company": "Abstrabit",
   "title": "AI Engineering Intern",
   "description": "Work on production AI systems by deploying and evaluating open-weight models, building RAG and inference pipelines, creating evaluation datasets, and investigating model performance. Gain hands-on experience with Python, LLMs, embeddings, vector databases, GPUs, cloud infrastructure, and model serving. Strong Python, programming, API, Git, and problem-solving skills are required; prior AI engineering experience is a plus but not mandatory.",
   "tags": ["AI Engineering", "LLM", "RAG", "AI Evaluation", "Model Deployment", "Python", "AI Infrastructure"],
@@ -877,7 +877,7 @@
   "link": "https://jobs.smartrecruiters.com/AbstrabitTechnologiesPvtLtd/744000150289409-ai-engineering-intern"
   },
   {
-  "company": "Company: unknown",
+  "company": "unknown",
   "title": "Gen AI Specialist – Freshers",
   "description": "Hiring freshers for a Gen AI Specialist role in Hyderabad. The position involves working with data annotation, content evaluation, technical writing, large language models, prompt response evaluation, and response quality assessment. Immediate joiners are preferred.",
   "tags": ["Generative AI", "Data Annotation", "Content Evaluation", "LLM", "Prompt Evaluation", "Technical Writing"],
@@ -889,7 +889,7 @@
   "link": ""
   },
   {
-  "company": "Company: Tech Mahindra",
+  "company": "Tech Mahindra",
   "title": "Agentic AI Developer – Google ADK",
   "description": "Tech Mahindra is hiring experienced Agentic AI Developers with hands-on experience in Agentic AI, Google ADK, LangGraph, and production-grade AI development. Candidates should have 5–10 years of experience and be available to join immediately. Interested candidates can share their updated CV via WhatsApp.",
   "tags": ["Agentic AI", "Google ADK", "LangGraph", "AI Development", "Production AI"],
@@ -901,7 +901,7 @@
   "link": ""
   },
   {
-    "company": "Company: 2une (A PhysicsWallah Company)",
+    "company": "2une (A PhysicsWallah Company)",
     "title": "Radiology Annotation – MD/DNB",
     "description": "Annotate clinical findings from radiology reports to their corresponding regions in CT, MRI, or X-ray imaging studies. Each report statement describing a specific finding must be mapped one-to-one to the corresponding visual evidence using a bounding box or supported segmentation.",
     "tags": [
@@ -918,7 +918,7 @@
     "link": "https://experts.2une.ai/login?ref=VIVEKKANET044G&opportunity=e01cf347-591b-49ef-9c79-d408e0ea8304"
   },
   {
-  "company": "Company: Sigma Careers",
+  "company": "Sigma Careers",
   "title": "Gen AI – I&I",
   "description": "Hiring experienced professionals with 6–12 years of experience in Generative AI and workforce/people analytics. The role requires expertise in Gen AI, LLM, RAG, workforce analytics, HR analytics, people analytics, and talent analytics.",
   "tags": ["Generative AI", "Gen AI", "LLM", "RAG", "Workforce Analytics", "HR Analytics", "People Analytics", "Talent Analytics"],
@@ -930,7 +930,7 @@
   "link": ""
   },
   {
-    "company": "Company: Turing",
+    "company": "Turing",
     "title": "Video Annotator – Shot Boundary Detection",
     "description": "Review video clips frame-by-frame to identify shot boundaries, create Shot Cards with start and end frames, classify transition types such as cuts, fades, dissolves, and wipes, group shots into scene buckets based on narrative continuity, and classify video and scene content by category. The role requires strong attention to detail, familiarity with video editing techniques and annotation workflows, and the ability to maintain consistent, high-quality annotations.",
     "tags": [
@@ -947,7 +947,7 @@
     "link": "https://work.turing.com/r/6pMSHf1svP"
   },
   {
-    "company": "Company: Turing",
+    "company": "Turing",
     "title": "AI Quality Analyst – English",
     "description": "Evaluate a personalization feature for Gemini by designing multi-turn prompts and assessing how effectively AI responses use information from past conversations and connected personal data sources. Evaluate grounding, integration, helpfulness, personalization quality, and side-by-side model responses.",
     "tags": [
@@ -957,7 +957,7 @@
       "English",
       "Agentic Ai"
     ],
-    "location": "Company: Remote · Global",
+    "location": "Remote · Global",
     "duration": "3 months",
     "highlight": "$15 per hour",
     "email": "",
@@ -965,7 +965,7 @@
     "link": "https://work.turing.com/r/Geor_hkhJ8"
   },
   {
-    "company": "Company: Turing",
+    "company": "Turing",
     "title": "LLM Annotator – Master's Degree",
     "description": "Evaluate and improve Large Language Models by creating challenging prompts, analyzing structured data, assessing AI-generated responses for factual accuracy and reasoning quality, identifying model failures and hallucinations, and providing evidence-backed feedback.",
     "tags": [
@@ -983,7 +983,7 @@
     "link": "https://work.turing.com/r/4JbaptQavv"
   },
   {
-    "company": "Company: BlueRose Technologies",
+    "company": "BlueRose Technologies",
     "title": "AI Engineer – Agentic AI Evaluation",
     "description": "Work on testing, evaluating, and improving Agentic AI systems and LLM-powered applications for an Operator Assist product.",
     "tags": [
@@ -1001,7 +1001,7 @@
     "link": ""
   },
   {
-    "company": "Company: eTeam Inc.",
+    "company": "eTeam Inc.",
     "title": "Operations Specialist – AI/ML Evaluation",
     "description": "Execute AI/ML evaluation workflows, perform quality checks and audits, identify edge cases and process gaps, track evaluation metrics, and coordinate with data, analytics, ML, and operations teams.",
     "tags": [
@@ -1017,7 +1017,7 @@
     "link": ""
   },
   {
-    "company": "Company: Cognizant",
+    "company": "Cognizant",
     "title": "Content Moderation",
     "description": "Permanent work-from-home content moderation opportunity for graduates. Candidates will require strong communication skills and must be available for a face-to-face interview.",
     "tags": [
@@ -1033,7 +1033,7 @@
     "link": ""
   },
   {
-    "company": "Company: Workhive Technologies",
+    "company": "Workhive Technologies",
     "title": "PDF Bounding Box Annotation – Freelancer / Vendor",
     "description": "Freelance and vendor opportunity for PDF document annotation using bounding boxes to identify and label relevant text and content areas.",
     "tags": [
@@ -1050,7 +1050,7 @@
     "link": ""
   },
   {
-    "company": "Company: Inaiyon Technologies",
+    "company": "Inaiyon Technologies",
     "title": "Data Annotation Executive",
     "description": "Work on real-world data annotation projects that support AI development. Training is provided before starting work.",
     "tags": [
@@ -1067,7 +1067,7 @@
     "link": ""
   },
   {
-    "company": "Company: CitrUX Technologies",
+    "company": "CitrUX Technologies",
     "title": "Data Annotation Associate",
     "description": "Join CitrUX Technologies on real-world AI and data projects involving image annotation, video annotation, data labelling, data validation, and quality checking.",
     "tags": [
@@ -1084,39 +1084,7 @@
     "link": "https://www.citrux.in"
   },
   {
-    "company": "Company: Highspring India",
-    "title": "Associate Analyst – Content Moderation",
-    "description": "Review image, text, and video ads on e-commerce platforms, apply policy guidelines, identify inappropriate content, rate user experience, and check age appropriateness.",
-    "tags": [
-      "Content Moderation",
-      "Freshers Welcome",
-      "Permanent WFH"
-    ],
-    "location": "Gurugram · Permanent Work From Home",
-    "duration": "Full-time · 5 days/week · 24/7 rotational shifts",
-    "highlight": "WALK-IN",
-    "email": "ankit@highspring.in",
-    "whatsapp": "",
-    "link": ""
-  },
-  {
-    "company": "Company: Avyaan Management Pvt. Ltd.",
-    "title": "LiDAR Project Associate",
-    "description": "Work on LiDAR and GIS/mapping projects with responsibility for workflows, coordination, productivity, and quality targets.",
-    "tags": [
-      "LiDAR",
-      "GIS",
-      "Mapping"
-    ],
-    "location": "Remote / WFH",
-    "duration": "Full-time",
-    "highlight": "WALK-IN",
-    "email": "prachi.yadav@avyaanmgmt.com",
-    "whatsapp": "",
-    "link": ""
-  },
-  {
-    "company": "Company: vHive.ai",
+    "company": "vHive.ai",
     "title": "Data Annotator",
     "description": "Data annotation opportunity focused on 3D data annotation. Any graduate can apply, with engineering graduates preferred.",
     "tags": [
@@ -1132,7 +1100,7 @@
     "link": ""
   },
   {
-    "company": "Company: LAT Aerospace",
+    "company": "LAT Aerospace",
     "title": "Data Annotation Intern",
     "description": "Work with perception ML models and real aerospace data across annotation, testing, fine-tuning, and field deployment.",
     "tags": [
@@ -1148,7 +1116,7 @@
     "link": ""
   },
   {
-    "company": "Company: AnnotiqX AI Private Ltd",
+    "company": "AnnotiqX AI Private Ltd",
     "title": "2D & 3D Data Annotation",
     "description": "Entry-level annotation work across image, video, LiDAR, and point-cloud datasets with training and guidelines provided.",
     "tags": [
@@ -1164,7 +1132,7 @@
     "link": ""
   },
   {
-    "company": "Company: Leading MNC",
+    "company": "Leading MNC",
     "title": "Data Annotation – International Non-Voice Process",
     "description": "International non-voice data annotation process involving data annotation work for an MNC. Immediate joiners are required.",
     "tags": [
@@ -1180,7 +1148,7 @@
     "link": ""
   },
   {
-    "company": "Company: ZIGRAM",
+    "company": "ZIGRAM",
     "title": "Assistant Manager – Operations",
     "description": "Support Data Asset projects and solutions through operations, secondary research, and AML activities. The role requires team handling experience, strong research and analytical skills, and high attention to detail.",
     "tags": [
@@ -1197,7 +1165,7 @@
     "link": ""
   },
   {
-    "company": "Company: Softechub",
+    "company": "Softechub",
     "title": "Project Manager Intern",
     "description": "Support live client projects by coordinating deliverables, tracking timelines, and working with a distributed talent network on global AI projects.",
     "tags": [
