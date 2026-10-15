@@ -1,5 +1,34 @@
 [
   {
+  "company": "Codefeast",
+  "title": "Video Annotator – Quality Review & Fraud Detection",
+  "description": "Review phone-recorded egocentric video submissions and evaluate them for potential fraud indicators, collection integrity, and quality compliance using the client's review platform. Responsibilities include reviewing video submissions, identifying possible fraud, manipulation, or integrity issues, performing quality checks according to project guidelines, classifying submissions as Valid or Flagged, and selecting appropriate reasons for flagged submissions. Requirements include strong attention to detail and observation skills, the ability to follow detailed guidelines and standard operating procedures, good written English comprehension, comfort with repetitive annotation and quality-review tasks, basic computer proficiency, and the ability to use web-based platforms. Experience in data annotation, video annotation, content review, fraud review, or quality control is preferred but not mandatory. Freshers may apply with at least 1 year of internship experience. Selection process: assessment, project training and client certification, followed by go-live and billing.",
+  "tags": [
+    "Video Annotation",
+    "Quality Review",
+    "Fraud Detection",
+    "Data Annotation",
+    "Content Review",
+    "Quality Control",
+    "Video Review",
+    "Fraud Review",
+    "Integrity Verification",
+    "Quality Assurance",
+    "SOP Compliance",
+    "Remote",
+    "Contract",
+    "Freshers",
+    "Internship Experience",
+    "3–4 Months"
+  ],
+  "location": "Remote",
+  "duration": "3–4 Months · Contract",
+  "highlight": "Freshers Can Apply · Assessment and Client Certification Required",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSdg_1WsitNrEH7r8BMpWu3sx4K9tisT4rQ33yJOnrkmKY8yeg/viewform"
+  },
+  {
   "company": "Niuro",
   "title": "AI Engineering Lead (Agentic Development)",
   "description": "Lead and coordinate multiple autonomous AI engineering teams while ensuring accurate, reliable, and usable software delivery. Translate business priorities into clear task briefs, define scope boundaries and measurable outcomes, coordinate parallel development workstreams, and manage technical dependencies. Configure AI coding assistants, agent frameworks, command-line sessions, and workflow automation. Monitor progress, resolve interruptions, maintain clear ownership, and ensure work remains traceable through evidence-based status updates and written handoffs. Review code changes, validate AI-generated output, run meaningful tests, oversee source integration and releases, and verify software in real-world conditions. Protect confidential information and access boundaries, escalate risks appropriately, assess system capacity and operational costs, and investigate recurring failures to eliminate root causes. Requirements: at least 5 years of software engineering experience and technical leadership of concurrent development workstreams; hands-on experience with multiple AI coding tools or agent frameworks; strong skills in code review, defect diagnosis, testing, and AI output evaluation; experience with command-line tools, shell scripting, Git, repeatable development workflows, and automation for concurrent sessions or development processes; and experience with macOS or equivalent desktop automation. Candidates must be able to coordinate parallel workstreams, manage dependencies, prevent duplicated work, write precise instructions and handover notes, preserve unfinished work, respect permissions, and manage context limits, model account limits, system capacity, and operational costs. Experience with AI coding assistants, AI agent frameworks, test automation, incident diagnosis, workflow automation, and release verification is essential. Evidence-driven delivery, agent orchestration, concurrent development teams, and capacity planning are desirable.",
