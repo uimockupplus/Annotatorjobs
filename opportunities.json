@@ -1,5 +1,36 @@
 [
   {
+  "company": "Niuro",
+  "title": "AI Engineering Lead (Agentic Development)",
+  "description": "Lead and coordinate multiple autonomous AI engineering teams while ensuring accurate, reliable, and usable software delivery. Translate business priorities into clear task briefs, define scope boundaries and measurable outcomes, coordinate parallel development workstreams, and manage technical dependencies. Configure AI coding assistants, agent frameworks, command-line sessions, and workflow automation. Monitor progress, resolve interruptions, maintain clear ownership, and ensure work remains traceable through evidence-based status updates and written handoffs. Review code changes, validate AI-generated output, run meaningful tests, oversee source integration and releases, and verify software in real-world conditions. Protect confidential information and access boundaries, escalate risks appropriately, assess system capacity and operational costs, and investigate recurring failures to eliminate root causes. Requirements: at least 5 years of software engineering experience and technical leadership of concurrent development workstreams; hands-on experience with multiple AI coding tools or agent frameworks; strong skills in code review, defect diagnosis, testing, and AI output evaluation; experience with command-line tools, shell scripting, Git, repeatable development workflows, and automation for concurrent sessions or development processes; and experience with macOS or equivalent desktop automation. Candidates must be able to coordinate parallel workstreams, manage dependencies, prevent duplicated work, write precise instructions and handover notes, preserve unfinished work, respect permissions, and manage context limits, model account limits, system capacity, and operational costs. Experience with AI coding assistants, AI agent frameworks, test automation, incident diagnosis, workflow automation, and release verification is essential. Evidence-driven delivery, agent orchestration, concurrent development teams, and capacity planning are desirable.",
+  "tags": [
+    "AI Coding Assistants",
+    "AI Agent Frameworks",
+    "Software Engineering",
+    "Git",
+    "Shell Scripting",
+    "Command Line",
+    "macOS",
+    "Desktop Automation",
+    "Test Automation",
+    "AI Output Evaluation",
+    "Incident Diagnosis",
+    "Workflow Automation",
+    "Release Verification",
+    "automation",
+    "Concurrent Development Teams",
+    "Evidence-Driven Delivery",
+    "Agent Orchestration",
+    "Capacity Planning"
+  ],
+  "location": "LATAM · Remote",
+  "duration": "Full-Time",
+  "highlight": "Senior Role · 5+ Years of Software Engineering and Technical Leadership · Remote · LATAM · AI Agent Orchestration · Concurrent Development · macOS Automation · Code Review and Release Verification",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://app.niuro.io/source/4TbfHm6G?ref=ps_MpDkETzWcy28dwLRWWPoHGnf_wtRbLqtKnE3Os9qLnI&utm_source=linkedin_groups&utm_medium=job_board"
+  },
+  {
   "company": "Noustiq",
   "title": "AI Engineer Intern",
   "description": "Assist in building AI-powered products and solutions. Work with AI models, tools, and automation while gaining practical experience developing real-world AI applications. Candidates should have basic knowledge of Python and artificial intelligence, along with a strong willingness to learn and build practical solutions.",
