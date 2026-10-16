@@ -1,5 +1,33 @@
 [
   {
+  "company": "App Innovation Technologies",
+  "title": "AI Engineer – Fresher",
+  "description": "Entry-level opportunity for freshers interested in starting a career in Artificial Intelligence and Machine Learning. Candidates should have a basic understanding of AI, Machine Learning, Deep Learning, and Python programming. Familiarity with TensorFlow, PyTorch, and Scikit-learn is preferred, but a mandatory proficiency level has not been specified. Strong analytical and problem-solving skills, enthusiasm for learning new technologies, and an interest in emerging AI trends are desirable. The hiring announcement does not specify detailed job responsibilities, project assignments, training arrangements, educational qualifications, or employment type. Typical entry-level AI engineering activities may include strengthening Python skills, exploring AI/ML libraries, learning data preprocessing, understanding model training and evaluation, and applying AI concepts to practical problems; these are general expectations, not confirmed duties for this opening. Fresh graduates and entry-level candidates with foundational AI/ML knowledge are encouraged to apply.",
+  "tags": [
+    "AI Engineer",
+    "Freshers",
+    "Entry Level",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Python",
+    "TensorFlow",
+    "PyTorch",
+    "Scikit-learn",
+    "AI/ML Fundamentals",
+    "Analytical Skills",
+    "Problem Solving",
+    "AI Career",
+    "Graduate Jobs"
+  ],
+  "location": "Coimbatore, Tamil Nadu, India",
+  "duration": "Not Specified",
+  "highlight": "Freshers Can Apply · Entry-Level AI Career Opportunity",
+  "email": "aithr3@aitechindia.com",
+  "whatsapp": "8015251021",
+  "link": ""
+  },
+  {
   "company": "Verazinc",
   "title": "AI Engineer – Machine Learning & Generative AI",
   "description": "Design, build, deploy, and scale machine learning models and AI-powered systems. Develop applications using large language models (LLMs), Generative AI, and retrieval-augmented generation (RAG) pipelines. Collaborate with cross-functional teams to deliver innovative AI solutions, fine-tune models, optimize performance, and productionize AI systems. Required skills include a strong foundation in machine learning and deep learning, hands-on experience with Generative AI, LLMs, and prompt engineering, proficiency in Python, ML frameworks such as PyTorch or TensorFlow, and MLOps. Experience with LangChain, vector databases, and cloud platforms such as AWS, GCP, or Azure is an advantage.",
