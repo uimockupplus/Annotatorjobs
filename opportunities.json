@@ -1,5 +1,38 @@
 [
   {
+  "company": "Verazinc",
+  "title": "AI Engineer – Machine Learning & Generative AI",
+  "description": "Design, build, deploy, and scale machine learning models and AI-powered systems. Develop applications using large language models (LLMs), Generative AI, and retrieval-augmented generation (RAG) pipelines. Collaborate with cross-functional teams to deliver innovative AI solutions, fine-tune models, optimize performance, and productionize AI systems. Required skills include a strong foundation in machine learning and deep learning, hands-on experience with Generative AI, LLMs, and prompt engineering, proficiency in Python, ML frameworks such as PyTorch or TensorFlow, and MLOps. Experience with LangChain, vector databases, and cloud platforms such as AWS, GCP, or Azure is an advantage.",
+  "tags": [
+    "AI Engineer",
+    "Machine Learning",
+    "Generative AI",
+    "LLM",
+    "RAG",
+    "Prompt Engineering",
+    "Python",
+    "PyTorch",
+    "TensorFlow",
+    "MLOps",
+    "LangChain",
+    "Vector Databases",
+    "AWS",
+    "Google Cloud Platform",
+    "Microsoft Azure",
+    "Deep Learning",
+    "AI Model Deployment",
+    "Model Fine-Tuning",
+    "AI Optimization",
+    "Hybrid"
+  ],
+  "location": "Gurugram, Haryana, India / Bengaluru, Karnataka, India · Hybrid · 3 Days per Week at Client Office",
+  "duration": "Full-Time",
+  "highlight": "Hybrid Work · 3 Days per Week at Client Office",
+  "email": "Verazinctech@gmail.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Codefeast",
   "title": "Video Annotator – Quality Review & Fraud Detection",
   "description": "Review phone-recorded egocentric video submissions and evaluate them for potential fraud indicators, collection integrity, and quality compliance using the client's review platform. Responsibilities include reviewing video submissions, identifying possible fraud, manipulation, or integrity issues, performing quality checks according to project guidelines, classifying submissions as Valid or Flagged, and selecting appropriate reasons for flagged submissions. Requirements include strong attention to detail and observation skills, the ability to follow detailed guidelines and standard operating procedures, good written English comprehension, comfort with repetitive annotation and quality-review tasks, basic computer proficiency, and the ability to use web-based platforms. Experience in data annotation, video annotation, content review, fraud review, or quality control is preferred but not mandatory. Freshers may apply with at least 1 year of internship experience. Selection process: assessment, project training and client certification, followed by go-live and billing.",
