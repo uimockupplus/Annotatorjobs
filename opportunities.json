@@ -161,6 +161,28 @@
   "link": ""
   },
   {
+  "company": "Huptech HR Solutions",
+  "title": "AI/ML Engineer",
+  "description": "Build and deploy AI-native applications by working across artificial intelligence, backend engineering, and frontend development. Candidates should have at least 2 years of experience and strong Python backend development skills. Required AI skills include working with large language models such as OpenAI, Claude, and Hugging Face, along with prompt engineering and retrieval-augmented generation (RAG). Hands-on experience with React.js and Next.js is required to build responsive, scalable AI applications. The ideal candidate can take ownership of projects, prototype quickly, collaborate across the technology stack, and turn ideas into production-ready products.",
+  "tags": [
+    "Python",
+    "LLM",
+    "OpenAI",
+    "Claude",
+    "Hugging Face",
+    "Prompt Engineering",
+    "RAG",
+    "React.js",
+    "Next.js"
+  ],
+  "location": "",
+  "duration": "Not Specified",
+  "highlight": "2+ Years of Experience · AI + Backend + Frontend · Production-Ready AI Applications",
+  "email": "rinku@huptechhrsolutions.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Codefeast",
   "title": "Video Annotator – Quality Review & Fraud Detection",
   "description": "Review phone-recorded egocentric video submissions and evaluate them for potential fraud indicators, collection integrity, and quality compliance using the client's review platform. Responsibilities include reviewing video submissions, identifying possible fraud, manipulation, or integrity issues, performing quality checks according to project guidelines, classifying submissions as Valid or Flagged, and selecting appropriate reasons for flagged submissions. Requirements include strong attention to detail and observation skills, the ability to follow detailed guidelines and standard operating procedures, good written English comprehension, comfort with repetitive annotation and quality-review tasks, basic computer proficiency, and the ability to use web-based platforms. Experience in data annotation, video annotation, content review, fraud review, or quality control is preferred but not mandatory. Freshers may apply with at least 1 year of internship experience. Selection process: assessment, project training and client certification, followed by go-live and billing.",
