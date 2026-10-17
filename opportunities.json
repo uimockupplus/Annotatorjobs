@@ -1,5 +1,33 @@
 [
   {
+  "company": "Universal Software",
+  "title": "AI Engineer",
+  "description": "Join a forward-thinking technology team to build intelligent solutions. Responsibilities include developing and deploying AI models, working on automation, analytics, and intelligent applications, and collaborating with product and engineering teams. Required skills include Python, machine learning, deep learning, NLP, LLMs, TensorFlow or PyTorch, APIs, and SQL. Preferred qualifications include a problem-solving mindset, strong communication skills, and experience with real-world AI projects. Applicants should share their resume and portfolio by email.",
+  "tags": [
+    "AI Engineer",
+    "Python",
+    "Machine Learning",
+    "Deep Learning",
+    "NLP",
+    "LLMs",
+    "TensorFlow",
+    "PyTorch",
+    "APIs",
+    "SQL",
+    "AI Model Development",
+    "AI Deployment",
+    "Automation",
+    "Analytics",
+    "Intelligent Applications"
+  ],
+  "location": "Not Specified",
+  "duration": "Not Specified",
+  "highlight": "AI Model Development · Automation",
+  "email": "hr@universal-software.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Infolexus Solutions",
   "title": "AI/ML Engineer",
   "description": "Infolexus Solutions is recruiting an AI/ML Engineer on behalf of its client. Candidates should have 0–4 years of experience in Artificial Intelligence, Machine Learning, or related fields. Required skills include a strong understanding of AI/ML concepts, Python programming, and libraries such as NumPy, Pandas, and Scikit-learn. Candidates should understand supervised and unsupervised learning algorithms, Deep Learning concepts, and frameworks such as TensorFlow or PyTorch. Familiarity with data preprocessing, model training, evaluation, optimization, SQL, and basic data handling is required. Strong problem-solving, communication, and analytical skills are also expected. The role offers an opportunity to contribute to AI/ML projects and develop a career in intelligent systems. Infolexus Solutions is hiring on behalf of its client.",
