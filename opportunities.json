@@ -1,5 +1,38 @@
 [
   {
+  "company": "Arcbizz Technologies",
+  "title": "AI/ML Engineer",
+  "description": "Arcbizz Technologies is hiring AI/ML Engineers for on-site positions in Mota Varachha and Adajan, Surat, Gujarat. The opportunity is open to freshers and experienced candidates with 0–3 years of experience. Key technologies include Python, Retrieval-Augmented Generation (RAG), LangChain, AI workflows, and automation. Relevant responsibilities may include developing Python-based AI applications, implementing RAG pipelines, integrating language models using LangChain, automating AI workflows, testing AI-generated outputs, debugging applications, and improving system reliability. These responsibilities are inferred from the advertised skills and are not an official task list provided by the employer. Candidates should have strong Python fundamentals, an understanding of RAG concepts, familiarity with LangChain, and good English communication skills. Knowledge of vector databases, APIs, Git, and LLM evaluation may be beneficial but is not confirmed as mandatory. Local candidates from Surat are preferred. Salary and specific educational qualifications have not been disclosed.",
+  "tags": [
+    "AI/ML Engineer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Python",
+    "Generative AI",
+    "RAG",
+    "LangChain",
+    "LLM",
+    "AI Workflows",
+    "Workflow Automation",
+    "AI Automation",
+    "Vector Databases",
+    "Prompt Engineering",
+    "Freshers",
+    "0–3 Years Experience",
+    "Entry-Level AI Engineer",
+    "Full-Time",
+    "On-Site",
+    "Surat",
+    "Gujarat"
+  ],
+  "location": "Mota Varachha and Adajan, Surat, Gujarat, India",
+  "duration": "Full-time",
+  "highlight": "freshers and candidates with 0–3 years of experience.",
+  "email": "info@arcbizz.com",
+  "whatsapp": "8758027188",
+  "link": ""
+  },
+  {
   "company": "Quest Global",
   "title": "AI Automation Engineer",
   "description": "Quest Global is hiring AI Automation Engineers across junior, mid-level, and senior levels to develop, support, and optimize AI-powered automation solutions. The role focuses on converting manual processes into reliable, scalable automation workflows using Python, C#/.NET, Generative AI, REST APIs, webhooks, AI agents, RAG, Ombantu, and n8n. Candidates will work on solution architecture, complex integrations, workflow automation, troubleshooting, production support, and performance optimization. Strong experience with Python, C#/.NET, REST APIs, JSON, Generative AI, LLMs, AI agents, RAG, Git, Ombantu, and workflow automation is required. JavaScript/TypeScript, Playwright, Selenium, PDF/OCR automation, SQL, and CAD/NX automation experience are advantageous. The position emphasizes technical ownership, scalable engineering solutions, production reliability, and mentoring junior engineers.",
