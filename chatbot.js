@@ -4,7 +4,7 @@
 
 let evalLoopJobs = [];
 
-const EVALLOOP_RESUME_EMAIL = 'evalloopjobs@gmail.com';
+const EVALLOOP_RESUME_EMAIL = 'team@alphexai.com';
 
 // -----------------------------
 // Gmail helpers
