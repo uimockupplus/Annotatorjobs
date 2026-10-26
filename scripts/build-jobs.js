@@ -5,7 +5,7 @@ const ROOT = path.join(__dirname, "..");
 const JSON_FILE = path.join(ROOT, "opportunities.json");
 const JOBS_DIR = path.join(ROOT, "jobs");
 
-const SITE_URL = "https://annotatorjobs.vercel.app";
+const SITE_URL = "https://evalloopjobs.alphexai.com/";
 const SITE_NAME = "EvalLoop Jobs";
 
 function escapeHtml(value) {
