@@ -1,5 +1,38 @@
 [
   {
+  "company": "TECH EHS Solution",
+  "title": "AI Engineer (Fresher / Junior)",
+  "description": "TECH EHS Solution is hiring Fresher/Junior AI Engineers with 0–2 years of experience for a full-time, in-office role in Surat, India. The role focuses on building real-world AI solutions for the Industrial Health & Safety domain, including RAG chatbots, LLMs, NLP applications, image-based hazard detection, and generative AI. Responsibilities include developing AI chatbot solutions, creating dashboards and data insights with NLP features, integrating and testing AI models and APIs, preparing training data, processing documents, building image-based hazard detection and AI recommendation modules, researching new tools, and collaborating with senior developers on enterprise AI projects. Strong Python programming skills are mandatory; candidates must be able to write, understand, and debug code independently rather than relying solely on AI-assisted coding. Familiarity with OpenAI APIs, Hugging Face, LangChain, LlamaIndex, APIs, JSON, SQL/NoSQL, vector databases, embeddings, semantic search, document indexing, and Git is relevant.",
+  "tags": [
+    "AI Engineer",
+    "Freshers",
+    "Junior AI Engineer",
+    "Python",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Generative AI",
+    "LLMs",
+    "RAG",
+    "NLP",
+    "Chatbots",
+    "Hugging Face",
+    "LangChain",
+    "LlamaIndex",
+    "Vector Databases",
+    "Computer Vision",
+    "Hazard Detection",
+    "API Integration",
+    "SQL",
+    "Git"
+  ],
+  "location": "Surat, Gujarat, India (In-office)",
+  "duration": "Full-time",
+  "highlight": "0–2 Years Experience | Freshers Welcome | Python Mandatory | Industrial AI & Health Safety",
+  "email": "jobs@techehs.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "E-Solutions Inc.",
   "title": "Video Annotation / Data Annotation Specialist",
   "description": "E-Solutions Inc. is seeking 50+ resources for an upcoming 3-month project involving egocentric video review and annotation. Responsibilities include reviewing first-person perspective videos according to project SOPs and guidelines, accurately labeling and annotating video content, and maintaining 100% quality compliance to ensure production hours are approved. Shortlisted candidates must complete a fitment test before selection.",
