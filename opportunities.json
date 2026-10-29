@@ -1,5 +1,25 @@
 [
   {
+  "company": "Felix ITs",
+  "title": "AI/ML & Agentic AI Interns",
+  "description": "Felix ITs is inviting applications from enthusiastic and motivated candidates for internship opportunities in UI/UX Design, Digital Marketing, AI/ML, and Agentic AI. Freshers are welcome to apply. Interns will have opportunities for practical learning, project exposure, and experience in a professional IT environment. Applicants should send their CV to the recruitment email address.",
+  "tags": [
+    "Internship",
+    "UI/UX Design",
+    "Digital Marketing",
+    "AI/ML",
+    "Agentic AI",
+    "Freshers",
+    "Project-Based Learning"
+  ],
+  "location": "Ahmedabad, Gujarat, India",
+  "duration": "Not specified",
+  "highlight": "Freshers Can Apply",
+  "email": "felix.ahmedabad@gmail.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Maven Profcon Services LLP",
   "title": "Jr. AI/ML Engineer",
   "description": "Maven Profcon Services LLP is hiring a Junior AI/ML Engineer for a role based in Makarba, Ahmedabad, Gujarat, India. Candidates should have 6 months to 1 year of experience and strong machine learning knowledge, particularly in NLP, document classification, document generation, and retrieval-augmented generation (RAG). Responsibilities and technical requirements include integrating ML solutions with JavaScript and Node.js applications, working with TensorFlow.js or converting models for JavaScript, building and deploying production ML models, developing RESTful APIs, and implementing API integration patterns. Candidates should be proficient in Python and familiar with machine learning frameworks such as TensorFlow and PyTorch, text processing, and text generation techniques.",
