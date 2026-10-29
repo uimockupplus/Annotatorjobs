@@ -51,6 +51,34 @@
   "link": "https://mavenprofserv.com/career/"
   },
   {
+  "company": "Warrgyizmorsch",
+  "title": "AI Engineer",
+  "description": "Warrgyizmorsch is hiring a full-time, on-site AI Engineer for its office in Shobhagpura, Udaipur, Rajasthan. Candidates with 1–3 years of experience are preferred. Responsibilities include developing and implementing AI/ML models, building AI-powered applications using LLMs and Generative AI, integrating APIs, applying prompt engineering, developing chatbots and AI automation workflows, collaborating on scalable AI solutions, and evaluating and improving model performance. Required skills include Python, Machine Learning, Deep Learning fundamentals, LLMs, Generative AI, prompt engineering, familiarity with OpenAI APIs or other AI platforms, REST APIs, databases, Git, and problem-solving. Preferred skills include LangChain or LangGraph, RAG, vector databases, AI agents, FastAPI, or Flask. Interested candidates should send an updated resume to the recruitment email address.",
+  "tags": [
+    "AI Engineer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Python",
+    "LLMs",
+    "Generative AI",
+    "Prompt Engineering",
+    "Chatbots",
+    "AI Automation",
+    "LangChain",
+    "LangGraph",
+    "RAG",
+    "AI Agents",
+    "FastAPI",
+    "Flask"
+  ],
+  "location": "Shobhagpura, Udaipur, Rajasthan, India (On-site)",
+  "duration": "Full-time",
+  "highlight": "1–3 Years of Experience Preferred | Python, LLMs & Generative AI | Full-Time On-site Role",
+  "email": "hr@warrgyizmorsch.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Arctic Engines",
   "title": "QA Talent — Egocentric Video Annotation, Generic QA & QA Lead",
   "description": "Arctic Engines is hiring 7 QA professionals for immediate joining in Bangalore, India. Open positions include 4 QA positions for Egocentric Video Annotation, 2 Generic QA positions, and 1 QA Lead position for Video Annotation. Candidates should have hands-on experience in video annotation, labeling, quality assurance, or data review. Exposure to egocentric video, action segmentation, or temporal labeling is mandatory. Applicants should demonstrate strong attention to detail and the ability to follow detailed project guidelines. QA Lead candidates should have experience managing QA workflows, calibrating reviewers, and owning quality metrics. This is an in-office opportunity, with Bangalore-based candidates preferred. APPLICATION REQUIREMENT: Send your CV, notice period, current CTC, and expected CTC by email to indranil.kar@arcticengines.ai.",
