@@ -1,5 +1,37 @@
 [
   {
+  "company": "Neubrain",
+  "title": "AI Engineer",
+  "description": "Neubrain is hiring an AI Engineer with 0–2 years of experience for a fully remote position. The role involves building and deploying LLM-powered features and AI applications, designing RAG pipelines, AI agents, and prompt workflows, fine-tuning and evaluating models, and optimizing model quality and cost. Candidates should have strong Python skills, a foundation in Machine Learning and Deep Learning, and familiarity with LLMs, APIs, and frameworks such as LangChain or LlamaIndex. Experience with PyTorch, TensorFlow, or scikit-learn is expected. Personal projects, internships, and open-source contributions are considered relevant experience. Knowledge of vector databases, cloud platforms, MLOps, and model evaluation is an advantage. The company offers remote work, ownership from day one, mentorship, and opportunities to build production-ready AI products. Interested candidates should email their resume along with their GitHub profile or portfolio.",
+  "tags": [
+    "AI Engineer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Python",
+    "LLMs",
+    "Generative AI",
+    "RAG",
+    "AI Agents",
+    "Prompt Engineering",
+    "LangChain",
+    "LlamaIndex",
+    "PyTorch",
+    "TensorFlow",
+    "scikit-learn",
+    "MLOps",
+    "Model Evaluation",
+    "Remote",
+    "Entry-Level"
+  ],
+  "location": "Remote (Work from Anywhere)",
+  "duration": "Not specified",
+  "highlight": "0–2 Years Experience | 100% Remote | Personal Projects & Internships Accepted | GitHub/Portfolio Required",
+  "email": "contact@neubrain.in",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "People Prime Worldwide",
   "title": "Annotation Team Lead",
   "description": "People Prime Worldwide is seeking an experienced Annotation Team Lead to manage AI training data and annotation projects in a remote work environment. The role involves managing annotation projects from launch through delivery, leading annotators and Pod Leads, setting daily targets, monitoring productivity, quality, and turnaround times, coaching team members, driving continuous improvement, and coordinating with QA, tooling, and project teams. Candidates should have 4–6 years of overall professional experience and at least 2 years of team leadership experience. Strong team management and performance tracking skills are required. Experience in annotation, data labeling, or AI training data is preferred. Immediate joiners are prioritized. Interested candidates should send their resumes to the recruitment email address.",
