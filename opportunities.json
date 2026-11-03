@@ -1,5 +1,31 @@
 [
   {
+  "company": "Mindlytic AI",
+  "title": "Python / AI Developer",
+  "description": "Mindlytic AI is hiring a Python / AI Developer with 2 years of experience to work on real-world AI solutions in Surat, Gujarat. Candidates should have strong Python programming skills, knowledge of Artificial Intelligence and Machine Learning, and experience or familiarity with Generative AI and Natural Language Processing (NLP). Required technical skills include Python, AI/ML, Generative AI, NLP, FastAPI or Flask, REST APIs, and cloud platforms such as AWS or GCP. Strong problem-solving skills are also expected. The role offers an opportunity to work on innovative AI projects, develop intelligent solutions, and grow professionally with the team. Interested candidates should send their resumes to the recruitment email address.",
+  "tags": [
+    "Python Developer",
+    "AI Developer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Generative AI",
+    "Natural Language Processing",
+    "Python",
+    "FastAPI",
+    "Flask",
+    "REST APIs",
+    "AWS",
+    "Google Cloud Platform",
+    "AI Engineering"
+  ],
+  "location": "Surat, Gujarat, India",
+  "duration": "Not specified",
+  "highlight": "2 Years of Experience | Python & AI/ML | Generative AI & NLP | FastAPI/Flask | AWS/GCP",
+  "email": "hr@mindlyticai.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Neubrain",
   "title": "AI Engineer",
   "description": "Neubrain is hiring an AI Engineer with 0–2 years of experience for a fully remote position. The role involves building and deploying LLM-powered features and AI applications, designing RAG pipelines, AI agents, and prompt workflows, fine-tuning and evaluating models, and optimizing model quality and cost. Candidates should have strong Python skills, a foundation in Machine Learning and Deep Learning, and familiarity with LLMs, APIs, and frameworks such as LangChain or LlamaIndex. Experience with PyTorch, TensorFlow, or scikit-learn is expected. Personal projects, internships, and open-source contributions are considered relevant experience. Knowledge of vector databases, cloud platforms, MLOps, and model evaluation is an advantage. The company offers remote work, ownership from day one, mentorship, and opportunities to build production-ready AI products. Interested candidates should email their resume along with their GitHub profile or portfolio.",
