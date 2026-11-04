@@ -1,5 +1,34 @@
 [
   {
+  "company": "Cencora",
+  "title": "AI Developer 1",
+  "description": "Cencora Business Services India Private Limited is hiring an AI Developer 1 for its Pune, Maharashtra office. Candidates with less than 2 years of experience in Machine Learning Engineering, MLOps, Platform Engineering, DevOps, Software Engineering, or related technical fields are eligible. Responsibilities include identifying business challenges suitable for AI solutions, designing and developing AI models and applications, applying machine learning techniques to large datasets, performing data preprocessing and feature engineering, building model training and evaluation pipelines, conducting exploratory data analysis, and optimizing models for accuracy, performance, and scalability. The role also involves integrating AI models into existing systems, collaborating with data scientists, software engineers, and product managers, documenting project progress, and communicating insights to stakeholders. Candidates should have a bachelor's degree in Computer Science, Software Engineering, Data Science, Information Systems, Machine Learning, or a related field, or equivalent experience. Strong knowledge of statistical analysis, data visualization, exploratory data analysis, problem-solving, communication, and teamwork is expected. Certifications in cloud platforms, DevOps, machine learning, container orchestration, automation, or MLOps are preferred. This is a full-time opportunity.",
+  "tags": [
+    "AI Developer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Python",
+    "Data Science",
+    "Exploratory Data Analysis",
+    "Statistical Analysis",
+    "Feature Engineering",
+    "Model Training",
+    "Model Evaluation",
+    "MLOps",
+    "DevOps",
+    "Cloud Computing",
+    "Data Visualization",
+    "Entry-Level",
+    "Full-Time"
+  ],
+  "location": "Pune, Maharashtra, India",
+  "duration": "Full-time",
+  "highlight": "Less Than 2 Years Experience | Bachelor's Degree or Equivalent Experience",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://careers.cencora.com/us/en/job/CHKCENUSR2617120EXTERNALENUS/AI-Developer-1?utm_source=linkedin&utm_medium=phenom-feeds"
+  },
+  {
   "company": "Mindlytic AI",
   "title": "Python / AI Developer",
   "description": "Mindlytic AI is hiring a Python / AI Developer with 2 years of experience to work on real-world AI solutions in Surat, Gujarat. Candidates should have strong Python programming skills, knowledge of Artificial Intelligence and Machine Learning, and experience or familiarity with Generative AI and Natural Language Processing (NLP). Required technical skills include Python, AI/ML, Generative AI, NLP, FastAPI or Flask, REST APIs, and cloud platforms such as AWS or GCP. Strong problem-solving skills are also expected. The role offers an opportunity to work on innovative AI projects, develop intelligent solutions, and grow professionally with the team. Interested candidates should send their resumes to the recruitment email address.",
