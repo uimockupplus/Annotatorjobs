@@ -1,5 +1,31 @@
 [
   {
+  "company": "InspironLabs",
+  "title": "AI Engineer – Generative AI & Agentic AI",
+  "description": "InspironLabs is hiring AI Engineers to build next-generation intelligent applications using Generative AI, LLMs, Agentic AI, and Python backend development. Candidates should have strong Python programming skills, knowledge of FastAPI/Flask, REST APIs, databases, RAG pipelines, embeddings, vector databases, AI agents, and tool orchestration. Familiarity with LangChain, LangGraph, LlamaIndex, CrewAI, MCP, AI evaluation, observability, and AI security is desirable. Freshers with relevant AI/ML training, certifications, internships, or hands-on projects are welcome.",
+  "tags": [
+    "AI Engineer",
+    "Generative AI",
+    "Agentic AI",
+    "LLM",
+    "Python",
+    "Prompt Engineering",
+    "RAG",
+    "LangChain",
+    "LangGraph",
+    "FastAPI",
+    "MCP",
+    "Freshers",
+    "AI/ML"
+  ],
+  "location": "Bangalore, India (Work From Office)",
+  "duration": "Full-time",
+  "highlight": "Freshers welcome | 0–2 Years Experience | Hands-on AI/ML Projects Accepted",
+  "email": "Sheetal.k@inspironlabs.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Veritix Global",
   "title": "PDF Document Annotation Specialist",
   "description": "Veritix Global is hiring freelancers and annotation professionals for a full-time remote PDF document annotation project. Responsibilities include annotating and labeling PDF documents, identifying text blocks, tables, figures, captions, and headers, drawing accurate bounding boxes, performing document classification and reading-order labeling, and maintaining high accuracy while following project guidelines. Candidates should have a bachelor's degree in any field, strong attention to detail, and the ability to follow detailed instructions. Annotation experience of 6 months to 2+ years is preferred but not mandatory. Freshers with suitable skills are welcome. Work schedule: 9 hours per day, including a 1-hour break, 6 days per week. Salary: ₹12,000–₹15,000 per month.",
