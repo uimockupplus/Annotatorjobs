@@ -1,5 +1,31 @@
 [
   {
+  "company": "Apexon",
+  "title": "Experienced Annotator – ADAS / Data Annotation",
+  "description": "Apexon is hiring experienced annotators for ADAS and data annotation projects in Coimbatore. The role involves working on 2D Bounding Box Annotation, LiDAR Point Cloud Annotation, Semantic Segmentation, and Lane Detection. Candidates should have 3–6 years of experience with hands-on knowledge of 2D/3D data annotation, LiDAR data, sensor-fusion environments, ADAS, and autonomous vehicle technologies. Strong analytical, problem-solving, quality-control, teamwork, and communication skills are required. Work mode: Work From Office. Total openings: 10. The opportunity offers exposure to advanced AI, computer vision, and smart mobility projects.",
+  "tags": [
+    "Data Annotation",
+    "ADAS",
+    "2D Bounding Box Annotation",
+    "3D Annotation",
+    "LiDAR",
+    "Point Cloud Annotation",
+    "Semantic Segmentation",
+    "Lane Detection",
+    "Computer Vision",
+    "Autonomous Vehicles",
+    "Sensor Fusion",
+    "Quality Control",
+    "Experienced Annotators"
+  ],
+  "location": "Coimbatore, Tamil Nadu, India",
+  "duration": "Full-Time",
+  "highlight": "Experienced Annotator · 3–6 Years Experience · 10 Openings · On-site · ADAS · LiDAR · Computer Vision",
+  "email": "Rachel.blessie@apexon.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
     "company": "CogNet HR Solutions Pvt. Ltd.",
     "title": "AI Developer",
     "description": "CogNet HR Solutions Pvt. Ltd. is hiring AI Developers with 3+ years of experience to build an AI-powered automation platform. Responsibilities involve developing Python backend applications, integrating LLMs such as OpenAI, Azure OpenAI, Anthropic Claude, Gemini, and AWS Bedrock, building AI agents and Agentic AI workflows using LangChain and LangGraph, and implementing Intelligent Document Processing (IDP), OCR, and document extraction solutions. Candidates should have strong Python and backend development skills, knowledge of FastAPI, REST APIs, JSON, Pydantic, SQL, RAG, vector databases, and AI-powered automation. Experience with AWS, Docker, and CI/CD is required. Work location: Chennai.",
