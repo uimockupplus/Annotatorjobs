@@ -1,5 +1,24 @@
 [
   {
+  "company": "Engineer Master",
+  "title": "AI/ML Engineer & AI Engineer",
+  "description": "Engineer Master is urgently hiring experienced AI/ML Engineers and AI Engineers for on-site positions in Indore. Candidates must have 1.5–4 years of relevant experience and an undergraduate graduation year of 2022 or earlier. Only experienced candidates are eligible. Immediate joiners are required.",
+  "tags": [
+    "AI/ML Engineer",
+    "AI Engineer",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Experienced Professionals",
+    "Immediate Joiners"
+  ],
+  "location": "Indore, Madhya Pradesh, India",
+  "duration": "Not Specified",
+  "highlight": "Urgent Hiring · 1.5–4 Years Experience · On-site · Indore · Immediate Joiners Only · UG Graduates up to 2022",
+  "email": "hr@engineermaster.in",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Taskly Anything",
   "title": "AI/ML Intern",
   "description": "Taskly Anything is hiring AI/ML Interns for a 6-month fully remote internship. Interns will work on real-world Generative AI and LLM features within a task marketplace. Responsibilities include building evaluation datasets for LLM classifiers, developing and evaluating prompts, comparing LLM APIs and open-source models based on accuracy, latency, and cost, experimenting with embeddings and semantic search, analyzing model errors, testing voice and image-based task posting, and documenting experiments and results. Required skills include Python, LLM API integration, prompt engineering, machine learning fundamentals, precision and recall, embeddings, cosine similarity, JSON, and Git. Candidates should have a practical project involving an LLM API, such as a chatbot or classifier. Final-year students, recent graduates, and self-taught developers are welcome. Familiarity with LangChain, LlamaIndex, scikit-learn, PyTorch, Hugging Face, and vector databases such as pgvector, FAISS, Chroma, or Pinecone is an advantage. Open to candidates legally eligible to work in India, the United States, Canada, or the UAE. Shared team hours: 8:30–10:30 AM Eastern on weekdays. Hiring process includes an application, a 45-minute conversation, and one paid day working on a real problem. No salary or stipend details disclosed.",
