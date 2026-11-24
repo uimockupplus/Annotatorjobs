@@ -1,5 +1,33 @@
 [
   {
+  "company": "Ideas To Impacts",
+  "title": "AI Engineer – R&D",
+  "description": "Ideas To Impacts is hiring AI Engineers for research and development activities at its Erandwane, Pune office. Candidates with 0–2 years of experience, including freshers, can apply. Responsibilities include developing AI-powered applications using LLMs, RAG architectures, and AI agents, experimenting with emerging AI technologies, troubleshooting technical issues, exploring the AI Development Lifecycle (AIDLC), collaborating with senior leadership, and converting experimental ideas into practical AI solutions. Required skills include strong Python programming, computer science fundamentals, LLM concepts, RAG, embeddings, vector databases, AI agents, and familiarity with the AI Development Lifecycle. Candidates should demonstrate analytical thinking, problem-solving, communication, curiosity, and willingness to experiment. Compensation is ₹20,000 per month, with a performance-based revision after six months. Two openings are available. Work mode: Work From Office.",
+  "tags": [
+    "AI Engineer",
+    "AI Research and Development",
+    "Artificial Intelligence",
+    "Python",
+    "Generative AI",
+    "LLMs",
+    "RAG",
+    "Retrieval-Augmented Generation",
+    "AI Agents",
+    "Embeddings",
+    "Vector Databases",
+    "AI Development Lifecycle",
+    "AI Experimentation",
+    "Problem Solving",
+    "Freshers"
+  ],
+  "location": "Erandwane, Pune, Maharashtra, India",
+  "duration": "Not Specified",
+  "highlight": "AI Engineer – R&D · 0–2 Years Experience · Freshers Welcome · ₹20,000/Month · 2 Openings · On-site · Pune",
+  "email": "tejaswi.meshram@ideastoimpacts.com",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Apexon",
   "title": "Experienced Annotator – ADAS / Data Annotation",
   "description": "Apexon is hiring experienced annotators for ADAS and data annotation projects in Coimbatore. The role involves working on 2D Bounding Box Annotation, LiDAR Point Cloud Annotation, Semantic Segmentation, and Lane Detection. Candidates should have 3–6 years of experience with hands-on knowledge of 2D/3D data annotation, LiDAR data, sensor-fusion environments, ADAS, and autonomous vehicle technologies. Strong analytical, problem-solving, quality-control, teamwork, and communication skills are required. Work mode: Work From Office. Total openings: 10. The opportunity offers exposure to advanced AI, computer vision, and smart mobility projects.",
