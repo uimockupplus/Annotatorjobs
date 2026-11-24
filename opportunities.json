@@ -28,6 +28,37 @@
   "link": ""
   },
   {
+  "company": "Mission JEET",
+  "title": "AI Engineer",
+  "description": "Mission JEET is hiring AI Engineers with 3–5 years of experience to develop scalable and production-ready AI applications for the EdTech industry. Responsibilities include building AI-powered solutions using Artificial Intelligence, Generative AI, and Large Language Models, developing RAG pipelines, working with embeddings and vector databases, and deploying AI/ML applications in production environments. Required skills include strong Python programming, hands-on experience with LLMs and Generative AI, RAG, embeddings, vector databases, Machine Learning, NLP, AWS, Docker, REST APIs, and SQL/NoSQL databases. Candidates should have proven experience developing and deploying production-grade AI applications. The role offers ownership of projects from conceptualisation to production deployment and opportunities to work on AI-driven products serving students across India. Work mode: Work From Office. Open positions: 2.",
+  "tags": [
+    "AI Engineer",
+    "Artificial Intelligence",
+    "Generative AI",
+    "LLMs",
+    "Python",
+    "RAG",
+    "Embeddings",
+    "Vector Databases",
+    "Machine Learning",
+    "NLP",
+    "AWS",
+    "Docker",
+    "REST APIs",
+    "SQL",
+    "NoSQL",
+    "AI/ML Deployment",
+    "Production AI",
+    "EdTech"
+  ],
+  "location": "Noida, Uttar Pradesh, India",
+  "duration": "Full-Time",
+  "highlight": "AI Engineer · 3–5 Years Experience · 2 Openings · Full-Time · On-site · Generative AI · RAG · EdTech",
+  "email": "",
+  "whatsapp": "",
+  "link": "https://docs.google.com/forms/d/e/1FAIpQLSctFGrzZnhWKwWPWDmwaKmOHHMppkbR2K-ubj_34OoOEKT3-A/viewform"
+  },
+  {
   "company": "Apexon",
   "title": "Experienced Annotator – ADAS / Data Annotation",
   "description": "Apexon is hiring experienced annotators for ADAS and data annotation projects in Coimbatore. The role involves working on 2D Bounding Box Annotation, LiDAR Point Cloud Annotation, Semantic Segmentation, and Lane Detection. Candidates should have 3–6 years of experience with hands-on knowledge of 2D/3D data annotation, LiDAR data, sensor-fusion environments, ADAS, and autonomous vehicle technologies. Strong analytical, problem-solving, quality-control, teamwork, and communication skills are required. Work mode: Work From Office. Total openings: 10. The opportunity offers exposure to advanced AI, computer vision, and smart mobility projects.",
