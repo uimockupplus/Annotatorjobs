@@ -1,5 +1,34 @@
 [
   {
+  "company": "Humyn Labs",
+  "title": "HITL (Human-in-the-Loop) QA Reviewer",
+  "description": "Humyn Labs is hiring detail-oriented HITL QA Reviewers for multimodal and multilingual AI data quality projects in Bengaluru. Responsibilities include reviewing and validating audio, video, transcripts, and annotations against project guidelines; identifying missing details, transcription errors, and audio/video mismatches; documenting clear rejection reasons; reporting recurring error patterns to the QA Lead; and meeting daily quality and productivity targets. Candidates should have 1–3 years of experience in QA, data annotation, content moderation, transcription, or similar roles. Strong attention to detail, observation skills, spoken and written English communication, and the ability to follow complex guidelines are required. Additional advantages include proficiency in at least one Indian language (Marathi, Gujarati, Tamil, Bengali, or Malayalam), familiarity with annotation tools, and basic Excel or Google Sheets skills. One opening is available for each listed language. Employment type: Full-time, 3-month contract. Work mode: In-office. The role offers hands-on experience with multimodal and multilingual datasets used by frontier AI labs.",
+  "tags": [
+    "HITL",
+    "QA Reviewer",
+    "Quality Assurance",
+    "Data Annotation",
+    "Multimodal Annotation",
+    "Audio Annotation",
+    "Video Annotation",
+    "Transcription",
+    "Content Moderation",
+    "Data Validation",
+    "Annotation Quality",
+    "Linguistic QA",
+    "Multilingual Data",
+    "English Communication",
+    "Excel",
+    "Google Sheets"
+  ],
+  "location": "Bengaluru, Karnataka, India",
+  "duration": "3 Months – Full-Time Contract",
+  "highlight": "HITL QA Reviewer · 1–3 Years Experience · Bengaluru · In-office · 3-Month Contract · Multimodal AI · 1 Opening Per Language",
+  "email": "hema@humynlabs.ai",
+  "whatsapp": "",
+  "link": ""
+  },
+  {
   "company": "Ideas To Impacts",
   "title": "AI Engineer – R&D",
   "description": "Ideas To Impacts is hiring AI Engineers for research and development activities at its Erandwane, Pune office. Candidates with 0–2 years of experience, including freshers, can apply. Responsibilities include developing AI-powered applications using LLMs, RAG architectures, and AI agents, experimenting with emerging AI technologies, troubleshooting technical issues, exploring the AI Development Lifecycle (AIDLC), collaborating with senior leadership, and converting experimental ideas into practical AI solutions. Required skills include strong Python programming, computer science fundamentals, LLM concepts, RAG, embeddings, vector databases, AI agents, and familiarity with the AI Development Lifecycle. Candidates should demonstrate analytical thinking, problem-solving, communication, curiosity, and willingness to experiment. Compensation is ₹20,000 per month, with a performance-based revision after six months. Two openings are available. Work mode: Work From Office.",
